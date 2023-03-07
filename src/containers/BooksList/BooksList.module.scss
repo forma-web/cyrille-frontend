@@ -1,6 +1,12 @@
 .booklist {
-    padding: var(--wrapper-padding);
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 2rem;
+  padding: var(--wrapper-padding);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  position: relative;
+
+  &__item {
+    width: 100%;
+    position: relative;
+  }
 }

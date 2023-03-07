@@ -1,14 +1,15 @@
 .book {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
   cursor: pointer;
 
   &__cover {
     aspect-ratio: var(--cover-ratio);
     user-select: none;
     background-color: var(--gray30);
+    flex: 1;
 
     img {
       width: 100%;
@@ -22,13 +23,20 @@
     flex-direction: column;
     justify-content: center;
     row-gap: 1.2rem;
+    flex: 1;
   }
 
   &__author {
     color: var(--gray50);
+    text-transform: capitalize;
   }
 
   &__description {
     font-size: 1.4rem;
+  }
+
+  &_large {
+    flex-direction: column;
+    padding: 1.6rem 0;
   }
 }

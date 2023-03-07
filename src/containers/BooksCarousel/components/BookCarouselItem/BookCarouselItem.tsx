@@ -6,7 +6,7 @@ const BookCarouselItem = ({ title, authors, coverURL }: TBookItem) => {
   return (
     <div className={styles.book}>
       <div className={styles.book__cover}>
-        {coverURL && <img src={coverURL} alt="" />}
+        {coverURL && <img src={coverURL} alt="" loading="lazy" />}
       </div>
       <div className={styles.book__info}>
         {authors && authors.length && (

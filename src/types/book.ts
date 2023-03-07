@@ -3,6 +3,7 @@ export type TBookItem = {
   authors?: string[];
   description?: string;
   coverURL?: string;
+  isLarge?: boolean;
 };
 
 export type TBookList = {

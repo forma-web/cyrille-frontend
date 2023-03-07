@@ -1,7 +1,7 @@
 import React from 'react';
 import BookItem from './components/BookItem/BookItem';
 import styles from './BooksList.module.scss';
-import { TBookItem, TBookList } from '@/types/book';
+import { TBookList } from '@/types/book';
 
 
 const BooksList = ({ books }: TBookList) => {
@@ -10,7 +10,7 @@ const BooksList = ({ books }: TBookList) => {
   return (
     <ul className={styles.booklist}>
       {books.map((book) => (
-        <li>
+        <li className={styles.booklist__item}>
           <BookItem {...book} />
         </li>
       ))}
