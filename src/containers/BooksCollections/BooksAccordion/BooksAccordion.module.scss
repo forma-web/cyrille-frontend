@@ -1,0 +1,17 @@
+.carousel {
+  &__title {
+    padding: 0 var(--wrapper-padding);
+  }
+
+  &__item {
+    width: 30%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    will-change: width;
+    transition: width var(--animation-time);
+
+    &_active {
+      width: 80%;
+    }
+  }
+}

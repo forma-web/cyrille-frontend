@@ -2,18 +2,21 @@ import { TBookItem } from '@/types/book';
 
 export const booksList1: TBookItem[] = [
   {
+    id: 1,
     title: 'The Albergue',
     authors: ["Cyrille D'Essaí"],
     description: 'Sci-fi chronicles of mankind ultimate crisis and last hope',
     coverURL: '/images/1.png',
   },
   {
+    id: 2,
     title: 'The House of Gucci',
     authors: ['Sara Gay Forden'],
     description: 'A Sensational Story of Murder, Madness, Glamour, and Greed.',
     coverURL: '/images/2.png',
   },
   {
+    id: 3,
     title: 'Billy Summers',
     authors: ['Stephen King'],
     description:
@@ -21,6 +24,7 @@ export const booksList1: TBookItem[] = [
     coverURL: '/images/3.png',
   },
   {
+    id: 4,
     title: 'The Life-Changing Magic of Not Giving a F**k',
     authors: ['Sarah Knight'],
     description:
@@ -31,11 +35,13 @@ export const booksList1: TBookItem[] = [
 
 export const booksCarousel1: TBookItem[] = [
   {
+    id: 5,
     title: 'unorthodox',
     authors: ['Deborah Feldman'],
     coverURL: '/images/5.png',
   },
   {
+    id: 6,
     title: 'How to Kill Your Family',
     authors: ['Bella Mackie'],
     coverURL: '/images/6.png',
@@ -44,6 +50,7 @@ export const booksCarousel1: TBookItem[] = [
 
 export const booksList2: TBookItem[] = [
   {
+    id: 7,
     title: 'The Mystery of Edwin Drood',
     authors: ['Charles Dickens'],
     description:
@@ -51,6 +58,7 @@ export const booksList2: TBookItem[] = [
     coverURL: '/images/7.png',
   },
   {
+    id: 8,
     title: 'The Metamorphosis',
     authors: ['Franz Kafka'],
     description:
@@ -58,6 +66,7 @@ export const booksList2: TBookItem[] = [
     coverURL: '/images/8.png',
   },
   {
+    id: 9,
     title: "musicians' mental health",
     authors: ['ilya zinin', 'victoria chitlova'],
     description:
@@ -65,6 +74,7 @@ export const booksList2: TBookItem[] = [
     coverURL: '/images/9.png',
   },
   {
+    id: 10,
     title: 'Taste: My Life Through Food',
     authors: ['Stanley Tucci'],
     description:
@@ -72,6 +82,7 @@ export const booksList2: TBookItem[] = [
     coverURL: '/images/10.png',
   },
   {
+    id: 11,
     title: 'Emma',
     authors: ['jane austen'],
     description:
@@ -80,6 +91,7 @@ export const booksList2: TBookItem[] = [
     isLarge: true,
   },
   {
+    id: 12,
     title: 'High Fidelity',
     authors: ['Nick Hornby'],
     description:
@@ -87,6 +99,7 @@ export const booksList2: TBookItem[] = [
     coverURL: '/images/12.png',
   },
   {
+    id: 5,
     title: 'unorthodox',
     authors: ['Deborah Feldman'],
     description:
@@ -94,10 +107,38 @@ export const booksList2: TBookItem[] = [
     coverURL: '/images/5.png',
   },
   {
+    id: 6,
     title: 'How to Kill Your Family',
     authors: ['Bella Mackie'],
     description:
       "The journalist and author of Jog On delivers a scorchingly black satire of family dysfunction and the media's",
     coverURL: '/images/6.png',
+  },
+];
+
+export const booksAccordion1: TBookItem[] = [
+  {
+    id: 13,
+    title: "The handmaid's tale",
+    authors: ['Margaret Atwood'],
+    coverURL: '/images/13.png',
+  },
+  {
+    id: 15,
+    title: 'Money land',
+    authors: ['Margaret Atwood'],
+    coverURL: '/images/15.png',
+  },
+  {
+    id: 14,
+    title: 'We are Belligcat',
+    authors: ['Margaret Atwood'],
+    coverURL: '/images/14.png',
+  },
+  {
+    id: 16,
+    title: 'The intelligence trap',
+    authors: ['Margaret Atwood'],
+    coverURL: '/images/16.png',
   },
 ];

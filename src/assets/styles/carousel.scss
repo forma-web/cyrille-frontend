@@ -10,7 +10,6 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    column-gap: 3.2rem;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     overscroll-behavior-x: contain;
@@ -20,15 +19,5 @@
     &::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  &__title {
-    padding: 0 var(--wrapper-padding);
-  }
-
-  &__item {
-    width: 80%;
-    scroll-snap-align: start;
-    flex-shrink: 0;
   }
 }

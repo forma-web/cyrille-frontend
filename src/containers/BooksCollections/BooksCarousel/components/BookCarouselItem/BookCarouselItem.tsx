@@ -1,8 +1,17 @@
 import React from 'react';
 import { TBookItem } from '@/types/book';
 import styles from './BookCarouselItem.module.scss';
+import cn from 'classnames';
 
-const BookCarouselItem = ({ title, authors, coverURL }: TBookItem) => {
+type TBookCarouselItem = {
+  isAccordion?: boolean;
+} & TBookItem;
+
+const BookCarouselItem = ({
+  title,
+  authors,
+  coverURL,
+}: TBookCarouselItem) => {
   return (
     <div className={styles.book}>
       <div className={styles.book__cover}>

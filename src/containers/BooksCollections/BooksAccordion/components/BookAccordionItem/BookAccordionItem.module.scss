@@ -1,0 +1,66 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  height: calc(min(80vw, 270px) / var(--cover-ratio));
+
+  &__cover,
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__background {
+    backdrop-filter: blur(3.5px);
+  }
+
+  &__info {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 0.8rem;
+    color: white;
+    writing-mode: vertical-rl;
+    rotate: 180deg;
+    user-select: none;
+  }
+
+  &__background,
+  &__info {
+    opacity: 1;
+    transition: opacity var(--animation-time);
+  }
+
+  &__author {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+
+  &_active {
+    .book {
+      &__background,
+      &__info {
+        opacity: 0;
+      }
+    }
+  }
+}
