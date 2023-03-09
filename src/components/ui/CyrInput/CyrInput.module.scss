@@ -1,0 +1,42 @@
+.input {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4rem;
+  font-size: 1.1rem;
+  color: var(--gray50);
+
+  .label {
+    transition: opacity var(--animation-time), translate var(--animation-time);
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 0.1rem solid var(--gray30);
+    transition: border-color var(--animation-time);
+
+    input {
+      outline: none;
+      flex: 1;
+      padding: 0.6rem 0;
+      font-size: 1.5rem;
+      color: black;
+    }
+  }
+
+  &_empty {
+    .label {
+      opacity: 0;
+      translate: 0 0.2rem;
+    }
+  }
+
+  &_active {
+    .input__container {
+      border-color: var(--main-color);
+    }
+  }
+}
