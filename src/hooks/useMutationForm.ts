@@ -1,6 +1,7 @@
 import { UseMutateFunction } from '@tanstack/react-query';
 import { FieldValues, Path, useForm, UseFormProps } from 'react-hook-form';
 import { TField } from '@/types/form';
+import { useEffect } from 'react';
 
 const useMutationForm = <T extends FieldValues, K extends unknown = unknown>(
   mutate: UseMutateFunction<K, unknown, T, unknown>,
@@ -11,7 +12,7 @@ const useMutationForm = <T extends FieldValues, K extends unknown = unknown>(
     handleSubmit,
     control,
     reset,
-    formState: { isDirty, isValid, errors, touchedFields },
+    formState: { isDirty, isValid, errors, touchedFields, dirtyFields },
   } = useForm<T>({
     mode: 'onChange',
     resetOptions: {
@@ -23,6 +24,7 @@ const useMutationForm = <T extends FieldValues, K extends unknown = unknown>(
 
   const registerField = ({ name, options, ...field }: TField<T>) => ({
     error: errors[name]?.message,
+    isValid: dirtyFields[name] && !errors[name],
     ...field,
     ...register(name as Path<T>, options),
   });
