@@ -1,8 +1,9 @@
 import HomePage from '@/pages/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
-import LoginPage from '../pages/LoginPage';
+import LoginPage from '@/pages/LoginPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import RegisterPage from '@/pages/RegisterPage';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path="auth" element={<AuthLayout />}>
             <Route path="login" element={<LoginPage />} />
+            <Route path="sign-up" element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

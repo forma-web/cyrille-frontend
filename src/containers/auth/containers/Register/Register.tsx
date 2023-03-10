@@ -2,30 +2,29 @@ import React from 'react';
 import AuthContainer from '@/containers/AuthConatainer/AuthContainer';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import CyrInput from '@/components/ui/inputs/CyrInput/CyrInput';
-import { useLogin } from '../../hooks/useLogin';
-import { loginFields } from '../../constants/fields';
+import { registerFields } from '../../constants/fields';
 import CyrPasswordInput from '@/components/ui/inputs/CyrPasswordInput/CyrPasswordInput';
 import { Link } from 'react-router-dom';
+import useRegister from '../../hooks/useRegister';
 
-const Login = () => {
-  const { registerField, isValidForm, isTouched, onSubmit, isLoading } =
-    useLogin();
+const Register = () => {
+  const { registerField, onSubmit } = useRegister();
 
   return (
     <AuthContainer onSubmit={onSubmit}>
       <AuthContainer.Form>
-        <h1>Login</h1>
-        <CyrInput {...registerField(loginFields.email)} />
-        <CyrPasswordInput {...registerField(loginFields.password)} />
+        <CyrInput {...registerField(registerFields.name)} />
+        <CyrInput {...registerField(registerFields.email)} />
+        <CyrPasswordInput {...registerField(registerFields.password)} />
       </AuthContainer.Form>
       <AuthContainer.Buttons>
-        <CyrButton type="submit">Login</CyrButton>
+        <CyrButton type="submit">Create account</CyrButton>
       </AuthContainer.Buttons>
       <AuthContainer.Footer>
-        <Link to="/auth/sign-up">Don't have an account? Sign up</Link>
+        <Link to="/auth/login">Already have an account? Login</Link>
       </AuthContainer.Footer>
     </AuthContainer>
   );
 };
 
-export default Login;
+export default Register;
