@@ -8,7 +8,15 @@
   color: var(--gray50);
 
   .label {
-    transition: opacity var(--animation-time), translate var(--animation-time);
+    transition: opacity var(--animation-time), translate var(--animation-time),
+      color var(--animation-time);
+  }
+
+  .error {
+    width: 60%;
+    align-self: flex-end;
+    text-align: right;
+    color: var(--error-color);
   }
 
   &__container {
@@ -37,6 +45,16 @@
   &_active {
     .input__container {
       border-color: var(--main-color);
+    }
+  }
+
+  &_error {
+    .input__container {
+      border-color: var(--error-color);
+    }
+
+    .label {
+      color: var(--error-complementary-color);
     }
   }
 }

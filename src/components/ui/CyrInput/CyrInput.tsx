@@ -9,7 +9,17 @@ type TInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 
 const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(
   (
-    { label, error, type = 'text', className, value, children, ...rest },
+    {
+      label,
+      error,
+      type = 'text',
+      className,
+      value,
+      children,
+      onChange,
+      onBlur,
+      ...rest
+    },
     ref
   ) => {
     const [isEmpty, setIsEmpty] = useState(
@@ -19,6 +29,7 @@ const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
+      if (onChange) onChange(e);
       setIsEmpty(() => e.target.value.trim().length === 0);
     };
 
@@ -26,7 +37,8 @@ const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(
       setIsActive(() => true);
     };
 
-    const handleBlur = () => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      if (onBlur) onBlur(e);
       setIsActive(() => false);
     };
 
