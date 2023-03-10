@@ -4,6 +4,7 @@ import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
 import LoginPage from '@/pages/LoginPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import RegisterPage from '@/pages/RegisterPage';
+import Layout from '@/layouts/Layout/Layout';
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -12,7 +13,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+          </Route>
         </Routes>
         <Routes>
           <Route path="auth" element={<AuthLayout />}>
@@ -26,4 +29,3 @@ const App = () => {
 };
 
 export default App;
-
