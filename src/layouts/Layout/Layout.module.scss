@@ -1,10 +1,3 @@
-.layout {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  position: relative;
-}
-
 .header,
 .footer {
   padding: var(--wrapper-padding);
@@ -18,6 +11,15 @@
     color: var(--black-color);
     background-color: var(--background-color);
   }
+}
+
+.main,
+.header__container,
+.footer__container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
 }
 
 .header {

@@ -15,7 +15,7 @@ Layout.Header = ({ children }: { children?: React.ReactNode }) => {
     <>
       <div ref={headerTrigger} className="trigger"></div>
       <header className={cn(styles.header, isSticky && styles.header_sticky)}>
-        {children}
+        <div className={styles.header__container}>{children}</div>
       </header>
     </>
   );
@@ -32,7 +32,7 @@ Layout.Footer = ({ children }: { children?: React.ReactNode }) => {
   return (
     <>
       <footer className={cn(styles.footer, isSticky && styles.footer_sticky)}>
-        {children}
+        <div className={styles.footer__container}>{children}</div>
       </footer>
       <div ref={footerTrigger} className="trigger"></div>
     </>
