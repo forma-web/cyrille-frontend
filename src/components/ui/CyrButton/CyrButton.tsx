@@ -4,12 +4,14 @@ import cn from 'classnames';
 
 type TButtonProps = React.ButtonHTMLAttributes<HTMLElement> & {
   secondary?: boolean;
+  icon?: boolean;
   className?: string;
 };
 
 const CyrButton = ({
   children,
   secondary = false,
+  icon = false,
   type = 'button',
   className,
   ...rest
@@ -17,6 +19,7 @@ const CyrButton = ({
   const classnames = cn(
     styles.button,
     secondary && styles.button_secondary,
+    icon && styles.button_icon,
     className
   );
 

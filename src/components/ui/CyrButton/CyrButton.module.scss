@@ -16,4 +16,9 @@
     border: 0.1rem solid currentColor;
     color: var(--black-color);
   }
+
+  &_icon {
+    color: currentColor;
+    padding: 0;
+  }
 }
