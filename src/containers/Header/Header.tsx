@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
-import MenuToggle from '../buttons/MenuToggle/MenuToggle';
+import Menu from '@/containers/Menu/Menu';
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <div className={styles.header__container}>
       <div className={styles.logo}>
         <Logo />
       </div>
       <div className={styles.header__buttons}>
-        <MenuToggle />
+        <Menu />
       </div>
-    </header>
+    </div>
   );
 };
 

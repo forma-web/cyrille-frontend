@@ -17,10 +17,16 @@ body {
   font-weight: 400;
 }
 
-#root {
+.wrapper {
   max-width: 375px;
   margin: 0 auto;
   height: 100%;
+  position: relative;
+}
+
+#root {
+  width: 100%;
+  height: max-content;
   position: relative;
 }
 
