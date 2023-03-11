@@ -14,11 +14,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
           </Route>
-        </Routes>
-        <Routes>
           <Route path="auth" element={<AuthLayout />}>
             <Route path="login" element={<LoginPage />} />
             <Route path="sign-up" element={<RegisterPage />} />
