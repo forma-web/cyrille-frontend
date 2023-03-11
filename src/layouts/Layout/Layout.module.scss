@@ -1,0 +1,51 @@
+.layout {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.header,
+.footer {
+  padding: var(--wrapper-padding) 0;
+  display: flex;
+  position: sticky;
+  z-index: 2;
+  transition: color var(--animation-time),
+    background-color var(--animation-time), box-shadow var(--animation-time);
+
+  &_sticky {
+    color: var(--black-color);
+    background-color: var(--background-color);
+  }
+}
+
+.main,
+.header__container,
+.footer__container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.header__container,
+.footer__container {
+  padding: 0 var(--wrapper-padding);
+}
+
+.header {
+  top: 0;
+
+  &_sticky {
+    box-shadow: 0 0.2rem 0.6rem var(--shadow-color);
+  }
+}
+
+.footer {
+  bottom: 0;
+
+  &_sticky {
+    box-shadow: 0 -0.2rem 0.6rem var(--shadow-color);
+  }
+}

@@ -6,7 +6,7 @@
   cursor: pointer;
   width: 100%;
   position: relative;
-  height: calc(min(80vw, 270px) / var(--cover-ratio));
+  height: 100%;
 
   &__cover,
   &__background {

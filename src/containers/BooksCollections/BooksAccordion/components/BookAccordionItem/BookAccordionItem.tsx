@@ -32,9 +32,8 @@ const BookAccordionItem = ({
   return (
     <div
       className={cn(styles.book, isActive && styles.book_active)}
-      onClick={(e) => {
+      onClick={() => {
         changeActive(id);
-        console.log(e);
       }}
     >
       <div

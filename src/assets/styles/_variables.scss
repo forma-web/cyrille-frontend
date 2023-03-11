@@ -1,12 +1,20 @@
 :root {
   --background-color: #f7f7f7;
-  --black-color: #252525;
+  --black-color: #101012;
+  --main-color: #448d8a;
+  --error-color: #d02d17;
+  --error-complementary-color: #e7958b;
+
+  --max-width: 60rem;
   --wrapper-padding: 1.6rem;
   --cover-ratio: 0.6972;
 
   --gray20: #dfdfdf;
   --gray30: #cfcfcf;
   --gray50: gray;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+
+  --header-height: calc(5rem + 2 * var(var(--wrapper-padding)));
 
   --animation-time: 0.2s;
 }

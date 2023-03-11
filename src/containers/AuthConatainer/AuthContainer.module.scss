@@ -1,0 +1,37 @@
+.auth {
+  width: 100%;
+  flex: 1;
+  padding: 3.2rem var(--wrapper-padding);
+  background-color: white;
+  display: flex;
+  row-gap: 2.4rem;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--gray50);
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.4rem;
+    color: black;
+  }
+
+  &__form,
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--wrapper-padding);
+  }
+
+  &__form {
+    min-height: 25vh;
+  }
+
+  &__buttons {
+    flex: 1;
+  }
+
+  &__footer {
+    align-self: center;
+  }
+}
