@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'variables';
+@import 'scroll';
 
 html {
   font-size: 0.625rem;
@@ -21,12 +22,14 @@ body {
   max-width: 375px;
   margin: 0 auto;
   height: 100%;
+  overflow: hidden;
   position: relative;
 }
 
 #root {
   width: 100%;
-  height: max-content;
+  height: 100%;
+  overflow-x: hidden;
   position: relative;
 }
 
