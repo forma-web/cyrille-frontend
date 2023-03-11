@@ -37,26 +37,6 @@
     row-gap: 8.5rem;
   }
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 0.5rem;
-  }
-
-  &__item {
-    width: 100%;
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 3.2rem;
-  }
-
-  &__link {
-    width: 100%;
-    display: inline-block;
-  }
-
   &__description {
     width: 40%;
     color: var(--gray30);

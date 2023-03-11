@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState } from 'react';
 import MenuContent from './components/MenuContent/MenuContent';
 import MenuToggle from './components/MenuToggle/MenuToggle';
 
