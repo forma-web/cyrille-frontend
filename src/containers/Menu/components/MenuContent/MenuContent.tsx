@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './MenuContent.module.scss';
+import cn from 'classnames';
 
-const MenuContent = () => {
+const MenuContent = ({ isOpen }: { isOpen?: boolean }) => {
   return (
-    <nav className={styles.menu}>
+    <nav className={cn(styles.menu, isOpen && styles.menu_open)}>
       <div className={styles.menu__container}>
         <ul className={styles.menu__list}>
           <li className={styles.menu__item}>

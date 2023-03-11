@@ -3,18 +3,16 @@ import styles from './MenuToggle.module.scss';
 import cn from 'classnames';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 
-const MenuToggle = () => {
-  const [isOpen, setIsOpen] = useState(false);
+type TMenuToggleProps = React.ButtonHTMLAttributes<HTMLElement> & {
+  isOpen?: boolean;
+};
 
-  const toggleMenu = () => {
-    setIsOpen((prevValue) => !prevValue);
-  };
-
+const MenuToggle = ({ isOpen, ...rest }: TMenuToggleProps) => {
   return (
     <CyrButton
-      onClick={toggleMenu}
       icon
       className={cn(styles.menuToggle, isOpen && styles.menuToggle_open)}
+      {...rest}
     >
       <span></span>
       <span></span>

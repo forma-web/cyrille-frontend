@@ -9,6 +9,9 @@
   color: white;
   display: flex;
   overflow: hidden;
+  translate: 100% 0;
+  will-change: translate;
+  transition: translate var(--animation-time);
 
   &__container {
     align-self: flex-end;
@@ -42,5 +45,9 @@
   &__description {
     width: 40%;
     color: var(--gray30);
+  }
+
+  &_open {
+    translate: 0 0;
   }
 }
