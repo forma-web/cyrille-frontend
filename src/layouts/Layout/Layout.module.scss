@@ -11,12 +11,27 @@
   display: flex;
   position: sticky;
   z-index: 2;
+  transition: color var(--animation-time),
+    background-color var(--animation-time), box-shadow var(--animation-time);
+
+  &_sticky {
+    color: var(--black-color);
+    background-color: var(--background-color);
+  }
 }
 
 .header {
   top: 0;
+
+  &_sticky {
+    box-shadow: 0 0.2rem 0.6rem var(--shadow-color);
+  }
 }
 
 .footer {
   bottom: 0;
+
+  &_sticky {
+    box-shadow: 0 -0.2rem 0.6rem var(--shadow-color);
+  }
 }
