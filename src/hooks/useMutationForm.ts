@@ -1,11 +1,10 @@
 import { UseMutateFunction } from '@tanstack/react-query';
 import { FieldValues, Path, useForm, UseFormProps } from 'react-hook-form';
 import { TField } from '@/types/form';
-import { useEffect } from 'react';
 
-const useMutationForm = <T extends FieldValues, K extends unknown = unknown>(
+const useMutationForm = <T extends FieldValues, K = unknown>(
   mutate: UseMutateFunction<K, unknown, T, unknown>,
-  formOptions: UseFormProps<T, unknown> = {}
+  formOptions: UseFormProps<T, unknown> = {},
 ) => {
   const {
     register,

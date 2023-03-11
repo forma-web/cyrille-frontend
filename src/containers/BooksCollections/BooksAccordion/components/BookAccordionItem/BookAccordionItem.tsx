@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TBookItem } from '@/types/book';
 import styles from './BookAccordionItem.module.scss';
 import { FastAverageColor } from 'fast-average-color';
@@ -27,7 +27,7 @@ const BookAccordionItem = ({
     fac.getColorAsync(coverURL).then((color) => {
       setBackground(() => `rgba(${color.value.slice(0, 3).join(', ')}, 0.5`);
     });
-  }, []);
+  }, [coverURL]);
 
   return (
     <div
@@ -39,7 +39,7 @@ const BookAccordionItem = ({
       <div
         className={cn(
           styles.book__cover,
-          isActive && styles.book__cover_action
+          isActive && styles.book__cover_action,
         )}
       >
         {coverURL && (

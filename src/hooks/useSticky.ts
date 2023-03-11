@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 const useSticky = (triggerRef: React.RefObject<HTMLDivElement>) => {
   const [isSticky, setIsSticky] = useState(false);
 
-  const obCallback = (payload: IntersectionObserverEntry[]) => {
+  const obCallback = useCallback((payload: IntersectionObserverEntry[]) => {
     setIsSticky(() => !payload[0].isIntersecting);
-  };
+  }, []);
 
-  const ob = new IntersectionObserver(obCallback);
+  const ob = useMemo(() => new IntersectionObserver(obCallback), [obCallback]);
 
   useEffect(() => {
     if (!triggerRef.current) return;
 
     ob.observe(triggerRef.current);
-  }, [triggerRef.current]);
+  }, [ob, triggerRef]);
 
   return { isSticky };
 };

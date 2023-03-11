@@ -6,7 +6,7 @@ const useInputHandles = ({
   onBlur,
 }: React.InputHTMLAttributes<HTMLInputElement>) => {
   const [isEmpty, setIsEmpty] = useState(
-    !value || String(value).trim().length === 0
+    !value || String(value).trim().length === 0,
   );
   const [isActive, setIsActive] = useState(false);
 

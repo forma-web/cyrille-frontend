@@ -2,10 +2,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FieldValues } from 'react-hook-form';
 import useMutationForm from '@/hooks/useMutationForm';
 import { TAuth } from '@/types/auth';
-import { useState } from 'react';
 
 const useAuth = <T extends FieldValues>(
-  mutationFn: (body: T) => Promise<TAuth>
+  mutationFn: (body: T) => Promise<TAuth>,
 ) => {
   const client = useQueryClient();
 

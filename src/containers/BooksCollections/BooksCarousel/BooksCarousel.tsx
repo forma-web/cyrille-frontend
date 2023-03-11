@@ -1,4 +1,3 @@
-import React from 'react';
 import { TBookCarousel } from '@/types/book';
 import '@/assets/styles/carousel.scss';
 import styles from './BooksCarousel.module.scss';

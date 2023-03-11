@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MENU_LINKS } from '../../constants/links';
 import { TMenuContentProps } from '../../types/menu';
@@ -16,7 +15,7 @@ const MenuList = ({ toggleMenu }: TMenuContentProps) => {
             to={href}
             className={cn(
               styles.menu__link,
-              pathname === href && styles.menu__link_active
+              pathname === href && styles.menu__link_active,
             )}
             onClick={pathname === href ? toggleMenu : undefined}
           >

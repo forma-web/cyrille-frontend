@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
 import Menu from '@/containers/Menu/Menu';

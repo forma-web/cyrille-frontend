@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from './Layout.module.scss';
 import cn from 'classnames';
 import useSticky from '@/hooks/useSticky';
@@ -7,7 +7,7 @@ const Layout = ({ children }: { children?: React.ReactNode }) => (
   <div className={styles.layout}>{children}</div>
 );
 
-Layout.Header = ({ children }: { children?: React.ReactNode }) => {
+const LayoutHeader = ({ children }: { children?: React.ReactNode }) => {
   const headerTrigger = useRef<HTMLDivElement>(null);
   const { isSticky } = useSticky(headerTrigger);
 
@@ -21,11 +21,11 @@ Layout.Header = ({ children }: { children?: React.ReactNode }) => {
   );
 };
 
-Layout.Main = ({ children }: { children?: React.ReactNode }) => (
+const LayoutMain = ({ children }: { children?: React.ReactNode }) => (
   <main className={styles.main}>{children}</main>
 );
 
-Layout.Footer = ({ children }: { children?: React.ReactNode }) => {
+const LayoutFooter = ({ children }: { children?: React.ReactNode }) => {
   const footerTrigger = useRef<HTMLDivElement>(null);
   const { isSticky } = useSticky(footerTrigger);
 
@@ -38,5 +38,9 @@ Layout.Footer = ({ children }: { children?: React.ReactNode }) => {
     </>
   );
 };
+
+Layout.Header = LayoutHeader;
+Layout.Main = LayoutMain;
+Layout.Footer = LayoutFooter;
 
 export default Layout;
