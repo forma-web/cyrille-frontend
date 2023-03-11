@@ -10,20 +10,10 @@ const Menu = () => {
     setIsOpen((prevValue) => !prevValue);
   };
 
-//   useEffect(() => {
-//     const appRoot = document.getElementById('app') as HTMLElement;
-//     if (!appRoot) return;
-
-//     appRoot.style.overflowY = isOpen ? 'hidden' : 'auto';
-//   }, [isOpen]);
-
   return (
     <>
-      <MenuToggle onClick={toggleMenu} isOpen={isOpen} />
-      {createPortal(
-        <MenuContent isOpen={isOpen} />,
-        document.getElementById('menu') as HTMLElement
-      )}
+      <MenuToggle isOpen={isOpen} onClick={toggleMenu} />
+      <MenuContent isOpen={isOpen} toggleMenu={toggleMenu} />
     </>
   );
 };

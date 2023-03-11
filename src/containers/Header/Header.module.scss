@@ -1,17 +1,10 @@
 .header {
+  color: currentColor;
+
   &__container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    .logo {
-      margin-top: 1.4rem;
-      color: currentColor;
-    }
-  }
-
-  &__buttons {
-    color: currentColor;
   }
 }

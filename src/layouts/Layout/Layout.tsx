@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Layout.module.scss';
 
 const Layout = ({ children }: { children?: React.ReactNode }) => (
-  <div className={styles.wrapper}>{children}</div>
+  <div className={styles.layout}>{children}</div>
 );
 
 Layout.Header = ({ children }: { children?: React.ReactNode }) => (
