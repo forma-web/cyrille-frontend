@@ -27,6 +27,7 @@ export const loginFields: TFields<TLoginValues> = {
 };
 
 export const registerFields: TFields<TRegisterValues> = {
+  ...(loginFields as unknown as TFields<TRegisterValues>),
   name: {
     name: 'name',
     label: 'Name',
@@ -34,5 +35,4 @@ export const registerFields: TFields<TRegisterValues> = {
       required: 'This field must be filled',
     },
   },
-  ...loginFields,
 };
