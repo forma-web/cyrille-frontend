@@ -42,5 +42,10 @@
       ],
       "arrow-body-style": "off",
       "prefer-arrow-callback": "off"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     }
   }

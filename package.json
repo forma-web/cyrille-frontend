@@ -7,11 +7,14 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "serve": "vite preview",
+    
+    "type:check": "tsc",
+    "build:check": "vite build",
     "prettier:check": "npx prettier --check \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
-    "prettier:format": "npx prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint:check": "eslint ./src --ext .jsx,.js,.ts,.tsx --ignore-path ./.gitignore",
-    "lint:format": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
-    "type-check": "tsc"
+
+    "format": "npx prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.16",
