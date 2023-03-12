@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MenuContent from './components/MenuContent/MenuContent';
 import MenuToggle from './components/MenuToggle/MenuToggle';
 

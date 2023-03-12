@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthContainer from '@/containers/AuthConatainer/AuthContainer';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import CyrInput from '@/components/ui/inputs/CyrInput/CyrInput';

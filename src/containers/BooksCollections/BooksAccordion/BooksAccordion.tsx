@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { TBookCarousel } from '@/types/book';
 import '@/assets/styles/carousel.scss';
 import styles from './BooksAccordion.module.scss';
@@ -23,7 +23,7 @@ const BooksAccordion = ({ title, books }: TBookCarousel) => {
             key={book.id}
             className={cn(
               styles.carousel__item,
-              activeBook === String(book.id) && styles.carousel__item_active
+              activeBook === String(book.id) && styles.carousel__item_active,
             )}
           >
             <BookAccordionItem

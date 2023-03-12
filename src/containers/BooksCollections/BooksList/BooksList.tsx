@@ -1,4 +1,3 @@
-import React from 'react';
 import BookItem from './components/BookItem/BookItem';
 import styles from './BooksList.module.scss';
 import { TBookList } from '@/types/book';

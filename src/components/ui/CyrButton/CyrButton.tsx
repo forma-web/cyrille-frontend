@@ -20,7 +20,7 @@ const CyrButton = ({
     styles.button,
     secondary && styles.button_secondary,
     icon && styles.button_icon,
-    className
+    className,
   );
 
   return (

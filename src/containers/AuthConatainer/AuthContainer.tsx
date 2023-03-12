@@ -1,4 +1,3 @@
-import { type } from 'os';
 import React from 'react';
 import styles from './AuthContainer.module.scss';
 
@@ -7,7 +6,7 @@ type FCWithChild = {
 };
 type TAuthContainerProps = FCWithChild & {
   onSubmit?: (
-    e?: React.BaseSyntheticEvent<object, unknown, unknown> | undefined
+    e?: React.BaseSyntheticEvent<object, unknown, unknown> | undefined,
   ) => Promise<void>;
 };
 
@@ -19,16 +18,20 @@ const AuthContainer = ({ children, onSubmit }: TAuthContainerProps) => {
   );
 };
 
-AuthContainer.Form = ({ children }: FCWithChild) => (
+const AuthContainerForm = ({ children }: FCWithChild) => (
   <div className={styles.auth__form}>{children}</div>
 );
 
-AuthContainer.Buttons = ({ children }: FCWithChild) => (
+const AuthContainerButtons = ({ children }: FCWithChild) => (
   <div className={styles.auth__buttons}>{children}</div>
 );
 
-AuthContainer.Footer = ({ children }: FCWithChild) => (
+const AuthContainerFooter = ({ children }: FCWithChild) => (
   <div className={styles.auth__footer}>{children}</div>
 );
+
+AuthContainer.Form = AuthContainerForm;
+AuthContainer.Buttons = AuthContainerButtons;
+AuthContainer.Footer = AuthContainerFooter;
 
 export default AuthContainer;

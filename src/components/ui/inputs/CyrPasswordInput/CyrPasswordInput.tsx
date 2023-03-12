@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import CyrInput from '../CyrInput/CyrInput';
 import CyrPasswordInputButtons from '../CyrPasswordInputButtons/CyrPasswordInputButtons';
 import { TInputProps } from '../types/input';
@@ -12,7 +12,8 @@ const CyrPasswordInput = React.forwardRef<HTMLInputElement, TInputProps>(
         <CyrPasswordInputButtons changePassword={setHidePassword} />
       </CyrInput>
     );
-  }
+  },
 );
+CyrPasswordInput.displayName = 'CyrPasswordInput';
 
 export default React.memo(CyrPasswordInput);

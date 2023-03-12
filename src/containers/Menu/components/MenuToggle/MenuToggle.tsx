@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './MenuToggle.module.scss';
 import cn from 'classnames';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';

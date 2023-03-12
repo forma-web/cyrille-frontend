@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './MenuContent.module.scss';
 import cn from 'classnames';
 import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
@@ -15,7 +14,7 @@ const MenuContent = ({ isOpen, toggleMenu }: TMenuContentProps) => {
         <div className={styles.menu__body}>
           <MenuList toggleMenu={toggleMenu} />
           <div className={styles.menu__description}>
-            the interactive e-book you'll be in love with
+            the interactive e-book you&apos;ll be in love with
           </div>
         </div>
       </div>

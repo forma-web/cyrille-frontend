@@ -8,7 +8,7 @@ import CyrInputStatus from '../CyrInputStatus/CyrInputStatus';
 const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(
   (
     { label, error, isValid, type = 'text', className, children, ...rest },
-    ref
+    ref,
   ) => {
     const { isEmpty, isActive, handles } = useInputHandles(rest);
 
@@ -19,7 +19,7 @@ const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(
           error && styles.input_error,
           isEmpty && styles.input_empty,
           isActive && styles.input_active,
-          className
+          className,
         )}
       >
         {label && <span className={styles.label}>{label}</span>}
@@ -38,7 +38,7 @@ const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(
         {error && <span className={styles.error}>{error}</span>}
       </label>
     );
-  }
+  },
 );
 
 CyrInput.displayName = 'CyrInput';

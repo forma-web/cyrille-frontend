@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CyrInputStatus.module.scss';
 import { CheckIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 

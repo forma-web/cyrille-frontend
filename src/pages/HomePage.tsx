@@ -1,7 +1,11 @@
-import React from 'react';
 import BooksList from '@/containers/BooksCollections/BooksList/BooksList';
 import BooksCarousel from '@/containers/BooksCollections/BooksCarousel/BooksCarousel';
-import { booksAccordion1, booksCarousel1, booksList1, booksList2 } from '@/mocks/books';
+import {
+  booksAccordion1,
+  booksCarousel1,
+  booksList1,
+  booksList2,
+} from '@/mocks/books';
 import BooksAccordion from '@/containers/BooksCollections/BooksAccordion/BooksAccordion';
 
 const HomePage = () => {
