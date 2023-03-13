@@ -1,4 +1,6 @@
 import { TAuth, TLoginValues, TRegisterValues } from '@/types/auth';
+import getHeaders from '@/utils/getHeaders';
+import responseHandle from '@/utils/responseHandle';
 
 const baseUrl = `${import.meta.env.VITE_API_PATH}/auth`;
 
@@ -8,28 +10,11 @@ const authFetch =
     const response = await fetch(`${baseUrl}/${url}`, {
       method: 'POST',
       body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getHeaders(),
     });
 
-    if (!response.ok) {
-      throw new Error(`${response.status}`);
-    }
-
-    return response.json();
-
-    // return responseHandle(response);
+    return responseHandle(response);
   };
 
 export const registerUser = authFetch<TRegisterValues>('register');
 export const loginUser = authFetch<TLoginValues>('login');
-
-// export const currentUserFetch = async (): Promise<{ data: TUser }> => {
-//   const response = await fetch(`${baseUrl}/me`, {
-//     method: 'GET',
-//     headers: getHeaders(),
-//   });
-
-//   return responseHandle(response);
-// };

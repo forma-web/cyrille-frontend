@@ -3,11 +3,15 @@ import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import CyrInput from '@/components/ui/inputs/CyrInput/CyrInput';
 import { registerFields } from '../../constants/fields';
 import CyrPasswordInput from '@/components/ui/inputs/CyrPasswordInput/CyrPasswordInput';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import useRegister from '../../hooks/useRegister';
 
 const Register = () => {
-  const { registerField, onSubmit } = useRegister();
+  const { registerField, onSubmit, isSuccess } = useRegister();
+
+  if (isSuccess) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <AuthContainer onSubmit={onSubmit}>

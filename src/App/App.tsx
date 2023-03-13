@@ -16,22 +16,14 @@ const App = () => {
     },
   });
 
-  const isAuth = !!localStorage.getItem(LOCAL_STORAGE_JWT);
-
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={isAuth ? <MainLayout /> : <Navigate to="/auth/login" />}
-          >
+          <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage />} />
           </Route>
-          <Route
-            path="auth"
-            element={!isAuth ? <AuthLayout /> : <Navigate to="/" />}
-          >
+          <Route path="auth" element={<AuthLayout />}>
             <Route path="login" element={<LoginPage />} />
             <Route path="sign-up" element={<RegisterPage />} />
           </Route>
