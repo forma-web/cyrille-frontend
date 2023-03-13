@@ -29,8 +29,6 @@ const useMutationForm = <T extends FieldValues, K = unknown>(
   });
 
   const onSubmit = handleSubmit((body) => {
-    console.log(body);
-
     reset(body);
     mutate(body);
   });

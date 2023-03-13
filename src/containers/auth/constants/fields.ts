@@ -19,8 +19,8 @@ export const loginFields: TFields<TLoginValues> = {
     options: {
       required: 'This field must be filled',
       minLength: {
-        value: 6,
-        message: 'Password must be greater than 6',
+        value: 8,
+        message: 'Password must be greater than 8',
       },
     },
   },
