@@ -1,6 +1,6 @@
 import { TAuth, TLoginValues, TRegisterValues } from '@/types/auth';
 
-const baseUrl = `${''}/auth`;
+const baseUrl = `${import.meta.env.VITE_API_PATH}/auth`;
 
 const authFetch =
   <T>(url: string) =>

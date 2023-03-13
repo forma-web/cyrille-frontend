@@ -6,6 +6,7 @@
   display: flex;
   row-gap: 2.4rem;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   color: var(--gray50);
 
@@ -14,6 +15,13 @@
     font-weight: 500;
     line-height: 2.4rem;
     color: black;
+  }
+
+  &__form,
+  &__buttons,
+  &__footer {
+    width: 100%;
+    max-width: var(--max-width);
   }
 
   &__form,

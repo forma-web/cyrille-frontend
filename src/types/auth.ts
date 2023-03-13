@@ -16,5 +16,6 @@ export type TAuth = {
 
 export type TMeta = {
   token: string;
-  expires: number;
+  token_type: string;
+  ttl: number;
 };
