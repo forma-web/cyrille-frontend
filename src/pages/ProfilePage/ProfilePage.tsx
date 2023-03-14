@@ -1,15 +1,12 @@
 import ProfileInfo from '@/components/ProfileInfo/ProfileInfo';
-import { useQuery } from '@tanstack/react-query';
-import { currentUserFetch } from '@/services/user';
 import styles from './ProfilePage.module.scss';
 import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
-import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';
+import CyrButton from '@/components/ui/CyrButton/CyrButton';
+import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
+import useUser from '@/hooks/useUser';
 
 const ProfilePage = () => {
-  const { isLoading, data: user } = useQuery({
-    queryKey: ['user'],
-    queryFn: currentUserFetch,
-  });
+  const { isLoading, data: user } = useUser();
 
   if (!user || isLoading) {
     return <CyrLoader />;
@@ -17,9 +14,11 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.profile}>
-      <ProfileInfo user={user?.data} />
-      <CyrDivide />
-      <h4>Profile settings</h4>
+      <ProfileInfo user={user?.data}>
+        <CyrButton icon>
+          <ArrowLeftOnRectangleIcon />
+        </CyrButton>
+      </ProfileInfo>
     </div>
   );
 };

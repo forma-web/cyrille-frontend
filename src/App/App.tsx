@@ -17,20 +17,20 @@ const App = () => {
   });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route path="profile" element={<ProfilePage />} />
           </Route>
           <Route path="auth" element={<AuthLayout />}>
-            <Route path="login" element={<LoginPage />} />
+            <Route index path="login" element={<LoginPage />} />
             <Route path="sign-up" element={<RegisterPage />} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </BrowserRouter>
   );
 };
 

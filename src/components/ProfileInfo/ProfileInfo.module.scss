@@ -1,8 +1,14 @@
 .person {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  column-gap: 3.2rem;
+
+  &__data {
+    display: flex;
+    align-items: center;
+    column-gap: 2.4rem;
+  }
 
   &__avatar {
     width: 7rem;
@@ -31,5 +37,15 @@
 
   &__description {
     color: var(--gray50);
+  }
+
+  &__buttons {
+    justify-self: flex-end;
+
+    button {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: var(--gray50);
+    }
   }
 }

@@ -3,12 +3,14 @@ import { FieldValues } from 'react-hook-form';
 import useMutationForm from '@/hooks/useMutationForm';
 import { TAuth } from '@/types/auth';
 import setJWTToken from '@/utils/setJWTToken';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useAuth = <T extends FieldValues>(
   mutationFn: (body: T) => Promise<TAuth>,
 ) => {
   const client = useQueryClient();
+
+  const navigate = useNavigate();
 
   const { mutate, isSuccess, isLoading } = useMutation({
     mutationFn,
@@ -21,6 +23,7 @@ const useAuth = <T extends FieldValues>(
         refetchType: 'none',
       });
       setJWTToken(meta);
+      navigate('/');
     },
     onError: (err) => {
       //   setResponseError(
