@@ -21,7 +21,6 @@ const useAuth = <T extends FieldValues>(
         refetchType: 'none',
       });
       setJWTToken(meta);
-      redirect('/');
     },
     onError: (err) => {
       //   setResponseError(

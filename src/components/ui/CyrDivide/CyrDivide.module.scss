@@ -1,0 +1,17 @@
+.divide {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+  width: 0.5rem;
+
+  &_large {
+    width: 1rem;
+  }
+
+  &__item {
+    width: 100%;
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    background-color: currentColor;
+  }
+}

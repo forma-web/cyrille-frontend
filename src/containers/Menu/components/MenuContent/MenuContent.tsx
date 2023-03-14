@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
 import MenuList from '../MenuList/MenuList';
 import { TMenuContentProps } from '../../types/menu';
+import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';
 
 const MenuContent = ({ isOpen, toggleMenu }: TMenuContentProps) => {
   return (
@@ -12,6 +13,7 @@ const MenuContent = ({ isOpen, toggleMenu }: TMenuContentProps) => {
           <Logo />
         </div>
         <div className={styles.menu__body}>
+          <CyrDivide large total={1} />
           <MenuList toggleMenu={toggleMenu} />
           <div className={styles.menu__description}>
             the interactive e-book you&apos;ll be in love with
