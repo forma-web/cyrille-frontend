@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import RegisterPage from '@/pages/RegisterPage';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import { LOCAL_STORAGE_JWT } from '@/constants/jwt';
+import BookPage from '@/pages/BookPage';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -27,6 +28,7 @@ const App = () => {
             element={isAuth ? <MainLayout /> : <Navigate to="/auth/login" />}
           >
             <Route index element={<HomePage />} />
+            <Route path="books/:id" element={<BookPage />} />
           </Route>
           <Route
             path="auth"
