@@ -5,7 +5,7 @@ import styles from './BookInfo.module.scss';
 
 const BookInfo = () => {
   return (
-    <div className={styles.bookInfo}>
+    <section className={styles.bookInfo}>
       <div className={styles.bookInfo__background}>
         <img src="/images/1.png" />
       </div>
@@ -25,7 +25,7 @@ const BookInfo = () => {
           <CyrButton>Read book</CyrButton>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
