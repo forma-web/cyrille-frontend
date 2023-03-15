@@ -2,6 +2,7 @@ $header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
 
 .bookInfo {
   background-color: var(--gray50);
+  backdrop-filter: blur(10px);
   padding: var(--wrapper-padding);
   padding-top: calc(var(--wrapper-padding) + $header-height);
   margin-top: calc(-1 * $header-height);
@@ -9,6 +10,17 @@ $header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(1.2rem);
+    opacity: 0.32;
+    z-index: -1;
+  }
 
   &__cover {
     //width: 100%;
@@ -20,26 +32,41 @@ $header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
     position: relative;
   }
 
+  &__cover img,
+  &__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--wrapper-padding);
+    color: white;
+    row-gap: 2.4rem;
+  }
+
+  &__text {
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--wrapper-padding);
-    row-gap: 0.8rem;
+    row-gap: 0.6rem;
   }
 
   &__title {
     text-align: center;
     font-weight: 700;
     font-size: 1.8rem;
-    color: white;
   }
 
   &__author {
     color: var(--gray30);
   }
 
-  &__rating {
+  &__buttons {
     margin-top: 0.8rem;
   }
 }

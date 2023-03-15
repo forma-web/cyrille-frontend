@@ -1,12 +1,13 @@
 import styles from './CyrRhombus.module.scss';
 
 type TCyrRhombusProps = {
+  width?: number;
   filled?: number;
 };
 
-const CyrRhombus = ({ filled = 1 }: TCyrRhombusProps) => {
+const CyrRhombus = ({ width = 1, filled = 1 }: TCyrRhombusProps) => {
   return (
-    <div className={styles.rhombus}>
+    <div className={styles.rhombus} style={{ width: width + 'rem' }}>
       <div className={styles.rhombus__inner}>
         {filled < 1 && (
           <svg
