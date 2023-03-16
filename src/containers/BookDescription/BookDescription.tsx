@@ -1,5 +1,23 @@
 import styles from './BookDescription.module.scss';
 
+const STATISTICS = [
+  {
+    title: 'Relesed',
+    value: '2022',
+    caption: '18 February',
+  },
+  {
+    title: 'Length',
+    value: '3',
+    caption: 'pages',
+  },
+  {
+    title: 'Language',
+    value: 'Eng',
+    caption: 'english',
+  },
+];
+
 const BookDescription = () => {
   return (
     <section className={styles.bookDescription}>
@@ -10,21 +28,13 @@ const BookDescription = () => {
       </div>
       <div className={styles.bookDescription__divide} />
       <ul className={styles.statistic}>
-        <li className={styles.statistic__item}>
-          <div className={styles.statistic__title}>Relesed</div>
-          <div className={styles.statistic__value}>2022</div>
-          <div className={styles.statistic__caption}>18 February</div>
-        </li>
-        <li className={styles.statistic__item}>
-          <div className={styles.statistic__title}>Length</div>
-          <div className={styles.statistic__value}>3</div>
-          <div className={styles.statistic__caption}>pages</div>
-        </li>
-        <li className={styles.statistic__item}>
-          <div className={styles.statistic__title}>Language</div>
-          <div className={styles.statistic__value}>Eng</div>
-          <div className={styles.statistic__caption}>english</div>
-        </li>
+        {STATISTICS.map((item) => (
+          <li key={item.title} className={styles.statistic__item}>
+            <div className={styles.statistic__title}>{item.title}</div>
+            <div className={styles.statistic__value}>{item.value}</div>
+            <div className={styles.statistic__caption}>{item.caption}</div>
+          </li>
+        ))}
       </ul>
     </section>
   );

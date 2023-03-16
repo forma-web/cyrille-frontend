@@ -1,0 +1,118 @@
+.cover {
+  width: 100%;
+  height: 100%;
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__hover {
+    will-change: clip-path;
+    clip-path: circle(30% at 50% 50%);
+    animation: circle-interaction 1.6s ease;
+    animation-delay: 0.96s;
+  }
+}
+
+.cover__interaction,
+.interaction__circle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+}
+
+.cover__interaction {
+  width: 58px;
+  height: 58px;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: finger-interaction 2.4s;
+  animation-delay: 0s;
+  transform-origin: top left;
+}
+
+.interaction__circle {
+  &:nth-child(1) {
+    width: 58px;
+    height: 58px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &:nth-child(2) {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+  }
+
+  &:nth-child(3) {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.65);
+  }
+}
+
+.cover_init {
+  .cover__hover {
+    animation: none;
+  }
+
+  .interaction {
+    display: none;
+  }
+}
+
+@keyframes circle-interaction {
+  0%,
+  100% {
+    clip-path: circle(30% at 50% 50%);
+  }
+
+  50% {
+    clip-path: circle(30% at 60% 60%);
+  }
+}
+
+@keyframes finger-interaction {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  25% {
+    scale: 1;
+  }
+
+  40%,
+  66.7% {
+    scale: 0.8;
+  }
+
+  0%,
+  40% {
+    left: 50%;
+    top: 50%;
+  }
+
+  25%,
+  66.7% {
+    opacity: 1;
+  }
+
+  55%,
+  100% {
+    left: 60%;
+    top: 60%;
+  }
+}

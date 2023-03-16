@@ -1,4 +1,4 @@
-import CyrRhombus from '../ui/CyrRhombus/CyrRhombus';
+import CyrRhombus from '../CyrRhombus/CyrRhombus';
 import styles from './CyrRating.module.scss';
 
 type TCyrRatingProps = {

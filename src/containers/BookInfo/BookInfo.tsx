@@ -1,4 +1,4 @@
-import CyrRating from '@/components/CyrRating/CyrRating';
+import CyrRating from '@/components/ui/CyrRating/CyrRating';
 // import { AlbergueCover } from '@/assets/books/AlbergueCover/AlbergueCover';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import styles from './BookInfo.module.scss';

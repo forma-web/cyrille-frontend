@@ -1,10 +1,11 @@
-.header {
+.header__container {
   color: currentColor;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &__container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  &_white {
+    color: white;
   }
 }

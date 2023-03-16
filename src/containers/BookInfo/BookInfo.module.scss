@@ -1,10 +1,5 @@
-$header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
-
 .bookInfo {
   background-color: var(--gray50);
-  padding: var(--wrapper-padding);
-  padding-top: calc(var(--wrapper-padding) + $header-height);
-  margin-top: calc(-1 * $header-height);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,7 +19,7 @@ $header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
   &__cover {
     //width: 100%;
     //aspect-ratio: 1;
-    width: 80%;
+    width: 60%;
     aspect-ratio: var(--cover-ratio);
     background-color: var(--gray30);
     margin: var(--wrapper-padding) 0;
