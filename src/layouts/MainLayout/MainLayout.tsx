@@ -1,5 +1,5 @@
 import { Outlet, useMatch } from 'react-router-dom';
-import Header from '../../containers/Header/Header';
+import Header from '@/containers/Header/Header';
 import Layout from '../Layout/Layout';
 
 const MainLayout = () => {
