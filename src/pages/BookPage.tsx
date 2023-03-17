@@ -3,7 +3,7 @@ import BookDescription from '@/containers/BookDescription/BookDescription';
 import BookArtists from '@/containers/BookArtists/BookArtists';
 import { useQuery } from '@tanstack/react-query';
 import { bookFetch } from '@/services/books';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
 import BookReviews from '@/containers/BookReviews/BookReviews';
 
@@ -17,11 +17,13 @@ const BookPage = () => {
 
   if (isLoading || !book) return <CyrLoader />;
 
+  if (!bookId) return <Navigate to="/404" />;
+
   return (
     <div>
-      <BookInfo {...book} />
-      <BookDescription {...book} />
-      <BookArtists artists={book.artists} />
+      <BookInfo {...book.data} />
+      <BookDescription {...book.data} />
+      <BookArtists artists={book.data.artists} />
       <BookReviews bookId={bookId} />
     </div>
   );

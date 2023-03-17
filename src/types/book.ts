@@ -1,3 +1,5 @@
+import { TResponse } from './response';
+
 export type TBook = {
   id: string | number;
   name: string;
@@ -5,7 +7,7 @@ export type TBook = {
   thumbnail_image?: string;
   thumbnail_component?: string;
   language?: string;
-  authors?: string[];
+  authors?: TArtist[];
   genre?: string;
   release_date?: string;
 } & TArtists;
@@ -19,7 +21,7 @@ export type TArtist = {
   id: string | number;
   name: string;
   avatar?: string;
-  project: TRole;
+  project?: TRole;
 };
 
 export type TArtists = {
@@ -37,3 +39,5 @@ export type TBookList = {
 export type TBookCarousel = {
   title?: string;
 } & TBookList;
+
+export type TBookResponse = TResponse<TBook>;

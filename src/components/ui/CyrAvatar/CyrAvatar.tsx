@@ -1,14 +1,14 @@
 import styles from './CyrAvatar.module.scss';
 
 type TCyrAvatarProps = {
-  image?: string;
+  image?: string | null;
   width?: number;
   name: string;
 };
 
 const CyrAvatar = ({ image, width, name }: TCyrAvatarProps) => {
   return (
-    <div className={styles.avatar} style={{ fontSize: width }}>
+    <div className={styles.avatar} style={{ fontSize: `${width}rem` }}>
       {image ? (
         <img src={image} />
       ) : (

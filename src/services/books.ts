@@ -1,6 +1,7 @@
 import { fetchData } from '@/utils/fetch';
 import { TPagination } from '@/types/response';
-import { TBook } from '@/types/book';
+import { TBook, TBookResponse } from '@/types/book';
+import { TReview } from '@/types/review';
 
 const baseUrl = `${import.meta.env.VITE_API_PATH}/books`;
 
@@ -10,6 +11,12 @@ export const allBooksFetch = async () =>
   });
 
 export const bookFetch = async (id: string | number) =>
-  fetchData<TBook>(`${baseUrl}/${id}`, {
+  fetchData<TBookResponse>(`${baseUrl}/${id}`, {
     method: 'GET',
   });
+
+export const reviewsBookFetch = async (id: string | number) => {
+  return fetchData<TPagination<TReview>>(`${baseUrl}/${id}/reviews`, {
+    method: 'GET',
+  });
+};

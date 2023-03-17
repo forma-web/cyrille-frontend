@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   row-gap: var(--wrapper-padding);
-  
+
   &__content {
     width: 100%;
     display: flex;
@@ -37,6 +37,17 @@
       width: 2.4rem;
       height: 2.4rem;
       color: var(--gray50);
+    }
+  }
+
+  &_small {
+    .person__name {
+      font-size: 1.6rem;
+      text-transform: capitalize;
+    }
+
+    .person__description {
+      font-size: 1.2rem;
     }
   }
 }

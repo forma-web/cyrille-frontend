@@ -1,6 +1,7 @@
 import React from 'react';
 import CyrAvatar from '../ui/CyrAvatar/CyrAvatar';
 import styles from './Profile.module.scss';
+import cn from 'classnames';
 
 type TProfileProps = {
   name: string;
@@ -11,12 +12,19 @@ type TProfileProps = {
   children?: React.ReactNode;
 };
 
-const Profile = ({ name, avatar, caption, notes, children }: TProfileProps) => {
+const Profile = ({
+  name,
+  avatar,
+  caption,
+  notes,
+  small,
+  children,
+}: TProfileProps) => {
   return (
-    <div className={styles.person}>
+    <div className={cn(styles.person, small && styles.person_small)}>
       <div className={styles.person__content}>
         <div className={styles.person__data}>
-          <CyrAvatar name={name} image={avatar} />
+          <CyrAvatar name={name} image={avatar} width={small ? 4.6 : 7} />
           <div className={styles.person__info}>
             <h4 className={styles.person__name}>{name}</h4>
             {caption && (

@@ -3,6 +3,7 @@ import styles from './BookItem.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { ERoutes } from '@/constants/routers';
+import getAuthors from '@/utils/getAuthors';
 
 const BookItem = ({
   id,
@@ -22,8 +23,8 @@ const BookItem = ({
       </div>
       <div className={styles.book__info}>
         <h4 className={styles.book__title}>{name}</h4>
-        {authors && authors.length && (
-          <div className={styles.book__author}>{authors.join(', ')}</div>
+        {!!authors?.length && (
+          <div className={styles.book__author}>{getAuthors(authors)}</div>
         )}
         {description && (
           <div className={styles.book__description}>

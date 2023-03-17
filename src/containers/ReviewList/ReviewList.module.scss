@@ -1,0 +1,17 @@
+$gap: 2.4rem;
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  row-gap: $gap;
+
+  &__item {
+    padding-bottom: $gap;
+    border-bottom: 1px solid var(--gray30);
+
+    &:last-child {
+      padding: 0;
+      border-bottom: none;
+    }
+  }
+}
