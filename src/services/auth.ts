@@ -1,35 +1,28 @@
-import { TAuth, TLoginValues, TRegisterValues } from '@/types/auth';
+import { TAuth, TLoginValues, TMeta, TRegisterValues } from '@/types/auth';
+import { fetchData, fetchDataWithAuth } from '@/utils/fetch';
 
 const baseUrl = `${import.meta.env.VITE_API_PATH}/auth`;
 
 const authFetch =
   <T>(url: string) =>
-  async (body: T): Promise<TAuth> => {
-    const response = await fetch(`${baseUrl}/${url}`, {
+  async (body: T): Promise<TAuth> =>
+    fetchData<TAuth>(`${baseUrl}/${url}`, {
       method: 'POST',
       body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
-
-    if (!response.ok) {
-      throw new Error(`${response.status}`);
-    }
-
-    return response.json();
-
-    // return responseHandle(response);
-  };
 
 export const registerUser = authFetch<TRegisterValues>('register');
 export const loginUser = authFetch<TLoginValues>('login');
 
-// export const currentUserFetch = async (): Promise<{ data: TUser }> => {
-//   const response = await fetch(`${baseUrl}/me`, {
-//     method: 'GET',
-//     headers: getHeaders(),
-//   });
+export const refreshToken = async (token: string) =>
+  fetchData<{ meta: TMeta }>(`${baseUrl}/refresh`, {
+    method: 'POST',
+    headers: {
+      Authorization: token,
+    },
+  });
 
-//   return responseHandle(response);
-// };
+export const logoutUser = async () =>
+  fetchDataWithAuth<void>(`${baseUrl}/logout`, {
+    method: 'POST',
+  });

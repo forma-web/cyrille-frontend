@@ -1,39 +1,39 @@
 import HomePage from '@/pages/HomePage';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import MainLayout from '@/layouts/MainLayout/MainLayout';
+import ProfilePage from '@/pages/ProfilePage/ProfilePage';
+import RequiredAuth from '@/layouts/RequiredAuth';
 import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
 import LoginPage from '@/pages/LoginPage';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import RegisterPage from '@/pages/RegisterPage';
-import MainLayout from '@/layouts/MainLayout/MainLayout';
-import { LOCAL_STORAGE_JWT } from '@/constants/jwt';
+import { ERoutes } from '@/constants/routers';
 
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        retry: 1,
         staleTime: Infinity,
       },
     },
   });
 
-  const isAuth = !!localStorage.getItem(LOCAL_STORAGE_JWT);
-
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={isAuth ? <MainLayout /> : <Navigate to="/auth/login" />}
-          >
+          <Route path={ERoutes.home} element={<MainLayout />}>
             <Route index element={<HomePage />} />
+            <Route element={<RequiredAuth />}>
+              <Route path={ERoutes.profile} element={<ProfilePage />} />
+            </Route>
           </Route>
-          <Route
-            path="auth"
-            element={!isAuth ? <AuthLayout /> : <Navigate to="/" />}
-          >
-            <Route path="login" element={<LoginPage />} />
-            <Route path="sign-up" element={<RegisterPage />} />
+          <Route path={ERoutes.auth} element={<AuthLayout />}>
+            <Route index path={ERoutes.login} element={<LoginPage />} />
+            <Route path={ERoutes.register} element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

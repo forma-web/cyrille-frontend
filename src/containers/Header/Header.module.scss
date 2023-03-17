@@ -1,6 +1,10 @@
 .header {
   color: currentColor;
 
+  &__buttons button {
+    width: 2.5rem;
+  }
+
   &__container {
     width: 100%;
     display: flex;

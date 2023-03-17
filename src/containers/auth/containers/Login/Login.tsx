@@ -5,6 +5,7 @@ import { useLogin } from '../../hooks/useLogin';
 import { loginFields } from '../../constants/fields';
 import CyrPasswordInput from '@/components/ui/inputs/CyrPasswordInput/CyrPasswordInput';
 import { Link } from 'react-router-dom';
+import { REGISTER_ROUTE } from '@/constants/routers';
 
 const Login = () => {
   const { registerField, onSubmit } = useLogin();
@@ -20,7 +21,7 @@ const Login = () => {
         <CyrButton type="submit">Login</CyrButton>
       </AuthContainer.Buttons>
       <AuthContainer.Footer>
-        <Link to="/auth/sign-up">Don&apos;t have an account? Sign up</Link>
+        <Link to={REGISTER_ROUTE}>Don&apos;t have an account? Sign up</Link>
       </AuthContainer.Footer>
     </AuthContainer>
   );

@@ -6,7 +6,6 @@ import useSticky from '@/hooks/useSticky';
 const Layout = ({ children }: { children?: React.ReactNode }) => (
   <div className={styles.layout}>{children}</div>
 );
-
 const LayoutHeader = ({ children }: { children?: React.ReactNode }) => {
   const headerTrigger = useRef<HTMLDivElement>(null);
   const { isSticky } = useSticky(headerTrigger);

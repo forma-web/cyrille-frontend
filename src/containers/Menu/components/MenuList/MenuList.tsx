@@ -17,7 +17,7 @@ const MenuList = ({ toggleMenu }: TMenuContentProps) => {
               styles.menu__link,
               pathname === href && styles.menu__link_active,
             )}
-            onClick={pathname === href ? toggleMenu : undefined}
+            onClick={toggleMenu}
           >
             {label}
           </Link>

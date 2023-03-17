@@ -1,7 +1,14 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import { LOCAL_STORAGE_JWT } from '@/constants/jwt';
 import styles from './AuthLayout.module.scss';
 
 const AuthLayout = () => {
+  const isAuth = !!localStorage.getItem(LOCAL_STORAGE_JWT);
+
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.background}></div>
