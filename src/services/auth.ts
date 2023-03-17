@@ -1,5 +1,5 @@
 import { TAuth, TLoginValues, TMeta, TRegisterValues } from '@/types/auth';
-import { fetchData } from '@/utils/fetch';
+import { fetchData, fetchDataWithAuth } from '@/utils/fetch';
 
 const baseUrl = `${import.meta.env.VITE_API_PATH}/auth`;
 
@@ -20,4 +20,9 @@ export const refreshToken = async (token: string) =>
     headers: {
       Authorization: token,
     },
+  });
+
+export const logoutUser = async () =>
+  fetchDataWithAuth<void>(`${baseUrl}/logout`, {
+    method: 'POST',
   });
