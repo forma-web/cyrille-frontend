@@ -6,31 +6,37 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import RegisterPage from '@/pages/RegisterPage';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
+import RequiredAuth from '../layouts/RequiredAuth';
 
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        retry: 1,
         staleTime: Infinity,
       },
     },
   });
 
   return (
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
         <Routes>
           <Route element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="profile" element={<ProfilePage />} />
+            <Route element={<RequiredAuth />}>
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
           </Route>
           <Route path="auth" element={<AuthLayout />}>
             <Route index path="login" element={<LoginPage />} />
             <Route path="sign-up" element={<RegisterPage />} />
           </Route>
         </Routes>
-      </QueryClientProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
