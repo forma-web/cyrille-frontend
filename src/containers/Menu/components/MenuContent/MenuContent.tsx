@@ -4,14 +4,20 @@ import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
 import MenuList from '../MenuList/MenuList';
 import { TMenuContentProps } from '../../types/menu';
 import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';
+import { ERoutes } from '@/constants/routers';
+import { Link } from 'react-router-dom';
 
 const MenuContent = ({ isOpen, toggleMenu }: TMenuContentProps) => {
   return (
     <nav className={cn(styles.menu, isOpen && styles.menu_open)}>
       <div className={styles.menu__container}>
-        <div className={styles.menu__header} onClick={toggleMenu}>
+        <Link
+          to={ERoutes.home}
+          className={styles.menu__header}
+          onClick={toggleMenu}
+        >
           <Logo />
-        </div>
+        </Link>
         <div className={styles.menu__body}>
           <CyrDivide large total={1} />
           <MenuList toggleMenu={toggleMenu} />

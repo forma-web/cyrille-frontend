@@ -1,13 +1,17 @@
 import styles from './CyrRhombus.module.scss';
+import cn from 'classnames';
 
 type TCyrRhombusProps = {
   width?: number;
   filled?: number;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
-const CyrRhombus = ({ width = 1, filled = 1 }: TCyrRhombusProps) => {
+const CyrRhombus = ({ width = 1, filled = 1, className }: TCyrRhombusProps) => {
   return (
-    <div className={styles.rhombus} style={{ width: width + 'rem' }}>
+    <div
+      className={cn(styles.rhombus, className)}
+      style={{ width: width + 'rem' }}
+    >
       <div className={styles.rhombus__inner}>
         {filled < 1 && (
           <svg

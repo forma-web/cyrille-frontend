@@ -1,9 +1,10 @@
 import { Outlet, useMatch } from 'react-router-dom';
 import Header from '@/containers/Header/Header';
 import Layout from '../Layout/Layout';
+import { BOOK_ROUTE } from '@/constants/routers';
 
 const MainLayout = () => {
-  const bookPage = useMatch('/books/:id');
+  const bookPage = useMatch(BOOK_ROUTE);
 
   return (
     <Layout>
