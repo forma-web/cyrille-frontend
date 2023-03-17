@@ -1,22 +1,22 @@
 import React from 'react';
+import CyrAvatar from '../ui/CyrAvatar/CyrAvatar';
 import styles from './Profile.module.scss';
 
 type TProfileProps = {
   name: string;
   caption?: string;
+  avatar?: string;
   notes?: string;
   small?: boolean;
   children?: React.ReactNode;
 };
 
-const Profile = ({ name, caption, notes, children }: TProfileProps) => {
+const Profile = ({ name, avatar, caption, notes, children }: TProfileProps) => {
   return (
     <div className={styles.person}>
       <div className={styles.person__content}>
         <div className={styles.person__data}>
-          <div className={styles.person__avatar}>
-            {name.trim()[0].toUpperCase()}
-          </div>
+          <CyrAvatar name={name} image={avatar} />
           <div className={styles.person__info}>
             <h4 className={styles.person__name}>{name}</h4>
             {caption && (

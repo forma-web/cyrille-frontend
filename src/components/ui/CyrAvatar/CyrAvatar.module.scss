@@ -1,0 +1,23 @@
+.avatar {
+  width: 1em;
+  height: 1em;
+  font-size: 7rem;
+  border-radius: 100%;
+  user-select: none;
+  background-color: var(--gray30);
+  overflow: hidden;
+  display: flex;
+
+  &__text {
+    margin: auto;
+    font-size: 0.4em;
+    font-weight: 500;
+    color: white;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

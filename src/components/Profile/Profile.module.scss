@@ -16,21 +16,6 @@
     column-gap: 2.4rem;
   }
 
-  &__avatar {
-    width: 7rem;
-    height: 7rem;
-    font-weight: 500;
-    font-size: 2.4rem;
-    border-radius: 100%;
-    user-select: none;
-    background-color: var(--gray30);
-    color: white;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   &__info {
     display: flex;
     flex-direction: column;

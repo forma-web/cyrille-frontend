@@ -1,3 +1,4 @@
+import { TBook } from '@/types/book';
 import styles from './BookDescription.module.scss';
 
 const STATISTICS = [
@@ -9,7 +10,7 @@ const STATISTICS = [
   {
     title: 'Length',
     value: '3',
-    caption: 'pages',
+    caption: 'paper pages',
   },
   {
     title: 'Language',
@@ -18,14 +19,12 @@ const STATISTICS = [
   },
 ];
 
-const BookDescription = () => {
+const BookDescription = (book: TBook) => {
+  const { description } = book;
+
   return (
     <section className={styles.bookDescription}>
-      <div className={styles.bookDescription__text}>
-        Multipolar wars could be the last in human history. Architect John
-        Stingray is one of the relocants having arrived to one of the safe
-        havens - The Albergue, a place of peace, hope and believe.
-      </div>
+      <div className={styles.bookDescription__text}>{description}</div>
       <div className={styles.bookDescription__divide} />
       <ul className={styles.statistic}>
         {STATISTICS.map((item) => (
