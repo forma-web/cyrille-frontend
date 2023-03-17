@@ -1,12 +1,13 @@
 import HomePage from '@/pages/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
-import LoginPage from '@/pages/LoginPage';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import RegisterPage from '@/pages/RegisterPage';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
-import RequiredAuth from '../layouts/RequiredAuth';
+import RequiredAuth from '@/layouts/RequiredAuth';
+import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
+import LoginPage from '@/pages/LoginPage';
+import RegisterPage from '@/pages/RegisterPage';
+import { ERoutes } from '@/constants/routers';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -24,15 +25,15 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route element={<MainLayout />}>
+          <Route path={ERoutes.home} element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route element={<RequiredAuth />}>
-              <Route path="profile" element={<ProfilePage />} />
+              <Route path={ERoutes.profile} element={<ProfilePage />} />
             </Route>
           </Route>
-          <Route path="auth" element={<AuthLayout />}>
-            <Route index path="login" element={<LoginPage />} />
-            <Route path="sign-up" element={<RegisterPage />} />
+          <Route path={ERoutes.auth} element={<AuthLayout />}>
+            <Route index path={ERoutes.login} element={<LoginPage />} />
+            <Route path={ERoutes.register} element={<RegisterPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

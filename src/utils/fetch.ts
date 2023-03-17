@@ -1,5 +1,6 @@
 import { defaultHeaders } from '@/constants/api';
 import { refreshToken } from '@/services/auth';
+import { LOGIN_ROUTE } from '@/constants/routers';
 import { getJWTData, getJWTToken, removeJWTToken, setJWTToken } from './jwt';
 
 export const fetchData = async <T>(
@@ -25,7 +26,7 @@ export const fetchDataWithAuth = async <T>(
   const tokenData = getJWTData();
 
   if (!tokenData) {
-    window.location.replace('/auth/login');
+    window.location.replace(LOGIN_ROUTE);
     throw new Error('Token error');
   }
 
@@ -42,7 +43,7 @@ export const fetchDataWithAuth = async <T>(
       setJWTToken(newToken.meta);
     } catch {
       removeJWTToken();
-      window.location.replace('/auth/login');
+      window.location.replace(LOGIN_ROUTE);
       throw new Error('Refresh token error');
     }
   }
