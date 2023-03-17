@@ -7,7 +7,7 @@ type TProfileProps = {
   name: string;
   caption?: string;
   avatar?: string | null;
-  notes?: string;
+  notes?: string | null;
   small?: boolean;
   children?: React.ReactNode;
 };

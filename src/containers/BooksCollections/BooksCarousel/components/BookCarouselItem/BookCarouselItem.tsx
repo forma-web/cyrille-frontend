@@ -5,17 +5,21 @@ type TBookCarouselItem = {
   isAccordion?: boolean;
 } & TBookItem;
 
-const BookCarouselItem = ({ title, authors, coverURL }: TBookCarouselItem) => {
+const BookCarouselItem = ({
+  name,
+  authors,
+  thumbnail_image,
+}: TBookCarouselItem) => {
   return (
     <div className={styles.book}>
       <div className={styles.book__cover}>
-        {coverURL && <img src={coverURL} alt="" loading="lazy" />}
+        {thumbnail_image && <img src={thumbnail_image} alt="" loading="lazy" />}
       </div>
       <div className={styles.book__info}>
         {authors && authors.length && (
           <div className={styles.book__author}>{authors.join(', ')}</div>
         )}
-        <h4 className={styles.book__title}>{title}</h4>
+        <h4 className={styles.book__title}>{name}</h4>
       </div>
     </div>
   );

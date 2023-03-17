@@ -1,7 +1,7 @@
 export type TReview = {
   id: number;
   rating: number;
-  comment: string;
+  comment?: string | null;
   created_at: string;
   user: {
     name: string;

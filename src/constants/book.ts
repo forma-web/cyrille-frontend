@@ -15,7 +15,7 @@ export const STATISTICS_BOOK: TStatisticBook[] = [
       format(new Date(release_date), 'dd MMMM'),
   },
   {
-    title: 'Pages',
+    title: 'Length',
     value: ({ pages }: TBook) => pages,
     caption: ({ pages }: TBook) => `paper ${pages > 1 ? 'pages' : 'page'}`,
   },
