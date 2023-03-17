@@ -1,4 +1,5 @@
 import { TBook } from '@/types/book';
+import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
 import styles from './BookDescription.module.scss';
 
 const STATISTICS = [
@@ -23,7 +24,7 @@ const BookDescription = (book: TBook) => {
   const { description } = book;
 
   return (
-    <section className={styles.bookDescription}>
+    <CyrContainer className={styles.bookDescription}>
       <div className={styles.bookDescription__text}>{description}</div>
       <div className={styles.bookDescription__divide} />
       <ul className={styles.statistic}>
@@ -35,7 +36,7 @@ const BookDescription = (book: TBook) => {
           </li>
         ))}
       </ul>
-    </section>
+    </CyrContainer>
   );
 };
 

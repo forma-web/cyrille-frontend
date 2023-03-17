@@ -5,7 +5,7 @@ import styles from './Profile.module.scss';
 type TProfileProps = {
   name: string;
   caption?: string;
-  avatar?: string;
+  avatar?: string | null;
   notes?: string;
   small?: boolean;
   children?: React.ReactNode;

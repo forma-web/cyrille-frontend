@@ -1,10 +1,14 @@
+$header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
+
 .bookInfo {
   background-color: var(--gray50);
-  position: relative;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   z-index: 1;
+
+  &_header {
+    padding-top: calc(var(--wrapper-padding) + $header-height) !important;
+    margin-top: calc(-1 * $header-height);
+  }
 
   &__background {
     position: absolute;

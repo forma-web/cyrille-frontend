@@ -3,10 +3,12 @@ import CyrRating from '@/components/ui/CyrRating/CyrRating';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import styles from './BookInfo.module.scss';
 import { TBook } from '@/types/book';
+import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
+import cn from 'classnames';
 
 const BookInfo = ({ thumbnail_image, name }: TBook) => {
   return (
-    <section className={styles.bookInfo}>
+    <CyrContainer className={cn(styles.bookInfo, styles.bookInfo_header)}>
       <div className={styles.bookInfo__background}>
         <img src={thumbnail_image} />
       </div>
@@ -26,7 +28,7 @@ const BookInfo = ({ thumbnail_image, name }: TBook) => {
           <CyrButton>Read book</CyrButton>
         </div>
       </div>
-    </section>
+    </CyrContainer>
   );
 };
 

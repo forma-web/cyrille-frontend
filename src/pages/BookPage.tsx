@@ -1,11 +1,11 @@
 import BookInfo from '@/containers/BookInfo/BookInfo';
 import BookDescription from '@/containers/BookDescription/BookDescription';
-import styles from './BookPage.module.scss';
 import BookArtists from '@/containers/BookArtists/BookArtists';
 import { useQuery } from '@tanstack/react-query';
 import { bookFetch } from '@/services/books';
 import { useParams } from 'react-router-dom';
 import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
+import BookReviews from '@/containers/BookReviews/BookReviews';
 
 const BookPage = () => {
   const { bookId } = useParams();
@@ -18,10 +18,11 @@ const BookPage = () => {
   if (isLoading || !book) return <CyrLoader />;
 
   return (
-    <div className={styles.book}>
+    <div>
       <BookInfo {...book} />
       <BookDescription {...book} />
       <BookArtists artists={book.artists} />
+      <BookReviews bookId={bookId} />
     </div>
   );
 };
