@@ -1,6 +1,6 @@
-import { TArtist } from '@/types/book';
+import { TBookPerson } from '@/types/book';
 
-const getAuthors = (authors: TArtist[]) => {
+const getAuthors = (authors: TBookPerson[]) => {
   return authors.map((author) => author.name).join(', ');
 };
 

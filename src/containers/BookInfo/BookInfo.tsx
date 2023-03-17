@@ -7,9 +7,12 @@ import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
 import cn from 'classnames';
 import getAuthors from '@/utils/getAuthors';
 
-const BookInfo = ({ thumbnail_image, authors, name }: TBook) => {
-  console.log(authors);
-
+const BookInfo = ({
+  thumbnail_image,
+  reviews_avg_rating,
+  authors,
+  name,
+}: TBook) => {
   return (
     <CyrContainer className={cn(styles.bookInfo, styles.bookInfo_header)}>
       <div className={styles.bookInfo__background}>
@@ -26,7 +29,7 @@ const BookInfo = ({ thumbnail_image, authors, name }: TBook) => {
           )}
         </div>
         <div className={styles.bookInfo__rating}>
-          <CyrRating rating={4.6} signature />
+          <CyrRating rating={reviews_avg_rating} signature />
         </div>
         <div className={styles.bookInfo__buttons}>
           <CyrButton>Read book</CyrButton>
