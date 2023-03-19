@@ -14,7 +14,6 @@
 
   .error {
     width: 60%;
-    align-self: flex-end;
     text-align: right;
     color: var(--error-color);
   }
@@ -27,13 +26,12 @@
     border-bottom: 0.1rem solid var(--gray30);
     transition: border-color var(--animation-time);
     font-size: 1.5rem;
+  }
 
-    input {
-      outline: none;
-      flex: 1;
-      padding: 0.6rem 0;
-      color: black;
-    }
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__control {
