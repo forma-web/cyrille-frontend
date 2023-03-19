@@ -6,7 +6,10 @@ import React, {
   useState,
 } from 'react';
 
-const useTextAreaHandles = (ref: React.ForwardedRef<HTMLTextAreaElement>) => {
+const useTextAreaHandles = (
+  { onChange, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  ref: React.ForwardedRef<HTMLTextAreaElement>,
+) => {
   const [value, setValue] = useState('');
   const fieldId = useId();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -24,11 +27,13 @@ const useTextAreaHandles = (ref: React.ForwardedRef<HTMLTextAreaElement>) => {
 
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(() => evt.target?.value);
+    onChange?.(evt);
   };
 
   return {
-    fieldId,
-    textAreaRef,
+    ...props,
+    id: fieldId,
+    ref: textAreaRef,
     value,
     onChange: handleChange,
   };

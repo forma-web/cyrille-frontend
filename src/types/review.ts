@@ -8,3 +8,8 @@ export type TReview = {
     avatar: string | null;
   };
 };
+
+export type TReviewValues = {
+  rating: string | null;
+  comment: string | null;
+};

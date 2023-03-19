@@ -3,17 +3,15 @@ import { useQuery } from '@tanstack/react-query';
 import { reviewsBookFetch } from '@/services/books';
 import ReviewList from '../ReviewList/ReviewList';
 import styles from './BookReviews.module.scss';
-import CyrRatingInput from '@/components/ui/inputs/CyrRatingInput/CyrRatingInput';
-import CyrTextarea from '@/components/ui/inputs/CyrTextarea/CyrTextarea';
+import ReviewForm from '@/containers/ReviewForm/ReviewForm';
 
 type TBookReviewsProps = {
   bookId: number | string;
 };
 
 const BookReviews = ({ bookId }: TBookReviewsProps) => {
-  // if (!artists?.length) return null;
   const { isLoading, data: reviews } = useQuery({
-    queryKey: ['reviews', bookId],
+    queryKey: ['reviews', String(bookId)],
     queryFn: () => reviewsBookFetch(bookId!),
   });
 
@@ -23,15 +21,15 @@ const BookReviews = ({ bookId }: TBookReviewsProps) => {
     <>
       <CyrContainer className={styles.reviews}>
         <h4>reviews</h4>
-        <ReviewList reviews={reviews.data} />
+        {reviews.data.length > 0 ? (
+          <ReviewList reviews={reviews.data} />
+        ) : (
+          'No reviews yet'
+        )}
       </CyrContainer>
       <CyrContainer className={styles.reviews}>
         <h4>rate this book</h4>
-        <CyrRatingInput name="test" />
-        <CyrTextarea
-          placeholder="Leave a feedback about this book"
-          maxLength={120}
-        />
+        <ReviewForm bookId={bookId} />
       </CyrContainer>
     </>
   );
