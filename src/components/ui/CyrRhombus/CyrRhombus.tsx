@@ -6,29 +6,23 @@ type TCyrRhombusProps = {
   filled?: number;
 } & React.HTMLAttributes<HTMLElement>;
 
-const CyrRhombus = ({ width = 1, filled = 1, className }: TCyrRhombusProps) => {
+const CyrRhombus = ({ width, filled = 1, className }: TCyrRhombusProps) => {
   return (
     <div
       className={cn(styles.rhombus, className)}
-      style={{ width: width + 'rem' }}
+      style={{ fontSize: width !== undefined ? width + 'rem' : undefined }}
     >
-      <div className={styles.rhombus__inner}>
-        {filled < 1 && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            width="512"
-            height="512"
-            className={styles.rhombus__border}
-          >
-            <path d="M0,0V512H512V0ZM256,468.132,43.868,256,256,43.8679,468.132,256Z" />
-          </svg>
-        )}
-        <div
-          className={styles.rhombus__fill}
-          style={{ width: `${filled * 100}%` }}
-        ></div>
-      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d="M256,0,0,256,256,512,512,256ZM35.6736,256,256,35.6736,476.3264,256,256,476.3264Z" />
+      </svg>
+      <span
+        style={{ width: `${filled * 100}%` }}
+        className={styles.rhombus__fill}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M0 256 256 0l256 256-256 256z" />
+        </svg>
+      </span>
     </div>
   );
 };
