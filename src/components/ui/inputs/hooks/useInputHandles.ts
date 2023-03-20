@@ -28,11 +28,9 @@ const useInputHandles = ({
   return {
     isEmpty,
     isActive,
-    handles: {
-      onChange: handleChange,
-      onFocus: handleFocus,
-      onBlur: handleBlur,
-    },
+    onChange: handleChange,
+    onFocus: handleFocus,
+    onBlur: handleBlur,
   };
 };
 

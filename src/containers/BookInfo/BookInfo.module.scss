@@ -1,0 +1,71 @@
+$header-height: calc(var(--wrapper-padding) * 2 + var(--header-height));
+
+.bookInfo {
+  background-color: var(--gray50);
+  align-items: center;
+  z-index: 1;
+
+  &_header {
+    padding-top: calc(var(--wrapper-padding) + $header-height) !important;
+    margin-top: calc(-1 * $header-height);
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(3.5rem);
+    opacity: 0.36;
+  }
+
+  &__cover {
+    //width: 100%;
+    //aspect-ratio: 1;
+    width: 60%;
+    aspect-ratio: var(--cover-ratio);
+    background-color: var(--gray30);
+    margin: var(--wrapper-padding) 0;
+    position: relative;
+  }
+
+  &__cover img,
+  &__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--wrapper-padding) 0;
+    color: white;
+    row-gap: 2.4rem;
+    position: relative;
+  }
+
+  &__text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.6rem;
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  &__author {
+    color: var(--gray30);
+  }
+
+  &__buttons {
+    margin-top: 0.8rem;
+  }
+}

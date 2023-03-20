@@ -11,23 +11,23 @@ type TBookCarouselItem = {
 
 const BookAccordionItem = ({
   id,
-  title,
+  name,
   authors,
-  coverURL,
+  thumbnail_image,
   changeActive,
   isActive,
 }: TBookCarouselItem) => {
   const [background, setBackground] = useState<null | string>(null);
 
   useEffect(() => {
-    if (!coverURL) return;
+    if (!thumbnail_image) return;
 
     const fac = new FastAverageColor();
 
-    fac.getColorAsync(coverURL).then((color) => {
+    fac.getColorAsync(thumbnail_image).then((color) => {
       setBackground(() => `rgba(${color.value.slice(0, 3).join(', ')}, 0.5`);
     });
-  }, [coverURL]);
+  }, [thumbnail_image]);
 
   return (
     <div
@@ -42,9 +42,9 @@ const BookAccordionItem = ({
           isActive && styles.book__cover_action,
         )}
       >
-        {coverURL && (
+        {thumbnail_image && (
           <>
-            <img src={coverURL} alt="" loading="lazy" />
+            <img src={thumbnail_image} alt="" loading="lazy" />
             <div
               className={styles.book__background}
               style={{ backgroundColor: background ?? '' }}
@@ -53,7 +53,7 @@ const BookAccordionItem = ({
         )}
       </div>
       <div className={styles.book__info}>
-        <h4 className={styles.book__title}>{title}</h4>
+        <h4 className={styles.book__title}>{name}</h4>
         {authors && authors.length && (
           <div className={styles.book__author}>{authors.join(', ')}</div>
         )}

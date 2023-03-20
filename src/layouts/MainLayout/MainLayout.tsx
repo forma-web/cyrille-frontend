@@ -1,11 +1,14 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useMatch } from 'react-router-dom';
 import Header from '@/containers/Header/Header';
 import Layout from '../Layout/Layout';
+import { BOOK_ROUTE } from '@/constants/routers';
 
 const MainLayout = () => {
+  const bookPage = useMatch(BOOK_ROUTE);
+
   return (
     <Layout>
-      <Layout.Header>
+      <Layout.Header white={!!bookPage}>
         <Header />
       </Layout.Header>
       <Layout.Main>

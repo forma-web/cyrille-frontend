@@ -7,7 +7,8 @@ import RequiredAuth from '@/layouts/RequiredAuth';
 import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
 import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
-import { ERoutes } from '@/constants/routers';
+import BookPage from '@/pages/BookPage';
+import { BOOK_ROUTE, ERoutes } from '@/constants/routers';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -27,6 +28,7 @@ const App = () => {
         <Routes>
           <Route path={ERoutes.home} element={<MainLayout />}>
             <Route index element={<HomePage />} />
+            <Route path={BOOK_ROUTE} element={<BookPage />} />
             <Route element={<RequiredAuth />}>
               <Route path={ERoutes.profile} element={<ProfilePage />} />
             </Route>

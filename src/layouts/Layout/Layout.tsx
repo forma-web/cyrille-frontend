@@ -6,14 +6,27 @@ import useSticky from '@/hooks/useSticky';
 const Layout = ({ children }: { children?: React.ReactNode }) => (
   <div className={styles.layout}>{children}</div>
 );
-const LayoutHeader = ({ children }: { children?: React.ReactNode }) => {
+
+const LayoutHeader = ({
+  children,
+  white,
+}: {
+  children?: React.ReactNode;
+  white?: boolean;
+}) => {
   const headerTrigger = useRef<HTMLDivElement>(null);
   const { isSticky } = useSticky(headerTrigger);
 
   return (
     <>
       <div ref={headerTrigger} className="trigger"></div>
-      <header className={cn(styles.header, isSticky && styles.header_sticky)}>
+      <header
+        className={cn(
+          styles.header,
+          isSticky && styles.header_sticky,
+          white && styles.header_white,
+        )}
+      >
         <div className={styles.header__container}>{children}</div>
       </header>
     </>
