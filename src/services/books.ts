@@ -15,10 +15,16 @@ export const bookFetch = async (id: string | number) =>
     method: 'GET',
   });
 
-export const reviewsBookFetch = async (id: string | number) => {
-  return fetchData<TPagination<TReview>>(`${baseUrl}/${id}/reviews`, {
-    method: 'GET',
-  });
+export const reviewsBookFetch = async (
+  id: string | number,
+  cursor: string | null = null,
+) => {
+  return fetchData<TPagination<TReview>>(
+    `${baseUrl}/${id}/reviews?cursor=${cursor}`,
+    {
+      method: 'GET',
+    },
+  );
 };
 
 export const createReviewBookFetch = async (

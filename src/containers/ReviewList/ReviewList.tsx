@@ -1,20 +1,25 @@
 import { TReview } from '@/types/review';
 import Review from '@/components/Review/Review';
 import styles from './ReviewList.module.scss';
+import { InfiniteData } from '@tanstack/react-query';
+import { TPagination } from '@/types/response';
+import React from 'react';
 
 type TPersonListProps = {
-  reviews: TReview[];
+  reviews: InfiniteData<TPagination<TReview>>;
 };
 
 const ReviewList = ({ reviews }: TPersonListProps) => {
-  if (!reviews?.length) return null;
-
   return (
     <ul className={styles.reviews}>
-      {reviews.map((reviewData) => (
-        <li className={styles.reviews__item} key={reviewData.id}>
-          <Review {...reviewData} />
-        </li>
+      {reviews.pages.map(({ data }, index) => (
+        <React.Fragment key={index}>
+          {data.map((reviewData) => (
+            <li className={styles.reviews__item} key={reviewData.id}>
+              <Review {...reviewData} />
+            </li>
+          ))}
+        </React.Fragment>
       ))}
     </ul>
   );
