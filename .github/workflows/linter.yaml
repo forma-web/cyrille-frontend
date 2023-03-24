@@ -1,0 +1,63 @@
+name: Code style and type checking
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+      - '!main'
+
+jobs:
+  style-check:
+    name: Code style checking
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - name: Install npm
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run style check
+        run: npm run prettier:check
+
+    type-check:
+      name: Type checking
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - uses: actions/cache@v3
+          with:
+            path: '**/node_modules'
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        - name: Install npm
+          if: steps.npm-cache.outputs.cache-hit != 'true'
+          run: npm ci
+        - name: Run style check
+          run: npm run type:check
+
+    lint:
+      name: Linting
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - uses: actions/cache@v3
+          with:
+            path: '**/node_modules'
+            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        - name: Install npm
+          if: steps.npm-cache.outputs.cache-hit != 'true'
+          run: npm ci
+        - name: Run style check
+          run: npm run lint:check
