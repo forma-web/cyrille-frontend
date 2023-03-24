@@ -7,7 +7,6 @@ on:
       - master
 
 env:
-  RUNNER_OS: ubuntu-latest
   NODE_VERSION: 18.15.0
   DOCKERFILE: ./build/frontend/Dockerfile
   IMAGE_NAME: ${{ secrets.REGISTRY_USERNAME }}/${{ github.event.repository.name }}
@@ -15,7 +14,7 @@ env:
 jobs:
   code-quality:
     name: Code quality checks
-    runs-on: ${{ env.RUNNER_OS }}
+    runs-on: ubuntu-latest
     strategy:
         matrix:
           command: [prettier, type, lint]
@@ -38,7 +37,7 @@ jobs:
   build-and-push:
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     name: Build and push
-    runs-on: ${{ env.RUNNER_OS }}
+    runs-on: ubuntu-latest
     needs: code-quality
     steps:
       - uses: actions/checkout@v3
