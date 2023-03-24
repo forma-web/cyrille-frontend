@@ -5,6 +5,7 @@ export const enum ERoutes {
   books = 'books',
   login = 'login',
   register = 'sign-up',
+  reader = 'reader',
 }
 
 export const LOGIN_ROUTE = `/${ERoutes.auth}/${ERoutes.login}`;

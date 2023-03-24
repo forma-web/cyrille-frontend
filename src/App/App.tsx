@@ -9,6 +9,8 @@ import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
 import BookPage from '@/pages/BookPage';
 import { BOOK_ROUTE, ERoutes } from '@/constants/routers';
+import BookReader from '@/containers/BookReader/BookReader';
+import ReaderLayout from '@/layouts/ReaderLayout/REaderLayout';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -32,6 +34,9 @@ const App = () => {
             <Route element={<RequiredAuth />}>
               <Route path={ERoutes.profile} element={<ProfilePage />} />
             </Route>
+          </Route>
+          <Route path={ERoutes.reader} element={<ReaderLayout />}>
+            <Route index element={<BookReader />} />
           </Route>
           <Route path={ERoutes.auth} element={<AuthLayout />}>
             <Route index path={ERoutes.login} element={<LoginPage />} />

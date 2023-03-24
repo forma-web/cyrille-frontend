@@ -1,0 +1,20 @@
+.triggerIcon {
+  .border,
+  .background {
+    fill: var(--main-color);
+  }
+
+  .effect {
+    fill: transparent;
+  }
+}
+
+.active {
+  .background {
+    fill: transparent;
+  }
+
+  .effect {
+    fill: var(--main-color);
+  }
+}
