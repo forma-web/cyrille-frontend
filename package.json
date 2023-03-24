@@ -1,17 +1,17 @@
 {
-  "name": "cyrille",
+  "name": "cyrille-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "serve": "vite preview",
     "type:check": "tsc",
     "build:check": "vite build",
-    "prettier:check": "npx prettier --check \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "prettier:check": "prettier --check ./**/*.{js,jsx,ts,tsx,css,md,json}",
+    "prettier:format": "prettier --loglevel warn --write ./**/*.{js,jsx,ts,tsx,css,md,json}",
     "lint:check": "eslint ./src --ext .jsx,.js,.ts,.tsx --ignore-path ./.gitignore",
-    "format": "npx prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore"
   },
   "dependencies": {
@@ -23,7 +23,12 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.5",
     "react-router-dom": "^6.8.2",
-    "vite-plugin-svgr": "^2.4.0"
+    "classnames": "^2.3.2",
+    "vite": "^4.1.0",
+    "vite-plugin-svgr": "^2.4.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "sass": "^1.58.3",
+    "typescript": "^4.9.3"
   },
   "devDependencies": {
     "@types/node": "^18.14.6",
@@ -31,8 +36,6 @@
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
-    "@vitejs/plugin-react": "^3.1.0",
-    "classnames": "^2.3.2",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-import": "^2.27.5",
@@ -40,9 +43,6 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "prettier": "^2.8.4",
-    "sass": "^1.58.3",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "prettier": "^2.8.4"
   }
 }
