@@ -33,17 +33,32 @@ const LayoutHeader = ({
   );
 };
 
-const LayoutMain = ({ children }: { children?: React.ReactNode }) => (
-  <main className={styles.main}>{children}</main>
-);
+const LayoutMain = ({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) => <main className={cn(styles.main, className)}>{children}</main>;
 
-const LayoutFooter = ({ children }: { children?: React.ReactNode }) => {
+const LayoutFooter = ({
+  children,
+  sticky,
+}: {
+  children?: React.ReactNode;
+  sticky?: boolean;
+}) => {
   const footerTrigger = useRef<HTMLDivElement>(null);
   const { isSticky } = useSticky(footerTrigger);
 
   return (
     <>
-      <footer className={cn(styles.footer, isSticky && styles.footer_sticky)}>
+      <footer
+        className={cn(
+          styles.footer,
+          (sticky || isSticky) && styles.footer_sticky,
+        )}
+      >
         <div className={styles.footer__container}>{children}</div>
       </footer>
       <div ref={footerTrigger} className="trigger"></div>

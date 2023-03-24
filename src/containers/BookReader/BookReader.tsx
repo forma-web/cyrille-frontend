@@ -1,11 +1,21 @@
-import '@/assets/styles/reader.scss';
+//import '@/assets/styles/reader.scss';
 import AlbergueContent from '@/containers/AlbergueContent/AlbergueContent';
+import Layout from '@/layouts/Layout/Layout';
+import Progress from '@/containers/Progress/Progress';
+import styles from './BookReader.module.scss';
 
 const BookReader = () => {
   return (
-    <div className="chapter">
-      <AlbergueContent />
-    </div>
+    <Layout>
+      <Layout.Main className={styles.reader}>
+        <div className={styles.reader__content}>
+          <AlbergueContent />
+        </div>
+      </Layout.Main>
+      <Layout.Footer sticky>
+        <Progress />
+      </Layout.Footer>
+    </Layout>
   );
 };
 

@@ -1,0 +1,16 @@
+.reader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    column-fill: auto;
+    column-width: 600px;
+    column-gap: calc(var(--wrapper-padding) * 2);
+    padding: var(--wrapper-padding);
+  }
+}

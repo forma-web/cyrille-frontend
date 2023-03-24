@@ -12,12 +12,12 @@ const AlbergueContent = () => {
   }, []);
 
   return (
-    <>
+    <div className="chapter">
       <div className="chapter__header">
         <h1>1</h1>
         The Coming of the Storm.
       </div>
-      <article>
+      <article className="chapter__body">
         <p>
           The train slowed down for a few minutes, and then, picking up the pace
           leisurely, moved away from the deserted area. Those who remained at
@@ -183,11 +183,11 @@ const AlbergueContent = () => {
         <p>
           The Albergue was formerly reserved for the pilgrims of El Camino, the
           route to the city of Santiago de Compostela. Now the place served as a
-          shelter, as if here,  
+          shelter, as if here,
           <VideoTrigger isActive={active} onClick={handleClick}>
             on the silk sandy
           </VideoTrigger>
-            carpet, we became a little closer to new worlds.
+          carpet, we became a little closer to new worlds.
         </p>
         <p>
           <AudioTrigger isActive={active} onClick={handleClick}>
@@ -214,7 +214,54 @@ const AlbergueContent = () => {
         <p>We will overcome this damage to our essence, to our DNA...</p>
         <p>We will try to start over…</p>
       </article>
-    </>
+      <style scoped>
+        {`.chapter {
+          font-size: 2rem;
+          line-height: 1.2;
+        }
+
+        .chapter__header {
+          display: flex;
+          flex-direction: column;
+          row-gap: 1em;
+          padding: var(--wrapper-padding);
+          padding-bottom: 4rem;
+          text-align: center;
+          font-style: italic;
+          font-weight: 300;
+          color: var(--gray50);
+        }
+
+        .chapter__body {
+          display: flex;
+          flex-direction: column;
+          row-gap: 0.2em;
+        }
+
+        h1 {
+          font-weight: 400;
+          color: black;
+          font-size: 3.2rem;
+          text-transform: uppercase;
+          font-style: normal;
+        }
+
+        p {
+          line-height: 1.44;
+          text-indent: 1em;
+          text-align: justify;
+          hyphens: auto;
+          orphans: 2;
+          widows: 2;
+          hyphenate-character: "-";
+          word-wrap: break-word;
+        }
+
+        p:first-child {
+          text-indent: 0;
+        }`}
+      </style>
+    </div>
   );
 };
 
