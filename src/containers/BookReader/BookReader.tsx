@@ -1,4 +1,3 @@
-//import '@/assets/styles/reader.scss';
 import AlbergueContent from '@/containers/AlbergueContent/AlbergueContent';
 import Layout from '@/layouts/Layout/Layout';
 import Progress from '@/containers/Progress/Progress';
@@ -11,6 +10,7 @@ const BookReader = () => {
         <div className={styles.reader__content}>
           <AlbergueContent />
         </div>
+        <div id="modal-reader" />
       </Layout.Main>
       <Layout.Footer sticky>
         <Progress />

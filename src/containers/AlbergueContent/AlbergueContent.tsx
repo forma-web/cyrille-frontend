@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
-import EffectTrigger from '@/components/triggers/EffectTrigger';
 import AudioTrigger from '@/components/triggers/AudioTrigger';
 import PhotoTrigger from '@/components/triggers/PhotoTrigger';
 import VideoTrigger from '@/components/triggers/VideoTrigger';
+import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
 
 const AlbergueContent = () => {
   const [active, setActive] = useState(false);
@@ -27,10 +27,10 @@ const AlbergueContent = () => {
         <p>
           The September sun was still benign, but with sunset a chill descended,
           and the group did not slow down.
-          <EffectTrigger isActive={active} onClick={handleClick}>
+          <AlbergueRainAnimation>
             However, after crossing the small strip of dunes, each of the group
             stopped involuntarily.
-          </EffectTrigger>
+          </AlbergueRainAnimation>
         </p>
         <p>
           The carefully glazed dome-shaped houses were arranged in a friendly
@@ -235,7 +235,7 @@ const AlbergueContent = () => {
         .chapter__body {
           display: flex;
           flex-direction: column;
-          row-gap: 0.2em;
+          row-gap: 0.em;
         }
 
         h1 {
