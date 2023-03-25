@@ -7,7 +7,7 @@ const BACKGROUND = 'white';
 const INCLINE = 3;
 const VERTICAL_SPEED_PARTICLE = 3;
 
-const MASK_IMAGE_URL = './images/albergue/rain-mask.jpg';
+const MASK_IMAGE_URL = './albergue/rain-mask.jpg';
 
 type TCanvasProps = {
   canvas: HTMLCanvasElement;
