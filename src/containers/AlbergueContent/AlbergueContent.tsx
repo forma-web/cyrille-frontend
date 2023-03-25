@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
-import PhotoTrigger from '@/components/triggers/PhotoTrigger';
 import VideoTrigger from '@/components/triggers/VideoTrigger';
 import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
+import AlbergueModalPhoto from '../../components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
 
 const AlbergueContent = () => {
   const [active, setActive] = useState(false);
@@ -19,6 +19,10 @@ const AlbergueContent = () => {
       </div>
       <article className="chapter__body">
         <p>
+          <AlbergueModalPhoto>
+            “We human beings are still divided into nation states, but these
+            states are rapidly becoming a single global civilization.”
+          </AlbergueModalPhoto>
           The train slowed down for a few minutes, and then, picking up the pace
           leisurely, moved away from the deserted area. Those who remained at
           the small station walked silently down the only path that led to the
@@ -200,10 +204,10 @@ const AlbergueContent = () => {
         <p>
           Stingray thought of Jimmy Carter&apos;s words from a message to
           extraterrestrial civilizations:
-          <PhotoTrigger isActive={active} onClick={handleClick}>
+          <AlbergueModalPhoto>
             “We human beings are still divided into nation states, but these
             states are rapidly becoming a single global civilization.”
-          </PhotoTrigger>
+          </AlbergueModalPhoto>
         </p>
         <p>
           One civilization, but no longer here, not on Earth. There is one more

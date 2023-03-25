@@ -1,0 +1,9 @@
+.photoModal {
+  padding: var(--wrapper-padding);
+  position: relative;
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+  }
+}
