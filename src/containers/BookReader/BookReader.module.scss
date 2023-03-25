@@ -12,5 +12,6 @@
     column-width: 600px;
     column-gap: calc(var(--wrapper-padding) * 2);
     padding: var(--wrapper-padding);
+    overflow: hidden;
   }
 }

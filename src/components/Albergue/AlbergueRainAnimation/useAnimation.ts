@@ -229,7 +229,7 @@ export default () => {
 
   const startAnimation = useCallback(() => {
     if (!modalRoot) {
-      setModalRoot(() => document.getElementById('modal-reader'));
+      setModalRoot(() => document.getElementById('modal-main'));
     }
     setActive(() => true);
   }, [modalRoot]);

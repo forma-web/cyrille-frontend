@@ -10,7 +10,6 @@ const BookReader = () => {
         <div className={styles.reader__content}>
           <AlbergueContent />
         </div>
-        <div id="modal-reader" />
       </Layout.Main>
       <Layout.Footer sticky>
         <Progress />

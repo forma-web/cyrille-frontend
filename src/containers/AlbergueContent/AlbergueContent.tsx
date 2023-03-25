@@ -1,9 +1,7 @@
 import { useCallback, useState } from 'react';
-import AudioTrigger from '@/components/triggers/AudioTrigger';
 import PhotoTrigger from '@/components/triggers/PhotoTrigger';
 import VideoTrigger from '@/components/triggers/VideoTrigger';
 import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
-import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
 
 const AlbergueContent = () => {
@@ -21,13 +19,11 @@ const AlbergueContent = () => {
       </div>
       <article className="chapter__body">
         <p>
-          <AlbergueAudio>The train slowed down for</AlbergueAudio>
           The train slowed down for a few minutes, and then, picking up the pace
           leisurely, moved away from the deserted area. Those who remained at
           the small station walked silently down the only path that led to the
           relocant settlement.
         </p>
-        <AlbergueSwitchImage />
         <p>
           The September sun was still benign, but with sunset a chill descended,
           and the group did not slow down.
@@ -194,9 +190,7 @@ const AlbergueContent = () => {
           carpet, we became a little closer to new worlds.
         </p>
         <p>
-          <AudioTrigger isActive={active} onClick={handleClick}>
-            Stingray looked up at the sky again.
-          </AudioTrigger>
+          <AlbergueAudio>Stingray looked up at the sky again.</AlbergueAudio>
         </p>
         <p>
           A swarm of satellites hovered over his head; the thousand-year-old

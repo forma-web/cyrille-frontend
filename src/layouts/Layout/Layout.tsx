@@ -39,7 +39,12 @@ const LayoutMain = ({
 }: {
   children?: React.ReactNode;
   className?: string;
-}) => <main className={cn(styles.main, className)}>{children}</main>;
+}) => (
+  <main className={cn(styles.main, className)}>
+    <div id="modal-main" />
+    <div className={styles.main__container}>{children}</div>
+  </main>
+);
 
 const LayoutFooter = ({
   children,

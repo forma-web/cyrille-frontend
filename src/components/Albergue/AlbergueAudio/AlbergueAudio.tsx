@@ -1,4 +1,4 @@
-import { PropsWithChildren, useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import AudioTrigger from '@/components/triggers/AudioTrigger';
 
@@ -8,7 +8,7 @@ const AlbergueAudio = ({ children }: { children?: React.ReactNode }) => {
 
   const handleClick = useCallback(() => {
     if (!modalRoot) {
-      setModalRoot(() => document.getElementById('modal-reader'));
+      setModalRoot(() => document.getElementById('modal-main'));
     }
     setActive((prev) => !prev);
   }, [modalRoot]);

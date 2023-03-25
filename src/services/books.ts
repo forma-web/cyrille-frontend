@@ -3,7 +3,7 @@ import { TPagination, TResponse } from '@/types/response';
 import { TBook, TBookResponse } from '@/types/book';
 import { TReview, TReviewValues } from '@/types/review';
 
-const baseUrl = `${import.meta.env.VITE_API_PATH}/books`;
+const baseUrl = `${import.meta.env.VITE_API_URL}/books`;
 
 export const allBooksFetch = async () =>
   fetchData<TPagination<TBook>>(baseUrl, {
