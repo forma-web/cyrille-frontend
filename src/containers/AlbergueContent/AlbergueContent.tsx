@@ -3,6 +3,7 @@ import AudioTrigger from '@/components/triggers/AudioTrigger';
 import PhotoTrigger from '@/components/triggers/PhotoTrigger';
 import VideoTrigger from '@/components/triggers/VideoTrigger';
 import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
+import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
 
 const AlbergueContent = () => {
   const [active, setActive] = useState(false);
@@ -24,6 +25,7 @@ const AlbergueContent = () => {
           the small station walked silently down the only path that led to the
           relocant settlement.
         </p>
+        <AlbergueSwitchImage />
         <p>
           The September sun was still benign, but with sunset a chill descended,
           and the group did not slow down.
@@ -235,7 +237,7 @@ const AlbergueContent = () => {
         .chapter__body {
           display: flex;
           flex-direction: column;
-          row-gap: 0.em;
+          row-gap: 0.4em;
         }
 
         h1 {

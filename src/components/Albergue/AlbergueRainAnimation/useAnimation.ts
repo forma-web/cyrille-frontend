@@ -276,22 +276,17 @@ export default () => {
     });
 
     requestIdRef.current = requestAnimationFrame(animateCanvas);
-  }, [animateCanvas]);
-
-  const initMaskImage = useCallback(async () => {
-    if (!maskImageRef.current) return;
-    await maskImageRef.current.init();
   }, []);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active || !canvasData) return;
 
     initCanvas();
 
     return () => {
       cancelAnimationFrame(requestIdRef.current!);
     };
-  }, [active, initCanvas]);
+  }, [active, animateCanvas, canvasData]);
 
   return {
     canvasRef,

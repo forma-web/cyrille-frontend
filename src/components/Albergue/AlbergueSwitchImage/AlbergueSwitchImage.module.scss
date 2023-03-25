@@ -1,0 +1,17 @@
+.switchImages {
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    position: absolute;
+  }
+
+  &__image_hide {
+    opacity: 0;
+  }
+}
