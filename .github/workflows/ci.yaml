@@ -80,10 +80,11 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
           message: |
-            Repository: ${{ github.repository }}
-            Branch: ${{ github.ref }}
-            Initiator: ${{ github.actor }}
+            Repository: *${{ github.repository }}*
+            Branch: *${{ github.ref }}*
+            Initiator: *${{ github.actor }}*
             
             Image ${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }} is ready
             to be deployed to staging 👀
@@ -116,11 +117,11 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
           message: |
-            Repository: ${{ github.repository }}
-            Branch: ${{ github.ref }}
-            Initiator: ${{ github.actor }}
-            Image ${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+            Repository: *${{ github.repository }}*
+            Branch: *${{ github.ref }}*
+            Initiator: *${{ github.actor }}*
             
-            ${ job.status == 'success' && 'successfully' || 'unsuccessfully' } deployed to staging
-            ${ job.status == 'success' && '🚀' || '🤯' }
+            ${{ job.status == 'success' && 'successfully' || 'unsuccessfully' }} deployed to staging
+            ${{ job.status == 'success' && '🚀' || '🤯' }}
