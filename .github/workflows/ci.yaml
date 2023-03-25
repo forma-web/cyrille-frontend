@@ -73,7 +73,7 @@ jobs:
     needs: build-and-push
     steps:
       - name: Notify
-        uses: appleboy/telegram-action@0.1.1
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
