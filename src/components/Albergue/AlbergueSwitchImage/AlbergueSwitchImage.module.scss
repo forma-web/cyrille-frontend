@@ -3,6 +3,13 @@
   aspect-ratio: 1/1;
   position: relative;
 
+  &__toggle {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
+  }
+
   img {
     width: 100%;
     height: 100%;
