@@ -1,3 +1,4 @@
+import CyrRangeInput from '@/components/ui/inputs/CyrRangeInput/CyrRangeInput';
 import styles from './Progress.module.scss';
 
 const Progress = () => {
@@ -5,7 +6,7 @@ const Progress = () => {
     <div className={styles.progress}>
       <span className={styles.progress__percent}>1%</span>
       <div className={styles.progress__bar}>
-        <input type="range" step="any" className={styles.progress__input} />
+        <CyrRangeInput />
       </div>
       <div className={styles.progress__chapter}>
         <span className={styles.chapter__name}>Chapter 1</span>
