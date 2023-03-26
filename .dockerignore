@@ -18,6 +18,11 @@ lerna-debug.log*
 *.sln
 *.sw?
 
+# Build output
+dist
+build
+temp
+
 # Environment
 .env
 .env.local
