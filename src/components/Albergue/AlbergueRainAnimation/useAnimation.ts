@@ -94,8 +94,6 @@ class Canvas {
     this.particlesArray = this.getParticlesArray();
     this.mappedImage = mappedImage;
     this.handleShow = setActive;
-    this.canvas.width = this.canvas.clientWidth;
-    this.canvas.height = this.canvas.clientHeight;
   }
 
   getParticlesArray = () => {
@@ -253,6 +251,7 @@ export default () => {
       if (requestIdRef.current) {
         cancelAnimationFrame(requestIdRef.current);
         requestIdRef.current = null;
+        startRef.current = null;
       }
     }
   }, []);
@@ -264,6 +263,9 @@ export default () => {
     if (!canvas || !ctx) {
       return;
     }
+
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
 
     maskImageRef.current = new MaskImage({ canvas, ctx });
     await maskImageRef.current.init();
@@ -285,8 +287,10 @@ export default () => {
 
     return () => {
       cancelAnimationFrame(requestIdRef.current!);
+      requestIdRef.current = null;
+      startRef.current = null;
     };
-  }, [active, animateCanvas, canvasData]);
+  }, [active, canvasData, initCanvas]);
 
   return {
     canvasRef,
