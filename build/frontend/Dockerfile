@@ -13,6 +13,11 @@ RUN npm ci --production && npm run build
 
 FROM nginx:${NGINX_VERSION}
 
-WORKDIR /app
-
 COPY --from=builder --chown=nginx:nginx /deps/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+# docker build -t frontend --build-arg VITE_API_URL=http://localhost:3000 -f ./build/frontend/Dockerfile .
+# docker run -p 8080:80 frontend
+
+
