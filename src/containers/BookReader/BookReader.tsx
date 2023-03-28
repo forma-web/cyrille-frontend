@@ -2,11 +2,11 @@ import AlbergueContent from '@/containers/AlbergueContent/AlbergueContent';
 import Layout from '@/layouts/Layout/Layout';
 import Progress from '@/containers/Progress/Progress';
 import styles from './BookReader.module.scss';
-import usePages from '@/hooks/usePages';
+import useBookReader from '@/hooks/useBookReader';
 
 const BookReader = () => {
   const { readerRef, currentPage, readerPosition, totalPages, changePage } =
-    usePages();
+    useBookReader();
 
   return (
     <Layout>

@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 const usePages = () => {
   const readerContentRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalChapterPages, setTotalChapterPages] = useState(0);
   const [widthPage, setWidthPage] = useState(0);
 
   const readerPosition = useMemo(
@@ -16,7 +16,7 @@ const usePages = () => {
 
     if (readerContent) {
       const { scrollWidth, clientWidth } = readerContent;
-      setTotalPages(() => Math.ceil(scrollWidth / clientWidth));
+      setTotalChapterPages(() => Math.ceil(scrollWidth / clientWidth));
       setWidthPage(() => clientWidth);
     }
   };
@@ -39,7 +39,7 @@ const usePages = () => {
   }, [readerContentRef]);
 
   const nextPage = () => {
-    if (currentPage < totalPages) {
+    if (currentPage < totalChapterPages) {
       setCurrentPage((prev) => prev + 1);
     }
   };
@@ -70,7 +70,7 @@ const usePages = () => {
     readerRef: readerContentRef,
     readerPosition,
     currentPage,
-    totalPages,
+    totalChapterPages,
     changePage,
   };
 };
