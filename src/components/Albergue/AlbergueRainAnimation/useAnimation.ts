@@ -278,7 +278,7 @@ export default () => {
     });
 
     requestIdRef.current = requestAnimationFrame(animateCanvas);
-  }, []);
+  }, [animateCanvas]);
 
   useEffect(() => {
     if (!active || !canvasData) return;

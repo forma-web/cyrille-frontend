@@ -17,6 +17,11 @@ const AlbergueRainAnimation = ({ children }: TAlbergueRainAnimationProps) => {
     modalRoot,
   } = useAnimation();
 
+  const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    e.stopPropagation();
+    cancelAnimation();
+  };
+
   return (
     <>
       <EffectTrigger isActive={activeAnimation} onClick={startAnimation}>
@@ -28,7 +33,7 @@ const AlbergueRainAnimation = ({ children }: TAlbergueRainAnimationProps) => {
           <canvas
             ref={canvasRef}
             className={styles.canvas}
-            onClick={cancelAnimation}
+            onClick={handleClick}
           />,
           modalRoot,
         )}

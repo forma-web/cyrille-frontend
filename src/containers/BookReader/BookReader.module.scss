@@ -15,3 +15,23 @@
     overflow: hidden;
   }
 }
+
+.embed {
+  position: relative;
+}
+
+.pagination {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+
+  &_back {
+    left: 0;
+  }
+
+  &_forward {
+    right: 0;
+  }
+}

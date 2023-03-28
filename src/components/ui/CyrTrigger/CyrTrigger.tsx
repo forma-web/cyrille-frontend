@@ -9,8 +9,13 @@ const CyrTrigger = ({
 }: TCyrTriggerProps) => {
   const icon = renderIcon ? renderIcon(isActive) : null;
 
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+    e.stopPropagation();
+    onClick && onClick();
+  };
+
   return (
-    <span className={styles.trigger} onClick={onClick}>
+    <span className={styles.trigger} onClick={handleClick}>
       {icon}
       {children}
     </span>
