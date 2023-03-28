@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import VideoTrigger from '@/components/triggers/VideoTrigger';
 import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
-import AlbergueModalPhoto from '../../components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
+import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
+import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
 
 const AlbergueContent = () => {
   const [active, setActive] = useState(false);
@@ -19,10 +20,6 @@ const AlbergueContent = () => {
       </div>
       <article className="chapter__body">
         <p>
-          <AlbergueModalPhoto>
-            “We human beings are still divided into nation states, but these
-            states are rapidly becoming a single global civilization.”
-          </AlbergueModalPhoto>
           The train slowed down for a few minutes, and then, picking up the pace
           leisurely, moved away from the deserted area. Those who remained at
           the small station walked silently down the only path that led to the
@@ -57,6 +54,7 @@ const AlbergueContent = () => {
           where the lull was expected. The next phase of multipolar wars changed
           these points, as if in a kaleidoscope, reshaping maps and destinies.
         </p>
+        <AlbergueSwitchImage />
         <p>
           As they descended the velvet dunes, people went to their new, albeit
           temporary homes. They were met with the encouraging greeting on a
@@ -132,18 +130,13 @@ const AlbergueContent = () => {
           wanderer. “We are the children of the planet-wanderer. We ourselves
           are wanderers.”
         </p>
+        <img src="./albergue/man.jpg" />
         <p>
-          “Somewhere up there in the starry sky our new home and our new hope
-          are found,” Stingray thought. Lifting his head, he put his face to the
-          hot jets of water that warmed him like the rays of a new sun. In the
-          golden glow of the house&apos;s interior light, it was as if he were
-          floating; he was already a new man. “Perhaps, by breaking away from
-          the earth, by flying away from it, we will also overcome the original
-          evil within ourselves that pulls us into the vortex with the
-          relentless gravity of its grim spiral,” Stingray pondered. He
-          remembered a course in ancient Greek: planet — πλανήτης — traveler,
-          wanderer. “We are the children of the planet-wanderer. We ourselves
-          are wanderers.”
+          The click of the alarm brought Stingray out of his reflections — the
+          day&apos;s water limit was about to run out in ten minutes. After
+          drying himself off, he brewed a drip coffee and pulled out the
+          ambrosifier, his indispensable companion in relocations. Then he sat
+          down in a chair, pressed a button, and closed his eyes.
         </p>
         <p>
           The smells of the spring still cold, but full of life, spilled out

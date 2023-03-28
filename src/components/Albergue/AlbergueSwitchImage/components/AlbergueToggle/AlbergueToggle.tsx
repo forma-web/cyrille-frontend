@@ -17,8 +17,13 @@ const AlbergueToggle = ({
     className,
   );
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    onClick();
+  };
+
   return (
-    <button className={classNames} onClick={onClick}>
+    <button type="button" className={classNames} onClick={handleClick}>
       <div className={styles.toggle__circle}>
         <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
           {isActive ? (

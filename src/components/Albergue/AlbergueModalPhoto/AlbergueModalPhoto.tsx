@@ -28,10 +28,9 @@ const AlbergueModalPhoto = ({ children }: { children?: React.ReactNode }) => {
         open &&
         createPortal(
           <CyrModal onClose={closePopup} className={styles.photoModal}>
-            <img
-              src="./albergue/sand-day.jpg"
-              className={styles.photoModal__image}
-            />
+            <div className={styles.photoModal__image}>
+              <img src="./albergue/carter.png" />
+            </div>
           </CyrModal>,
           modalRoot,
         )}
