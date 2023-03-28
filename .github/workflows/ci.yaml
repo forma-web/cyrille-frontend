@@ -68,7 +68,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             VITE_API_URL=${{ env.STAGING_API_URL }}
-            VITE_API_PATH=${{ env.STAGING_API_URL }} # TODO: remove this line, only for compatibility with old code
+            VITE_API_PATH=${{ env.STAGING_API_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 

@@ -3,7 +3,7 @@ ARG NGINX_VERSION=1.23.3-alpine
 
 FROM node:${NODE_VERSION} AS builder
 
-# TODO: remove line below, only for compatibility with old code
+# TODO: remove line below, only for compatibility with old code, also in ci.yaml
 ARG VITE_API_PATH
 ARG VITE_API_URL
 
