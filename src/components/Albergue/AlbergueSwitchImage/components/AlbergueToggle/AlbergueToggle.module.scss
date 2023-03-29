@@ -1,0 +1,36 @@
+$circle-size: 2.4rem;
+$toggle-padding: 0.1rem;
+$toggle-border: 0.1rem;
+$toggle-translate: 2rem;
+
+$toggle-height: $circle-size + $toggle-padding * 2 + $toggle-border * 2;
+$toggle-width: $toggle-translate + $toggle-height;
+
+.toggle {
+  color: var(--main-color);
+  cursor: pointer;
+  position: relative;
+  width: $toggle-width;
+  height: $toggle-height;
+  padding: $toggle-padding;
+  border: $toggle-border solid currentColor;
+  border-radius: calc($toggle-height / 2);
+
+  &__circle {
+    transition: transform var(--animation-time) ease;
+    width: $circle-size;
+    height: $circle-size;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  &_active {
+    .toggle__circle {
+      transform: translateX($toggle-translate);
+    }
+  }
+}

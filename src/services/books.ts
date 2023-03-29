@@ -2,8 +2,9 @@ import { fetchData, fetchDataWithAuth } from '@/utils/fetch';
 import { TPagination, TResponse } from '@/types/response';
 import { TBook, TBookResponse } from '@/types/book';
 import { TReview, TReviewValues } from '@/types/review';
+import { TChapterInfoResponse } from '@/types/chapter';
 
-const baseUrl = `${import.meta.env.VITE_API_PATH}/books`;
+const baseUrl = `${import.meta.env.VITE_API_URL}/books`;
 
 export const allBooksFetch = async () =>
   fetchData<TPagination<TBook>>(baseUrl, {
@@ -35,4 +36,22 @@ export const createReviewBookFetch = async (
     method: 'POST',
     body: JSON.stringify(data),
   });
+};
+
+export const allBookChaptersFetch = async (id: string | number) => {
+  return fetchData<TChapterInfoResponse>(`${baseUrl}/${id}/chapters`, {
+    method: 'GET',
+  });
+};
+
+export const bookChapterFetch = async (
+  id: string | number,
+  chapterId: string | number,
+) => {
+  return fetchData<TChapterInfoResponse>(
+    `${baseUrl}/${id}/chapters/${chapterId}`,
+    {
+      method: 'GET',
+    },
+  );
 };

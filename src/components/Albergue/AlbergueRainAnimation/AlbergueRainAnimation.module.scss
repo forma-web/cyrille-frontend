@@ -1,0 +1,23 @@
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  max-width: var(--max-width);
+  height: 100%;
+  background-color: transparent;
+  mix-blend-mode: multiply;
+  animation: rain 2s linear;
+  animation-delay: 8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rain {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,29 @@
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  row-gap: 0.4rem;
+  font-size: 1.2rem;
+
+  &__percent {
+    color: var(--gray50);
+  }
+
+  &__bar {
+    width: 100%;
+    display: flex;
+  }
+
+  &__chapter {
+    width: 100%;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .chapter__name {
+      color: var(--gray50);
+    }
+  }
+}
