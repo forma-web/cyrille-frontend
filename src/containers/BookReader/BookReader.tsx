@@ -8,7 +8,15 @@ import { useParams } from 'react-router-dom';
 const BookReader = () => {
   const { bookId } = useParams();
 
-  const { readerRef, readerPosition, changePage } = useBookReader(bookId!);
+  const {
+    readerRef,
+    readerPosition,
+    changePage,
+    progress,
+    totalStep,
+    currentPage,
+    totalPages,
+  } = useBookReader(bookId!);
 
   return (
     <Layout>
@@ -28,9 +36,16 @@ const BookReader = () => {
           </section>
         </div>
       </Layout.Main>
-      <Layout.Footer sticky>
-        <Progress />
-      </Layout.Footer>
+      {progress !== null && (
+        <Layout.Footer sticky>
+          <Progress
+            progress={progress}
+            totalStep={totalStep}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
+        </Layout.Footer>
+      )}
     </Layout>
   );
 };

@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './CyrRangeInput.module.scss';
 
-const CyrRangeInput = () => {
-  const [value, setValue] = useState(0);
+type TCyrRangeInput = {
+  currentValue: number;
+  step: number | null;
+};
+
+const CyrRangeInput = ({ currentValue, step }: TCyrRangeInput) => {
+  const [value, setValue] = useState(currentValue);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -19,11 +24,12 @@ const CyrRangeInput = () => {
     <input
       ref={inputRef}
       type="range"
-      step="any"
+      step={step !== null ? step : 'any'}
       className={styles.range__input}
       style={{
         background: `linear-gradient(to right, var(--black-color) ${value}%, var(--gray30) ${value}%)`,
       }}
+      value={value}
       onChange={handleChange}
     />
   );
