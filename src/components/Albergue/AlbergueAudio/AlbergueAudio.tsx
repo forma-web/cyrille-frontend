@@ -22,7 +22,7 @@ const AlbergueAudio = ({ children }: { children?: React.ReactNode }) => {
         active &&
         createPortal(
           <audio
-            src="./albergue/track.mp3"
+            src="../albergue/track.mp3"
             autoPlay
             onEnded={() => setActive(() => false)}
           />,

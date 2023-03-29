@@ -130,7 +130,7 @@ const AlbergueContent = () => {
           wanderer. “We are the children of the planet-wanderer. We ourselves
           are wanderers.”
         </p>
-        <img src="./albergue/man.jpg" />
+        <img src="../albergue/man.jpg" />
         <p>
           The click of the alarm brought Stingray out of his reflections — the
           day&apos;s water limit was about to run out in ten minutes. After
@@ -209,7 +209,7 @@ const AlbergueContent = () => {
         <p>We will overcome this damage to our essence, to our DNA...</p>
         <p>We will try to start over…</p>
       </article>
-      <style scoped>
+      <style>
         {`.chapter {
           font-size: 2rem;
           line-height: 1.2;

@@ -15,9 +15,9 @@ const AlbergueSwitchImage = () => {
       <div className={styles.switchImages__toggle}>
         <AlbergueToggle isActive={active} onClick={handleToggle} />
       </div>
-      <img src="./albergue/sand-night.jpg" />
+      <img src="../albergue/sand-night.jpg" />
       <img
-        src="./albergue/sand-day.jpg"
+        src="../albergue/sand-day.jpg"
         className={cn(active && styles.switchImages__image_hide)}
       />
     </div>

@@ -1,5 +1,5 @@
 import usePages from './usePages';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TChapterInfo } from '@/types/chapter';
 import { useQuery } from '@tanstack/react-query';
 import { allBookChaptersFetch } from '@/services/books';
