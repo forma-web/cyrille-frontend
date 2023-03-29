@@ -3,10 +3,12 @@ import Layout from '@/layouts/Layout/Layout';
 import Progress from '@/containers/Progress/Progress';
 import styles from './BookReader.module.scss';
 import useBookReader from '@/hooks/useBookReader';
+import { useParams } from 'react-router-dom';
 
 const BookReader = () => {
-  const { readerRef, currentPage, readerPosition, totalPages, changePage } =
-    useBookReader();
+  const { bookId } = useParams();
+
+  const { readerRef, readerPosition, changePage } = useBookReader(bookId!);
 
   return (
     <Layout>

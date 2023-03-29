@@ -1,6 +1,8 @@
 import usePages from './usePages';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { TChapterInfo } from '../types/chapter';
+import { TChapterInfo } from '@/types/chapter';
+import { useQuery } from '@tanstack/react-query';
+import { allBookChaptersFetch } from '@/services/books';
 
 type TChapterData = TChapterInfo & {
   progress: [number, number];
@@ -8,57 +10,29 @@ type TChapterData = TChapterInfo & {
   prevChapter: number | null;
 };
 
-const CHAPTERS_DATA = {
-  data: [
-    {
-      id: 1,
-      order: 1,
-      name: 'Chapter 1',
-      content_length: 498,
-    },
-    {
-      id: 2,
-      order: 2,
-      name: 'Chapter 2',
-      content_length: 124,
-    },
-    {
-      id: 3,
-      order: 3,
-      name: 'Chapter 3',
-      content_length: 262,
-    },
-    {
-      id: 4,
-      order: 4,
-      name: 'Chapter 4',
-      content_length: 2202,
-    },
-  ],
-};
-
-const useBookReader = () => {
-  const {
-    readerRef,
-    currentPage,
-    readerPosition,
-    totalChapterPages,
-    changePage,
-  } = usePages();
-
-  const [currentChapter, setCurrentChapter] = useState<number | null>(null);
+const useChaptersData = (bookId: string) => {
   const [chapters, setChapters] = useState<Record<number, TChapterData>>({});
-  const [orderedChapters, setOrderedChapters] = useState<number[]>([]);
+  const [orderChapters, setOrderChapters] = useState<number[]>([]);
+
+  const { data: chaptersResponse } = useQuery({
+    queryKey: ['books', bookId, 'chapters', 'all'],
+    queryFn: () => allBookChaptersFetch(bookId),
+  });
 
   useEffect(() => {
-    const { data: chaptersData } = CHAPTERS_DATA;
+    if (!chaptersResponse) {
+      return;
+    }
+
+    const { data: chaptersData } = chaptersResponse;
+
     chaptersData.sort((a, b) => a.order - b.order);
 
     const totalContentLength = chaptersData.reduce((acc, chapter) => {
       return acc + chapter.content_length;
     }, 0);
 
-    setOrderedChapters(() => chaptersData.map((chapter) => chapter.id));
+    setOrderChapters(() => chaptersData.map((chapter) => chapter.id));
     setChapters(() => {
       const newChapterData: Record<number, TChapterData> = {};
       let currentContentLength = 0;
@@ -92,14 +66,35 @@ const useBookReader = () => {
 
       return newChapterData;
     });
-  }, []);
+  }, [chaptersResponse]);
+
+  return {
+    chapters,
+    orderChapters,
+  };
+};
+
+const useBookReader = (bookId: string) => {
+  const readerRef = useRef<HTMLDivElement>(null);
+  const [currentPage, setCurrentPage] = useState<number | null>(null);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
+  const [chapterId, setChapterId] = useState<number | null>(null);
+
+  const { readerPosition, changePage } = usePages({
+    readerRef,
+    currentPage,
+    totalPages,
+    setCurrentPage,
+    setTotalPages,
+  });
+  const { chapters, orderChapters } = useChaptersData(bookId);
 
   return {
     readerRef,
-    currentPage,
     readerPosition,
-    totalPages: totalChapterPages,
     changePage,
+    currentPage,
+    totalPages,
   };
 };
 

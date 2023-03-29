@@ -11,3 +11,4 @@ export const enum ERoutes {
 export const LOGIN_ROUTE = `/${ERoutes.auth}/${ERoutes.login}`;
 export const REGISTER_ROUTE = `/${ERoutes.auth}/${ERoutes.register}`;
 export const BOOK_ROUTE = `/${ERoutes.books}/:bookId`;
+export const READER_ROUTE = `/${ERoutes.reader}/:bookId`;

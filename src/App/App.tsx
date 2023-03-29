@@ -8,7 +8,7 @@ import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
 import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
 import BookPage from '@/pages/BookPage';
-import { BOOK_ROUTE, ERoutes } from '@/constants/routers';
+import { BOOK_ROUTE, ERoutes, READER_ROUTE } from '@/constants/routers';
 import BookReader from '@/containers/BookReader/BookReader';
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
               <Route path={ERoutes.profile} element={<ProfilePage />} />
             </Route>
           </Route>
-          <Route path={ERoutes.reader} element={<BookReader />} />
+          <Route path={READER_ROUTE} element={<BookReader />} />
           <Route path={ERoutes.auth} element={<AuthLayout />}>
             <Route index path={ERoutes.login} element={<LoginPage />} />
             <Route path={ERoutes.register} element={<RegisterPage />} />

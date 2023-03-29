@@ -1,28 +1,39 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
-const usePages = () => {
-  const readerContentRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalChapterPages, setTotalChapterPages] = useState(0);
+type TUsePages = {
+  readerRef: React.RefObject<HTMLDivElement>;
+  currentPage: number | null;
+  totalPages: number | null;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number | null>>;
+  setTotalPages: React.Dispatch<React.SetStateAction<number | null>>;
+};
+
+const usePages = ({
+  readerRef,
+  currentPage,
+  totalPages,
+  setCurrentPage,
+  setTotalPages,
+}: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
 
   const readerPosition = useMemo(
-    () => `-${widthPage * (currentPage - 1)}px`,
+    () => `-${widthPage * (currentPage ?? 1 - 1)}px`,
     [currentPage, widthPage],
   );
 
-  const calcPages = () => {
-    const readerContent = readerContentRef.current;
+  const calcPages = useCallback(() => {
+    const readerContent = readerRef.current;
 
     if (readerContent) {
       const { scrollWidth, clientWidth } = readerContent;
-      setTotalChapterPages(() => Math.ceil(scrollWidth / clientWidth));
+      setTotalPages(() => Math.ceil(scrollWidth / clientWidth));
       setWidthPage(() => clientWidth);
     }
-  };
+  }, [readerRef, setTotalPages]);
 
   useEffect(() => {
-    const readerContent = readerContentRef.current;
+    const readerContent = readerRef.current;
 
     if (!readerContent) {
       return;
@@ -36,23 +47,27 @@ const usePages = () => {
     return () => {
       ro.unobserve(readerContent);
     };
-  }, [readerContentRef]);
+  }, [calcPages, readerRef]);
 
   const nextPage = () => {
-    if (currentPage < totalChapterPages) {
-      setCurrentPage((prev) => prev + 1);
+    if (currentPage! < totalPages!) {
+      setCurrentPage((prev) => prev ?? 0 + 1);
     }
   };
 
   const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
+    if (currentPage! > 1) {
+      setCurrentPage((prev) => prev ?? 1 - 1);
     }
   };
 
   const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
     const { offsetX } = e.nativeEvent;
     const { clientWidth } = e.currentTarget;
+
+    if (currentPage === null) {
+      return;
+    }
 
     if (offsetX - widthPage * (currentPage - 1) < clientWidth / 4) {
       prevPage();
@@ -67,10 +82,7 @@ const usePages = () => {
   };
 
   return {
-    readerRef: readerContentRef,
     readerPosition,
-    currentPage,
-    totalChapterPages,
     changePage,
   };
 };
