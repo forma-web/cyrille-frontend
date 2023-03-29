@@ -15,6 +15,7 @@ RUN npm ci --production && npm run build
 
 FROM nginx:${NGINX_VERSION}
 
+COPY build/frontend/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder --chown=nginx:nginx /deps/dist /usr/share/nginx/html
 
 EXPOSE 80
