@@ -1,9 +1,9 @@
-import AlbergueContent from '@/containers/AlbergueContent/AlbergueContent';
 import Layout from '@/layouts/Layout/Layout';
 import Progress from '@/containers/Progress/Progress';
 import styles from './BookReader.module.scss';
 import useBookReader from '@/hooks/useBookReader';
 import { useParams } from 'react-router-dom';
+import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
 
 const BookReader = () => {
   const { bookId } = useParams();
@@ -16,6 +16,8 @@ const BookReader = () => {
     totalStep,
     currentPage,
     totalPages,
+    readerContent,
+    isLoading,
   } = useBookReader(bookId!);
 
   return (
@@ -26,26 +28,24 @@ const BookReader = () => {
           ref={readerRef}
           onClick={changePage}
         >
+          {isLoading && <CyrLoader />}
           <section
             className={styles.embed}
             style={{
               left: readerPosition,
             }}
-          >
-            <AlbergueContent />
-          </section>
+            dangerouslySetInnerHTML={{ __html: readerContent ?? '' }}
+          />
         </div>
       </Layout.Main>
-      {progress !== null && (
-        <Layout.Footer sticky>
-          <Progress
-            progress={progress}
-            totalStep={totalStep}
-            currentPage={currentPage}
-            totalPages={totalPages}
-          />
-        </Layout.Footer>
-      )}
+      <Layout.Footer sticky>
+        <Progress
+          progress={progress}
+          totalStep={totalStep}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+      </Layout.Footer>
     </Layout>
   );
 };

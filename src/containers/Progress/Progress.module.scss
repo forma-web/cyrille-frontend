@@ -8,16 +8,19 @@
 
   &__percent {
     color: var(--gray50);
+    min-height: 1.4rem;
   }
 
   &__bar {
     width: 100%;
     display: flex;
+    min-height: 1em;
   }
 
   &__chapter {
     width: 100%;
     font-size: 1.4rem;
+    min-height: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;

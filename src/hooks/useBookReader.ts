@@ -2,7 +2,7 @@ import usePages from './usePages';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { TChapterInfo } from '@/types/chapter';
 import { useQuery } from '@tanstack/react-query';
-import { allBookChaptersFetch } from '@/services/books';
+import { allBookChaptersFetch, bookChapterFetch } from '@/services/books';
 
 type TChapterData = TChapterInfo & {
   progress: [number, number];
@@ -163,6 +163,21 @@ const useBookReader = (bookId: string) => {
   const [currentPage, setCurrentPage] = useState<number | null>(null);
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [chapterId, setChapterId] = useState<number | null>(null);
+  const [readerContent, setReaderContent] = useState<string | null>(null);
+
+  const { data: chapterFull, isLoading } = useQuery({
+    queryKey: ['books', bookId, 'chapters', String(chapterId)],
+    queryFn: () => bookChapterFetch(bookId, chapterId!),
+    enabled: chapterId !== null,
+  });
+
+  useEffect(() => {
+    if (!chapterFull) {
+      return;
+    }
+    setReaderContent(() => chapterFull.data.content);
+    setCurrentPage(() => 0);
+  }, [chapterFull]);
 
   const { readerPosition, changePage } = usePages({
     readerRef,
@@ -186,6 +201,8 @@ const useBookReader = (bookId: string) => {
     changePage,
     currentPage,
     totalPages,
+    readerContent,
+    isLoading,
     ...progress,
   };
 };

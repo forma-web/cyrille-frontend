@@ -17,10 +17,7 @@ const usePages = ({
 }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
 
-  const readerPosition = useMemo(
-    () => `-${widthPage * (currentPage ?? 1 - 1)}px`,
-    [currentPage, widthPage],
-  );
+  const readerPosition = `-${widthPage * (currentPage ?? 1 - 1)}px`;
 
   const calcPages = useCallback(() => {
     const readerContent = readerRef.current;
@@ -39,10 +36,14 @@ const usePages = ({
       return;
     }
 
-    const ro = new ResizeObserver(() => {
-      calcPages();
-    });
+    const ro = new ResizeObserver(calcPages);
     ro.observe(readerContent);
+
+    const mo = new MutationObserver(calcPages);
+    mo.observe(readerContent, {
+      childList: true,
+      subtree: true,
+    });
 
     return () => {
       ro.unobserve(readerContent);

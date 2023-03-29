@@ -20,6 +20,8 @@ const CyrRangeInput = ({ currentValue, step }: TCyrRangeInput) => {
     setValue(() => Number(e.target.value));
   };
 
+  if (value === null) return null;
+
   return (
     <input
       ref={inputRef}
