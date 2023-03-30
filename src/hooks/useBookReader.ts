@@ -15,6 +15,19 @@ type TUseChaptersData = {
   setChapterId: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
+type TUseProgress = {
+  chapterId: number | null;
+  currentPage: number | null;
+  totalPages: number | null;
+  chapters: Record<number, TChapterData>;
+  orderChapters: number[];
+};
+
+type TUseChapterContent = {
+  bookId: string;
+  chapterId: number | null;
+};
+
 const useChaptersData = ({ bookId, setChapterId }: TUseChaptersData) => {
   const [chapters, setChapters] = useState<Record<number, TChapterData>>({});
   const [orderChapters, setOrderChapters] = useState<number[]>([]);
@@ -84,14 +97,6 @@ const useChaptersData = ({ bookId, setChapterId }: TUseChaptersData) => {
   };
 };
 
-type TUseProgress = {
-  chapterId: number | null;
-  currentPage: number | null;
-  totalPages: number | null;
-  chapters: Record<number, TChapterData>;
-  orderChapters: number[];
-};
-
 const useProgress = ({
   chapterId,
   currentPage,
@@ -158,35 +163,46 @@ const useProgress = ({
   };
 };
 
-const useBookReader = (bookId: string) => {
-  const readerRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState<number | null>(null);
-  const [totalPages, setTotalPages] = useState<number | null>(null);
-  const [chapterId, setChapterId] = useState<number | null>(null);
-  const [readerContent, setReaderContent] = useState<string | null>(null);
-
+const useChapterContent = ({ bookId, chapterId }: TUseChapterContent) => {
   const { data: chapterFull, isLoading } = useQuery({
     queryKey: ['books', bookId, 'chapters', String(chapterId)],
     queryFn: () => bookChapterFetch(bookId, chapterId!),
     enabled: chapterId !== null,
   });
 
-  useEffect(() => {
+  const readerContent = useMemo(() => {
     if (!chapterFull) {
-      return;
+      return null;
     }
-    setReaderContent(() => chapterFull.data.content);
-    setCurrentPage(() => 0);
+    return chapterFull.data.content;
   }, [chapterFull]);
 
+  return {
+    readerContent,
+    isLoading,
+  };
+};
+
+const useBookReader = (bookId: string) => {
+  const readerRef = useRef<HTMLDivElement>(null);
+  const [currentPage, setCurrentPage] = useState<number | null>(null);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
+  const [chapterId, setChapterId] = useState<number | null>(null);
+
+  const chapterContent = useChapterContent({
+    bookId,
+    chapterId,
+  });
+  const { isLoading } = chapterContent;
+
+  const { chapters, orderChapters } = useChaptersData({ bookId, setChapterId });
   const { readerPosition, changePage } = usePages({
     readerRef,
     currentPage,
-    totalPages,
     setCurrentPage,
     setTotalPages,
+    isLoading,
   });
-  const { chapters, orderChapters } = useChaptersData({ bookId, setChapterId });
   const progress = useProgress({
     chapterId,
     currentPage,
@@ -195,14 +211,22 @@ const useBookReader = (bookId: string) => {
     orderChapters,
   });
 
+  const nameChapter = useMemo(() => {
+    if (!chapterId) {
+      return null;
+    }
+
+    return chapters[chapterId]?.name ?? null;
+  }, [chapters, chapterId]);
+
   return {
     readerRef,
     readerPosition,
     changePage,
     currentPage,
     totalPages,
-    readerContent,
-    isLoading,
+    nameChapter,
+    ...chapterContent,
     ...progress,
   };
 };

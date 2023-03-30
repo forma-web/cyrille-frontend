@@ -3,31 +3,48 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 type TUsePages = {
   readerRef: React.RefObject<HTMLDivElement>;
   currentPage: number | null;
-  totalPages: number | null;
   setCurrentPage: React.Dispatch<React.SetStateAction<number | null>>;
   setTotalPages: React.Dispatch<React.SetStateAction<number | null>>;
+  isLoading: boolean;
+  prevPage: () => void;
+  nextPage: () => void;
 };
 
 const usePages = ({
   readerRef,
   currentPage,
-  totalPages,
+  isLoading,
   setCurrentPage,
   setTotalPages,
+  prevPage,
+  nextPage,
 }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
 
-  const readerPosition = `-${widthPage * (currentPage ?? 1 - 1)}px`;
+  const readerPosition = useMemo(
+    () => `-${widthPage * (currentPage! - 1)}px`,
+    [currentPage, widthPage],
+  );
 
   const calcPages = useCallback(() => {
     const readerContent = readerRef.current;
 
-    if (readerContent) {
-      const { scrollWidth, clientWidth } = readerContent;
-      setTotalPages(() => Math.ceil(scrollWidth / clientWidth));
-      setWidthPage(() => clientWidth);
+    if (!readerContent) {
+      return;
     }
-  }, [readerRef, setTotalPages]);
+
+    const { scrollWidth, clientWidth } = readerContent;
+    const total = Math.ceil(scrollWidth / clientWidth);
+
+    setCurrentPage((prev) => {
+      if (prev === -1) {
+        return total;
+      }
+      return prev;
+    });
+    setTotalPages(() => total);
+    setWidthPage(() => clientWidth);
+  }, [readerRef, setCurrentPage, setTotalPages]);
 
   useEffect(() => {
     const readerContent = readerRef.current;
@@ -46,21 +63,10 @@ const usePages = ({
     });
 
     return () => {
-      ro.unobserve(readerContent);
+      ro.disconnect();
+      mo.disconnect();
     };
-  }, [calcPages, readerRef]);
-
-  const nextPage = () => {
-    if (currentPage! < totalPages!) {
-      setCurrentPage((prev) => prev! + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage! > 1) {
-      setCurrentPage((prev) => prev! - 1);
-    }
-  };
+  }, [calcPages, readerRef, isLoading]);
 
   const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
     const { offsetX } = e.nativeEvent;

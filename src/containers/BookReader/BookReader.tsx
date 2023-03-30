@@ -18,7 +18,10 @@ const BookReader = () => {
     totalPages,
     readerContent,
     isLoading,
+    nameChapter,
   } = useBookReader(bookId!);
+
+  if (isLoading) return <CyrLoader />;
 
   return (
     <Layout>
@@ -28,7 +31,6 @@ const BookReader = () => {
           ref={readerRef}
           onClick={changePage}
         >
-          {isLoading && <CyrLoader />}
           <section
             className={styles.embed}
             style={{
@@ -44,6 +46,7 @@ const BookReader = () => {
           totalStep={totalStep}
           currentPage={currentPage}
           totalPages={totalPages}
+          nameChapter={nameChapter}
         />
       </Layout.Footer>
     </Layout>

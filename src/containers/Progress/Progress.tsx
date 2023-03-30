@@ -6,6 +6,7 @@ type TProgessProps = {
   totalStep: number | null;
   currentPage: number | null;
   totalPages: number | null;
+  nameChapter: string | null;
 };
 
 const Progress = ({
@@ -13,6 +14,7 @@ const Progress = ({
   currentPage,
   totalPages,
   totalStep,
+  nameChapter,
 }: TProgessProps) => {
   return (
     <div className={styles.progress}>
@@ -22,20 +24,16 @@ const Progress = ({
       </span>
       <div className={styles.progress__bar}>
         {progress !== null && (
-          <CyrRangeInput currentValue={progress} step={totalStep} />
+          <CyrRangeInput value={progress} step={totalStep} />
         )}
       </div>
       <div className={styles.progress__chapter}>
-        {progress !== null && (
-          <>
-            <span className={styles.chapter__name}>Chapter 1</span>
-            <span className={styles.chapter__pages}>
-              {currentPage !== null &&
-                totalPages !== null &&
-                `${currentPage} of ${totalPages}`}
-            </span>
-          </>
-        )}
+        <span className={styles.chapter__name}>{nameChapter}</span>
+        <span className={styles.chapter__pages}>
+          {currentPage !== null &&
+            totalPages !== null &&
+            `${currentPage} of ${totalPages}`}
+        </span>
       </div>
     </div>
   );
