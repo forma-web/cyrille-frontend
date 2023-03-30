@@ -1,14 +1,14 @@
 import usePages from './usePages';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { allBookChaptersFetch, bookChapterFetch } from '@/services/books';
+import { allBookChaptersFetch } from '@/services/books';
 import {
   TChapterData,
   TNeededPages,
-  TUseChapterContent,
   TUseChaptersData,
   TUseProgress,
 } from '@/types/reader';
+import useChapterContent from './useChapterContent';
 
 const getTargetChapter = ({
   orderChapters,
@@ -187,46 +187,6 @@ const useProgress = ({
   };
 };
 
-const useChapterContent = ({
-  bookId,
-  chapterId,
-  neededPages,
-  setNeededPages,
-}: TUseChapterContent) => {
-  const { data: chapterFull, isLoading } = useQuery({
-    queryKey: ['books', bookId, 'chapters', String(chapterId)],
-    queryFn: () => bookChapterFetch(bookId, chapterId!),
-    enabled: chapterId !== null,
-  });
-
-  const readerContent = useMemo(() => {
-    if (!chapterFull) {
-      return null;
-    }
-
-    return chapterFull.data.content;
-  }, [chapterFull]);
-
-  useEffect(() => {
-    if (!chapterFull) {
-      return;
-    }
-
-    setNeededPages((prev) => {
-      if (!prev) {
-        return null;
-      }
-
-      return { value: prev.value, isReadyChange: true };
-    });
-  }, [chapterFull, neededPages, setNeededPages]);
-
-  return {
-    readerContent,
-    isLoading,
-  };
-};
-
 const useBookReader = (bookId: string) => {
   const readerRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState<number | null>(null);
@@ -248,6 +208,7 @@ const useBookReader = (bookId: string) => {
 
       return Math.floor(1 + value * (totalPages - 1));
     });
+
   }, [neededPages, totalPages]);
 
   const { isLoading, readerContent } = useChapterContent({

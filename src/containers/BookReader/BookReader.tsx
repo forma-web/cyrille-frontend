@@ -37,8 +37,9 @@ const BookReader = () => {
             style={{
               left: readerPosition,
             }}
-            dangerouslySetInnerHTML={{ __html: readerContent ?? '' }}
-          />
+          >
+            {readerContent}
+          </section>
         </div>
       </Layout.Main>
       <Layout.Footer sticky>
