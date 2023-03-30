@@ -3,10 +3,10 @@ import styles from './CyrRangeInput.module.scss';
 type TCyrRangeInput = {
   value: number;
   step: number | null;
-  
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-const CyrRangeInput = ({ value, step }: TCyrRangeInput) => {
+const CyrRangeInput = ({ value, step, onChange }: TCyrRangeInput) => {
   return (
     <input
       type="range"
@@ -16,6 +16,7 @@ const CyrRangeInput = ({ value, step }: TCyrRangeInput) => {
         background: `linear-gradient(to right, var(--black-color) ${value}%, var(--gray30) ${value}%)`,
       }}
       value={value}
+      onChange={onChange}
     />
   );
 };

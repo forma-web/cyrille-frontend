@@ -10,6 +10,36 @@ import {
   TUseProgress,
 } from '@/types/reader';
 
+const getTargetChapter = ({
+  orderChapters,
+  chapters,
+  target,
+}: {
+  orderChapters: number[];
+  chapters: Record<number, TChapterData>;
+  target: number;
+}) => {
+  let left = 0;
+  let right = orderChapters.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    const chapter = chapters[orderChapters[mid]];
+
+    if (chapter.progress[0] <= target && target <= chapter.progress[1]) {
+      return chapter.id;
+    }
+
+    if (target < chapter.progress[0]) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return null;
+};
+
 const useChaptersData = ({ bookId, setChapterId }: TUseChaptersData) => {
   const [chapters, setChapters] = useState<Record<number, TChapterData>>({});
   const [orderChapters, setOrderChapters] = useState<number[]>([]);
@@ -86,57 +116,69 @@ const useProgress = ({
   chapters,
   orderChapters,
 }: TUseProgress) => {
-  const progress = useMemo(() => {
-    if (!chapterId || !currentPage || !totalPages) {
-      return null;
-    }
+  const [progress, setProgress] = useState<number | null>(null);
+  const [totalStep, setTotalStep] = useState<number | null>(null);
 
-    const chapter = chapters[chapterId];
+  useEffect(() => {
+    setProgress((prev) => {
+      if (!chapterId || !currentPage || !totalPages) {
+        return prev;
+      }
 
-    if (!chapter) {
-      return null;
-    }
-
-    return (
-      (currentPage / totalPages) * (chapter.progress[1] - chapter.progress[0]) +
-      chapter.progress[0]
-    );
-  }, [chapterId, chapters, currentPage, totalPages]);
-
-  const totalStep = useMemo(() => {
-    if (!chapterId || !totalPages) {
-      return null;
-    }
-
-    const chapter = chapters[chapterId];
-
-    if (!chapter) {
-      return null;
-    }
-
-    const lengthPage = chapter.content_length / totalPages;
-
-    if (totalPages === 0 || lengthPage === 0) {
-      return null;
-    }
-
-    return orderChapters.reduce((acc, currChapterId) => {
-      const currChapter = chapters[currChapterId];
+      const chapter = chapters[chapterId];
 
       if (!chapter) {
-        return acc;
+        return prev;
       }
 
-      if (currChapterId === chapterId) {
-        return acc + totalPages;
+      if (orderChapters[0] === chapterId) {
+        return ((currentPage - 1) * chapter.progress[1]) / (totalPages - 1);
       }
 
-      if (currChapter.content_length === 0) {
-        return acc + 1;
+      return (
+        (currentPage / totalPages) *
+          (chapter.progress[1] - chapter.progress[0]) +
+        chapter.progress[0]
+      );
+    });
+  }, [chapterId, chapters, currentPage, orderChapters, totalPages]);
+
+  useEffect(() => {
+    setTotalStep((prev) => {
+      if (!chapterId || !totalPages) {
+        return prev;
       }
 
-      return acc + Math.ceil(currChapter.content_length / lengthPage);
-    }, 0);
+      const chapter = chapters[chapterId];
+
+      if (!chapter) {
+        return prev;
+      }
+
+      const lengthPage = chapter.content_length / totalPages;
+
+      if (totalPages === 0 || lengthPage === 0) {
+        return prev;
+      }
+
+      return orderChapters.reduce((acc, currChapterId) => {
+        const currChapter = chapters[currChapterId];
+
+        if (!chapter) {
+          return acc;
+        }
+
+        if (currChapterId === chapterId) {
+          return acc + totalPages;
+        }
+
+        if (currChapter.content_length === 0) {
+          return acc + 1;
+        }
+
+        return acc + Math.ceil(currChapter.content_length / lengthPage);
+      }, 0);
+    });
   }, [chapterId, chapters, orderChapters, totalPages]);
 
   return {
@@ -204,7 +246,7 @@ const useBookReader = (bookId: string) => {
       const { value } = neededPages;
       setNeededPages(() => null);
 
-      return 1 + value * (totalPages - 1);
+      return Math.floor(1 + value * (totalPages - 1));
     });
   }, [neededPages, totalPages]);
 
@@ -275,6 +317,41 @@ const useBookReader = (bookId: string) => {
     orderChapters,
   });
 
+  const progressChange: React.ChangeEventHandler<HTMLInputElement> =
+    useCallback(
+      (e) => {
+        const target = Number(e.target.value);
+
+        const targetChapterId = getTargetChapter({
+          orderChapters,
+          chapters,
+          target,
+        });
+
+        if (targetChapterId === null) {
+          return;
+        }
+
+        const targetChapter = chapters[targetChapterId];
+
+        if (!targetChapter) {
+          return;
+        }
+
+        const { progress } = targetChapter;
+
+        const newChapterPage =
+          (progress[0] - target) / (progress[1] - progress[0]);
+
+        setChapterId(() => targetChapterId);
+        setNeededPages(() => ({
+          value: newChapterPage,
+          isReadyChange: false,
+        }));
+      },
+      [chapters, orderChapters],
+    );
+
   const nameChapter = useMemo(() => {
     if (!chapterId) {
       return null;
@@ -292,6 +369,7 @@ const useBookReader = (bookId: string) => {
     nameChapter,
     isLoading,
     readerContent,
+    progressChange,
     ...progress,
   };
 };
