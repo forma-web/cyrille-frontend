@@ -1,14 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-
-type TUsePages = {
-  readerRef: React.RefObject<HTMLDivElement>;
-  currentPage: number | null;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number | null>>;
-  setTotalPages: React.Dispatch<React.SetStateAction<number | null>>;
-  isLoading: boolean;
-  prevPage: () => void;
-  nextPage: () => void;
-};
+import { TUsePages } from '@/types/reader';
 
 const usePages = ({
   readerRef,
@@ -16,8 +7,8 @@ const usePages = ({
   isLoading,
   setCurrentPage,
   setTotalPages,
-  prevPage,
   nextPage,
+  prevPage,
 }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
 
