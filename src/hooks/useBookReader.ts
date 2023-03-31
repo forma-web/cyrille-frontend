@@ -64,7 +64,6 @@ const getTargetChapter = ({
 
 const useProgress = ({
   chapterId,
-  currentPage,
   totalPages,
   chapters,
   orderChapters,
@@ -124,11 +123,6 @@ const useBookReader = (bookId: string) => {
     chapterId,
   });
 
-  // TODO: remove this
-  const changePage = () => {
-    return;
-  };
-
   // Receiving chapters information
   const { chapters, orderChapters } = useChaptersData(bookId);
   const currentChapter = useMemo(() => {
@@ -139,10 +133,11 @@ const useBookReader = (bookId: string) => {
     return chapters[chapterId];
   }, [chapters, chapterId]);
 
-  const { totalPages, currentPage, readerPosition } = usePages({
+  const { totalPages, currentPage, readerPosition, changePage } = usePages({
     readerRef,
     isLoading,
     progress,
+    setProgress,
     currentChapter,
   });
   // Init chapter after receiving chapters information
@@ -154,40 +149,6 @@ const useBookReader = (bookId: string) => {
     setChapterId(() => orderChapters[0]);
     setProgress(() => 0);
   }, [orderChapters]);
-
-  // const nextPage = useCallback(() => {
-  //   if (!currentPage || !totalPages) {
-  //     return;
-  //   }
-
-  //   if (currentPage < totalPages) {
-  //     setCurrentPage(() => currentPage + 1);
-  //     return;
-  //   }
-
-  //   if (!chapterId || !chapters[chapterId]?.nextChapter) {
-  //     return;
-  //   }
-
-  //   setChapterId(() => chapters[chapterId]?.nextChapter);
-  // }, [chapterId, chapters, currentPage, totalPages]);
-
-  // const prevPage = useCallback(() => {
-  //   if (!currentPage || !totalPages) {
-  //     return;
-  //   }
-
-  //   if (currentPage > 1) {
-  //     setCurrentPage(() => currentPage - 1);
-  //     return;
-  //   }
-
-  //   if (!chapterId || !chapters[chapterId]?.prevChapter) {
-  //     return;
-  //   }
-
-  //   setChapterId(() => chapters[chapterId]?.prevChapter);
-  // }, [chapterId, chapters, currentPage, totalPages]);
 
   const progressChange: React.ChangeEventHandler<HTMLInputElement> =
     useCallback((e) => {

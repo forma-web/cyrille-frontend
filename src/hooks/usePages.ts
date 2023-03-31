@@ -5,13 +5,27 @@ export type TUsePages = {
   readerRef: React.RefObject<HTMLDivElement>;
   isLoading: boolean;
   progress: number | null;
+  setProgress: React.Dispatch<React.SetStateAction<number | null>>;
   currentChapter: TChapterData | null;
+};
+
+const calcProgressOnePage = ({
+  currentChapter,
+  totalPages,
+}: {
+  currentChapter: TChapterData;
+  totalPages: number;
+}) => {
+  const [start, end] = currentChapter.progress;
+
+  return (end - start) / (totalPages - 1);
 };
 
 const usePages = ({
   readerRef,
   isLoading,
   progress,
+  setProgress,
   currentChapter,
 }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
@@ -22,9 +36,9 @@ const usePages = ({
       return null;
     }
 
-    const [start, end] = currentChapter.progress;
+    const [start] = currentChapter.progress;
 
-    const step = (end - start) / (totalPages - 1);
+    const step = calcProgressOnePage({ currentChapter, totalPages });
     const value = Math.floor((progress - start) / step) + 1;
 
     return Math.max(1, Math.min(value, totalPages));
@@ -71,31 +85,71 @@ const usePages = ({
     };
   }, [calcPages, readerRef, isLoading]);
 
-  // const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   const { offsetX } = e.nativeEvent;
-  //   const { clientWidth } = e.currentTarget;
+  const nextPage = useCallback(() => {
+    if (
+      currentChapter === null ||
+      totalPages === null ||
+      currentPage === null
+    ) {
+      return;
+    }
 
-  //   if (currentPage === null) {
-  //     return;
-  //   }
+    if (currentPage < totalPages) {
+      const step = calcProgressOnePage({ currentChapter, totalPages });
+      setProgress((prevProgress) => prevProgress! + step);
+      return;
+    }
 
-  //   if (offsetX - widthPage * (currentPage - 1) < clientWidth / 4) {
-  //     prevPage();
-  //   }
+    if (currentChapter.nextChapter === null) {
+      return;
+    }
+  }, [currentChapter, currentPage, setProgress, totalPages]);
 
-  //   if (
-  //     offsetX - widthPage * (currentPage - 1) >
-  //     clientWidth - clientWidth / 4
-  //   ) {
-  //     nextPage();
-  //   }
-  // };
+  const prevPage = useCallback(() => {
+    if (
+      currentChapter === null ||
+      totalPages === null ||
+      currentPage === null
+    ) {
+      return;
+    }
+
+    if (currentPage > 1) {
+      const step = calcProgressOnePage({ currentChapter, totalPages });
+      setProgress((prevProgress) => prevProgress! - step);
+      return;
+    }
+
+    if (currentChapter.prevChapter === null) {
+      return;
+    }
+  }, [currentChapter, currentPage, setProgress, totalPages]);
+
+  const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { offsetX } = e.nativeEvent;
+    const { clientWidth } = e.currentTarget;
+
+    if (currentPage === null) {
+      return;
+    }
+
+    if (offsetX - widthPage * (currentPage - 1) < clientWidth / 4) {
+      prevPage();
+    }
+
+    if (
+      offsetX - widthPage * (currentPage - 1) >
+      clientWidth - clientWidth / 4
+    ) {
+      nextPage();
+    }
+  };
 
   return {
     totalPages,
     currentPage,
     readerPosition,
-    // changePage,
+    changePage,
   };
 };
 
