@@ -3,18 +3,16 @@ import styles from './Progress.module.scss';
 
 type TProgessProps = {
   progress: number | null;
-  totalStep: number | null;
   currentPage: number | null;
   totalPages: number | null;
   nameChapter: string | null;
-  progressChange: React.ChangeEventHandler<HTMLInputElement>;
+  progressChange: (value: number) => void;
 };
 
 const Progress = ({
   progress,
   currentPage,
   totalPages,
-  totalStep,
   nameChapter,
   progressChange,
 }: TProgessProps) => {
@@ -26,11 +24,7 @@ const Progress = ({
       </span>
       <div className={styles.progress__bar}>
         {progress !== null && (
-          <CyrRangeInput
-            value={progress}
-            step={totalStep}
-            onChange={progressChange}
-          />
+          <CyrRangeInput defaultValue={progress} onChange={progressChange} />
         )}
       </div>
       <div className={styles.progress__chapter}>

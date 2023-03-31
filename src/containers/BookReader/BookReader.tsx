@@ -13,12 +13,10 @@ const BookReader = () => {
     readerPosition,
     changePage,
     progress,
-    totalStep,
     currentPage,
     totalPages,
     readerContent,
     isLoading,
-    nameChapter,
     progressChange,
   } = useBookReader(bookId!);
 
@@ -45,10 +43,9 @@ const BookReader = () => {
       <Layout.Footer sticky>
         <Progress
           progress={progress}
-          totalStep={totalStep}
           currentPage={currentPage}
           totalPages={totalPages}
-          nameChapter={nameChapter}
+          nameChapter={''}
           progressChange={progressChange}
         />
       </Layout.Footer>

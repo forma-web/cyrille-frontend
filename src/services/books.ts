@@ -38,17 +38,18 @@ export const createReviewBookFetch = async (
   });
 };
 
-export const allBookChaptersFetch = async (id: string | number) => {
-  return fetchData<TChapterInfoResponse>(`${baseUrl}/${id}/chapters`, {
+export const allBookChaptersFetch = async (id: string | number) =>
+  fetchDataWithAuth<TChapterInfoResponse>(`${baseUrl}/${id}/chapters`, {
     method: 'GET',
   });
-};
 
 export const bookChapterFetch = async (
   id: string | number,
   chapterId: string | number,
-) => {
-  return fetchData<TChapterResponse>(`${baseUrl}/${id}/chapters/${chapterId}`, {
-    method: 'GET',
-  });
-};
+) =>
+  fetchDataWithAuth<TChapterResponse>(
+    `${baseUrl}/${id}/chapters/${chapterId}`,
+    {
+      method: 'GET',
+    },
+  );

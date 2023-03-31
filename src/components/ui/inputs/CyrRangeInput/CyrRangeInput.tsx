@@ -1,22 +1,28 @@
+import { useEffect, useState } from 'react';
 import styles from './CyrRangeInput.module.scss';
 
 type TCyrRangeInput = {
-  value: number;
-  step: number | null;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  defaultValue: number;
+  onChange: (value: number) => void;
 };
 
-const CyrRangeInput = ({ value, step, onChange }: TCyrRangeInput) => {
+const CyrRangeInput = ({ defaultValue, onChange }: TCyrRangeInput) => {
+  const [value, setValue] = useState(defaultValue);
+
+  useEffect(() => {
+    setValue(() => defaultValue);
+  }, [defaultValue]);
+
   return (
     <input
       type="range"
-      step={step !== null ? step : 'any'}
+      step="any"
       className={styles.range__input}
       style={{
         background: `linear-gradient(to right, var(--black-color) ${value}%, var(--gray30) ${value}%)`,
       }}
       value={value}
-      onChange={onChange}
+      onChange={(e) => setValue(() => Number(e.target.value))}
     />
   );
 };

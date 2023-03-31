@@ -41,15 +41,11 @@ const useChaptersData = (bookId: string) => {
           index < chaptersData.length - 1 ? chaptersData[index + 1].id : null;
         const progress = [
           currentContentLength,
-          currentContentLength + Math.max(content_length - 1, 0),
+          currentContentLength + content_length,
         ].map((value) => (value / totalContentLength) * 100) as [
           number,
           number,
         ];
-
-        if (index === chaptersData.length - 1) {
-          progress[1] = 100;
-        }
 
         currentContentLength += content_length;
 

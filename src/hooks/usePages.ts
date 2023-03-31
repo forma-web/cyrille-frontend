@@ -7,6 +7,7 @@ export type TUsePages = {
   progress: number | null;
   setProgress: React.Dispatch<React.SetStateAction<number | null>>;
   currentChapter: TChapterData | null;
+  chapters: Record<number, TChapterData>;
 };
 
 const calcProgressOnePage = ({
@@ -18,7 +19,11 @@ const calcProgressOnePage = ({
 }) => {
   const [start, end] = currentChapter.progress;
 
-  return (end - start) / (totalPages - 1);
+  if (currentChapter.nextChapter === null) {
+    return (end - start) / (totalPages - 1);
+  }
+
+  return (end - start) / totalPages;
 };
 
 const usePages = ({
@@ -27,6 +32,7 @@ const usePages = ({
   progress,
   setProgress,
   currentChapter,
+  chapters,
 }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
   const [totalPages, setTotalPages] = useState<number | null>(null);
@@ -41,7 +47,9 @@ const usePages = ({
     const step = calcProgressOnePage({ currentChapter, totalPages });
     const value = Math.floor((progress - start) / step) + 1;
 
-    return Math.max(1, Math.min(value, totalPages));
+    console.log(step, progress - start);
+
+    return value;
   }, [totalPages, progress, currentChapter]);
 
   const readerPosition = useMemo(
@@ -58,6 +66,8 @@ const usePages = ({
 
     const { scrollWidth, clientWidth } = readerContent;
     const total = Math.ceil(scrollWidth / clientWidth);
+
+    console.log(total);
 
     setTotalPages(() => total);
     setWidthPage(() => clientWidth);
@@ -96,14 +106,20 @@ const usePages = ({
 
     if (currentPage < totalPages) {
       const step = calcProgressOnePage({ currentChapter, totalPages });
+      console.log(step);
+
       setProgress((prevProgress) => prevProgress! + step);
       return;
     }
 
-    if (currentChapter.nextChapter === null) {
-      return;
-    }
-  }, [currentChapter, currentPage, setProgress, totalPages]);
+    setProgress((prevProgress) => {
+      if (currentChapter.nextChapter === null) {
+        return prevProgress;
+      }
+
+      return chapters[currentChapter.nextChapter].progress[0];
+    });
+  }, [chapters, currentChapter, currentPage, setProgress, totalPages]);
 
   const prevPage = useCallback(() => {
     if (
@@ -120,10 +136,14 @@ const usePages = ({
       return;
     }
 
-    if (currentChapter.prevChapter === null) {
-      return;
-    }
-  }, [currentChapter, currentPage, setProgress, totalPages]);
+    setProgress((prevProgress) => {
+      if (currentChapter.prevChapter === null) {
+        return prevProgress;
+      }
+
+      return chapters[currentChapter.prevChapter!].progress[1];
+    });
+  }, [chapters, currentChapter, currentPage, setProgress, totalPages]);
 
   const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
     const { offsetX } = e.nativeEvent;

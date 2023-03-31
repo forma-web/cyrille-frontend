@@ -1,23 +1,8 @@
 import usePages from './usePages';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { TChapterData, TUseProgress } from '@/types/reader';
+import { TChapterData } from '@/types/reader';
 import useChapterContent from './useChapterContent';
 import useChaptersData from './useChaptersData';
-
-const getChapterRange = ({
-  chapters,
-  chapterId,
-}: {
-  chapters: Record<number, TChapterData>;
-  chapterId: number;
-}) => {
-  const { nextChapter, progress } = chapters[chapterId];
-
-  return {
-    start: progress[0],
-    end: nextChapter ? chapters[nextChapter].progress[0] : progress[1],
-  };
-};
 
 const getTargetChapter = ({
   orderChapters,
@@ -36,10 +21,7 @@ const getTargetChapter = ({
 
     const chapterId = orderChapters[mid];
     const chapter = chapters[chapterId];
-    const { start: startChapter, end: endChapter } = getChapterRange({
-      chapters,
-      chapterId,
-    });
+    const [startChapter, endChapter] = chapter.progress;
 
     if (startChapter <= target) {
       const targetInChapter =
@@ -62,66 +44,12 @@ const getTargetChapter = ({
   return null;
 };
 
-const useProgress = ({
-  chapterId,
-  totalPages,
-  chapters,
-  orderChapters,
-}: TUseProgress) => {
-  const [totalStep, setTotalStep] = useState<number | null>(null);
-
-  useEffect(() => {
-    setTotalStep((prev) => {
-      if (!chapterId || !totalPages) {
-        return prev;
-      }
-
-      const chapter = chapters[chapterId];
-
-      if (!chapter) {
-        return prev;
-      }
-
-      const lengthPage = chapter.content_length / totalPages;
-
-      if (totalPages === 0 || lengthPage === 0) {
-        return prev;
-      }
-
-      return orderChapters.reduce((acc, currChapterId) => {
-        const currChapter = chapters[currChapterId];
-
-        if (!chapter) {
-          return acc;
-        }
-
-        if (currChapterId === chapterId) {
-          return acc + totalPages;
-        }
-
-        if (currChapter.content_length === 0) {
-          return acc + 1;
-        }
-
-        return acc + Math.ceil(currChapter.content_length / lengthPage);
-      }, 0);
-    });
-  }, [chapterId, chapters, orderChapters, totalPages]);
-
-  return {
-    totalStep,
-  };
-};
-
 const useBookReader = (bookId: string) => {
   const readerRef = useRef<HTMLDivElement>(null);
   const [chapterId, setChapterId] = useState<number | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
-
-  const { isLoading, readerContent } = useChapterContent({
-    bookId,
-    chapterId,
-  });
+  const targetProgress = useRef<number | null>(0);
+  const isRendering = useRef(false);
 
   // Receiving chapters information
   const { chapters, orderChapters } = useChaptersData(bookId);
@@ -133,12 +61,19 @@ const useBookReader = (bookId: string) => {
     return chapters[chapterId];
   }, [chapters, chapterId]);
 
+  // Inserting components into a book
+  const { isLoading, readerContent } = useChapterContent({
+    bookId,
+    chapterId,
+  });
+
   const { totalPages, currentPage, readerPosition, changePage } = usePages({
     readerRef,
     isLoading,
     progress,
     setProgress,
     currentChapter,
+    chapters,
   });
   // Init chapter after receiving chapters information
   useEffect(() => {
