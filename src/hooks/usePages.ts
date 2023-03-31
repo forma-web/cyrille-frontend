@@ -1,16 +1,34 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { TUsePages } from '@/types/reader';
+import { TChapterData } from '@/types/reader';
+
+export type TUsePages = {
+  readerRef: React.RefObject<HTMLDivElement>;
+  isLoading: boolean;
+  progress: number | null;
+  currentChapter: TChapterData | null;
+};
 
 const usePages = ({
   readerRef,
-  currentPage,
   isLoading,
-  setCurrentPage,
-  setTotalPages,
-  nextPage,
-  prevPage,
+  progress,
+  currentChapter,
 }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
+
+  const currentPage = useMemo(() => {
+    if (totalPages === null || progress === null || currentChapter === null) {
+      return null;
+    }
+
+    const [start, end] = currentChapter.progress;
+
+    const step = (end - start) / (totalPages - 1);
+    const value = Math.floor((progress - start) / step) + 1;
+
+    return Math.max(1, Math.min(value, totalPages));
+  }, [totalPages, progress, currentChapter]);
 
   const readerPosition = useMemo(
     () => `-${widthPage * (currentPage! - 1)}px`,
@@ -27,15 +45,9 @@ const usePages = ({
     const { scrollWidth, clientWidth } = readerContent;
     const total = Math.ceil(scrollWidth / clientWidth);
 
-    setCurrentPage((prev) => {
-      if (prev === -1) {
-        return total;
-      }
-      return prev;
-    });
     setTotalPages(() => total);
     setWidthPage(() => clientWidth);
-  }, [readerRef, setCurrentPage, setTotalPages]);
+  }, [readerRef, setTotalPages]);
 
   useEffect(() => {
     const readerContent = readerRef.current;
@@ -59,29 +71,31 @@ const usePages = ({
     };
   }, [calcPages, readerRef, isLoading]);
 
-  const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { offsetX } = e.nativeEvent;
-    const { clientWidth } = e.currentTarget;
+  // const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   const { offsetX } = e.nativeEvent;
+  //   const { clientWidth } = e.currentTarget;
 
-    if (currentPage === null) {
-      return;
-    }
+  //   if (currentPage === null) {
+  //     return;
+  //   }
 
-    if (offsetX - widthPage * (currentPage - 1) < clientWidth / 4) {
-      prevPage();
-    }
+  //   if (offsetX - widthPage * (currentPage - 1) < clientWidth / 4) {
+  //     prevPage();
+  //   }
 
-    if (
-      offsetX - widthPage * (currentPage - 1) >
-      clientWidth - clientWidth / 4
-    ) {
-      nextPage();
-    }
-  };
+  //   if (
+  //     offsetX - widthPage * (currentPage - 1) >
+  //     clientWidth - clientWidth / 4
+  //   ) {
+  //     nextPage();
+  //   }
+  // };
 
   return {
+    totalPages,
+    currentPage,
     readerPosition,
-    changePage,
+    // changePage,
   };
 };
 
