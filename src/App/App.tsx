@@ -1,5 +1,5 @@
 import HomePage from '@/pages/HomePage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
@@ -39,6 +39,7 @@ const App = () => {
             <Route index path={ERoutes.login} element={<LoginPage />} />
             <Route path={ERoutes.register} element={<RegisterPage />} />
           </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

@@ -1,35 +1,63 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { TChapterData } from '@/types/reader';
 
-type TUsePages = {
+export type TUsePages = {
   readerRef: React.RefObject<HTMLDivElement>;
-  currentPage: number | null;
-  totalPages: number | null;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number | null>>;
-  setTotalPages: React.Dispatch<React.SetStateAction<number | null>>;
+  isLoading: boolean;
+  currentChapter: TChapterData | null;
 };
 
-const usePages = ({
-  readerRef,
-  currentPage,
-  totalPages,
-  setCurrentPage,
-  setTotalPages,
-}: TUsePages) => {
+const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
+  const [currentPage, setCurrentPages] = useState<number | null>(null);
+
+  // const currentPage = useMemo(() => {
+  //   if (
+  //     totalPages === null ||
+  //     chapterProgress === null ||
+  //     currentChapter === null
+  //   ) {
+  //     return null;
+  //   }
+
+  //   const value = Math.floor(chapterProgress * totalPages) + 1;
+
+  //   return value;
+  // }, [totalPages, chapterProgress, currentChapter]);
+
+  const changeProgress = useCallback(
+    (progress: number) => {
+      if (totalPages === null) {
+        return;
+      }
+
+      setCurrentPages(() => Math.floor((totalPages * progress) / 100) + 1);
+    },
+    [totalPages],
+  );
+
+  useEffect(() => {
+    setCurrentPages(() => 1);
+  }, [totalPages]);
 
   const readerPosition = useMemo(
-    () => `-${widthPage * (currentPage ?? 1 - 1)}px`,
+    () => `-${widthPage * (currentPage! - 1)}px`,
     [currentPage, widthPage],
   );
 
   const calcPages = useCallback(() => {
     const readerContent = readerRef.current;
 
-    if (readerContent) {
-      const { scrollWidth, clientWidth } = readerContent;
-      setTotalPages(() => Math.ceil(scrollWidth / clientWidth));
-      setWidthPage(() => clientWidth);
+    if (!readerContent) {
+      return;
     }
+
+    const { scrollWidth, clientWidth } = readerContent;
+    const total = Math.ceil(scrollWidth / clientWidth);
+
+    setTotalPages(() => total);
+    setWidthPage(() => clientWidth);
   }, [readerRef, setTotalPages]);
 
   useEffect(() => {
@@ -39,27 +67,52 @@ const usePages = ({
       return;
     }
 
-    const ro = new ResizeObserver(() => {
-      calcPages();
+    const ro = new ResizeObserver(calcPages);
+    readerContent.childNodes.forEach((element) => {
+      ro.observe(element as Element);
     });
-    ro.observe(readerContent);
+
+    const mo = new MutationObserver(calcPages);
+    mo.observe(readerContent, {
+      childList: true,
+      subtree: true,
+    });
 
     return () => {
-      ro.unobserve(readerContent);
+      ro.disconnect();
+      mo.disconnect();
     };
-  }, [calcPages, readerRef]);
+  }, [calcPages, readerRef, isLoading]);
 
-  const nextPage = () => {
-    if (currentPage! < totalPages!) {
-      setCurrentPage((prev) => prev! + 1);
+  const nextPage = useCallback(() => {
+    if (
+      currentChapter === null ||
+      totalPages === null ||
+      currentPage === null
+    ) {
+      return;
     }
-  };
 
-  const prevPage = () => {
-    if (currentPage! > 1) {
-      setCurrentPage((prev) => prev! - 1);
+    if (currentPage < totalPages) {
+      setCurrentPages((prevProgress) => prevProgress! + 1);
+      return;
     }
-  };
+  }, [currentChapter, currentPage, totalPages]);
+
+  const prevPage = useCallback(() => {
+    if (
+      currentChapter === null ||
+      totalPages === null ||
+      currentPage === null
+    ) {
+      return;
+    }
+
+    if (currentPage > 1) {
+      setCurrentPages((prevProgress) => prevProgress! - 1);
+      return;
+    }
+  }, [currentChapter, currentPage, totalPages]);
 
   const changePage = (e: React.MouseEvent<HTMLDivElement>) => {
     const { offsetX } = e.nativeEvent;
@@ -82,8 +135,11 @@ const usePages = ({
   };
 
   return {
+    totalPages,
+    currentPage,
     readerPosition,
     changePage,
+    changeProgress,
   };
 };
 

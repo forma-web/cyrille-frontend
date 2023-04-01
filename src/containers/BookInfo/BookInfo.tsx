@@ -6,12 +6,16 @@ import { TBook } from '@/types/book';
 import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
 import cn from 'classnames';
 import getAuthors from '@/utils/getAuthors';
+import { Link } from 'react-router-dom';
+import { ERoutes } from '../../constants/routers';
 
 const BookInfo = ({
+  id,
   thumbnail_image,
   reviews_avg_rating,
   authors,
   name,
+  published,
 }: TBook) => {
   return (
     <CyrContainer className={cn(styles.bookInfo, styles.bookInfo_header)}>
@@ -31,9 +35,13 @@ const BookInfo = ({
         <div className={styles.bookInfo__rating}>
           <CyrRating rating={reviews_avg_rating} signature />
         </div>
-        <div className={styles.bookInfo__buttons}>
-          <CyrButton>Read book</CyrButton>
-        </div>
+        {published && (
+          <div className={styles.bookInfo__buttons}>
+            <Link to={`../${ERoutes.reader}/${id}`}>
+              <CyrButton>Read book</CyrButton>
+            </Link>
+          </div>
+        )}
       </div>
     </CyrContainer>
   );
