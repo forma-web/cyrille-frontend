@@ -15,9 +15,13 @@ const AlbergueModalPhoto = ({ children }: { children?: React.ReactNode }) => {
     setOpen(() => true);
   }, [modalRoot]);
 
-  const closePopup = useCallback(() => {
-    setOpen(() => false);
-  }, []);
+  const closePopup: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (e) => {
+      e.stopPropagation();
+      setOpen(() => false);
+    },
+    [],
+  );
 
   return (
     <>
