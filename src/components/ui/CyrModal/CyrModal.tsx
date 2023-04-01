@@ -12,7 +12,7 @@ const CyrModal = ({ children, className, onClose }: TCyrModal) => {
     <div className={styles.modal} onClick={onClose}>
       <div
         className={cn(styles.modal__block, className)}
-        onClick={(e) => e.stopPropagation()}
+        // onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>

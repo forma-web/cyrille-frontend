@@ -12,20 +12,6 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [currentPage, setCurrentPages] = useState<number | null>(null);
 
-  // const currentPage = useMemo(() => {
-  //   if (
-  //     totalPages === null ||
-  //     chapterProgress === null ||
-  //     currentChapter === null
-  //   ) {
-  //     return null;
-  //   }
-
-  //   const value = Math.floor(chapterProgress * totalPages) + 1;
-
-  //   return value;
-  // }, [totalPages, chapterProgress, currentChapter]);
-
   const changeProgress = useCallback(
     (progress: number) => {
       if (totalPages === null) {
@@ -54,7 +40,7 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
     }
 
     const { scrollWidth, clientWidth } = readerContent;
-    const total = Math.ceil(scrollWidth / clientWidth);
+    const total = Math.floor(scrollWidth / clientWidth);
 
     setTotalPages(() => total);
     setWidthPage(() => clientWidth);
