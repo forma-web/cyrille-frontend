@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 type TCyrModal = {
   children?: React.ReactNode;
-  onClose?: () => void;
+  onClose?: React.MouseEventHandler<HTMLDivElement>;
   className?: string;
 };
 
