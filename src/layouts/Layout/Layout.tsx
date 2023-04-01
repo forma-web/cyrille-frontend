@@ -10,9 +10,11 @@ const Layout = ({ children }: { children?: React.ReactNode }) => (
 const LayoutHeader = ({
   children,
   white,
+  sticky,
 }: {
   children?: React.ReactNode;
   white?: boolean;
+  sticky?: boolean;
 }) => {
   const headerTrigger = useRef<HTMLDivElement>(null);
   const { isSticky } = useSticky(headerTrigger);
@@ -23,7 +25,7 @@ const LayoutHeader = ({
       <header
         className={cn(
           styles.header,
-          isSticky && styles.header_sticky,
+          (sticky || isSticky) && styles.header_sticky,
           white && styles.header_white,
         )}
       >
