@@ -124,13 +124,13 @@ const AlbergueContent = () => {
           like a snowdrop breaking through the snow.
         </p>
         <p>
-          It was a code: a reference to 
+          It was a code: a reference to{' '}
           <Footnote
             title="2"
             description={`The Goldilocks principle is named by analogy to the children's story “The Three Bears”, in which a young girl named Goldilocks tastes porridge from three different bowls and finds she prefers porridge that is neither too hot nor too cold, but has just the right temperature. In astrobiology, the Goldilocks zone refers to the habitable zone around a star.`}
           >
             the habitability zone
-          </Footnote>{' '}
+          </Footnote>
           .
         </p>
         <p>
@@ -211,12 +211,17 @@ const AlbergueContent = () => {
           their new haven, their new Albergue.
         </p>
         <p>
-          Stingray thought of Jimmy Carter&apos;s words from a message to
-          extraterrestrial civilizations:
           <AlbergueModalPhoto>
+            Stingray thought of Jimmy Carter&apos;s words from a message to
+            extraterrestrial civilizations:
+          </AlbergueModalPhoto>
+          <Footnote
+            title="3"
+            description={`The Voyager Golden Records are two phonograph records that contain sounds and images selected to portray the diversity of life and culture on Earth. They were attached to the Voyager spacecraft for intelligent representatives of extraterrestrial life who might hypothetically encounter them.`}
+          >
             “We human beings are still divided into nation states, but these
             states are rapidly becoming a single global civilization.”
-          </AlbergueModalPhoto>
+          </Footnote>
         </p>
         <p>
           One civilization, but no longer here, not on Earth. There is one more

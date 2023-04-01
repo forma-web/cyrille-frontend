@@ -54,8 +54,7 @@ const BookReader = () => {
                   left: readerPosition,
                 }}
               >
-                <AlbergueContent />
-                {/* {readerContent} */}
+                {readerContent}
               </section>
             </div>
           </Layout.Main>
