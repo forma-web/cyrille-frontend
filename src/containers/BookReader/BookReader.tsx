@@ -7,8 +7,6 @@ import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import { ERoutes } from '@/constants/routers';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
-import Footnote from '@/components/Footnote/Footnote';
-import AlbergueContent from '../AlbergueContent/AlbergueContent';
 
 const BookReader = () => {
   const { bookId } = useParams();
