@@ -17,7 +17,8 @@ const BookReader = () => {
     totalPages,
     readerContent,
     isLoading,
-    progressChange,
+    currentChapter,
+    onChangeProgress,
   } = useBookReader(bookId!);
 
   if (isLoading) return <CyrLoader />;
@@ -45,8 +46,8 @@ const BookReader = () => {
           progress={progress}
           currentPage={currentPage}
           totalPages={totalPages}
-          nameChapter={''}
-          progressChange={progressChange}
+          nameChapter={currentChapter?.name}
+          progressChange={onChangeProgress}
         />
       </Layout.Footer>
     </Layout>

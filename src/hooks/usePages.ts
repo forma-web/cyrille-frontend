@@ -56,8 +56,6 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
     const { scrollWidth, clientWidth } = readerContent;
     const total = Math.ceil(scrollWidth / clientWidth);
 
-    console.log(total);
-
     setTotalPages(() => total);
     setWidthPage(() => clientWidth);
   }, [readerRef, setTotalPages]);
@@ -70,7 +68,9 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
     }
 
     const ro = new ResizeObserver(calcPages);
-    ro.observe(readerContent);
+    readerContent.childNodes.forEach((element) => {
+      ro.observe(element as Element);
+    });
 
     const mo = new MutationObserver(calcPages);
     mo.observe(readerContent, {

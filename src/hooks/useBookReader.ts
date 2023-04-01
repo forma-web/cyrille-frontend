@@ -38,6 +38,10 @@ const useBookReader = (bookId: string) => {
 
   // Init chapter after receiving chapters information
   useEffect(() => {
+    if (orderChapters.length === 0) {
+      return;
+    }
+
     setChapterId(() => orderChapters[0]);
   }, [changeProgress, orderChapters]);
 
@@ -51,23 +55,25 @@ const useBookReader = (bookId: string) => {
     });
   }, [currentPage, totalPages]);
 
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
-    (e) => {
-      changeProgress(Number(e.target.value));
-    },
-    [changeProgress],
-  );
+  const onChangeProgress: React.ChangeEventHandler<HTMLInputElement> =
+    useCallback(
+      (e) => {
+        changeProgress(Number(e.target.value));
+      },
+      [changeProgress],
+    );
 
   return {
     readerRef,
     readerPosition,
+    currentChapter,
     currentPage,
     changePage,
     totalPages,
     isLoading,
     readerContent,
     progress,
-    progressChange: onChange,
+    onChangeProgress,
   };
 };
 

@@ -5,8 +5,8 @@ type TProgessProps = {
   progress: number | null;
   currentPage: number | null;
   totalPages: number | null;
-  nameChapter: string | null;
-  progressChange: (value: number) => void;
+  nameChapter?: string | null;
+  progressChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 const Progress = ({
@@ -24,7 +24,7 @@ const Progress = ({
       </span>
       <div className={styles.progress__bar}>
         {progress !== null && (
-          <CyrRangeInput defaultValue={progress} onChange={progressChange} />
+          <CyrRangeInput value={progress} onChange={progressChange} />
         )}
       </div>
       <div className={styles.progress__chapter}>
