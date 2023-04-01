@@ -67,6 +67,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
+            VITE_SENTRY_DSN=${{ secrets.VITE_SENTRY_DSN }}
             VITE_API_URL=${{ env.STAGING_API_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
