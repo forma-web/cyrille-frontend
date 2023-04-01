@@ -4,6 +4,7 @@ import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/A
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
 import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
 import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
+import Footnote from '../../components/Footnote/Footnote';
 
 const AlbergueContent = () => {
   const [active, setActive] = useState(false);
@@ -58,9 +59,15 @@ const AlbergueContent = () => {
         <p>
           As they descended the velvet dunes, people went to their new, albeit
           temporary homes. They were met with the encouraging greeting on a
-          waving flag, “Not all those who wander are lost.” In times of crisis,
-          every heartfelt gesture warms, the bureau chief&apos;s parting words
-          came to Stingray&apos;s mind.
+          waving flag,{' '}
+          <Footnote
+            title="1"
+            description={'J.R.R. Tolkien, The Fellowship of the Ring.'}
+          >
+            “Not all those who wander are lost”
+          </Footnote>
+          . In times of crisis, every heartfelt gesture warms, the bureau
+          chief&apos;s parting words came to Stingray&apos;s mind.
         </p>
         <p>
           He headed toward the K1 dome, to the studio located on the first floor
@@ -116,7 +123,16 @@ const AlbergueContent = () => {
           on the branches of an already withered world tree. But hope blossomed
           like a snowdrop breaking through the snow.
         </p>
-        <p>It was a code: a reference to the habitability zone .</p>
+        <p>
+          It was a code: a reference to 
+          <Footnote
+            title="2"
+            description={`The Goldilocks principle is named by analogy to the children's story “The Three Bears”, in which a young girl named Goldilocks tastes porridge from three different bowls and finds she prefers porridge that is neither too hot nor too cold, but has just the right temperature. In astrobiology, the Goldilocks zone refers to the habitable zone around a star.`}
+          >
+            the habitability zone
+          </Footnote>{' '}
+          .
+        </p>
         <p>
           “Somewhere up there in the starry sky our new home and our new hope
           are found,” Stingray thought. Lifting his head, he put his face to the

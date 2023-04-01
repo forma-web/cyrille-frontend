@@ -4,7 +4,10 @@ import cn from 'classnames';
 import useSticky from '@/hooks/useSticky';
 
 const Layout = ({ children }: { children?: React.ReactNode }) => (
-  <div className={styles.layout}>{children}</div>
+  <div className={styles.layout}>
+    {children}
+    <div id="modal-layout" />
+  </div>
 );
 
 const LayoutHeader = ({

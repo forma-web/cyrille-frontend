@@ -1,0 +1,16 @@
+.trigger {
+  position: relative;
+  padding: 0 0.2em;
+  font-size: 1em;
+  cursor: pointer;
+  white-space: pre-wrap;
+  border-radius: 0.2em;
+  background-color: var(--gray20);
+  box-shadow: inset 1px 0 #b3b3b3, inset 0 1px #b3b3b3, inset -1px 0 #b3b3b3,
+    inset 0 -1px #b3b3b3;
+  transition: background-color var(--animation-time);
+
+  &_active {
+    background-color: var(--gray30);
+  }
+}
