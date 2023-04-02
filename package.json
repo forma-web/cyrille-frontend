@@ -51,6 +51,7 @@
   },
   "browserslist": [
     "last 2 year",
-    "not dead"
+    "not dead",
+    "safari>=13"
   ]
 }
