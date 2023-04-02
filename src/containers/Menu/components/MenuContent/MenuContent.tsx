@@ -9,18 +9,17 @@ import { Link } from 'react-router-dom';
 
 const MenuContent = ({ isOpen, toggleMenu }: TMenuContentProps) => {
   return (
-    <nav className={cn(styles.menu, isOpen && styles.menu_open)}>
+    <nav
+      className={cn(styles.menu, isOpen && styles.menu_open)}
+      onClick={toggleMenu}
+    >
       <div className={styles.menu__container}>
-        <Link
-          to={ERoutes.home}
-          className={styles.menu__header}
-          onClick={toggleMenu}
-        >
+        <Link to={ERoutes.home} className={styles.menu__header}>
           <Logo />
         </Link>
         <div className={styles.menu__body}>
           <CyrDivide large total={1} />
-          <MenuList toggleMenu={toggleMenu} />
+          <MenuList />
           <div className={styles.menu__description}>
             the interactive e-book you&apos;ll be in love with
           </div>
