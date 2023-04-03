@@ -4,7 +4,19 @@ import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/A
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
 import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
 import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
-import Footnote from '../../components/Footnote/Footnote';
+import Footnote from '@/components/Footnote/Footnote';
+import AlbergueModalVideo from '@/components/Albergue/AlbergueModalVideo/AlbergueModalVideo';
+
+const FootnoteVideo = (
+  <>
+    The Voyager Golden Records are two phonograph
+    <AlbergueModalVideo>on the silsdfdsk sandy</AlbergueModalVideo>
+    records that contain sounds and images selected to portray the diversity of
+    life and culture on Earth. They were attached to the Voyager spacecraft for
+    intelligent representatives of extraterrestrial life who might
+    hypothetically encounter them.
+  </>
+);
 
 const AlbergueContent = () => {
   const [active, setActive] = useState(false);
@@ -215,10 +227,7 @@ const AlbergueContent = () => {
             Stingray thought of Jimmy Carter&apos;s words from a message to
             extraterrestrial civilizations:
           </AlbergueModalPhoto>
-          <Footnote
-            title="3"
-            description={`The Voyager Golden Records are two phonograph records that contain sounds and images selected to portray the diversity of life and culture on Earth. They were attached to the Voyager spacecraft for intelligent representatives of extraterrestrial life who might hypothetically encounter them.`}
-          >
+          <Footnote title="3" description={FootnoteVideo}>
             “We human beings are still divided into nation states, but these
             states are rapidly becoming a single global civilization.”
           </Footnote>
