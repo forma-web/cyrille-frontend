@@ -1,5 +1,4 @@
 import CyrRating from '@/components/ui/CyrRating/CyrRating';
-// import { AlbergueCover } from '@/assets/books/AlbergueCover/AlbergueCover';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import styles from './BookInfo.module.scss';
 import { TBook } from '@/types/book';
@@ -7,11 +6,14 @@ import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
 import cn from 'classnames';
 import getAuthors from '@/utils/getAuthors';
 import { Link } from 'react-router-dom';
-import { ERoutes } from '../../constants/routers';
+import { ERoutes } from '@/constants/routers';
+import parse from 'html-react-parser';
+import { REPLACED_COMPONENT_OPTIONS } from '@/constants/replased';
 
 const BookInfo = ({
   id,
   thumbnail_image,
+  thumbnail_component,
   reviews_avg_rating,
   authors,
   name,
@@ -23,7 +25,11 @@ const BookInfo = ({
         <img src={thumbnail_image} />
       </div>
       <div className={styles.bookInfo__cover}>
-        <img src={thumbnail_image} />
+        {thumbnail_component ? (
+          parse(thumbnail_component, REPLACED_COMPONENT_OPTIONS)
+        ) : (
+          <img src={thumbnail_image} />
+        )}
       </div>
       <div className={styles.bookInfo__body}>
         <div className={styles.bookInfo__text}>

@@ -10,6 +10,7 @@ import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/Alber
 import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
 import Footnote from '@/components/Footnote/Footnote';
 import AlbergueModalVideo from '@/components/Albergue/AlbergueModalVideo/AlbergueModalVideo';
+import AlbergueCover from '@/containers/AlbergueCover/AlbergueCover';
 
 type TReplacedComponent = Record<string, (domNode: Element) => JSX.Element>;
 
@@ -62,6 +63,7 @@ export const REPLACED_COMPONENT: TReplacedComponent = {
       </AlbergueModalVideo>
     );
   },
+  'albergue-cover': () => <AlbergueCover />,
   footnote: ({ children, attribs }) => {
     const title = attribs['data-title'];
     const content = attribs['data-body'];
