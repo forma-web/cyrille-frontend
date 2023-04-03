@@ -31,6 +31,17 @@ const AlbergueContent = () => {
         <h1>1</h1>
         The Coming of the Storm.
       </div>
+      <figure className="quote">
+        <blockquote>
+          “In search of water and grass they move from place to place, and
+          though they have no cities enclosed by inner and outer walls, no place
+          of residence, and they do not cultivate the fields, yet each also has
+          an allotted plot of land.”
+        </blockquote>
+        <figcaption>
+          <cite>Sima Qian, “Shi Ji”</cite>
+        </figcaption>
+      </figure>
       <article className="chapter__body">
         <p>
           The train slowed down for a few minutes, and then, picking up the pace
@@ -250,7 +261,6 @@ const AlbergueContent = () => {
           flex-direction: column;
           row-gap: 1em;
           padding: var(--wrapper-padding);
-          padding-bottom: 4rem;
           text-align: center;
           font-style: italic;
           font-weight: 300;
@@ -269,6 +279,22 @@ const AlbergueContent = () => {
           font-size: 3.2rem;
           text-transform: uppercase;
           font-style: normal;
+        }
+
+        .quote {
+          padding: 4rem var(--wrapper-padding); 
+          padding-right: 0;
+          text-align: right;
+          font-size: 1.8rem;
+          line-height: 1.4;        
+        }
+
+        .quote cite {
+          font-size: 1.4rem;
+          font-style: normal;
+          font-weight: 600;
+          display: block;
+          margin-top: 0.8em;
         }
 
         p {
