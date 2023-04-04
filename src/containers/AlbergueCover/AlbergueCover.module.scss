@@ -40,6 +40,7 @@
   height: 100%;
   position: relative;
   user-select: none;
+  touch-action: none;
 
   img {
     position: absolute;
