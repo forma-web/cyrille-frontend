@@ -6,9 +6,15 @@ import { loginFields } from '../../constants/fields';
 import CyrPasswordInput from '@/components/ui/inputs/CyrPasswordInput/CyrPasswordInput';
 import { Link } from 'react-router-dom';
 import { REGISTER_ROUTE } from '@/constants/routers';
+import CyrError from '@/components/ui/CyrError/CyrError';
 
 const Login = () => {
-  const { registerField, onSubmit } = useLogin();
+  const {
+    registerField,
+    onSubmit,
+    responseError: error,
+    isTouched,
+  } = useLogin();
 
   return (
     <AuthContainer onSubmit={onSubmit}>
@@ -16,6 +22,7 @@ const Login = () => {
         <h1>Login</h1>
         <CyrInput {...registerField(loginFields.email)} />
         <CyrPasswordInput {...registerField(loginFields.password)} />
+        {!isTouched && <CyrError message={error} />}
       </AuthContainer.Form>
       <AuthContainer.Buttons>
         <CyrButton type="submit">Login</CyrButton>
