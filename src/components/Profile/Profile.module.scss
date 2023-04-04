@@ -10,6 +10,11 @@
     align-items: center;
   }
 
+  &__note {
+    font-size: 1.5rem;
+    text-align: justify;
+  }
+
   &__data {
     display: flex;
     align-items: center;
@@ -24,6 +29,11 @@
 
   &__name {
     font-weight: 500;
+  }
+
+  &__lastname {
+    font-family: 'Georgia';
+    font-style: italic;
   }
 
   &__description {
@@ -48,6 +58,14 @@
 
     .person__description {
       font-size: 1.2rem;
+    }
+  }
+
+  &_dark {
+    .person__note {
+      font-size: 1.5rem;
+      color: var(--gray50);
+      text-align: justify;
     }
   }
 }

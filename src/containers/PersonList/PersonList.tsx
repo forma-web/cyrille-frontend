@@ -15,9 +15,10 @@ const PersonList = ({ persons }: TPersonListProps) => {
         <li className={styles.persons__item} key={id}>
           <Profile
             name={name}
-            caption={project?.role}
+            caption={`(${project?.role})`}
             notes={project?.notes}
             avatar={avatar}
+            dark
           />
         </li>
       ))}

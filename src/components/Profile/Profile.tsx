@@ -10,6 +10,7 @@ type TProfileProps = {
   notes?: string | null;
   small?: boolean;
   children?: React.ReactNode;
+  dark?: boolean;
 };
 
 const Profile = ({
@@ -19,14 +20,34 @@ const Profile = ({
   notes,
   small,
   children,
+  dark = false,
 }: TProfileProps) => {
+  const firstName = name.split(' ')[0];
+  const lastName = name.split(' ').slice(1).join(' ');
+
   return (
-    <div className={cn(styles.person, small && styles.person_small)}>
+    <div
+      className={cn(
+        styles.person,
+        small && styles.person_small,
+        dark && styles.person_dark,
+      )}
+    >
       <div className={styles.person__content}>
         <div className={styles.person__data}>
-          <CyrAvatar name={name} image={avatar} width={small ? 4.6 : 7} />
+          <CyrAvatar
+            name={name}
+            image={avatar}
+            width={small ? 4.6 : 15}
+            dark={dark}
+          />
           <div className={styles.person__info}>
-            <h4 className={styles.person__name}>{name}</h4>
+            <h4 className={styles.person__name}>
+              {firstName}&#x20;
+              {lastName && (
+                <span className={styles.person__lastname}>{lastName}</span>
+              )}
+            </h4>
             {caption && (
               <div className={styles.person__description}>{caption}</div>
             )}
