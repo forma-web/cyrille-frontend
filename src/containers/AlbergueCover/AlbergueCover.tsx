@@ -8,6 +8,8 @@ const AlbergueCover = () => {
   const coverElement = useRef<HTMLDivElement>(null);
   const circleElement = useRef<HTMLImageElement>(null);
 
+  const initAnimation = () => setIsInit(true);
+
   useCursor({
     coverElement,
     circleElement,
@@ -18,7 +20,8 @@ const AlbergueCover = () => {
     <div
       className={cn(styles.cover, isInit && styles.cover_init)}
       ref={coverElement}
-      onMouseEnter={() => setIsInit(true)}
+      onMouseEnter={initAnimation}
+      onTouchStart={initAnimation}
     >
       <img src="../albergue/cover-default.png" alt="" />
       <img
