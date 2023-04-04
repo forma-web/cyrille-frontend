@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   margin: 0 auto;
+  padding: var(--wrapper-padding);
   max-width: var(--max-width);
   color: white;
   display: flex;

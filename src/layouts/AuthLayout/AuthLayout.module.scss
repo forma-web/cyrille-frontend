@@ -8,7 +8,6 @@
 
 .background {
   position: relative;
-  padding: var(--wrapper-padding);
   flex: 1;
   background-color: #466966;
   background-image: url(../backgrounds/auth.png);
@@ -18,6 +17,8 @@
 }
 
 .container {
+  width: 100%;
+  background-color: white;
   min-height: 50vh;
   height: max-content;
   display: flex;
