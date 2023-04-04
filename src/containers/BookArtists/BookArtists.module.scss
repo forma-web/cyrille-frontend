@@ -1,6 +1,8 @@
 .artists {
   display: flex;
   flex-direction: column;
-  row-gap: 2.4rem;
-  background-color: var(--gray20);
+  row-gap: 6.4rem;
+  background-color: var(--black-color);
+  color: white;
+  border-radius: 1.2rem;
 }
