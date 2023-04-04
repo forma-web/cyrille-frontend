@@ -13,7 +13,8 @@ export const fetchData = async <T>(
   });
 
   if (!response.ok) {
-    throw new Error(`${response.status}`);
+    const errorMessage = await response.json();
+    throw new Error(`${errorMessage.message}`);
   }
 
   return response.json();
