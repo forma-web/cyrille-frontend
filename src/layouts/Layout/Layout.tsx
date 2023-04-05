@@ -46,7 +46,7 @@ const LayoutMain = ({
   className?: string;
 }) => (
   <main className={cn(styles.main, className)}>
-    <div className={styles.main__container}>{children}</div>
+    {children}
     <div id="modal-main" />
   </main>
 );

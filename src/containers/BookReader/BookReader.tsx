@@ -7,6 +7,7 @@ import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
 import CyrButton from '@/components/ui/CyrButton/CyrButton';
 import { ERoutes } from '@/constants/routers';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
+import cn from 'classnames';
 
 const BookReader = () => {
   const { bookId } = useParams();
@@ -22,6 +23,8 @@ const BookReader = () => {
     isLoading,
     currentChapter,
     onChangeProgress,
+    prevPage,
+    nextPage,
   } = useBookReader(bookId!);
 
   if (isLoading) return <CyrLoader />;
@@ -42,11 +45,12 @@ const BookReader = () => {
         <>
           <Layout.Main className={styles.reader}>
             <div
-              className={styles.reader__content}
-              ref={readerRef}
-              onClick={changePage}
-            >
+              className={cn(styles.pagination, styles.pagination_back)}
+              onClick={prevPage}
+            />
+            <div className={styles.reader__content} onClick={changePage}>
               <section
+                ref={readerRef}
                 className={styles.embed}
                 style={{
                   left: readerPosition,
@@ -55,6 +59,10 @@ const BookReader = () => {
                 {readerContent}
               </section>
             </div>
+            <div
+              className={cn(styles.pagination, styles.pagination_forward)}
+              onClick={nextPage}
+            />
           </Layout.Main>
           <Layout.Footer sticky>
             <Progress

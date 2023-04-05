@@ -1,16 +1,16 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { TChapterData } from '@/types/reader';
 
 export type TUsePages = {
-  readerRef: React.RefObject<HTMLDivElement>;
   isLoading: boolean;
   currentChapter: TChapterData | null;
 };
 
-const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
+const usePages = ({ isLoading, currentChapter }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [currentPage, setCurrentPages] = useState<number | null>(null);
+  const readerRef = useRef<HTMLDivElement>(null);
 
   const changeProgress = useCallback(
     (progress: number) => {
@@ -39,11 +39,16 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
       return;
     }
 
-    const { scrollWidth, clientWidth } = readerContent;
-    const total = Math.floor(scrollWidth / clientWidth);
+    const { scrollWidth } = readerContent;
+    const styles = getComputedStyle(readerContent);
+
+    const columnGap = parseFloat(styles.columnGap);
+    const columnWidth = parseFloat(styles.columnWidth);
+
+    const total = Math.ceil((scrollWidth + columnGap) / columnWidth);
 
     setTotalPages(() => total);
-    setWidthPage(() => clientWidth);
+    setWidthPage(() => columnWidth);
   }, [readerRef, setTotalPages]);
 
   useEffect(() => {
@@ -108,14 +113,11 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
       return;
     }
 
-    if (offsetX - widthPage * (currentPage - 1) < clientWidth / 4) {
+    if (offsetX < clientWidth / 4) {
       prevPage();
     }
 
-    if (
-      offsetX - widthPage * (currentPage - 1) >
-      clientWidth - clientWidth / 4
-    ) {
+    if (offsetX > clientWidth - clientWidth / 4) {
       nextPage();
     }
   };
@@ -126,6 +128,9 @@ const usePages = ({ readerRef, isLoading, currentChapter }: TUsePages) => {
     readerPosition,
     changePage,
     changeProgress,
+    prevPage,
+    nextPage,
+    readerRef,
   };
 };
 
