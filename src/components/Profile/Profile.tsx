@@ -38,7 +38,7 @@ const Profile = ({
           <CyrAvatar
             name={name}
             image={avatar}
-            width={small ? 4.6 : 15}
+            width={small ? 4.6 : 12}
             dark={dark}
           />
           <div className={styles.person__info}>

@@ -18,7 +18,6 @@ const PersonList = ({ persons }: TPersonListProps) => {
             caption={`(${project?.role})`}
             notes={project?.notes}
             avatar={avatar}
-            dark
           />
         </li>
       ))}
