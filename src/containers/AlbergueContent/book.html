@@ -222,6 +222,8 @@
     .chapter {
       font-size: 2rem;
       line-height: 1.2;
+      display: block;
+      height: auto;
     }
 
     .chapter__header {
@@ -233,12 +235,6 @@
       font-style: italic;
       font-weight: 300;
       color: var(--gray50);
-    }
-
-    .chapter__body {
-      display: flex;
-      flex-direction: column;
-      row-gap: 0.4em;
     }
 
     .quote {
@@ -271,9 +267,13 @@
       text-indent: 1em;
       text-align: justify;
       hyphens: auto;
-      orphans: 2;
-      widows: 2;
       word-wrap: break-word;
+      margin-block-end: 0.4em;
+    }
+
+    .chapter__body img {
+      break-inside: avoid;
+      margin-bottom: 0.4em;
     }
 
     p:first-child {

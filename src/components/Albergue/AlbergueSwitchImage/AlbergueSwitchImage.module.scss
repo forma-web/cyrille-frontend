@@ -2,9 +2,8 @@
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
-  page-break-inside: avoid;
-  break-inside: avoid-column;
-  display: table;
+  break-inside: avoid;
+  margin-bottom: 0.4em;
 
   &__toggle {
     position: absolute;

@@ -20,6 +20,9 @@
   column-fill: auto;
   column-width: 600px;
   column-gap: calc(var(--wrapper-padding) * 2);
+  orphans: 2;
+  widows: 2;
+  hyphenate-character: '-';
 }
 
 .pagination {
