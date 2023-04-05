@@ -3,7 +3,8 @@
   aspect-ratio: 1/1;
   position: relative;
   page-break-inside: avoid;
-  break-inside: avoid;
+  break-inside: avoid-column;
+  display: table;
 
   &__toggle {
     position: absolute;
