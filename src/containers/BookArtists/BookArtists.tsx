@@ -8,7 +8,7 @@ const BookArtists = ({ artists }: TArtists) => {
   if (!artists?.length) return null;
 
   return (
-    <CyrContainer className={styles.artists} gap={4.8}>
+    <CyrContainer className={styles.artists} gap={3.2}>
       <h4>artists</h4>
       <article className={styles.artists__description}>
         Meet the{' '}

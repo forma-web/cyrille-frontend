@@ -1,14 +1,15 @@
 .artists {
   display: flex;
   flex-direction: column;
-  row-gap: 2.6rem;
-  background-color: var(--black-color);
-  color: white;
+  //row-gap: 0.8rem;
+  // background-color: var(--black-color);
+  background-color: var(--gray20);
+  color: black;
   border-radius: 1.2rem;
 
   &__description {
     font-size: 2.4rem;
-    font-weight: 700;
+    //font-weight: 700;
     width: 100%;
 
     &_contrast {
@@ -21,11 +22,12 @@
   &__signature {
     font-family: 'Georgia';
     font-style: italic;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 1.5rem;
     text-transform: lowercase;
-    color: gray;
+    color: var(--gray80);
     margin-top: 1.2rem;
     text-align: right;
+    
   }
 }
