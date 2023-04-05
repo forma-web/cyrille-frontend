@@ -1,10 +1,9 @@
 import usePages from './usePages';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import useChapterContent from './useChapterContent';
 import useChaptersData from './useChaptersData';
 
 const useBookReader = (bookId: string) => {
-  const readerRef = useRef<HTMLDivElement>(null);
   const [chapterId, setChapterId] = useState<number | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
 
@@ -24,14 +23,7 @@ const useBookReader = (bookId: string) => {
     chapterId,
   });
 
-  const {
-    totalPages,
-    currentPage,
-    readerPosition,
-    changePage,
-    changeProgress,
-  } = usePages({
-    readerRef,
+  const { totalPages, currentPage, changeProgress, ...propsParams } = usePages({
     isLoading,
     currentChapter,
   });
@@ -47,7 +39,7 @@ const useBookReader = (bookId: string) => {
 
   useEffect(() => {
     setProgress((prevProgress) => {
-      if (currentPage === null || totalPages === null) {
+      if (currentPage === null || totalPages === null || totalPages === 1) {
         return prevProgress;
       }
 
@@ -64,16 +56,14 @@ const useBookReader = (bookId: string) => {
     );
 
   return {
-    readerRef,
-    readerPosition,
     currentChapter,
     currentPage,
-    changePage,
     totalPages,
     isLoading,
     readerContent,
     progress,
     onChangeProgress,
+    ...propsParams,
   };
 };
 

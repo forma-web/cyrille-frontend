@@ -19,3 +19,8 @@ export type TMeta = {
   token_type: string;
   ttl: number;
 };
+
+export type TAuthErrors = {
+  message: string;
+  errors?: Record<string, [string]>;
+};

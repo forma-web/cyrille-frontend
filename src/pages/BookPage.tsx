@@ -6,6 +6,7 @@ import { bookFetch } from '@/services/books';
 import { Navigate, useParams } from 'react-router-dom';
 import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
 import BookReviews from '@/containers/BookReviews/BookReviews';
+import BookLink from '../containers/BookLink/BookLink';
 
 const BookPage = () => {
   const { bookId } = useParams();
@@ -25,6 +26,7 @@ const BookPage = () => {
       <BookDescription {...book.data} />
       <BookArtists artists={book.data.artists} />
       <BookReviews bookId={bookId} />
+      <BookLink {...book.data} />
     </div>
   );
 };

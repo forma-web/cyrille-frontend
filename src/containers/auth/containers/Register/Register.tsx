@@ -6,9 +6,15 @@ import CyrPasswordInput from '@/components/ui/inputs/CyrPasswordInput/CyrPasswor
 import { Link } from 'react-router-dom';
 import useRegister from '../../hooks/useRegister';
 import { LOGIN_ROUTE } from '@/constants/routers';
+import CyrError from '@/components/ui/CyrError/CyrError';
 
 const Register = () => {
-  const { registerField, onSubmit } = useRegister();
+  const {
+    registerField,
+    onSubmit,
+    responseError: error,
+    isTouched,
+  } = useRegister();
 
   return (
     <AuthContainer onSubmit={onSubmit}>
@@ -16,6 +22,7 @@ const Register = () => {
         <CyrInput {...registerField(registerFields.name)} />
         <CyrInput {...registerField(registerFields.email)} />
         <CyrPasswordInput {...registerField(registerFields.password)} />
+        {!isTouched && <CyrError message={error} />}
       </AuthContainer.Form>
       <AuthContainer.Buttons>
         <CyrButton type="submit">Create account</CyrButton>

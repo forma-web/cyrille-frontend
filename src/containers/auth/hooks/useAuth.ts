@@ -4,10 +4,12 @@ import useMutationForm from '@/hooks/useMutationForm';
 import { TAuth } from '@/types/auth';
 import { setJWTToken } from '@/utils/jwt';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const useAuth = <T extends FieldValues>(
   mutationFn: (body: T) => Promise<TAuth>,
 ) => {
+  const [responseError, setResponseError] = useState<string>();
   const client = useQueryClient();
 
   const navigate = useNavigate();
@@ -26,15 +28,16 @@ const useAuth = <T extends FieldValues>(
       navigate('/');
     },
     onError: (err) => {
-      //   setResponseError(
-      //     () =>
-      //       responseErrors?.[(err as Error).message] ??
-      //       'Произошла неизвестная ошибка. Повторите попытку'
-      //   );
+      setResponseError(() => (err as Error).message);
     },
   });
 
-  return { ...useMutationForm<T, TAuth>(mutate), isSuccess, isLoading };
+  return {
+    ...useMutationForm<T, TAuth>(mutate),
+    responseError,
+    isSuccess,
+    isLoading,
+  };
 };
 
 export default useAuth;

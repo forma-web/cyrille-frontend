@@ -28,7 +28,7 @@ const CyrRatingInput = React.forwardRef<HTMLInputElement, TCyrRatingInputProps>(
 
               <CyrRhombus
                 className={styles.star}
-                filled={(currentValue ?? 0) >= currentRating ? 1 : 0}
+                filled={(Number(currentValue) ?? 0) >= currentRating ? 1 : 0}
               />
             </label>
           );

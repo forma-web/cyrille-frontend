@@ -1,8 +1,9 @@
 .auth {
   width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
   flex: 1;
   padding: 3.2rem var(--wrapper-padding);
-  background-color: white;
   display: flex;
   row-gap: 2.4rem;
   flex-direction: column;

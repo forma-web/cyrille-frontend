@@ -2,6 +2,7 @@ import { Outlet, useMatch } from 'react-router-dom';
 import Header from '@/containers/Header/Header';
 import Layout from '../Layout/Layout';
 import { BOOK_ROUTE } from '@/constants/routers';
+import styles from './MainLayout.module.scss';
 
 const MainLayout = () => {
   const bookPage = useMatch(BOOK_ROUTE);
@@ -12,7 +13,9 @@ const MainLayout = () => {
         <Header />
       </Layout.Header>
       <Layout.Main>
-        <Outlet />
+        <div className={styles.main__container}>
+          <Outlet />
+        </div>
       </Layout.Main>
     </Layout>
   );
