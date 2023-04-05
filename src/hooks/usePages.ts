@@ -32,8 +32,9 @@ const usePages = ({ isLoading, currentChapter }: TUsePages) => {
     () => ({
       left: `-${(widthPage + gapPage) * (currentPage! - 1)}px`,
       columnWidth: widthPage > 0 ? `${widthPage}px` : 'auto',
+      columnCount: totalPages ?? 1,
     }),
-    [currentPage, gapPage, widthPage],
+    [currentPage, gapPage, totalPages, widthPage],
   );
 
   const calcPages = useCallback(() => {
