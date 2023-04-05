@@ -10,6 +10,12 @@ const BookArtists = ({ artists }: TArtists) => {
   return (
     <CyrContainer className={styles.artists} gap={4.8}>
       <h4>artists</h4>
+      <article className={styles.artists__description}>
+        Meet the{' '}
+        <span className={styles.artists__description_contrast}>artists</span>{' '}
+        who have worked to help create a unique, interactive experience for you
+        <div className={styles.artists__signature}>Creative side</div>
+      </article>
       <CyrDivide total={2} />
       <PersonList persons={artists} />
     </CyrContainer>
