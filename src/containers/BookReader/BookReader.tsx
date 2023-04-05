@@ -14,7 +14,7 @@ const BookReader = () => {
 
   const {
     readerRef,
-    readerPosition,
+    readerStyles,
     changePage,
     progress,
     currentPage,
@@ -52,9 +52,7 @@ const BookReader = () => {
               <section
                 ref={readerRef}
                 className={styles.embed}
-                style={{
-                  left: readerPosition,
-                }}
+                style={readerStyles}
               >
                 {readerContent}
               </section>

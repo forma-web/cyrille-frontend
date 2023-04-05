@@ -28,7 +28,6 @@ const useAuth = <T extends FieldValues>(
       navigate('/');
     },
     onError: (err) => {
-      console.log((err as Error).message);
       setResponseError(() => (err as Error).message);
     },
   });

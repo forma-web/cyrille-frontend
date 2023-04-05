@@ -8,6 +8,7 @@ export type TUsePages = {
 
 const usePages = ({ isLoading, currentChapter }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
+  const [gapPage, setGapPage] = useState(0);
   const [totalPages, setTotalPages] = useState<number | null>(null);
   const [currentPage, setCurrentPages] = useState<number | null>(null);
   const readerRef = useRef<HTMLDivElement>(null);
@@ -27,9 +28,12 @@ const usePages = ({ isLoading, currentChapter }: TUsePages) => {
     setCurrentPages(() => 1);
   }, [totalPages]);
 
-  const readerPosition = useMemo(
-    () => `-${widthPage * (currentPage! - 1)}px`,
-    [currentPage, widthPage],
+  const readerStyles = useMemo(
+    () => ({
+      left: `-${(widthPage + gapPage) * (currentPage! - 1)}px`,
+      columnWidth: widthPage > 0 ? `${widthPage}px` : 'auto',
+    }),
+    [currentPage, gapPage, widthPage],
   );
 
   const calcPages = useCallback(() => {
@@ -39,16 +43,18 @@ const usePages = ({ isLoading, currentChapter }: TUsePages) => {
       return;
     }
 
-    const { scrollWidth } = readerContent;
+    const { scrollWidth, clientWidth } = readerContent;
     const styles = getComputedStyle(readerContent);
 
     const columnGap = parseFloat(styles.columnGap);
-    const columnWidth = parseFloat(styles.columnWidth);
 
-    const total = Math.ceil((scrollWidth + columnGap) / columnWidth);
+    const total = Math.ceil(
+      (scrollWidth + columnGap) / (clientWidth + columnGap),
+    );
 
     setTotalPages(() => total);
-    setWidthPage(() => columnWidth);
+    setWidthPage(() => clientWidth);
+    setGapPage(() => columnGap);
   }, [readerRef, setTotalPages]);
 
   useEffect(() => {
@@ -125,7 +131,7 @@ const usePages = ({ isLoading, currentChapter }: TUsePages) => {
   return {
     totalPages,
     currentPage,
-    readerPosition,
+    readerStyles,
     changePage,
     changeProgress,
     prevPage,

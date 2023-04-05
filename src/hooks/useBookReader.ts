@@ -39,7 +39,7 @@ const useBookReader = (bookId: string) => {
 
   useEffect(() => {
     setProgress((prevProgress) => {
-      if (currentPage === null || totalPages === null) {
+      if (currentPage === null || totalPages === null || totalPages === 1) {
         return prevProgress;
       }
 
