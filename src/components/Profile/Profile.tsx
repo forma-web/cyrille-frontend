@@ -1,5 +1,4 @@
-import React from 'react';
-import CyrAvatar from '../ui/CyrAvatar/CyrAvatar';
+import { CyrAvatar } from 'shared/ui';
 import styles from './Profile.module.scss';
 import cn from 'classnames';
 

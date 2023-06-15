@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import CyrModal from '@/components/ui/CyrModal/CyrModal';
+import { CyrModal } from 'shared/ui';
 import styles from './Footnote.module.scss';
 import FootnoteTrigger from '../triggers/FootnoteTrigger/FootnoteTrigger';
 import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';

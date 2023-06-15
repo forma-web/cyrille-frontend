@@ -1,7 +1,6 @@
 import ProfileInfo from '@/components/ProfileInfo/ProfileInfo';
 import styles from './ProfilePage.module.scss';
-import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
-import CyrButton from '@/components/ui/CyrButton/CyrButton';
+import { CyrLoader, CyrButton } from 'shared/ui';
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import useUser from '@/hooks/useUser';
 import useLogout from '@/hooks/useLogout';

@@ -1,7 +1,7 @@
 import BooksList from '@/containers/BooksCollections/BooksList/BooksList';
 import { useQuery } from '@tanstack/react-query';
 import { allBooksFetch } from '@/services/books';
-import CyrLoader from '@/components/ui/CyrLoader/CyrLoader';
+import { CyrLoader } from 'shared/ui';
 
 const AllBooks = () => {
   const { isLoading, data: books } = useQuery({

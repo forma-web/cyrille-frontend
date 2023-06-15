@@ -6,7 +6,11 @@ type TCyrRhombusProps = {
   filled?: number;
 } & React.HTMLAttributes<HTMLElement>;
 
-const CyrRhombus = ({ width, filled = 1, className }: TCyrRhombusProps) => {
+export const CyrRhombus = ({
+  width,
+  filled = 1,
+  className,
+}: TCyrRhombusProps) => {
   return (
     <div
       className={cn(styles.rhombus, className)}
@@ -26,5 +30,3 @@ const CyrRhombus = ({ width, filled = 1, className }: TCyrRhombusProps) => {
     </div>
   );
 };
-
-export default CyrRhombus;

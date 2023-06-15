@@ -1,6 +1,6 @@
 import { reviewsBookFetch } from '@/services/books';
 import ReviewList from '@/containers/ReviewList/ReviewList';
-import CyrButton from '@/components/ui/CyrButton/CyrButton';
+import { CyrButton } from 'shared/ui';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 const BookReviewsList = ({ bookId }: { bookId: number | string }) => {

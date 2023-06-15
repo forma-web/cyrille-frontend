@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import styles from './CyrPasswordInputButtons.module.scss';
-import CyrButton from '@/components/ui/CyrButton/CyrButton';
+import { CyrButton } from 'shared/ui';
 
 type TPasswordButtonsProps = {
   changePassword: React.Dispatch<React.SetStateAction<boolean>>;

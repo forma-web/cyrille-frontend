@@ -1,6 +1,6 @@
 import PersonList from '@/containers/PersonList/PersonList';
 import { TArtists } from '@/types/book';
-import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
+import { CyrContainer } from 'shared/ui';
 import styles from './BookArtists.module.scss';
 import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';
 

@@ -7,7 +7,7 @@ type TCyrContainerProps = {
   gap?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const CyrContainer = ({
+export const CyrContainer = ({
   gap = 2.4,
   className,
   children,
@@ -21,5 +21,3 @@ const CyrContainer = ({
     </section>
   );
 };
-
-export default CyrContainer;

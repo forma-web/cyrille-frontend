@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MenuToggle.module.scss';
 import cn from 'classnames';
-import CyrButton from '@/components/ui/CyrButton/CyrButton';
+import { CyrButton } from 'shared/ui';
 
 type TMenuToggleProps = React.ButtonHTMLAttributes<HTMLElement> & {
   isOpen?: boolean;

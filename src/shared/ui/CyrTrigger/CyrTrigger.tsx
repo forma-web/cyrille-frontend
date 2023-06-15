@@ -1,7 +1,7 @@
 import { TCyrTriggerProps } from '@/types/trigger';
 import styles from './CyrTrigger.module.scss';
 
-const CyrTrigger = ({
+export const CyrTrigger = ({
   isActive = false,
   onClick,
   renderIcon,
@@ -21,5 +21,3 @@ const CyrTrigger = ({
     </span>
   );
 };
-
-export default CyrTrigger;

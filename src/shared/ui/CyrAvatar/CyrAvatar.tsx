@@ -8,7 +8,12 @@ type TCyrAvatarProps = {
   dark?: boolean;
 };
 
-const CyrAvatar = ({ image, width, name, dark = false }: TCyrAvatarProps) => {
+export const CyrAvatar = ({
+  image,
+  width,
+  name,
+  dark = false,
+}: TCyrAvatarProps) => {
   return (
     <div
       className={cn(styles.avatar, dark && styles.avatar_dark)}
@@ -24,5 +29,3 @@ const CyrAvatar = ({ image, width, name, dark = false }: TCyrAvatarProps) => {
     </div>
   );
 };
-
-export default CyrAvatar;

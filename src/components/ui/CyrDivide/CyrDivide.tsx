@@ -1,6 +1,6 @@
 import styles from './CyrDivide.module.scss';
 import cn from 'classnames';
-import CyrRhombus from '@/components/ui/CyrRhombus/CyrRhombus';
+import { CyrRhombus } from 'shared/ui';
 
 type TCyrDivideProps = {
   total?: number;

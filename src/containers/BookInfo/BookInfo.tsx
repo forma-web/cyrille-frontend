@@ -1,7 +1,7 @@
 import CyrRating from '@/components/ui/CyrRating/CyrRating';
 import styles from './BookInfo.module.scss';
 import { TBook } from '@/types/book';
-import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
+import { CyrContainer } from 'shared/ui';
 import cn from 'classnames';
 import getAuthors from '@/utils/getAuthors';
 import parse from 'html-react-parser';

@@ -1,4 +1,4 @@
-import CyrTrigger from '@/components/ui/CyrTrigger/CyrTrigger';
+import { CyrTrigger } from 'shared/ui';
 import EffectTriggerIcon from './icons/EffectTriggerIcon';
 import { TCyrTriggerProps } from '@/types/trigger';
 

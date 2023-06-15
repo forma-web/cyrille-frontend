@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import CyrButton from '@/components/ui/CyrButton/CyrButton';
+import { CyrButton } from 'shared/ui';
 import { ERoutes } from '@/constants/routers';
 import { TBook } from '@/types/book';
 import styles from './BookLink.module.scss';

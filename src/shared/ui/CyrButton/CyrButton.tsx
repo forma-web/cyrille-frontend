@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './CyrButton.module.scss';
 import cn from 'classnames';
 
@@ -8,7 +7,7 @@ type TButtonProps = React.ButtonHTMLAttributes<HTMLElement> & {
   className?: string;
 };
 
-const CyrButton = ({
+export const CyrButton = ({
   children,
   secondary = false,
   icon = false,
@@ -29,5 +28,3 @@ const CyrButton = ({
     </button>
   );
 };
-
-export default CyrButton;

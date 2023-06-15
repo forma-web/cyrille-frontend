@@ -1,5 +1,5 @@
 import { TBook } from '@/types/book';
-import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
+import { CyrContainer } from 'shared/ui';
 import styles from './BookDescription.module.scss';
 import { STATISTICS_BOOK } from '@/constants/book';
 

@@ -1,6 +1,6 @@
 import styles from './CyrLoader.module.scss';
 
-const CyrLoader = () => {
+export const CyrLoader = () => {
   return (
     <div className={styles.loader}>
       <svg className={styles.spinner} viewBox="0 0 50 50">
@@ -16,4 +16,3 @@ const CyrLoader = () => {
     </div>
   );
 };
-export default CyrLoader;

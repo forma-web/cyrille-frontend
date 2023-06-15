@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import CyrRhombus from '@/components/ui/CyrRhombus/CyrRhombus';
+import { CyrRhombus } from 'shared/ui';
 import styles from './CyrRatingInput.module.scss';
 
 type TCyrRatingInputProps = React.InputHTMLAttributes<HTMLInputElement> & {

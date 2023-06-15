@@ -1,4 +1,4 @@
-import CyrContainer from '@/components/ui/CyrContainer/CyrContainer';
+import { CyrContainer } from 'shared/ui';
 import ReviewForm from '@/containers/ReviewForm/ReviewForm';
 import BookReviewsList from '@/containers/BookReviewsList/BookReviewsList';
 

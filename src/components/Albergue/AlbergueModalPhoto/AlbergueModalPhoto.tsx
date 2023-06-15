@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import CyrModal from '@/components/ui/CyrModal/CyrModal';
+import { CyrModal } from 'shared/ui';
 import PhotoTrigger from '../../triggers/PhotoTrigger';
 import styles from './AlbergueModalPhoto.module.scss';
 
