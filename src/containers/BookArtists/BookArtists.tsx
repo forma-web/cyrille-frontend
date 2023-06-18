@@ -2,7 +2,7 @@ import PersonList from '@/containers/PersonList/PersonList';
 import { TArtists } from '@/types/book';
 import { CyrContainer } from 'shared/ui';
 import styles from './BookArtists.module.scss';
-import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';
+import { CyrDivide } from 'shared/ui';
 
 const BookArtists = ({ artists }: TArtists) => {
   if (!artists?.length) return null;

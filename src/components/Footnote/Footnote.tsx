@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { CyrModal } from 'shared/ui';
 import styles from './Footnote.module.scss';
 import FootnoteTrigger from '../triggers/FootnoteTrigger/FootnoteTrigger';
-import CyrDivide from '@/components/ui/CyrDivide/CyrDivide';
+import { CyrDivide } from 'shared/ui';
 
 type TFootnoteProps = {
   children: React.ReactNode;

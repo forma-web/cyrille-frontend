@@ -1,16 +1,16 @@
 import styles from './AuthHeader.module.scss';
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg';
+import { ReactComponent as Logo } from 'shared/assets/icons/logo.svg';
 import { Link } from 'react-router-dom';
-import { ERoutes } from '@/constants/routers';
+import { AppRoutes } from 'shared/consts/routers';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const AuthHeader = () => {
   return (
     <div className={styles.header}>
-      <Link to={ERoutes.home}>
+      <Link to={AppRoutes.home}>
         <Logo />
       </Link>
-      <Link to={ERoutes.home} className={styles.header__buttons}>
+      <Link to={AppRoutes.home} className={styles.header__buttons}>
         <XMarkIcon />
       </Link>
     </div>

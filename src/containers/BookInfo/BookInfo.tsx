@@ -1,4 +1,4 @@
-import CyrRating from '@/components/ui/CyrRating/CyrRating';
+import { CyrRating } from 'shared/ui';
 import styles from './BookInfo.module.scss';
 import { TBook } from '@/types/book';
 import { CyrContainer } from 'shared/ui';

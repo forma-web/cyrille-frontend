@@ -8,7 +8,8 @@ import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
 import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
 import BookPage from '@/pages/BookPage';
-import { BOOK_ROUTE, ERoutes, READER_ROUTE } from '@/constants/routers';
+import { BOOK_ROUTE, READER_ROUTE } from '@/constants/routers';
+import { AppRoutes } from 'shared/consts/routers';
 import BookReader from '@/containers/BookReader/BookReader';
 
 const App = () => {
@@ -27,17 +28,17 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path={ERoutes.home} element={<MainLayout />}>
+          <Route path={AppRoutes.home} element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route path={BOOK_ROUTE} element={<BookPage />} />
             <Route element={<RequiredAuth />}>
-              <Route path={ERoutes.profile} element={<ProfilePage />} />
+              <Route path={AppRoutes.profile} element={<ProfilePage />} />
             </Route>
           </Route>
           <Route path={READER_ROUTE} element={<BookReader />} />
-          <Route path={ERoutes.auth} element={<AuthLayout />}>
-            <Route index path={ERoutes.login} element={<LoginPage />} />
-            <Route path={ERoutes.register} element={<RegisterPage />} />
+          <Route path={AppRoutes.auth} element={<AuthLayout />}>
+            <Route index path={AppRoutes.login} element={<LoginPage />} />
+            <Route path={AppRoutes.register} element={<RegisterPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

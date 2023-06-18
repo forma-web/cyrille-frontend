@@ -1,6 +1,6 @@
 import { Outlet, useMatch } from 'react-router-dom';
 import Header from '@/containers/Header/Header';
-import Layout from '../Layout/Layout';
+import { Layout } from 'shared/ui';
 import { BOOK_ROUTE } from '@/constants/routers';
 import styles from './MainLayout.module.scss';
 

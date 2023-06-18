@@ -6,3 +6,7 @@ export { CyrLoader } from './CyrLoader/CyrLoader';
 export { CyrModal } from './CyrModal/CyrModal';
 export { CyrRhombus } from './CyrRhombus/CyrRhombus';
 export { CyrTrigger } from './CyrTrigger/CyrTrigger';
+export { CyrRating } from './CyrRating/CyrRating';
+export { CyrDivide } from './CyrDivide/CyrDivide';
+export { Layout } from './Layout/Layout';
+export * from './Inputs';

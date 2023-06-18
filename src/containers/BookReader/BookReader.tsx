@@ -1,10 +1,9 @@
-import Layout from '@/layouts/Layout/Layout';
 import Progress from '@/containers/Progress/Progress';
 import styles from './BookReader.module.scss';
 import useBookReader from '@/hooks/useBookReader';
 import { Link, useParams } from 'react-router-dom';
-import { CyrLoader, CyrButton } from 'shared/ui';
-import { ERoutes } from '@/constants/routers';
+import { CyrLoader, CyrButton, Layout } from 'shared/ui';
+import { AppRoutes } from 'shared/consts/routers';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import cn from 'classnames';
 
@@ -31,7 +30,7 @@ const BookReader = () => {
   return (
     <Layout>
       <Layout.Header sticky>
-        <Link to={`../${ERoutes.books}/${bookId}`}>
+        <Link to={`../${AppRoutes.books}/${bookId}`}>
           <CyrButton className={styles.back}>
             <ChevronLeftIcon />
             back

@@ -2,7 +2,7 @@ import { TBookItem } from '@/types/book';
 import styles from './BookItem.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { ERoutes } from '@/constants/routers';
+import { AppRoutes } from 'shared/consts/routers';
 import getAuthors from '@/utils/getAuthors';
 
 const BookItem = ({
@@ -15,7 +15,7 @@ const BookItem = ({
 }: TBookItem) => {
   return (
     <Link
-      to={`${ERoutes.books}/${id}`}
+      to={`${AppRoutes.books}/${id}`}
       className={cn(styles.book, isLarge && styles.book_large)}
     >
       <div className={styles.book__cover}>

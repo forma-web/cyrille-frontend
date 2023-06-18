@@ -1,4 +1,4 @@
-import CyrRangeInput from '@/components/ui/inputs/CyrRangeInput/CyrRangeInput';
+import { CyrRangeInput } from 'shared/ui';
 import styles from './Progress.module.scss';
 
 type TProgessProps = {

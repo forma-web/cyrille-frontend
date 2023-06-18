@@ -1,8 +1,7 @@
 import AuthContainer from '@/containers/AuthConatainer/AuthContainer';
 import { CyrButton, CyrError } from 'shared/ui';
-import CyrInput from '@/components/ui/inputs/CyrInput/CyrInput';
+import { CyrInput, CyrPasswordInput } from 'shared/ui';
 import { registerFields } from '../../constants/fields';
-import CyrPasswordInput from '@/components/ui/inputs/CyrPasswordInput/CyrPasswordInput';
 import { Link } from 'react-router-dom';
 import useRegister from '../../hooks/useRegister';
 import { LOGIN_ROUTE } from '@/constants/routers';

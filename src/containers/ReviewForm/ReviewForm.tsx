@@ -1,7 +1,5 @@
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
-import { CyrButton } from 'shared/ui';
-import CyrRatingInput from '@/components/ui/inputs/CyrRatingInput/CyrRatingInput';
-import CyrTextarea from '@/components/ui/inputs/CyrTextarea/CyrTextarea';
+import { CyrButton, CyrTextarea, CyrRatingInput } from 'shared/ui';
 import { useForm } from 'react-hook-form';
 import { TReviewValues } from '@/types/review';
 import styles from './ReviewForm.module.scss';
