@@ -1,7 +1,7 @@
 import { memo, forwardRef, TextareaHTMLAttributes } from 'react';
 import styles from './CyrTextarea.module.scss';
 import cn from 'classnames';
-import { useTextAreaHandles } from '../../model';
+import { useTextAreaHandles } from '../../lib/hooks/useTextAreaHandles';
 
 export const CyrTextarea = memo(
   forwardRef<HTMLTextAreaElement, TextareaHTMLAttributes<HTMLTextAreaElement>>(

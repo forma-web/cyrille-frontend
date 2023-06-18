@@ -1,7 +1,8 @@
 import React, { useId } from 'react';
 import styles from './CyrInput.module.scss';
 import cn from 'classnames';
-import { useInputHandles, TInputProps } from '../../model';
+import { useInputHandles } from '../../lib/hooks/useInputHandles';
+import { TInputProps } from '../../model/types';
 import { CyrInputStatus } from '../CyrInputStatus/CyrInputStatus';
 
 export const CyrInput = React.forwardRef<HTMLInputElement, TInputProps>(

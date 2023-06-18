@@ -1,7 +1,7 @@
 import { useState, memo, forwardRef } from 'react';
 import { CyrInput } from 'shared/ui';
 import { CyrPasswordInputButtons } from '../CyrPasswordInputButtons/CyrPasswordInputButtons';
-import { TInputProps } from '../../model';
+import { TInputProps } from '../../model/types';
 
 export const CyrPasswordInput = memo(
   forwardRef<HTMLInputElement, TInputProps>((props, ref) => {

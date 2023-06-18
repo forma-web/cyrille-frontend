@@ -6,4 +6,4 @@ export const AppRoutes = {
   login: 'login',
   register: 'sign-up',
   reader: 'reader',
-};
+} as const;

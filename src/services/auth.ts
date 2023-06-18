@@ -1,12 +1,12 @@
-import { TAuth, TLoginValues, TMeta, TRegisterValues } from '@/types/auth';
-import { fetchData, fetchDataWithAuth } from '@/utils/fetch';
+import { TAuth, TLoginValues, TRegisterValues } from '@/types/auth';
+import { baseQuery, baseQueryWithAuth } from 'shared/api';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}/auth`;
 
 const authFetch =
   <T>(url: string) =>
   async (body: T): Promise<TAuth> =>
-    fetchData<TAuth>(`${baseUrl}/${url}`, {
+    baseQuery<TAuth>(`${baseUrl}/${url}`, {
       method: 'POST',
       body: JSON.stringify(body),
     });
@@ -14,15 +14,7 @@ const authFetch =
 export const registerUser = authFetch<TRegisterValues>('register');
 export const loginUser = authFetch<TLoginValues>('login');
 
-export const refreshToken = async (token: string) =>
-  fetchData<{ meta: TMeta }>(`${baseUrl}/refresh`, {
-    method: 'POST',
-    headers: {
-      Authorization: token,
-    },
-  });
-
 export const logoutUser = async () =>
-  fetchDataWithAuth<void>(`${baseUrl}/logout`, {
+  baseQueryWithAuth<void>(`${baseUrl}/logout`, {
     method: 'POST',
   });

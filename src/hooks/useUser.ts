@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { LOCAL_STORAGE_JWT } from '@/constants/jwt';
+import { JWT_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
 import { currentUserFetch } from '@/services/user';
 
 const useUser = () => {
@@ -11,8 +11,9 @@ const useUser = () => {
     queryFn: currentUserFetch,
     retry: false,
     onError: (error: Error) => {
+      // TODO: refactor this
       if (error.message === '401') {
-        localStorage.removeItem(LOCAL_STORAGE_JWT);
+        localStorage.removeItem(JWT_LOCALSTORAGE_KEY);
         navigate('/auth/login');
       }
     },

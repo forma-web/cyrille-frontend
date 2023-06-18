@@ -1,4 +1,5 @@
 import { TUser } from './user';
+import { TMeta } from 'shared/types/api';
 
 export type TLoginValues = {
   email: string;
@@ -12,15 +13,4 @@ export type TRegisterValues = TLoginValues & {
 export type TAuth = {
   data: TUser;
   meta: TMeta;
-};
-
-export type TMeta = {
-  token: string;
-  token_type: string;
-  ttl: number;
-};
-
-export type TAuthErrors = {
-  message: string;
-  errors?: Record<string, [string]>;
 };

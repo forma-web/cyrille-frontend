@@ -16,6 +16,7 @@ export type TBook = {
   reviews_count: number;
 } & TArtists;
 
+// TODO: move to a separate file
 export type TRole = {
   role: string;
   notes?: string;

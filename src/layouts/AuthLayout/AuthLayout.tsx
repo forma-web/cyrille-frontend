@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { LOCAL_STORAGE_JWT } from '@/constants/jwt';
+import { jwt } from 'shared/lib';
 import styles from './AuthLayout.module.scss';
 import AuthHeader from '@/containers/AuthHeader/AuthHeader';
 
 const AuthLayout = () => {
-  const isAuth = !!localStorage.getItem(LOCAL_STORAGE_JWT);
+  const isAuth = jwt.isJWTTokenExist();
 
   if (isAuth) {
     return <Navigate to="/" />;

@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FieldValues } from 'react-hook-form';
 import useMutationForm from '@/hooks/useMutationForm';
 import { TAuth } from '@/types/auth';
-import { setJWTToken } from '@/utils/jwt';
+import { jwt } from 'shared/lib';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -24,7 +24,7 @@ const useAuth = <T extends FieldValues>(
         queryKey: ['user'],
         refetchType: 'none',
       });
-      setJWTToken(meta);
+      jwt.setJWTToken(meta);
       navigate('/');
     },
     onError: (err) => {
