@@ -1,12 +1,11 @@
-import AuthContainer from '@/containers/AuthConatainer/AuthContainer';
-import { CyrButton, CyrError } from 'shared/ui';
-import { CyrInput, CyrPasswordInput } from 'shared/ui';
-import { registerFields } from '../../constants/fields';
+import { AuthContainer } from 'entities/Auth';
+import { CyrButton, CyrError, CyrInput, CyrPasswordInput } from 'shared/ui';
+import { registerFields } from '../../consts/registerFields';
 import { Link } from 'react-router-dom';
-import useRegister from '../../hooks/useRegister';
+import { useRegister } from '../../model/hooks/useRegister';
 import { LOGIN_ROUTE } from '@/constants/routers';
 
-const Register = () => {
+export const Register = () => {
   const {
     registerField,
     onSubmit,
@@ -31,5 +30,3 @@ const Register = () => {
     </AuthContainer>
   );
 };
-
-export default Register;

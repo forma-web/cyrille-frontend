@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FieldValues } from 'react-hook-form';
-import useMutationForm from '@/hooks/useMutationForm';
-import { TAuth } from '@/types/auth';
-import { jwt } from 'shared/lib';
+import { TAuth } from '../types';
+import { jwt, useMutationForm } from 'shared/lib';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { AppRoutes } from 'shared/consts/routers';
 
-const useAuth = <T extends FieldValues>(
+export const useAuthQuery = <T extends FieldValues>(
   mutationFn: (body: T) => Promise<TAuth>,
 ) => {
   const [responseError, setResponseError] = useState<string>();
@@ -25,7 +25,7 @@ const useAuth = <T extends FieldValues>(
         refetchType: 'none',
       });
       jwt.setJWTToken(meta);
-      navigate('/');
+      navigate(AppRoutes.home);
     },
     onError: (err) => {
       setResponseError(() => (err as Error).message);
@@ -39,5 +39,3 @@ const useAuth = <T extends FieldValues>(
     isLoading,
   };
 };
-
-export default useAuth;

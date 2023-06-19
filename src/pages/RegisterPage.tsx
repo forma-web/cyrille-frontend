@@ -1,4 +1,4 @@
-import Register from '@/containers/auth/containers/Register/Register';
+import { Register } from 'features/Auth';
 
 const RegisterPage = () => {
   return <Register />;

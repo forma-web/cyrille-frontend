@@ -1,4 +1,4 @@
-import Login from '@/containers/auth/containers/Login/Login';
+import { Login } from 'features/Auth';
 
 const LoginPage = () => {
   return <Login />;

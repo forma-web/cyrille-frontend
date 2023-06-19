@@ -1,5 +1,5 @@
-import { TLoginValues, TRegisterValues } from '@/types/auth';
-import { TFields } from '@/types/form';
+import { TLoginValues } from '../model/types';
+import { TFields } from '@/shared/types/form';
 
 export const loginFields: TFields<TLoginValues> = {
   email: {
@@ -22,17 +22,6 @@ export const loginFields: TFields<TLoginValues> = {
         value: 8,
         message: 'Password must be greater than 8',
       },
-    },
-  },
-};
-
-export const registerFields: TFields<TRegisterValues> = {
-  ...(loginFields as unknown as TFields<TRegisterValues>),
-  name: {
-    name: 'name',
-    label: 'Name',
-    options: {
-      required: 'This field must be filled',
     },
   },
 };

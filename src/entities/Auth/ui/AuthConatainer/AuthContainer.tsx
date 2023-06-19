@@ -7,7 +7,7 @@ type TAuthContainerProps = PropsWithChildren & {
   ) => Promise<void>;
 };
 
-const AuthContainer = ({ children, onSubmit }: TAuthContainerProps) => {
+export const AuthContainer = ({ children, onSubmit }: TAuthContainerProps) => {
   return (
     <form className={styles.auth} onSubmit={onSubmit}>
       {children}
@@ -30,5 +30,3 @@ const AuthContainerFooter = ({ children }: PropsWithChildren) => (
 AuthContainer.Form = AuthContainerForm;
 AuthContainer.Buttons = AuthContainerButtons;
 AuthContainer.Footer = AuthContainerFooter;
-
-export default AuthContainer;
