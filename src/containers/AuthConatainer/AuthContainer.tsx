@@ -1,10 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styles from './AuthContainer.module.scss';
 
-type FCWithChild = {
-  children?: React.ReactNode;
-};
-type TAuthContainerProps = FCWithChild & {
+type TAuthContainerProps = PropsWithChildren & {
   onSubmit?: (
     e?: React.BaseSyntheticEvent<object, unknown, unknown> | undefined,
   ) => Promise<void>;
@@ -18,15 +15,15 @@ const AuthContainer = ({ children, onSubmit }: TAuthContainerProps) => {
   );
 };
 
-const AuthContainerForm = ({ children }: FCWithChild) => (
+const AuthContainerForm = ({ children }: PropsWithChildren) => (
   <div className={styles.auth__form}>{children}</div>
 );
 
-const AuthContainerButtons = ({ children }: FCWithChild) => (
+const AuthContainerButtons = ({ children }: PropsWithChildren) => (
   <div className={styles.auth__buttons}>{children}</div>
 );
 
-const AuthContainerFooter = ({ children }: FCWithChild) => (
+const AuthContainerFooter = ({ children }: PropsWithChildren) => (
   <div className={styles.auth__footer}>{children}</div>
 );
 

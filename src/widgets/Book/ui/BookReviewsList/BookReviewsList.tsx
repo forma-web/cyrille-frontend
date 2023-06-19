@@ -3,7 +3,7 @@ import ReviewList from '@/containers/ReviewList/ReviewList';
 import { CyrButton } from 'shared/ui';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-const BookReviewsList = ({ bookId }: { bookId: number | string }) => {
+export const BookReviewsList = ({ bookId }: { bookId: number | string }) => {
   const {
     fetchNextPage,
     hasNextPage,
@@ -27,5 +27,3 @@ const BookReviewsList = ({ bookId }: { bookId: number | string }) => {
     </>
   );
 };
-
-export default BookReviewsList;

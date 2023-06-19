@@ -1,12 +1,12 @@
 import { CyrContainer } from 'shared/ui';
 import ReviewForm from '@/containers/ReviewForm/ReviewForm';
-import BookReviewsList from '@/containers/BookReviewsList/BookReviewsList';
+import { BookReviewsList } from '../BookReviewsList/BookReviewsList';
 
 type TBookReviewsProps = {
   bookId: number | string;
 };
 
-const BookReviews = ({ bookId }: TBookReviewsProps) => {
+export const BookReviews = ({ bookId }: TBookReviewsProps) => {
   return (
     <>
       <CyrContainer>
@@ -20,5 +20,3 @@ const BookReviews = ({ bookId }: TBookReviewsProps) => {
     </>
   );
 };
-
-export default BookReviews;

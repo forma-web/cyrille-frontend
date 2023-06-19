@@ -1,16 +1,16 @@
 import { TBookCarousel } from '@/types/book';
-import '@/assets/styles/carousel.scss';
+import commonStyles from '../../styles/Carousel.module.scss';
 import styles from './BooksCarousel.module.scss';
-import BookCarouselItem from './components/BookCarouselItem/BookCarouselItem';
+import { BookCarouselItem } from '../BookCarouselItem/BookCarouselItem';
 import cn from 'classnames';
 
-const BookCarousel = ({ title, books }: TBookCarousel) => {
+export const BooksCarousel = ({ title, books }: TBookCarousel) => {
   if (!books.length) return null;
 
   return (
-    <div className={cn(styles.carousel, 'carousel')}>
+    <div className={cn(styles.carousel, commonStyles.carousel)}>
       {title && <h3 className={styles.carousel__title}>{title}</h3>}
-      <ul className={cn(styles.carousel__list, 'carousel__list')}>
+      <ul className={cn(styles.carousel__list, commonStyles.carousel__list)}>
         {books.map((book) => (
           <li key={book.id} className={styles.carousel__item}>
             <BookCarouselItem {...book} />
@@ -20,5 +20,3 @@ const BookCarousel = ({ title, books }: TBookCarousel) => {
     </div>
   );
 };
-
-export default BookCarousel;

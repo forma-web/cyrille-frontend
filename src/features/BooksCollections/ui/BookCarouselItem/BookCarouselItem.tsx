@@ -5,7 +5,7 @@ type TBookCarouselItem = {
   isAccordion?: boolean;
 } & TBookItem;
 
-const BookCarouselItem = ({
+export const BookCarouselItem = ({
   name,
   authors,
   thumbnail_image,
@@ -17,6 +17,7 @@ const BookCarouselItem = ({
       </div>
       <div className={styles.book__info}>
         {authors && authors.length && (
+          // TODO: change to getAuthors
           <div className={styles.book__author}>{authors.join(', ')}</div>
         )}
         <h4 className={styles.book__title}>{name}</h4>
@@ -24,5 +25,3 @@ const BookCarouselItem = ({
     </div>
   );
 };
-
-export default BookCarouselItem;

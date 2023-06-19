@@ -1,8 +1,8 @@
-import BookItem from './components/BookItem/BookItem';
+import { BookItem } from '../BookItem/BookItem';
 import styles from './BooksList.module.scss';
 import { TBookList } from '@/types/book';
 
-const BooksList = ({ books }: TBookList) => {
+export const BooksList = ({ books }: TBookList) => {
   if (!books.length) return null;
 
   return (
@@ -15,5 +15,3 @@ const BooksList = ({ books }: TBookList) => {
     </ul>
   );
 };
-
-export default BooksList;

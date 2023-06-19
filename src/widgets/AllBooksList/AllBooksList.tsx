@@ -1,9 +1,9 @@
-import BooksList from '@/containers/BooksCollections/BooksList/BooksList';
+import { BooksList } from 'features/BooksCollections';
 import { useQuery } from '@tanstack/react-query';
 import { allBooksFetch } from '@/services/books';
 import { CyrLoader } from 'shared/ui';
 
-const AllBooks = () => {
+export const AllBooksList = () => {
   const { isLoading, data: books } = useQuery({
     queryKey: ['books', 'all'],
     queryFn: allBooksFetch,
@@ -13,5 +13,3 @@ const AllBooks = () => {
 
   return <BooksList books={books.data} />;
 };
-
-export default AllBooks;

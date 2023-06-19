@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AppRoutes } from 'shared/consts/routers';
 import getAuthors from '@/utils/getAuthors';
 
-const BookItem = ({
+export const BookItem = ({
   id,
   name,
   authors,
@@ -35,5 +35,3 @@ const BookItem = ({
     </Link>
   );
 };
-
-export default BookItem;

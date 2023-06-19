@@ -1,11 +1,7 @@
-import AllBooks from '@/containers/AllBooks/AllBooks';
+import { AllBooksList } from 'widgets/AllBooksList';
 
 const HomePage = () => {
-  return (
-    <>
-      <AllBooks />
-    </>
-  );
+  return <AllBooksList />;
 };
 
 export default HomePage;

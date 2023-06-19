@@ -5,8 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import { bookFetch } from '@/services/books';
 import { Navigate, useParams } from 'react-router-dom';
 import { CyrLoader } from 'shared/ui';
-import BookReviews from '@/containers/BookReviews/BookReviews';
-import BookLink from '../containers/BookLink/BookLink';
+import { BookReviews } from 'widgets/Book';
+import { BookLinkToReader } from 'features/BookLinkToReader';
 
 const BookPage = () => {
   const { bookId } = useParams();
@@ -26,7 +26,7 @@ const BookPage = () => {
       <BookDescription {...book.data} />
       <BookArtists artists={book.data.artists} />
       <BookReviews bookId={bookId} />
-      <BookLink {...book.data} />
+      <BookLinkToReader {...book.data} />
     </div>
   );
 };

@@ -2,10 +2,11 @@ import { useCallback, useState } from 'react';
 import { TBookCarousel } from '@/types/book';
 import '@/assets/styles/carousel.scss';
 import styles from './BooksAccordion.module.scss';
-import BookAccordionItem from './components/BookAccordionItem/BookAccordionItem';
+import commonStyles from '../../styles/Carousel.module.scss';
+import { BookAccordionItem } from '../BookAccordionItem/BookAccordionItem';
 import cn from 'classnames';
 
-const BooksAccordion = ({ title, books }: TBookCarousel) => {
+export const BooksAccordion = ({ title, books }: TBookCarousel) => {
   const [activeBook, setActiveBook] = useState<string | null>(null);
 
   const updateActiveBook = useCallback((id: string | number) => {
@@ -15,9 +16,9 @@ const BooksAccordion = ({ title, books }: TBookCarousel) => {
   if (!books.length) return null;
 
   return (
-    <div className={cn(styles.carousel, 'carousel')}>
+    <div className={cn(styles.carousel, commonStyles.carousel)}>
       {title && <h3 className={styles.carousel__title}>{title}</h3>}
-      <ul className={cn(styles.carousel__list, 'carousel__list')}>
+      <ul className={cn(styles.carousel__list, commonStyles.carousel__list)}>
         {books.map((book) => (
           <li
             key={book.id}
@@ -37,5 +38,3 @@ const BooksAccordion = ({ title, books }: TBookCarousel) => {
     </div>
   );
 };
-
-export default BooksAccordion;

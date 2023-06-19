@@ -9,7 +9,7 @@ type TBookCarouselItem = {
   changeActive: (id: string | number) => void;
 } & TBookItem;
 
-const BookAccordionItem = ({
+export const BookAccordionItem = ({
   id,
   name,
   authors,
@@ -61,5 +61,3 @@ const BookAccordionItem = ({
     </div>
   );
 };
-
-export default BookAccordionItem;
