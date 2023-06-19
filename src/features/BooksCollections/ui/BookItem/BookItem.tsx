@@ -1,4 +1,4 @@
-import { TBookItem } from '@/types/book';
+import { TBookItem } from '../../model/types';
 import styles from './BookItem.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';

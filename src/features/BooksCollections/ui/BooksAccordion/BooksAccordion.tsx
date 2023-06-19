@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
-import { TBookCarousel } from '@/types/book';
-import '@/assets/styles/carousel.scss';
+import { TBookCarousel } from '../../model/types';
 import styles from './BooksAccordion.module.scss';
 import commonStyles from '../../styles/Carousel.module.scss';
 import { BookAccordionItem } from '../BookAccordionItem/BookAccordionItem';

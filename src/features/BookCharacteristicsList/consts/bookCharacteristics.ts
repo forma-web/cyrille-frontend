@@ -1,13 +1,8 @@
-import { TBook } from '@/types/book';
+import { TBook } from 'entities/Book';
 import { format, getYear } from 'date-fns';
+import { TCharacteristic } from '../../../entities/Characteristic/model/types';
 
-type TStatisticBook = {
-  title: string;
-  value: string | ((book: TBook) => string | number);
-  caption: string | ((book: TBook) => string | number);
-};
-
-export const STATISTICS_BOOK: TStatisticBook[] = [
+export const BOOK_CHARACTERISTICS: TCharacteristic<TBook>[] = [
   {
     title: 'Released',
     value: ({ release_date }: TBook) => getYear(new Date(release_date)),

@@ -1,4 +1,4 @@
-import Progress from '@/containers/Progress/Progress';
+import { Progress } from '@/containers/Progress';
 import styles from './BookReader.module.scss';
 import useBookReader from '@/hooks/useBookReader';
 import { Link, useParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { TBookCarousel } from '@/types/book';
+import { TBookCarousel } from '../../model/types';
 import commonStyles from '../../styles/Carousel.module.scss';
 import styles from './BooksCarousel.module.scss';
 import { BookCarouselItem } from '../BookCarouselItem/BookCarouselItem';

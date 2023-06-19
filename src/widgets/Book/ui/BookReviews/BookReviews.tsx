@@ -1,5 +1,5 @@
 import { CyrContainer } from 'shared/ui';
-import ReviewForm from '@/containers/ReviewForm/ReviewForm';
+import { ReviewForm } from 'features/ReviewForm';
 import { BookReviewsList } from '../BookReviewsList/BookReviewsList';
 
 type TBookReviewsProps = {

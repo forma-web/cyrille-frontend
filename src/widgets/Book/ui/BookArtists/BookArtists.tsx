@@ -1,10 +1,9 @@
-import PersonList from '@/containers/PersonList/PersonList';
-import { TArtists } from '@/types/book';
+import { ArtistsList, TArtists } from 'entities/Artist';
 import { CyrContainer } from 'shared/ui';
 import styles from './BookArtists.module.scss';
 import { CyrDivide } from 'shared/ui';
 
-const BookArtists = ({ artists }: TArtists) => {
+export const BookArtists = ({ artists }: TArtists) => {
   if (!artists?.length) return null;
 
   return (
@@ -17,9 +16,7 @@ const BookArtists = ({ artists }: TArtists) => {
         <div className={styles.artists__signature}>Creative side</div>
       </article>
       <CyrDivide total={2} />
-      <PersonList persons={artists} />
+      <ArtistsList persons={artists} />
     </CyrContainer>
   );
 };
-
-export default BookArtists;

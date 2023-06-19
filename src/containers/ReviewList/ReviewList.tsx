@@ -5,11 +5,11 @@ import { InfiniteData } from '@tanstack/react-query';
 import { TPagination } from 'shared/types/api';
 import React from 'react';
 
-type TPersonListProps = {
+type TArtistsListProps = {
   reviews: InfiniteData<TPagination<TReview>>;
 };
 
-const ReviewList = ({ reviews }: TPersonListProps) => {
+const ReviewList = ({ reviews }: TArtistsListProps) => {
   return (
     <ul className={styles.reviews}>
       {reviews.pages.map(({ data }, index) => (

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-const useSticky = (triggerRef: React.RefObject<HTMLDivElement>) => {
+export const useSticky = (triggerRef: React.RefObject<HTMLDivElement>) => {
   const [isSticky, setIsSticky] = useState(false);
 
   const obCallback = useCallback((payload: IntersectionObserverEntry[]) => {
@@ -17,5 +17,3 @@ const useSticky = (triggerRef: React.RefObject<HTMLDivElement>) => {
 
   return { isSticky };
 };
-
-export default useSticky;

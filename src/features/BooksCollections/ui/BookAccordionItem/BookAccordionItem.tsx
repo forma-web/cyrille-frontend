@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TBookItem } from '@/types/book';
+import { TBookItem } from '../../model/types';
 import styles from './BookAccordionItem.module.scss';
 import { FastAverageColor } from 'fast-average-color';
 import cn from 'classnames';

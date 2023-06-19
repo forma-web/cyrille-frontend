@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CyrButton } from 'shared/ui';
 import { AppRoutes } from 'shared/consts/routers';
-import { TBook } from '@/types/book';
+import { TBook } from 'entities/Book';
 import styles from './BookLinkToReader.module.scss';
 
 export const BookLinkToReader = ({ id, published }: TBook) => {

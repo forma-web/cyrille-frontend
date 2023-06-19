@@ -1,12 +1,12 @@
 import { Profile } from 'entities/Profile';
-import { TArtist } from '@/types/book';
-import styles from './PersonList.module.scss';
+import { TArtist } from 'entities/Artist';
+import styles from './ArtistsList.module.scss';
 
-type TPersonListProps = {
+type TArtistsListProps = {
   persons: TArtist[];
 };
 
-const PersonList = ({ persons }: TPersonListProps) => {
+export const ArtistsList = ({ persons }: TArtistsListProps) => {
   if (!persons?.length) return null;
 
   return (
@@ -24,5 +24,3 @@ const PersonList = ({ persons }: TPersonListProps) => {
     </ul>
   );
 };
-
-export default PersonList;

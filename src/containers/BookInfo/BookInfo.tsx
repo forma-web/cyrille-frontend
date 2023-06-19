@@ -1,6 +1,6 @@
 import { CyrRating } from 'shared/ui';
 import styles from './BookInfo.module.scss';
-import { TBook } from '@/types/book';
+import { TBook } from 'entities/Book';
 import { CyrContainer } from 'shared/ui';
 import cn from 'classnames';
 import getAuthors from '@/utils/getAuthors';

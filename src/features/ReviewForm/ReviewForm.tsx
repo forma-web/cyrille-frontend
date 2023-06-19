@@ -6,7 +6,7 @@ import styles from './ReviewForm.module.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createReviewBookFetch } from '@/services/books';
 
-const ReviewForm = ({ bookId }: { bookId: string | number }) => {
+export const ReviewForm = ({ bookId }: { bookId: string | number }) => {
   const { register, watch, reset, handleSubmit } = useForm<TReviewValues>({
     mode: 'onChange',
   });
@@ -48,5 +48,3 @@ const ReviewForm = ({ bookId }: { bookId: string | number }) => {
     </form>
   );
 };
-
-export default ReviewForm;

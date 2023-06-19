@@ -1,6 +1,6 @@
 import { BookItem } from '../BookItem/BookItem';
 import styles from './BooksList.module.scss';
-import { TBookList } from '@/types/book';
+import { TBookList } from '../../model/types';
 
 export const BooksList = ({ books }: TBookList) => {
   if (!books.length) return null;

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './Layout.module.scss';
 import cn from 'classnames';
-import useSticky from '@/hooks/useSticky';
+import { useSticky } from 'shared/lib';
 
 const LayoutHeader = ({
   children,

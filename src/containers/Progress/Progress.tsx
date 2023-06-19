@@ -9,7 +9,7 @@ type TProgessProps = {
   progressChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-const Progress = ({
+export const Progress = ({
   progress,
   currentPage,
   totalPages,
@@ -38,5 +38,3 @@ const Progress = ({
     </div>
   );
 };
-
-export default Progress;
