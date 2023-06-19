@@ -1,10 +1,8 @@
 import HomePage from '@/pages/HomePage';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import MainLayout from '@/layouts/MainLayout/MainLayout';
 import ProfilePage from '@/pages/ProfilePage/ProfilePage';
-import RequiredAuth from '@/layouts/RequiredAuth';
-import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
+import { MainLayout, AuthLayout, RequiredAuth } from 'widgets/Layouts';
 import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
 import BookPage from '@/pages/BookPage';

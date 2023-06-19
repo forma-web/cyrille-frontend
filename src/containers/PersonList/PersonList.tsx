@@ -1,4 +1,4 @@
-import Profile from '@/components/Profile/Profile';
+import { Profile } from 'entities/Profile';
 import { TArtist } from '@/types/book';
 import styles from './PersonList.module.scss';
 

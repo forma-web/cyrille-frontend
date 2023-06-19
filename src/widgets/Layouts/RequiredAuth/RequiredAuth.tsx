@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { LOGIN_ROUTE } from '@/constants/routers';
 import { jwt } from 'shared/lib';
 
-const RequiredAuth = () => {
+export const RequiredAuth = () => {
   const isAuth = jwt.isJWTTokenExist();
 
   if (!isAuth) {
@@ -11,5 +11,3 @@ const RequiredAuth = () => {
 
   return <Outlet />;
 };
-
-export default RequiredAuth;

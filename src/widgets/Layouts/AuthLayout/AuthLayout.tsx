@@ -3,7 +3,7 @@ import { jwt } from 'shared/lib';
 import styles from './AuthLayout.module.scss';
 import { AuthHeader } from 'widgets/Header';
 
-const AuthLayout = () => {
+export const AuthLayout = () => {
   const isAuth = jwt.isJWTTokenExist();
 
   if (isAuth) {
@@ -21,5 +21,3 @@ const AuthLayout = () => {
     </div>
   );
 };
-
-export default AuthLayout;

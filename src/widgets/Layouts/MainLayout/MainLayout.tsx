@@ -4,7 +4,7 @@ import { Layout } from 'shared/ui';
 import { BOOK_ROUTE } from '@/constants/routers';
 import styles from './MainLayout.module.scss';
 
-const MainLayout = () => {
+export const MainLayout = () => {
   const bookPage = useMatch(BOOK_ROUTE);
 
   return (
@@ -20,5 +20,3 @@ const MainLayout = () => {
     </Layout>
   );
 };
-
-export default MainLayout;

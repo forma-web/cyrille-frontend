@@ -1,5 +1,5 @@
 import { TReview } from '@/types/review';
-import Review from '@/components/Review/Review';
+import { Review } from '@/components/Review';
 import styles from './ReviewList.module.scss';
 import { InfiniteData } from '@tanstack/react-query';
 import { TPagination } from 'shared/types/api';

@@ -1,9 +1,9 @@
 import { TReview } from '@/types/review';
 import format from 'date-fns/format';
-import Profile from '../Profile/Profile';
+import { Profile } from 'entities/Profile';
 import { CyrRating } from 'shared/ui';
 
-const Review = ({ rating, comment, created_at, user }: TReview) => {
+export const Review = ({ rating, comment, created_at, user }: TReview) => {
   const { name, avatar } = user;
 
   return (
@@ -18,5 +18,3 @@ const Review = ({ rating, comment, created_at, user }: TReview) => {
     </Profile>
   );
 };
-
-export default Review;
