@@ -1,8 +1,8 @@
 import { CyrTrigger } from 'shared/ui';
-import EffectTriggerIcon from './icons/EffectTriggerIcon';
-import { TCyrTriggerProps } from '@/types/trigger';
+import { TTriggerProps } from 'shared/types/trigger';
+import { EffectTriggerIcon } from '../../assets/icons';
 
-const EffectTrigger = (props: TCyrTriggerProps) => {
+export const EffectTrigger = (props: TTriggerProps) => {
   return (
     <CyrTrigger
       {...props}
@@ -12,5 +12,3 @@ const EffectTrigger = (props: TCyrTriggerProps) => {
     />
   );
 };
-
-export default EffectTrigger;

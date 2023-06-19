@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './FootnoteTrigger.module.scss';
 import cn from 'classnames';
-import { TCyrTriggerProps } from '@/types/trigger';
+import { TTriggerProps } from 'shared/types/trigger';
 
-const FootnoteTrigger = ({
+export const FootnoteTrigger = ({
   isActive = false,
   onClick,
   children,
-}: TCyrTriggerProps) => {
+}: TTriggerProps) => {
   const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
     onClick && onClick();
@@ -21,5 +21,3 @@ const FootnoteTrigger = ({
     </span>
   );
 };
-
-export default FootnoteTrigger;

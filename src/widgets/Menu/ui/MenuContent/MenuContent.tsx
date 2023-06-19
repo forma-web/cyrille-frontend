@@ -1,8 +1,7 @@
 import styles from './MenuContent.module.scss';
 import cn from 'classnames';
-import { ReactComponent as Logo } from 'shared/assets/icons/logo.svg';
 import { MenuList } from '../MenuList/MenuList';
-import { CyrDivide } from 'shared/ui';
+import { CyrDivide, Logo } from 'shared/ui';
 import { AppRoutes } from 'shared/consts/routers';
 import { Link } from 'react-router-dom';
 

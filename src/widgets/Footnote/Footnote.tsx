@@ -1,9 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { CyrModal } from 'shared/ui';
+import { CyrModal, CyrDivide } from 'shared/ui';
+import { FootnoteTrigger } from 'features/Triggers';
 import styles from './Footnote.module.scss';
-import FootnoteTrigger from '../triggers/FootnoteTrigger/FootnoteTrigger';
-import { CyrDivide } from 'shared/ui';
 
 type TFootnoteProps = {
   children: React.ReactNode;
@@ -11,7 +10,7 @@ type TFootnoteProps = {
   description?: React.ReactNode;
 };
 
-const Footnote = ({ children, title, description }: TFootnoteProps) => {
+export const Footnote = ({ children, title, description }: TFootnoteProps) => {
   const [open, setOpen] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
@@ -50,5 +49,3 @@ const Footnote = ({ children, title, description }: TFootnoteProps) => {
     </>
   );
 };
-
-export default Footnote;

@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react';
-import VideoTrigger from '@/components/triggers/VideoTrigger';
+import { VideoTrigger } from 'features/Triggers';
 import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
 import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
 import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
-import Footnote from '@/components/Footnote/Footnote';
+import { Footnote } from 'widgets/Footnote';
 import AlbergueModalVideo from '@/components/Albergue/AlbergueModalVideo/AlbergueModalVideo';
 
 const FootnoteVideo = (

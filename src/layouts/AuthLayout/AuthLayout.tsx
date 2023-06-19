@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { jwt } from 'shared/lib';
 import styles from './AuthLayout.module.scss';
-import AuthHeader from '@/containers/AuthHeader/AuthHeader';
+import { AuthHeader } from 'widgets/Header';
 
 const AuthLayout = () => {
   const isAuth = jwt.isJWTTokenExist();

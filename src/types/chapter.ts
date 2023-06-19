@@ -1,4 +1,4 @@
-import { TResponse } from './response';
+import { TResponse } from 'shared/types/api';
 
 export type TChapterInfo = {
   id: number;

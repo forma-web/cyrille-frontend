@@ -1,4 +1,4 @@
-import { TCyrTriggerProps } from '@/types/trigger';
+import { TTriggerProps } from 'shared/types/trigger';
 import styles from './CyrTrigger.module.scss';
 
 export const CyrTrigger = ({
@@ -6,7 +6,7 @@ export const CyrTrigger = ({
   onClick,
   renderIcon,
   children,
-}: TCyrTriggerProps) => {
+}: TTriggerProps) => {
   const icon = renderIcon ? renderIcon(isActive) : null;
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {

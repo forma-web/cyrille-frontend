@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import { TTriggerIcon } from './types';
-import styles from './styles.module.scss';
+import { TTriggerIcon } from '../../model/types';
+import styles from '../styles/TriggerIcon.module.scss';
 
-const AudioTriggerIcon = ({ isActive = false }: TTriggerIcon) => {
+export const AudioTriggerIcon = ({ isActive = false }: TTriggerIcon) => {
   const classNames = cn(styles.triggerIcon, isActive && styles.active);
 
   return (
@@ -28,5 +28,3 @@ const AudioTriggerIcon = ({ isActive = false }: TTriggerIcon) => {
     </svg>
   );
 };
-
-export default AudioTriggerIcon;

@@ -2,7 +2,7 @@ import { TReview } from '@/types/review';
 import Review from '@/components/Review/Review';
 import styles from './ReviewList.module.scss';
 import { InfiniteData } from '@tanstack/react-query';
-import { TPagination } from '@/types/response';
+import { TPagination } from 'shared/types/api';
 import React from 'react';
 
 type TPersonListProps = {

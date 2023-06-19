@@ -1,5 +1,5 @@
 import { baseQuery, baseQueryWithAuth } from 'shared/api';
-import { TPagination, TResponse } from '@/types/response';
+import { TPagination, TResponse } from 'shared/types/api';
 import { TBook, TBookResponse } from '@/types/book';
 import { TReview, TReviewValues } from '@/types/review';
 import { TChapterInfoResponse, TChapterResponse } from '@/types/chapter';

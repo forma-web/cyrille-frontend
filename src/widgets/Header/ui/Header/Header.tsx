@@ -1,10 +1,10 @@
 import styles from './Header.module.scss';
-import { ReactComponent as Logo } from 'shared/assets/icons/logo.svg';
+import { Logo } from 'shared/ui';
 import { Menu } from 'widgets/Menu';
 import { Link } from 'react-router-dom';
 import { AppRoutes } from 'shared/consts/routers';
 
-const Header = () => {
+export const Header = () => {
   return (
     <div className={styles.header__container}>
       <Link to={AppRoutes.home} className={styles.logo}>
@@ -16,5 +16,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CyrModal } from 'shared/ui';
 import styles from './AlbergueModalVideo.module.scss';
-import VideoTrigger from '../../triggers/VideoTrigger';
+import { VideoTrigger } from 'features/Triggers';
 
 const AlbergueModalVideo = ({ children }: { children?: React.ReactNode }) => {
   const [open, setOpen] = useState(false);

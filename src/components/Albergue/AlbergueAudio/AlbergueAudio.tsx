@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
-import AudioTrigger from '@/components/triggers/AudioTrigger';
+import { AudioTrigger } from 'features/Triggers';
 
 const AlbergueAudio = ({ children }: { children?: React.ReactNode }) => {
   const [active, setActive] = useState(false);

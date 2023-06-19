@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import EffectTrigger from '@/components/triggers/EffectTrigger';
+import { EffectTrigger } from 'features/Triggers';
 import styles from './AlbergueRainAnimation.module.scss';
 import useAnimation from './useAnimation';
 

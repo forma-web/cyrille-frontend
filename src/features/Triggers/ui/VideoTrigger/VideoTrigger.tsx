@@ -1,8 +1,8 @@
 import { CyrTrigger } from 'shared/ui';
-import { TCyrTriggerProps } from '@/types/trigger';
-import VideoTriggerIcon from './icons/VideoTriggerIcon';
+import { TTriggerProps } from 'shared/types/trigger';
+import { VideoTriggerIcon } from '../../assets/icons';
 
-const VideoTrigger = (props: TCyrTriggerProps) => {
+export const VideoTrigger = (props: TTriggerProps) => {
   return (
     <CyrTrigger
       {...props}
@@ -12,5 +12,3 @@ const VideoTrigger = (props: TCyrTriggerProps) => {
     />
   );
 };
-
-export default VideoTrigger;

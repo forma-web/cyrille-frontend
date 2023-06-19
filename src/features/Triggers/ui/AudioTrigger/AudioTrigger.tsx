@@ -1,8 +1,8 @@
 import { CyrTrigger } from 'shared/ui';
-import { TCyrTriggerProps } from '@/types/trigger';
-import AudioTriggerIcon from './icons/AudioTriggerIcon';
+import { TTriggerProps } from 'shared/types/trigger';
+import { AudioTriggerIcon } from '../../assets/icons';
 
-const AudioTrigger = (props: TCyrTriggerProps) => {
+export const AudioTrigger = (props: TTriggerProps) => {
   return (
     <CyrTrigger
       {...props}
@@ -12,5 +12,3 @@ const AudioTrigger = (props: TCyrTriggerProps) => {
     />
   );
 };
-
-export default AudioTrigger;

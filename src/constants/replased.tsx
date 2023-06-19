@@ -8,11 +8,13 @@ import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/A
 import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
 import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
 import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
-import Footnote from '@/components/Footnote/Footnote';
+import { Footnote } from 'widgets/Footnote';
 import AlbergueModalVideo from '@/components/Albergue/AlbergueModalVideo/AlbergueModalVideo';
 import AlbergueCover from '@/containers/AlbergueCover/AlbergueCover';
 
 type TReplacedComponent = Record<string, (domNode: Element) => JSX.Element>;
+
+// TODO: make lazy load
 
 export const REPLACED_COMPONENT_OPTIONS: HTMLReactParserOptions = {
   replace: (domNode) => {

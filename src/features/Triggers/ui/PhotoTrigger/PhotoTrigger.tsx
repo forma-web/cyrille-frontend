@@ -1,8 +1,8 @@
 import { CyrTrigger } from 'shared/ui';
-import { TCyrTriggerProps } from '@/types/trigger';
-import PhotoTriggerIcon from './icons/PhotoTriggerIcon';
+import { TTriggerProps } from 'shared/types/trigger';
+import { PhotoTriggerIcon } from '../../assets/icons';
 
-const PhotoTrigger = (props: TCyrTriggerProps) => {
+export const PhotoTrigger = (props: TTriggerProps) => {
   return (
     <CyrTrigger
       {...props}
@@ -12,5 +12,3 @@ const PhotoTrigger = (props: TCyrTriggerProps) => {
     />
   );
 };
-
-export default PhotoTrigger;

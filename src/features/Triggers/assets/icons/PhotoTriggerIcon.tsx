@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import { TTriggerIcon } from './types';
-import styles from './styles.module.scss';
+import { TTriggerIcon } from '../../model/types';
+import styles from '../styles/TriggerIcon.module.scss';
 
-const PhotoTriggerIcon = ({ isActive = false }: TTriggerIcon) => {
+export const PhotoTriggerIcon = ({ isActive = false }: TTriggerIcon) => {
   const classNames = cn(styles.triggerIcon, isActive && styles.active);
 
   return (
@@ -32,5 +32,3 @@ const PhotoTriggerIcon = ({ isActive = false }: TTriggerIcon) => {
     </svg>
   );
 };
-
-export default PhotoTriggerIcon;
