@@ -14,7 +14,7 @@ export const BookReviews = ({ bookId }: TBookReviewsProps) => {
         <BookReviewsList bookId={bookId} />
       </CyrContainer>
       <CyrContainer>
-        <h4>rate this book</h4>
+        {/* <h4>rate this book</h4> */}
         <ReviewForm bookId={bookId} />
       </CyrContainer>
     </>

@@ -4,7 +4,7 @@ import { TAuth } from '../types';
 import { jwt, useMutationForm } from 'shared/lib';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { AppRoutes } from 'shared/consts/routers';
+import { getRouteHome } from 'shared/consts/routers';
 
 export const useAuthQuery = <T extends FieldValues>(
   mutationFn: (body: T) => Promise<TAuth>,
@@ -25,7 +25,7 @@ export const useAuthQuery = <T extends FieldValues>(
         refetchType: 'none',
       });
       jwt.setJWTToken(meta);
-      navigate(AppRoutes.home);
+      navigate(getRouteHome());
     },
     onError: (err) => {
       setResponseError(() => (err as Error).message);

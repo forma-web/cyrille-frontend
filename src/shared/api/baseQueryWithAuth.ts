@@ -1,10 +1,10 @@
 import { jwt } from 'shared/lib';
 import { baseQuery } from './baseQuery';
-import { LOGIN_ROUTE } from '@/constants/routers';
+import { getRouteLogin } from 'shared/consts/routers';
 import { refreshTokenQuery } from './refreshTokenQuery';
 
 const errorWithRedirectLoginPage = (message = '') => {
-  window.location.replace(LOGIN_ROUTE);
+  window.location.replace(getRouteLogin());
   return new Error(message);
 };
 

@@ -1,11 +1,11 @@
 import { Outlet, useMatch } from 'react-router-dom';
 import { Header } from 'widgets/Header';
 import { Layout } from 'shared/ui';
-import { BOOK_ROUTE } from '@/constants/routers';
+import { routeBookDetailsWithBookId } from 'shared/consts/routers';
 import styles from './MainLayout.module.scss';
 
 export const MainLayout = () => {
-  const bookPage = useMatch(BOOK_ROUTE);
+  const bookPage = useMatch(routeBookDetailsWithBookId);
 
   return (
     <Layout>

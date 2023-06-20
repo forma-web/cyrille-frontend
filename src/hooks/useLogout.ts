@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '@/services/auth';
 import { jwt } from 'shared/lib';
-import { LOGIN_ROUTE } from '../constants/routers';
+import { getRouteLogin } from 'shared/consts/routers';
 
 const useLogout = () => {
   const client = useQueryClient();
@@ -18,7 +18,7 @@ const useLogout = () => {
         refetchType: 'none',
       });
       jwt.removeJWTToken();
-      navigate(LOGIN_ROUTE);
+      navigate(getRouteLogin());
     },
   });
 

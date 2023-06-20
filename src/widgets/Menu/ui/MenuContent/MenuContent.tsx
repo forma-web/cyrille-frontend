@@ -2,7 +2,7 @@ import styles from './MenuContent.module.scss';
 import cn from 'classnames';
 import { MenuList } from '../MenuList/MenuList';
 import { CyrDivide, Logo } from 'shared/ui';
-import { AppRoutes } from 'shared/consts/routers';
+import { getRouteHome } from 'shared/consts/routers';
 import { Link } from 'react-router-dom';
 
 type TMenuContentProps = {
@@ -17,7 +17,7 @@ export const MenuContent = ({ isOpen, toggleMenu }: TMenuContentProps) => {
       onClick={toggleMenu}
     >
       <div className={styles.menu__container}>
-        <Link to={AppRoutes.home} className={styles.menu__header}>
+        <Link to={getRouteHome()} className={styles.menu__header}>
           <Logo />
         </Link>
         <div className={styles.menu__body}>
