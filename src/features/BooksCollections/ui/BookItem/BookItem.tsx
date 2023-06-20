@@ -3,7 +3,7 @@ import styles from './BookItem.module.scss';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { AppRoutes } from 'shared/consts/routers';
-import getAuthors from '@/utils/getAuthors';
+import { getArtistNames } from 'entities/Artist';
 
 export const BookItem = ({
   id,
@@ -13,6 +13,8 @@ export const BookItem = ({
   thumbnail_image,
   isLarge,
 }: TBookItem) => {
+  const artistNames = getArtistNames(authors);
+
   return (
     <Link
       to={`${AppRoutes.books}/${id}`}
@@ -24,7 +26,7 @@ export const BookItem = ({
       <div className={styles.book__info}>
         <h4 className={styles.book__title}>{name}</h4>
         {!!authors?.length && (
-          <div className={styles.book__author}>{getAuthors(authors)}</div>
+          <div className={styles.book__author}>{artistNames}</div>
         )}
         {description && (
           <div className={styles.book__description}>

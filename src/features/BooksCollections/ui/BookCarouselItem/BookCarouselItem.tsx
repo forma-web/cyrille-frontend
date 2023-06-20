@@ -1,3 +1,4 @@
+import { getArtistNames } from 'entities/Artist';
 import { TBookItem } from '../../model/types';
 import styles from './BookCarouselItem.module.scss';
 
@@ -10,6 +11,8 @@ export const BookCarouselItem = ({
   authors,
   thumbnail_image,
 }: TBookCarouselItem) => {
+  const authorsNames = getArtistNames(authors);
+
   return (
     <div className={styles.book}>
       <div className={styles.book__cover}>
@@ -17,8 +20,7 @@ export const BookCarouselItem = ({
       </div>
       <div className={styles.book__info}>
         {authors && authors.length && (
-          // TODO: change to getAuthors
-          <div className={styles.book__author}>{authors.join(', ')}</div>
+          <div className={styles.book__author}>{authorsNames}</div>
         )}
         <h4 className={styles.book__title}>{name}</h4>
       </div>

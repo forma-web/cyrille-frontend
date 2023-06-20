@@ -3,7 +3,7 @@ import styles from './BookInfo.module.scss';
 import { TBook } from 'entities/Book';
 import { CyrContainer } from 'shared/ui';
 import cn from 'classnames';
-import getAuthors from '@/utils/getAuthors';
+import { getArtistNames } from 'entities/Artist';
 import parse from 'html-react-parser';
 import { REPLACED_COMPONENT_OPTIONS } from '@/constants/replased';
 
@@ -30,7 +30,9 @@ const BookInfo = ({
         <div className={styles.bookInfo__text}>
           <h1 className={styles.bookInfo__title}>{name}</h1>
           {!!authors?.length && (
-            <div className={styles.bookInfo__author}>{getAuthors(authors)}</div>
+            <div className={styles.bookInfo__author}>
+              {getArtistNames(authors)}
+            </div>
           )}
         </div>
         <div className={styles.bookInfo__rating}>
