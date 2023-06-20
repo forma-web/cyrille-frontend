@@ -1,5 +1,6 @@
 import { TRegisterValues } from '../types';
-import { registerUser } from '@/services/auth';
 import { useAuthQuery } from 'entities/Auth';
+import { registerUserQuery } from '../services/registerUserQuery';
 
-export const useRegister = () => useAuthQuery<TRegisterValues>(registerUser);
+export const useRegister = () =>
+  useAuthQuery<TRegisterValues>(registerUserQuery);

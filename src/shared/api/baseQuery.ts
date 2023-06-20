@@ -1,15 +1,27 @@
 import { DEFAULT_HEADERS } from 'shared/consts/headers';
 
+type TOptionsWithBaseUrl = RequestInit & {
+  baseUrl?: string;
+};
+
 /**
  * Base query without authorization
  */
 export const baseQuery = async <T>(
-  url: RequestInfo | URL,
-  options?: RequestInit,
+  url: Url,
+  options?: TOptionsWithBaseUrl,
 ): Promise<T> => {
-  const headers = { ...DEFAULT_HEADERS, ...options?.headers };
+  const { headers: optionHeaders, baseUrl } =
+    options ?? {};
 
-  const response = await fetch(url, {
+  // Init headers
+  const headers = { ...DEFAULT_HEADERS, ...optionHeaders };
+
+  // Getting the url for the request
+  const queryUrl = new URL(url, baseUrl ?? import.meta.env.VITE_API_URL);
+
+  // Fetching data
+  const response = await fetch(queryUrl, {
     ...options,
     headers,
   });

@@ -14,7 +14,7 @@ const errorWithRedirectLoginPage = (message = '') => {
  * if token is not, user will be redirected to login page
  */
 export const baseQueryWithAuth = async <T>(
-  url: RequestInfo | URL,
+  url: Url,
   options?: RequestInit,
 ): Promise<T> => {
   const tokenData = jwt.getJWTData();

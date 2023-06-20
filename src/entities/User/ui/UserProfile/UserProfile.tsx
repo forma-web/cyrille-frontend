@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { TUser } from '../../model/types';
 import { Profile } from 'entities/Profile';
-import { CyrButton } from '/shared/ui';
+import { CyrButton } from 'shared/ui';
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useLogout } from '../../model/hooks/useLogout';
 
