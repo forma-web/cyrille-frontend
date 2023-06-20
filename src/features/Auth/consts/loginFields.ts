@@ -1,6 +1,7 @@
 import { TLoginValues } from '../model/types';
 import { TFields } from '@/shared/types/form';
 
+// TODO: rewrite on zod or yup
 export const loginFields: TFields<TLoginValues> = {
   email: {
     name: 'email',

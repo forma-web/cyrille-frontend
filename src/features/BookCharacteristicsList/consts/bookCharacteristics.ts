@@ -2,7 +2,7 @@ import { TBook } from 'entities/Book';
 import { format, getYear } from 'date-fns';
 import { TCharacteristic } from '../../../entities/Characteristic/model/types';
 
-export const BOOK_CHARACTERISTICS: TCharacteristic<TBook>[] = [
+export const BOOK_CHARACTERISTICS_CONFIG: TCharacteristic<TBook>[] = [
   {
     title: 'Released',
     value: ({ release_date }: TBook) => getYear(new Date(release_date)),
