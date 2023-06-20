@@ -1,4 +1,4 @@
-import { TReview } from '@/types/review';
+import { TReview } from '../../model/types';
 import format from 'date-fns/format';
 import { Profile } from 'entities/Profile';
 import { CyrRating } from 'shared/ui';

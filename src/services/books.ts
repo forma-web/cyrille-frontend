@@ -1,7 +1,7 @@
 import { baseQuery, baseQueryWithAuth } from 'shared/api';
 import { TPagination, TResponse } from 'shared/types/api';
-import { TBook, TBookResponse } from '@/types/book';
-import { TReview, TReviewValues } from '@/types/review';
+import { TBook, TBookResponse } from 'entities/Book';
+import { TReview, TReviewValues } from 'entities/Review';
 import { TChapterInfoResponse, TChapterResponse } from '@/types/chapter';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}/books`;

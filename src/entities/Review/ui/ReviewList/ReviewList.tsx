@@ -1,15 +1,15 @@
-import { TReview } from '@/types/review';
-import { Review } from '@/components/Review';
+import { TReview } from '../../model/types';
+import { Review } from '../Review/Review';
 import styles from './ReviewList.module.scss';
 import { InfiniteData } from '@tanstack/react-query';
 import { TPagination } from 'shared/types/api';
 import React from 'react';
 
-type TArtistsListProps = {
+type TReviewListProps = {
   reviews: InfiniteData<TPagination<TReview>>;
 };
 
-const ReviewList = ({ reviews }: TArtistsListProps) => {
+export const ReviewList = ({ reviews }: TReviewListProps) => {
   return (
     <ul className={styles.reviews}>
       {reviews.pages.map(({ data }, index) => (
@@ -24,5 +24,3 @@ const ReviewList = ({ reviews }: TArtistsListProps) => {
     </ul>
   );
 };
-
-export default ReviewList;

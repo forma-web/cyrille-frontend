@@ -4,7 +4,7 @@ import { logoutUser } from '@/services/auth';
 import { jwt } from 'shared/lib';
 import { getRouteLogin } from 'shared/consts/routers';
 
-const useLogout = () => {
+export const useLogout = () => {
   const client = useQueryClient();
   const navigate = useNavigate();
 
@@ -24,5 +24,3 @@ const useLogout = () => {
 
   return logout;
 };
-
-export default useLogout;

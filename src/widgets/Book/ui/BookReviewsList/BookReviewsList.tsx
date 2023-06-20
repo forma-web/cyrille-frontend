@@ -1,5 +1,5 @@
 import { reviewsBookFetch } from '@/services/books';
-import ReviewList from '@/containers/ReviewList/ReviewList';
+import { ReviewList } from 'entities/Review';
 import { CyrButton } from 'shared/ui';
 import { useInfiniteQuery } from '@tanstack/react-query';
 

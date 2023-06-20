@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { JWT_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
 import { currentUserFetch } from '@/services/user';
 
-const useUser = () => {
+export const useUser = () => {
   const navigate = useNavigate();
 
   return useQuery({
@@ -19,5 +19,3 @@ const useUser = () => {
     },
   });
 };
-
-export default useUser;

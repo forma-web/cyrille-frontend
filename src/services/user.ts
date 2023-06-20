@@ -1,4 +1,4 @@
-import { TUser } from '@/types/user';
+import { TUser } from 'entities/User';
 import { baseQueryWithAuth } from 'shared/api';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}/user`;
