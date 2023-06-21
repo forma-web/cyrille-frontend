@@ -1,0 +1,1 @@
+export { RedirectToBookDetailsButton } from './RedirectToBookDetailsButton';

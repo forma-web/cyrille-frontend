@@ -1,4 +1,4 @@
-import { TUser } from '@/types/user';
+import { TUser } from 'entities/User';
 import { TMeta } from 'shared/types/api';
 
 export type TAuth = {

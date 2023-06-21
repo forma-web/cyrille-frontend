@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { TChapterData } from '@/types/reader';
+import { TChapterData } from 'entities/Chapter';
 
 export type TUsePages = {
   isLoading: boolean;
   currentChapter: TChapterData | null;
 };
 
-const usePages = ({ isLoading, currentChapter }: TUsePages) => {
+// TODO: refactor this hook
+export const usePages = ({ isLoading, currentChapter }: TUsePages) => {
   const [widthPage, setWidthPage] = useState(0);
   const [gapPage, setGapPage] = useState(0);
   const [totalPages, setTotalPages] = useState<number | null>(null);
@@ -140,5 +141,3 @@ const usePages = ({ isLoading, currentChapter }: TUsePages) => {
     readerRef,
   };
 };
-
-export default usePages;

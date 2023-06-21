@@ -25,7 +25,9 @@ export const Login = () => {
         <CyrButton type="submit">Login</CyrButton>
       </AuthContainer.Buttons>
       <AuthContainer.Footer>
-        <Link to={getRouterRegister()}>Don&apos;t have an account? Sign up</Link>
+        <Link to={getRouterRegister()}>
+          Don&apos;t have an account? Sign up
+        </Link>
       </AuthContainer.Footer>
     </AuthContainer>
   );

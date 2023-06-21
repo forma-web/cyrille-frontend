@@ -1,10 +1,10 @@
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { CyrButton, CyrTextarea, CyrRatingInput } from 'shared/ui';
 import { useForm } from 'react-hook-form';
-import { TReviewValues } from '@/types/review';
+import { TReviewValues } from 'entities/Review';
 import styles from './ReviewForm.module.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createReviewBookFetch } from '@/services/books';
+import { createBookReviewQuery } from 'entities/Review';
 
 export const ReviewForm = ({ bookId }: { bookId: string | number }) => {
   const { register, watch, reset, handleSubmit } = useForm<TReviewValues>({
@@ -14,7 +14,8 @@ export const ReviewForm = ({ bookId }: { bookId: string | number }) => {
   const client = useQueryClient();
 
   const { mutate } = useMutation({
-    mutationFn: (data: TReviewValues) => createReviewBookFetch(bookId, data),
+    mutationFn: (data: TReviewValues) =>
+      createBookReviewQuery(String(bookId), data),
     onSuccess: () => {
       reset();
       client.invalidateQueries({

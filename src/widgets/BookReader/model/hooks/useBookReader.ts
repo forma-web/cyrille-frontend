@@ -1,9 +1,10 @@
-import usePages from './usePages';
+import { usePages } from './usePages';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import useChapterContent from './useChapterContent';
-import useChaptersData from './useChaptersData';
+import { useChapterContent } from './useChapterContent';
+import { useChaptersData } from './useChaptersData';
 
-const useBookReader = (bookId: string) => {
+// TODO: refactor this hook
+export const useBookReader = (bookId: string) => {
   const [chapterId, setChapterId] = useState<number | null>(null);
   const [progress, setProgress] = useState<number | null>(null);
 
@@ -66,5 +67,3 @@ const useBookReader = (bookId: string) => {
     ...propsParams,
   };
 };
-
-export default useBookReader;

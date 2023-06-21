@@ -1,15 +1,15 @@
-import { TChapterData } from '@/types/reader';
+import { TChapterData, getAllBookChaptersQuery } from 'entities/Chapter';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { allBookChaptersFetch } from '@/services/books';
 
-const useChaptersData = (bookId: string) => {
+// TODO: refactor this hook
+export const useChaptersData = (bookId: string) => {
   const [chapters, setChapters] = useState<Record<number, TChapterData>>({});
   const [orderChapters, setOrderChapters] = useState<number[]>([]);
 
   const { data: chaptersResponse } = useQuery({
     queryKey: ['books', bookId, 'chapters', 'all'],
-    queryFn: () => allBookChaptersFetch(bookId),
+    queryFn: () => getAllBookChaptersQuery(bookId),
   });
 
   useEffect(() => {
@@ -50,5 +50,3 @@ const useChaptersData = (bookId: string) => {
     orderChapters,
   };
 };
-
-export default useChaptersData;

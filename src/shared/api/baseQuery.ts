@@ -11,8 +11,7 @@ export const baseQuery = async <T>(
   url: Url,
   options?: TOptionsWithBaseUrl,
 ): Promise<T> => {
-  const { headers: optionHeaders, baseUrl } =
-    options ?? {};
+  const { headers: optionHeaders, baseUrl } = options ?? {};
 
   // Init headers
   const headers = { ...DEFAULT_HEADERS, ...optionHeaders };

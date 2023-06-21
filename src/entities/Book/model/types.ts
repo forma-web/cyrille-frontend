@@ -1,4 +1,4 @@
-import { TResponse } from 'shared/types/api';
+import { TPagination, TResponse } from 'shared/types/api';
 import { TBookPerson, TArtists } from 'entities/Artist';
 
 export type TBook = {
@@ -18,3 +18,4 @@ export type TBook = {
 } & TArtists;
 
 export type TBookResponse = TResponse<TBook>;
+export type TBookListResponse = TPagination<TBook>;

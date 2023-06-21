@@ -1,4 +1,4 @@
-import { TChapterData } from '@/types/reader';
+import { TChapterData } from 'entities/Chapter';
 import { useCallback } from 'react';
 
 export type TUseProgressBar = {
@@ -9,7 +9,8 @@ export type TUseProgressBar = {
   setProgress: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
-const useProgressBar = ({
+// TODO: refactor this hook
+export const useProgressBar = ({
   currentChapter,
   totalPages,
   chapters,
@@ -25,5 +26,3 @@ const useProgressBar = ({
     progressChange,
   };
 };
-
-export default useProgressBar;

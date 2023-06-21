@@ -1,5 +1,4 @@
-import { reviewsBookFetch } from '@/services/books';
-import { ReviewList } from 'entities/Review';
+import { ReviewList, getBookReviewsQuery } from 'entities/Review';
 import { CyrButton } from 'shared/ui';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
@@ -10,7 +9,8 @@ export const BookReviewsList = ({ bookId }: { bookId: number | string }) => {
     data: reviews,
   } = useInfiniteQuery({
     queryKey: ['reviews', String(bookId)],
-    queryFn: ({ pageParam = null }) => reviewsBookFetch(bookId, pageParam),
+    queryFn: ({ pageParam = null }) =>
+      getBookReviewsQuery(String(bookId), pageParam),
     getNextPageParam: (lastPage) => lastPage.meta.next_cursor,
   });
 
