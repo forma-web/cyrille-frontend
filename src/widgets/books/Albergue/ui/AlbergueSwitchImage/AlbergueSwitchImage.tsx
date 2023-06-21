@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
 import styles from './AlbergueSwitchImage.module.scss';
 import cn from 'classnames';
-import AlbergueToggle from './components/AlbergueToggle/AlbergueToggle';
+import { AlbergueToggle } from '../AlbergueToggle/AlbergueToggle';
 
-const AlbergueSwitchImage = () => {
+export const AlbergueSwitchImage = () => {
   const [active, setActive] = useState(false);
 
   const handleToggle = useCallback(() => {
@@ -23,5 +23,3 @@ const AlbergueSwitchImage = () => {
     </div>
   );
 };
-
-export default AlbergueSwitchImage;

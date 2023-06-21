@@ -214,7 +214,7 @@ class MaskImage {
   };
 }
 
-export default () => {
+export const useRainAnimation = () => {
   const [active, setActive] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 

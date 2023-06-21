@@ -112,7 +112,7 @@ class CircleAnimation {
   };
 }
 
-const useCursor = ({
+export const useCursor = ({
   coverElement,
   circleElement,
   isInit,
@@ -148,5 +148,3 @@ const useCursor = ({
     };
   }, [coverElement, circleElement, isInit]);
 };
-
-export default useCursor;

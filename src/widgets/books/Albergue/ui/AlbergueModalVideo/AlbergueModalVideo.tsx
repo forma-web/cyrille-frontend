@@ -1,10 +1,10 @@
-import { useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CyrModal } from 'shared/ui';
 import styles from './AlbergueModalVideo.module.scss';
 import { VideoTrigger } from 'features/Triggers';
 
-const AlbergueModalVideo = ({ children }: { children?: React.ReactNode }) => {
+export const AlbergueModalVideo = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
@@ -49,5 +49,3 @@ const AlbergueModalVideo = ({ children }: { children?: React.ReactNode }) => {
     </>
   );
 };
-
-export default AlbergueModalVideo;

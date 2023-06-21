@@ -3,14 +3,15 @@ import parse, {
   domToReact,
   HTMLReactParserOptions,
 } from 'html-react-parser';
-
-import AlbergueRainAnimation from '@/components/Albergue/AlbergueRainAnimation/AlbergueRainAnimation';
-import AlbergueAudio from '@/components/Albergue/AlbergueAudio/AlbergueAudio';
-import AlbergueSwitchImage from '@/components/Albergue/AlbergueSwitchImage/AlbergueSwitchImage';
-import AlbergueModalPhoto from '@/components/Albergue/AlbergueModalPhoto/AlbergueModalPhoto';
+import {
+  AlbergueRainAnimation,
+  AlbergueAudio,
+  AlbergueSwitchImage,
+  AlbergueModalPhoto,
+  AlbergueModalVideo,
+  AlbergueCover,
+} from 'widgets/books/Albergue';
 import { Footnote } from 'widgets/Footnote';
-import AlbergueModalVideo from '@/components/Albergue/AlbergueModalVideo/AlbergueModalVideo';
-import AlbergueCover from '@/containers/AlbergueCover/AlbergueCover';
 
 type TReplacedComponent = Record<string, (domNode: Element) => JSX.Element>;
 

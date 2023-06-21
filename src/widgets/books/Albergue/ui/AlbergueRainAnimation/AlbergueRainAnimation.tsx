@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import { EffectTrigger } from 'features/Triggers';
 import styles from './AlbergueRainAnimation.module.scss';
-import useAnimation from './useAnimation';
+import { useRainAnimation } from '../../lib/hooks/useRainAnimation';
 
-type TAlbergueRainAnimationProps = {
-  children?: React.ReactNode;
-};
-
-const AlbergueRainAnimation = ({ children }: TAlbergueRainAnimationProps) => {
+export const AlbergueRainAnimation = ({ children }: PropsWithChildren) => {
   const {
     canvasRef,
     startAnimation,
     cancelAnimation,
     activeAnimation,
     modalRoot,
-  } = useAnimation();
+  } = useRainAnimation();
 
   const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     e.stopPropagation();
@@ -40,5 +36,3 @@ const AlbergueRainAnimation = ({ children }: TAlbergueRainAnimationProps) => {
     </>
   );
 };
-
-export default AlbergueRainAnimation;

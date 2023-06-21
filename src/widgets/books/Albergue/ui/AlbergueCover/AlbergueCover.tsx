@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import styles from './AlbergueCover.module.scss';
 import cn from 'classnames';
-import useCursor from './useCursor';
+import { useCursor } from '../../lib/hooks/useCursor';
 
-const AlbergueCover = () => {
+export const AlbergueCover = () => {
   const [isInit, setIsInit] = useState(false);
   const coverElement = useRef<HTMLDivElement>(null);
   const circleElement = useRef<HTMLImageElement>(null);
@@ -39,5 +39,3 @@ const AlbergueCover = () => {
     </div>
   );
 };
-
-export default AlbergueCover;

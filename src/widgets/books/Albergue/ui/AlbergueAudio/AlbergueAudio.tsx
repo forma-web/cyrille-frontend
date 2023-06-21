@@ -1,8 +1,8 @@
-import { useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AudioTrigger } from 'features/Triggers';
 
-const AlbergueAudio = ({ children }: { children?: React.ReactNode }) => {
+export const AlbergueAudio = ({ children }: PropsWithChildren) => {
   const [active, setActive] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
@@ -31,5 +31,3 @@ const AlbergueAudio = ({ children }: { children?: React.ReactNode }) => {
     </>
   );
 };
-
-export default AlbergueAudio;

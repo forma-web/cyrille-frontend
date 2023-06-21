@@ -1,10 +1,10 @@
-import { useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CyrModal } from 'shared/ui';
 import { PhotoTrigger } from 'features/Triggers';
 import styles from './AlbergueModalPhoto.module.scss';
 
-const AlbergueModalPhoto = ({ children }: { children?: React.ReactNode }) => {
+export const AlbergueModalPhoto = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
@@ -41,5 +41,3 @@ const AlbergueModalPhoto = ({ children }: { children?: React.ReactNode }) => {
     </>
   );
 };
-
-export default AlbergueModalPhoto;

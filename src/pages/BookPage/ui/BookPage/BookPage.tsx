@@ -1,9 +1,13 @@
-import BookInfo from '@/containers/BookInfo/BookInfo';
 import { useQuery } from '@tanstack/react-query';
 import { bookFetch } from '@/services/books';
 import { Navigate, useParams } from 'react-router-dom';
 import { CyrLoader } from 'shared/ui';
-import { BookArtists, BookDescription, BookReviews } from 'widgets/Book';
+import {
+  BookInfo,
+  BookDescription,
+  BookArtists,
+  BookReviews,
+} from 'widgets/Book';
 import { BookLinkToReader } from 'features/BookLinkToReader';
 
 const BookPage = () => {

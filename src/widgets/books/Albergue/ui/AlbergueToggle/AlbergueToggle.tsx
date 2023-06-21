@@ -6,7 +6,7 @@ type TAlbergueToggleProps = React.HTMLAttributes<HTMLButtonElement> & {
   onClick: () => void;
 };
 
-const AlbergueToggle = ({
+export const AlbergueToggle = ({
   isActive,
   onClick,
   className,
@@ -39,5 +39,3 @@ const AlbergueToggle = ({
     </button>
   );
 };
-
-export default AlbergueToggle;
