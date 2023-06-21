@@ -2,7 +2,7 @@ import { TPagination, TResponse } from 'shared/types/api';
 import { TBookPerson, TArtists } from 'entities/Artist';
 
 export type TBook = {
-  id: string | number;
+  id: Id;
   name: string;
   description: string;
   thumbnail_image: string;
