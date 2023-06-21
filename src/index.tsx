@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { init as SentryInit, BrowserTracing } from '@sentry/react';
-import 'app/styles/fonts/stylesheet.scss';
-import 'app/styles/index.scss';
-import App from 'app/App';
+import 'App/styles/fonts/stylesheet.scss';
+import 'App/styles/index.scss';
+import App from 'App/App';
 
 SentryInit({
   dsn: import.meta.env.VITE_SENTRY_DSN,
