@@ -1,0 +1,14 @@
+.divide {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2em;
+  font-size: 0.5rem;
+
+  &_large {
+    font-size: 1rem;
+  }
+
+  // &__item {
+  //   width: 100%;
+  // }
+}
