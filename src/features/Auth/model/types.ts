@@ -1,8 +1,6 @@
-export type TLoginValues = {
-  email: string;
-  password: string;
-};
+import { z } from 'zod';
+import { loginSchema } from '../consts/loginSchema';
+import { registerSchema } from '../consts/registerSchema';
 
-export type TRegisterValues = TLoginValues & {
-  name: string;
-};
+export type TLoginValues = z.infer<typeof loginSchema>;
+export type TRegisterValues = z.infer<typeof registerSchema>;
