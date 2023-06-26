@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useRegister } from '../../model/hooks/useRegister';
 import { getRouteLogin } from 'shared/consts/routers';
 
-export const Register = () => {
+export const RegisterForm = () => {
   const {
     registerField,
     onSubmit,
@@ -16,6 +16,7 @@ export const Register = () => {
   return (
     <AuthContainer onSubmit={onSubmit}>
       <AuthContainer.Form>
+        <h1>Sign up</h1>
         <CyrInput {...registerField(registerFields.name)} />
         <CyrInput {...registerField(registerFields.email)} />
         <CyrPasswordInput {...registerField(registerFields.password)} />

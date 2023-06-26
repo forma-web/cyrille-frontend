@@ -1,7 +1,8 @@
-import { Register } from 'features/Auth';
+import { RegisterForm } from 'features/RegisterForm';
+import { ConfirmEmailForm } from 'features/ConfirmEmailForm';
 
 const RegisterPage = () => {
-  return <Register />;
+  return <ConfirmEmailForm email="fedorovroman1506@gmail.com" />;
 };
 
 export default RegisterPage;

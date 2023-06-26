@@ -5,7 +5,7 @@ import { loginFields } from '../../consts/loginFields';
 import { Link } from 'react-router-dom';
 import { getRouterRegister } from 'shared/consts/routers';
 
-export const Login = () => {
+export const LoginForm = () => {
   const {
     registerField,
     onSubmit,

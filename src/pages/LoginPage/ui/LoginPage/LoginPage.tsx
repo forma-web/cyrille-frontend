@@ -1,7 +1,7 @@
-import { Login } from 'features/Auth';
+import { LoginForm } from 'features/LoginForm';
 
 const LoginPage = () => {
-  return <Login />;
+  return <LoginForm />;
 };
 
 export default LoginPage;
