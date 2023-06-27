@@ -3,7 +3,6 @@ import { RegisterForm } from 'features/RegisterForm';
 import { ConfirmEmailForm } from 'features/ConfirmEmailForm';
 import { useCallback, useState } from 'react';
 import { TUser } from 'entities/User';
-import { BackToRegisterFormLink } from '../BackToRegisterFormLink/BackToRegisterFormLink';
 
 export const Register = () => {
   const [userData, setUserData] = useState<TUser>();
@@ -23,10 +22,7 @@ export const Register = () => {
         <RegisterForm handleSuccess={handleRegisterSuccess} />
       )}
       {currentStepIndex === 1 && (
-        <ConfirmEmailForm
-          email={userData!.email}
-          renderFooterContent={() => <BackToRegisterFormLink back={back} />}
-        />
+        <ConfirmEmailForm email={userData!.email} goToPrevForm={back} />
       )}
     </>
   );

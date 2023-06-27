@@ -4,14 +4,20 @@ import { TField } from 'shared/types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
-export const useMutationForm = <T extends FieldValues, K = unknown>(
-  mutate: UseMutateFunction<K, unknown, T, unknown>,
-  schema: z.ZodTypeAny,
-  formOptions: UseFormProps<T, unknown> = {},
-) => {
+type TUseInitialFormProps<T extends FieldValues, K = unknown> = {
+  handleSubmit?: UseMutateFunction<K, unknown, T, unknown>;
+  schema?: z.ZodTypeAny;
+  formOptions?: UseFormProps<T, unknown>;
+};
+
+export const useInitialForm = <T extends FieldValues, K = unknown>({
+  handleSubmit,
+  schema,
+  formOptions = {},
+}: TUseInitialFormProps<T, K>) => {
   const {
     register,
-    handleSubmit,
+    handleSubmit: reactHookFormHandleSubmit,
     control,
     reset,
     formState: { isDirty, isValid, errors, touchedFields, dirtyFields },
@@ -21,7 +27,7 @@ export const useMutationForm = <T extends FieldValues, K = unknown>(
       keepDirtyValues: true,
       keepIsValid: true,
     },
-    resolver: zodResolver(schema),
+    resolver: schema && zodResolver(schema),
     ...formOptions,
   });
 
@@ -32,9 +38,9 @@ export const useMutationForm = <T extends FieldValues, K = unknown>(
     ...register(name as Path<T>, options),
   });
 
-  const onSubmit = handleSubmit((body) => {
+  const onSubmit = reactHookFormHandleSubmit((body) => {
     reset(body);
-    mutate(body);
+    handleSubmit?.(body);
   });
 
   return {

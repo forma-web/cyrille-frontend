@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FieldValues } from 'react-hook-form';
 import { TAuth } from '../types';
-import { jwt, useMutationForm } from 'shared/lib';
+import { jwt, useInitialForm } from 'shared/lib';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { getRouteHome } from 'shared/consts/routers';
@@ -16,7 +16,11 @@ export const useAuthQuery = <T extends FieldValues>(
 
   const navigate = useNavigate();
 
-  const { mutate, isSuccess, isLoading } = useMutation({
+  const {
+    mutate: handleSubmit,
+    isSuccess,
+    isLoading,
+  } = useMutation({
     mutationFn,
     onSuccess: ({ data, meta }) => {
       client.setQueriesData(['user'], () => ({
@@ -35,7 +39,7 @@ export const useAuthQuery = <T extends FieldValues>(
   });
 
   return {
-    ...useMutationForm<T, TAuth>(mutate, schema),
+    ...useInitialForm<T, TAuth>({ handleSubmit, schema }),
     responseError,
     isSuccess,
     isLoading,

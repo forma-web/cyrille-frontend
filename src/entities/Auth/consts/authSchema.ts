@@ -1,15 +1,10 @@
 import { z } from 'zod';
+import { FIELD_VALIDATION_RULES } from 'shared/consts/validations';
 
-export const authSchema = z
-  .object({
-    email: z
-      .string()
-      .nonempty({ message: 'This field must be filled' })
-      .email({ message: 'Enter valid email' }),
-    password: z
-      .string()
-      .nonempty({ message: 'This field must be filled' })
-      .min(8, { message: 'Password must be greater than 8' }),
-    name: z.string().nonempty({ message: 'This field must be filled' }),
-  })
-  .required();
+const { name, email, password } = FIELD_VALIDATION_RULES;
+
+export const authSchema = z.object({
+  name,
+  email,
+  password,
+});

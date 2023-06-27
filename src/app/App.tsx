@@ -15,6 +15,7 @@ import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { BookPage } from 'pages/BookPage';
 import { BookReaderPage } from 'pages/BookReaderPage';
+import { ForgotPasswordPage } from 'pages/ForgotPasswordPage';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -48,6 +49,10 @@ const App = () => {
             <Route path={AppRoutes.auth} element={<AuthLayout />}>
               <Route index path={AppRoutes.login} element={<LoginPage />} />
               <Route path={AppRoutes.register} element={<RegisterPage />} />
+              <Route
+                path={AppRoutes.forgotPassword}
+                element={<ForgotPasswordPage />}
+              />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

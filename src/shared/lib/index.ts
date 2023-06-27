@@ -1,3 +1,3 @@
 export { jwt } from './jwt/jwt';
-export { useMutationForm } from './hooks/useMutationForm';
+export { useInitialForm } from './hooks/useInitialForm';
 export { useSticky } from './hooks/useSticky';

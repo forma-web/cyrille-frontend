@@ -1,26 +1,25 @@
 import { AuthContainer } from 'entities/Auth';
 import { CyrButton, CyrInput } from 'shared/ui';
-import { useMutationForm } from 'shared/lib';
-import { confirmEmailSchema } from '../../consts/confirmEmailSchema';
+import { useInitialForm } from 'shared/lib';
+import { confirmEmailSchema as schema } from '../../consts/confirmEmailSchema';
 import { confirmEmailFields } from '../../consts/confirmEmailFields';
 import { TConfirmEmailValues } from '../../model/types';
 import styles from './ConfirmEmailForm.module.scss';
-import { ReactNode, memo } from 'react';
+import { memo } from 'react';
 import { ResendCodeButton } from '../ResendCodeButton/ResendCodeButton';
 
 type TConfirmEmailFormProps = {
   email: string;
-  renderFooterContent?: () => ReactNode;
+  goToPrevForm?: () => void;
   handleSuссess?: () => void;
   handleError?: () => void;
 };
 
 export const ConfirmEmailForm = memo(
-  ({ email, renderFooterContent }: TConfirmEmailFormProps) => {
-    const { registerField, isTouched } = useMutationForm<TConfirmEmailValues>(
-      () => {},
-      confirmEmailSchema,
-    );
+  ({ email, goToPrevForm }: TConfirmEmailFormProps) => {
+    const { registerField, isTouched } = useInitialForm<TConfirmEmailValues>({
+      schema,
+    });
 
     return (
       <AuthContainer>
@@ -38,7 +37,7 @@ export const ConfirmEmailForm = memo(
           <ResendCodeButton />
         </AuthContainer.Buttons>
         <AuthContainer.Footer>
-          {renderFooterContent && renderFooterContent()}
+          {goToPrevForm && <button onClick={goToPrevForm}>Change email</button>}
         </AuthContainer.Footer>
       </AuthContainer>
     );
