@@ -1,8 +1,7 @@
-import { RegisterForm } from 'features/RegisterForm';
-import { ConfirmEmailForm } from 'features/ConfirmEmailForm';
+import { Register } from 'widgets/Register';
 
 const RegisterPage = () => {
-  return <ConfirmEmailForm email="fedorovroman1506@gmail.com" />;
+  return <Register />;
 };
 
 export default RegisterPage;

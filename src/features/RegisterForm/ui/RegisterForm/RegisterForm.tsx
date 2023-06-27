@@ -4,14 +4,18 @@ import { registerFields } from '../../consts/registerFields';
 import { Link } from 'react-router-dom';
 import { useRegister } from '../../model/hooks/useRegister';
 import { getRouteLogin } from 'shared/consts/routers';
+import { TRegisterFormProps } from '../../model/types';
 
-export const RegisterForm = () => {
+export const RegisterForm = ({
+  handleSuccess,
+  handleError,
+}: TRegisterFormProps) => {
   const {
     registerField,
     onSubmit,
     responseError: error,
     isTouched,
-  } = useRegister();
+  } = useRegister({ handleSuccess, handleError });
 
   return (
     <AuthContainer onSubmit={onSubmit}>
