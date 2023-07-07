@@ -1,0 +1,22 @@
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.75em 0;
+    user-select: none;
+
+    &__defaultActionIcon {
+        width: 1.4em;
+        height: 1.4em;
+        color: var(--gray50);
+    }
+
+    &:hover {
+        color: var(--main-color);
+
+        .setting__defaultActionIcon {
+            color: var(--main-color);
+        }
+    }
+}

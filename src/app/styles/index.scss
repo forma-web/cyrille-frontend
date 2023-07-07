@@ -26,14 +26,14 @@ body {
 }
 
 h3 {
-  font-weight: 400;
   font-size: 2.2rem;
+  font-weight: 400;
   line-height: 1.18;
   text-transform: uppercase;
 }
 
-h4 {
-  font-size: 18px;
+h1, h4 {
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.167;
   text-transform: uppercase;
@@ -47,4 +47,11 @@ textarea {
   color: black;
   font-size: 1.5rem;
   background-color: transparent;
+}
+
+.wrapper {
+    padding: var(--wrapper-padding);
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
 }

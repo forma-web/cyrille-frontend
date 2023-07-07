@@ -3,7 +3,7 @@ import { CyrButton, CyrError, CyrInput, CyrPasswordInput } from 'shared/ui';
 import { useLogin } from '../../model/hooks/useLogin';
 import { loginFields } from '../../consts/loginFields';
 import { Link } from 'react-router-dom';
-import { getRouterRegister } from 'shared/consts/routers';
+import { getRouteRegister } from 'shared/consts/routers';
 
 export const Login = () => {
   const {
@@ -25,9 +25,7 @@ export const Login = () => {
         <CyrButton type="submit">Login</CyrButton>
       </AuthContainer.Buttons>
       <AuthContainer.Footer>
-        <Link to={getRouterRegister()}>
-          Don&apos;t have an account? Sign up
-        </Link>
+        <Link to={getRouteRegister()}>Don&apos;t have an account? Sign up</Link>
       </AuthContainer.Footer>
     </AuthContainer>
   );

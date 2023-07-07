@@ -15,6 +15,7 @@ import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { BookPage } from 'pages/BookPage';
 import { BookReaderPage } from 'pages/BookReaderPage';
+import { ProfileChangePasswordPage } from '@/pages/ProfileChangeNamePage';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -38,7 +39,21 @@ const App = () => {
               <Route index element={<HomePage />} />
               <Route path={routeBookDetailsWithBookId} element={<BookPage />} />
               <Route element={<RequiredAuth />}>
-                <Route path={AppRoutes.profile} element={<ProfilePage />} />
+                <Route path={AppRoutes.profile}>
+                  <Route index element={<ProfilePage />} />
+                  <Route
+                    path={AppRoutes.changeName}
+                    element={<ProfilePage />}
+                  />
+                  <Route
+                    path={AppRoutes.changeEmail}
+                    element={<ProfilePage />}
+                  />
+                  <Route
+                    path={AppRoutes.changePassword}
+                    element={<ProfileChangePasswordPage />}
+                  />
+                </Route>
               </Route>
             </Route>
             <Route
