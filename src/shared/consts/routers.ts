@@ -5,6 +5,7 @@ export const AppRoutes = {
   books: 'books',
   login: 'login',
   register: 'sign-up',
+  forgotPassword: 'forgot-password',
   reader: 'reader',
   changeName: 'change-name',
   changeEmail: 'change-email',
@@ -24,6 +25,8 @@ export const getRouteProfileChangeEmail = () =>
   `/${AppRoutes.profile}/${AppRoutes.changeEmail}`;
 export const getRouteProfileChangePassword = () =>
   `/${AppRoutes.profile}/${AppRoutes.changePassword}`;
+export const getRouteForgotPassword = () =>
+  `/${AppRoutes.auth}/${AppRoutes.forgotPassword}`;
 
 export const routeBookDetailsWithBookId = getRouteBookDetails(':bookId');
 export const routeBookReaderWithBookId = getRouteBookReader(':bookId');

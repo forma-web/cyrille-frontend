@@ -1,4 +1,4 @@
-import { Register } from 'features/Auth';
+import { Register } from 'widgets/Register';
 
 const RegisterPage = () => {
   return <Register />;

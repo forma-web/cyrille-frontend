@@ -1,6 +1,8 @@
 import { FieldPath, RegisterOptions } from 'react-hook-form';
 
-export type TField<T extends Record<string, unknown>> = {
+export type TField<
+  T extends Record<string, unknown> = Record<string, unknown>,
+> = {
   name: FieldPath<T>;
   type?: string;
   label?: string;
