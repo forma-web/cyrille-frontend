@@ -2,13 +2,17 @@ import { JWT_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
 import { TMeta } from 'shared/types/api';
 import { MILLISECONDS_IN_SECOND } from 'shared/consts/time';
 
+const generateJWTToken = ({ token, token_type }: Omit<TMeta, 'ttl'>) => {
+  return `${token_type} ${token}`;
+};
+
 /**
  * Set JWT Info to localstorage: token, token type and ttl (ms)
  */
 const setJWTToken = ({ token, token_type, ttl }: TMeta) => {
   const jwtData = {
     ttl: Date.now() + ttl * MILLISECONDS_IN_SECOND,
-    token: `${token_type} ${token}`,
+    token: generateJWTToken({ token, token_type }),
   };
   localStorage.setItem(JWT_LOCALSTORAGE_KEY, JSON.stringify(jwtData));
 };
@@ -51,4 +55,5 @@ export const jwt = {
   getJWTToken,
   removeJWTToken,
   isJWTTokenExist,
+  generateJWTToken,
 };

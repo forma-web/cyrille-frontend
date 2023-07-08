@@ -1,9 +1,12 @@
 import { UseMutateFunction } from '@tanstack/react-query';
 import { FieldValues, Path, useForm, UseFormProps } from 'react-hook-form';
 import { TField } from 'shared/types/form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 
 export const useMutationForm = <T extends FieldValues, K = unknown>(
   mutate: UseMutateFunction<K, unknown, T, unknown>,
+  schema: z.ZodTypeAny,
   formOptions: UseFormProps<T, unknown> = {},
 ) => {
   const {
@@ -18,6 +21,7 @@ export const useMutationForm = <T extends FieldValues, K = unknown>(
       keepDirtyValues: true,
       keepIsValid: true,
     },
+    resolver: zodResolver(schema),
     ...formOptions,
   });
 

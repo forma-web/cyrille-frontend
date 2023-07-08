@@ -30,5 +30,8 @@ export const baseQuery = async <T>(
     throw new Error(`${errorMessage.message}`);
   }
 
+  // TODO: remove this
+  if (response.status === 204) return null as T;
+
   return response.json();
 };

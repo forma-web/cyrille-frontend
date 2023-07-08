@@ -5,9 +5,11 @@ import { jwt, useMutationForm } from 'shared/lib';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { getRouteHome } from 'shared/consts/routers';
+import { z } from 'zod';
 
 export const useAuthQuery = <T extends FieldValues>(
   mutationFn: (body: T) => Promise<TAuth>,
+  schema: z.ZodTypeAny,
 ) => {
   const [responseError, setResponseError] = useState<string>();
   const client = useQueryClient();
@@ -33,7 +35,7 @@ export const useAuthQuery = <T extends FieldValues>(
   });
 
   return {
-    ...useMutationForm<T, TAuth>(mutate),
+    ...useMutationForm<T, TAuth>(mutate, schema),
     responseError,
     isSuccess,
     isLoading,
