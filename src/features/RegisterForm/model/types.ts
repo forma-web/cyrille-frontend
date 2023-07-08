@@ -1,11 +1,11 @@
 import { z } from 'zod';
 import { registerSchema } from '../consts/registerSchema';
-import { TUser } from 'entities/User';
+import { TAuth } from '@/entities/Auth';
 
 export type TRegisterValues = z.infer<typeof registerSchema>;
 
 export type TUseRegisterProps = {
-  handleSuccess?: (user: TUser) => void;
+  handleSuccess: (response: TAuth) => void;
   handleError?: (error: Error) => void;
 };
 

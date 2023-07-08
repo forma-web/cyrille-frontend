@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { TRegisterValues, TUseRegisterProps } from '../types';
-import { jwt, useMutationForm } from 'shared/lib';
+import { useMutationForm } from 'shared/lib';
 import { useState } from 'react';
 import { registerUserQuery } from '../services/registerUserQuery';
 import { registerSchema } from '../../consts/registerSchema';
@@ -14,10 +14,7 @@ export const useRegister = ({
 
   const { mutate, isSuccess, isLoading } = useMutation({
     mutationFn: registerUserQuery,
-    onSuccess: ({ data, meta }) => {
-      jwt.setJWTToken(meta);
-      handleSuccess && handleSuccess(data);
-    },
+    onSuccess: handleSuccess,
     onError: (err) => {
       setResponseError(() => (err as Error).message);
       handleError && handleError(err as Error);

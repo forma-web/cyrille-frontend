@@ -1,21 +1,17 @@
-import { useMultistepForm } from 'shared/lib/hooks/useMultistepForm';
 import { RegisterForm } from 'features/RegisterForm';
 import { ConfirmEmailForm } from 'features/ConfirmEmailForm';
-import { useCallback, useState } from 'react';
-import { TUser } from 'entities/User';
 import { BackToRegisterFormLink } from '../BackToRegisterFormLink/BackToRegisterFormLink';
+import { useRegisterWithVerify } from '../../model/hooks/useRegisterWithVerify';
 
 export const Register = () => {
-  const [userData, setUserData] = useState<TUser>();
-  const { currentStepIndex, go, back } = useMultistepForm(2);
-
-  const handleRegisterSuccess = useCallback(
-    (user: TUser) => {
-      setUserData(() => user);
-      go();
-    },
-    [go],
-  );
+  const {
+    userData,
+    currentStepIndex,
+    tokenData,
+    back,
+    handleRegisterSuccess,
+    handleConfirmEmailSuccess,
+  } = useRegisterWithVerify();
 
   return (
     <>
@@ -24,7 +20,9 @@ export const Register = () => {
       )}
       {currentStepIndex === 1 && (
         <ConfirmEmailForm
+          tokenData={tokenData}
           email={userData!.email}
+          handleSuccess={handleConfirmEmailSuccess}
           renderFooterContent={() => <BackToRegisterFormLink back={back} />}
         />
       )}

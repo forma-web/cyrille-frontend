@@ -9,7 +9,7 @@ export const useLogout = () => {
   const navigate = useNavigate();
 
   const { mutate: logout } = useMutation({
-    mutationFn: () => logoutUserQuery(),
+    mutationFn: logoutUserQuery,
 
     onSettled: () => {
       client.setQueriesData(['user'], null);

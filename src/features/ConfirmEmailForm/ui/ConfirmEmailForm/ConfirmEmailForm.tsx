@@ -1,29 +1,36 @@
 import { AuthContainer } from 'entities/Auth';
 import { CyrButton, CyrInput } from 'shared/ui';
-import { useMutationForm } from 'shared/lib';
-import { confirmEmailSchema } from '../../consts/confirmEmailSchema';
 import { confirmEmailFields } from '../../consts/confirmEmailFields';
-import { TConfirmEmailValues } from '../../model/types';
 import styles from './ConfirmEmailForm.module.scss';
 import { ReactNode, memo } from 'react';
 import { ResendCodeButton } from '../ResendCodeButton/ResendCodeButton';
+import { useConfirmEmail } from '../../model/hooks/useConfirmEmail';
+import { TMeta } from '@/shared/types/api';
 
 type TConfirmEmailFormProps = {
   email: string;
+  tokenData?: TMeta;
+  handleSuccess: () => void;
   renderFooterContent?: () => ReactNode;
-  handleSuссess?: () => void;
   handleError?: () => void;
 };
 
 export const ConfirmEmailForm = memo(
-  ({ email, renderFooterContent }: TConfirmEmailFormProps) => {
-    const { registerField, isTouched } = useMutationForm<TConfirmEmailValues>(
-      () => {},
-      confirmEmailSchema,
-    );
+  ({
+    email,
+    tokenData,
+    handleSuccess,
+    handleError,
+    renderFooterContent,
+  }: TConfirmEmailFormProps) => {
+    const { registerField, isTouched, onSubmit } = useConfirmEmail({
+      tokenData,
+      handleSuccess,
+      handleError,
+    });
 
     return (
-      <AuthContainer>
+      <AuthContainer onSubmit={onSubmit}>
         <AuthContainer.Form>
           <h1>Verification</h1>
           <span>

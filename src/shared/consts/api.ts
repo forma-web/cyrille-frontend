@@ -1,7 +1,7 @@
 export const ApiConfig = {
   books: 'books',
   auth: 'auth',
-  user: 'user',
+  user: 'users',
 } as const;
 
 const createApiPath = (apiSectionPath?: Url) => {
@@ -11,3 +11,4 @@ const createApiPath = (apiSectionPath?: Url) => {
 export const getBooksApiPath = createApiPath(ApiConfig.books);
 export const getAuthApiPath = createApiPath(ApiConfig.auth);
 export const getUserApiPath = createApiPath(ApiConfig.user);
+export const getVerifyEmailApiPath = () => getUserApiPath() + '/verify';
