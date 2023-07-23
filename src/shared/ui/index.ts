@@ -10,4 +10,5 @@ export { CyrRating } from './CyrRating/CyrRating';
 export { CyrDivide } from './CyrDivide/CyrDivide';
 export { Layout } from './Layout/Layout';
 export { Logo } from './Logo/Logo';
+export { FormContainer } from './FormContainer/FormContainer';
 export * from './Inputs';

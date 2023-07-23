@@ -1,4 +1,4 @@
-import { AuthContainer } from 'entities/Auth';
+import { FormContainer } from 'shared/ui';
 import { CyrButton, CyrError, CyrInput, CyrPasswordInput } from 'shared/ui';
 import { useLogin } from '../../model/hooks/useLogin';
 import { loginFields } from '../../consts/loginFields';
@@ -14,19 +14,19 @@ export const LoginForm = () => {
   } = useLogin();
 
   return (
-    <AuthContainer onSubmit={onSubmit}>
-      <AuthContainer.Form>
+    <FormContainer onSubmit={onSubmit}>
+      <FormContainer.Content>
         <h1>Login</h1>
         <CyrInput {...registerField(loginFields.email)} />
         <CyrPasswordInput {...registerField(loginFields.password)} />
         {!isTouched && <CyrError message={error} />}
-      </AuthContainer.Form>
-      <AuthContainer.Buttons>
+      </FormContainer.Content>
+      <FormContainer.Buttons>
         <CyrButton type="submit">Login</CyrButton>
-      </AuthContainer.Buttons>
-      <AuthContainer.Footer>
+      </FormContainer.Buttons>
+      <FormContainer.Footer>
         <Link to={getRouteRegister()}>Don&apos;t have an account? Sign up</Link>
-      </AuthContainer.Footer>
-    </AuthContainer>
+      </FormContainer.Footer>
+    </FormContainer>
   );
 };

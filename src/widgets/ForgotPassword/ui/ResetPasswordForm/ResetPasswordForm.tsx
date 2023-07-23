@@ -1,4 +1,4 @@
-import { AuthContainer } from 'entities/Auth';
+import { FormContainer } from 'shared/ui';
 import { CyrButton, CyrPasswordInput } from 'shared/ui';
 import { useInitialForm } from 'shared/lib';
 import { resetPasswordSchema as schema } from '../../consts/resetPasswordSchema';
@@ -11,8 +11,8 @@ export const ResetPasswordForm = () => {
   });
 
   return (
-    <AuthContainer onSubmit={onSubmit}>
-      <AuthContainer.Form>
+    <FormContainer onSubmit={onSubmit}>
+      <FormContainer.Content>
         <h1>Reset password</h1>
         <span>
           Set the new password for your account so&nbsp;you can login and access
@@ -21,10 +21,10 @@ export const ResetPasswordForm = () => {
         <CyrPasswordInput {...registerField(resetPasswordFields.password)} />
         <CyrPasswordInput {...registerField(resetPasswordFields.confirm)} />
         {/* {!isTouched && <CyrError message={error} />} */}
-      </AuthContainer.Form>
-      <AuthContainer.Buttons>
+      </FormContainer.Content>
+      <FormContainer.Buttons>
         <CyrButton type="submit">Reset</CyrButton>
-      </AuthContainer.Buttons>
-    </AuthContainer>
+      </FormContainer.Buttons>
+    </FormContainer>
   );
 };

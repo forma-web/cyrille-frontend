@@ -1,7 +1,7 @@
 export const ApiConfig = {
   books: 'books',
   auth: 'auth',
-  user: 'user',
+  user: 'users',
 } as const;
 
 const createApiPath = (apiSectionPath?: Url) => {

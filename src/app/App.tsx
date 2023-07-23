@@ -15,7 +15,7 @@ import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { BookPage } from 'pages/BookPage';
 import { BookReaderPage } from 'pages/BookReaderPage';
-import { ProfileChangePasswordPage } from '@/pages/ProfileChangeNamePage';
+import { ProfileChangeNamePage } from '@/pages/ProfileChangeNamePage';
 import { ForgotPasswordPage } from 'pages/ForgotPasswordPage';
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
                   <Route index element={<ProfilePage />} />
                   <Route
                     path={AppRoutes.changeName}
-                    element={<ProfilePage />}
+                    element={<ProfileChangeNamePage />}
                   />
                   <Route
                     path={AppRoutes.changeEmail}
@@ -52,7 +52,7 @@ const App = () => {
                   />
                   <Route
                     path={AppRoutes.changePassword}
-                    element={<ProfileChangePasswordPage />}
+                    element={<ProfilePage />}
                   />
                 </Route>
               </Route>

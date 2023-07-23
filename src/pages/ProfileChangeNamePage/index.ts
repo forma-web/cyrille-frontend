@@ -1,1 +1,1 @@
-export { ProfileChangePasswordPage } from './ui/ProfileChangePasswordPage';
+export { ProfileChangeNamePage } from './ui/ProfileChangeNamePage';

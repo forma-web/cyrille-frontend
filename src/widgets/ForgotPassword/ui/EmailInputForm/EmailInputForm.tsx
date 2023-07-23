@@ -1,4 +1,4 @@
-import { AuthContainer } from 'entities/Auth';
+import { FormContainer } from 'shared/ui';
 import { CyrButton, CyrInput } from 'shared/ui';
 import { Link } from 'react-router-dom';
 import { getRouteLogin } from 'shared/consts/routers';
@@ -20,8 +20,8 @@ export const EmailInputForm = ({
   });
 
   return (
-    <AuthContainer onSubmit={onSubmit}>
-      <AuthContainer.Form>
+    <FormContainer onSubmit={onSubmit}>
+      <FormContainer.Content>
         <h1>Forgot password</h1>
         <span>
           Enter your email linked with your account for the verification
@@ -29,13 +29,13 @@ export const EmailInputForm = ({
         </span>
         <CyrInput {...registerField(emailInputFields.email)} />
         {/* {!isTouched && <CyrError message={error} />} */}
-      </AuthContainer.Form>
-      <AuthContainer.Buttons>
+      </FormContainer.Content>
+      <FormContainer.Buttons>
         <CyrButton type="submit">Send a code</CyrButton>
-      </AuthContainer.Buttons>
-      <AuthContainer.Footer>
+      </FormContainer.Buttons>
+      <FormContainer.Footer>
         <Link to={getRouteLogin()}>Back to login</Link>
-      </AuthContainer.Footer>
-    </AuthContainer>
+      </FormContainer.Footer>
+    </FormContainer>
   );
 };

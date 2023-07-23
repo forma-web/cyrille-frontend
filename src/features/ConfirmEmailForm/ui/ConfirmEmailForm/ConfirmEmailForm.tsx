@@ -1,4 +1,4 @@
-import { AuthContainer } from 'entities/Auth';
+import { FormContainer } from 'shared/ui';
 import { CyrButton, CyrInput } from 'shared/ui';
 import { useInitialForm } from 'shared/lib';
 import { confirmEmailSchema as schema } from '../../consts/confirmEmailSchema';
@@ -22,8 +22,8 @@ export const ConfirmEmailForm = memo(
     });
 
     return (
-      <AuthContainer>
-        <AuthContainer.Form>
+      <FormContainer>
+        <FormContainer.Content>
           <h1>Verification</h1>
           <span>
             Enter your verification code we sent to the e-mail{' '}
@@ -31,15 +31,15 @@ export const ConfirmEmailForm = memo(
           </span>
           <CyrInput {...registerField(confirmEmailFields.code)} />
           {/* {!isTouched && <CyrError message={} />} */}
-        </AuthContainer.Form>
-        <AuthContainer.Buttons>
+        </FormContainer.Content>
+        <FormContainer.Buttons>
           <CyrButton type="submit">Verify</CyrButton>
           <ResendCodeButton />
-        </AuthContainer.Buttons>
-        <AuthContainer.Footer>
+        </FormContainer.Buttons>
+        <FormContainer.Footer>
           {goToPrevForm && <button onClick={goToPrevForm}>Change email</button>}
-        </AuthContainer.Footer>
-      </AuthContainer>
+        </FormContainer.Footer>
+      </FormContainer>
     );
   },
 );
