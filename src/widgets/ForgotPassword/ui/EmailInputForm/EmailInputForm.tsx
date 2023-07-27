@@ -6,14 +6,27 @@ import { useInitialForm } from 'shared/lib';
 import { emailInputSchema as schema } from '../../consts/emailInputSchema';
 import { TEmailInputValues } from '../../model/types';
 import { emailInputFields } from '../../consts/emailInputFields';
+import { useMutation } from '@tanstack/react-query';
+import { verifyEmailQuery } from '../../model/services/verifyEmailQuery';
+import { useCallback } from 'react';
 
 type TEmailInputFormProps = {
-  handleSuccess?: (props: { email: string }) => void;
+  handleSuccess?: (email: string) => void;
 };
 
-export const EmailInputForm = ({
-  handleSuccess: handleSubmit,
-}: TEmailInputFormProps) => {
+export const EmailInputForm = ({ handleSuccess }: TEmailInputFormProps) => {
+  const { mutate } = useMutation({
+    mutationFn: ({ email }: TEmailInputValues) => verifyEmailQuery(email),
+  });
+
+  const handleSubmit = useCallback(
+    ({ email }: TEmailInputValues) => {
+      mutate({ email });
+      handleSuccess?.(email);
+    },
+    [handleSuccess, mutate],
+  );
+
   const { registerField, onSubmit } = useInitialForm<TEmailInputValues>({
     schema,
     handleSubmit,

@@ -2,8 +2,12 @@ import { FormContainer } from 'shared/ui';
 import { CyrButton, CyrError, CyrInput, CyrPasswordInput } from 'shared/ui';
 import { useLogin } from '../../model/hooks/useLogin';
 import { loginFields } from '../../consts/loginFields';
-import { Link } from 'react-router-dom';
-import { getRouteRegister } from 'shared/consts/routers';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  getRouteForgotPassword,
+  getRouteRegister,
+} from 'shared/consts/routers';
+import { useCallback } from 'react';
 
 export const LoginForm = () => {
   const {
@@ -12,6 +16,12 @@ export const LoginForm = () => {
     responseError: error,
     isTouched,
   } = useLogin();
+
+  const navigate = useNavigate();
+
+  const navigateToForgotPassword = useCallback(() => {
+    navigate(getRouteForgotPassword());
+  }, [navigate]);
 
   return (
     <FormContainer onSubmit={onSubmit}>
@@ -23,6 +33,9 @@ export const LoginForm = () => {
       </FormContainer.Content>
       <FormContainer.Buttons>
         <CyrButton type="submit">Login</CyrButton>
+        <CyrButton onClick={navigateToForgotPassword} secondary>
+          Forgot password?
+        </CyrButton>
       </FormContainer.Buttons>
       <FormContainer.Footer>
         <Link to={getRouteRegister()}>Don&apos;t have an account? Sign up</Link>

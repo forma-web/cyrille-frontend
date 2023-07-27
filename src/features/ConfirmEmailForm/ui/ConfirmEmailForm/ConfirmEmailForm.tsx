@@ -5,17 +5,29 @@ import styles from './ConfirmEmailForm.module.scss';
 import { memo } from 'react';
 import { ResendCodeButton } from '../ResendCodeButton/ResendCodeButton';
 import { useConfirmEmail } from '../../model/hooks/useConfirmEmail';
+import { TConfirmEmailValues } from '../../model/types';
 
 type TConfirmEmailFormProps = {
+  mutationFn: (data: TConfirmEmailValues) => Promise<void>;
   email?: string;
   goToPrevForm?: () => void;
   handleResendCode?: () => void;
+  handleSuccess?: () => void;
 };
 
 export const ConfirmEmailForm = memo(
-  ({ email, goToPrevForm, handleResendCode }: TConfirmEmailFormProps) => {
+  ({
+    email,
+    goToPrevForm,
+    handleResendCode,
+    handleSuccess,
+    mutationFn,
+  }: TConfirmEmailFormProps) => {
     const { registerField, isTouched, onSubmit, responseError } =
-      useConfirmEmail();
+      useConfirmEmail({
+        onSuccess: handleSuccess,
+        mutationFn,
+      });
 
     return (
       <FormContainer onSubmit={onSubmit}>

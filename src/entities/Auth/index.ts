@@ -5,6 +5,7 @@ export { authFields } from './consts/authFields';
 export { authSchema } from './consts/authSchema';
 export { registerFields } from './consts/registerFields';
 export { registerSchema } from './consts/registerSchema';
+export { confirmAuthEmailQuery } from './model/services/confirmAuthEmailQuery';
 export type {
   TAuth,
   TAuthValues,
