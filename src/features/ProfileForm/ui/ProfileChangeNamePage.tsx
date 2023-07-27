@@ -5,12 +5,12 @@ import { useChangeName } from '../model/hooks/useChangeName';
 import { changeNameFields } from '../consts/changeNameFields';
 
 export const ProfileChangeNameForm = () => {
-  const { registerField, isValidForm, isTouched } = useChangeName();
+  const { registerField, isValidForm, isTouched, onSubmit } = useChangeName();
 
   const isDisabledSubmitButton = !isValidForm || !isTouched;
 
   return (
-    <FormContainer>
+    <FormContainer onSubmit={onSubmit}>
       <FormContainer.Content>
         <h1>Change profile name</h1>
         <CyrInput {...registerField(changeNameFields.name)} />
