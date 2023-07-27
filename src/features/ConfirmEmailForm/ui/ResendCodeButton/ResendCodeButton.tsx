@@ -4,12 +4,19 @@ import styles from './ResendCodeButton.module.scss';
 import { formatMsToMinutesAndSeconds } from '../../lib/formatMsToMinutesAndSeconds';
 import { useCountdown } from '../../model/hooks/useCountdown';
 
-export const ResendCodeButton = () => {
+type TResetCodeButtonProps = {
+  handleResendCode: () => void;
+};
+
+export const ResendCodeButton = ({
+  handleResendCode,
+}: TResetCodeButtonProps) => {
   const { leftTimeToResendCode, isOver, startCountdown } = useCountdown();
 
   const handleClick = useCallback(() => {
+    handleResendCode();
     startCountdown();
-  }, [startCountdown]);
+  }, [handleResendCode, startCountdown]);
 
   if (isOver)
     return (

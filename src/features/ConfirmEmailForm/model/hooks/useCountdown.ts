@@ -32,7 +32,7 @@ export const useCountdown = () => {
   useEffect(() => {
     startCountdown();
     return () => clearInterval(countdownId.current);
-  }, []);
+  }, [startCountdown]);
 
   return {
     leftTimeToResendCode,

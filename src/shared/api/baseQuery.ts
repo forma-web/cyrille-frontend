@@ -30,5 +30,12 @@ export const baseQuery = async <T>(
     throw new Error(`${errorMessage.message}`);
   }
 
-  return response.json();
+  switch (response.status) {
+    case 204: {
+      return Promise.resolve() as Promise<T>;
+    }
+    default: {
+      return response.json() as Promise<T>;
+    }
+  }
 };

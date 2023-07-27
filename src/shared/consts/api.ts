@@ -5,7 +5,7 @@ export const ApiConfig = {
 } as const;
 
 const createApiPath = (apiSectionPath?: Url) => {
-  return (url?: Url) => [apiSectionPath, url].filter(Boolean).join('/');
+  return (...url: Url[]) => [apiSectionPath, ...url].filter(Boolean).join('/');
 };
 
 export const getBooksApiPath = createApiPath(ApiConfig.books);

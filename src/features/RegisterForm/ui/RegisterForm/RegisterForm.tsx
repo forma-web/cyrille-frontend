@@ -1,21 +1,22 @@
 import { FormContainer } from 'shared/ui';
 import { CyrButton, CyrError, CyrInput, CyrPasswordInput } from 'shared/ui';
-import { registerFields } from '../../consts/registerFields';
 import { Link } from 'react-router-dom';
 import { useRegister } from '../../model/hooks/useRegister';
 import { getRouteLogin } from 'shared/consts/routers';
 import { TRegisterFormProps } from '../../model/types';
+import { registerFields } from '@/entities/Auth';
 
 export const RegisterForm = ({
   handleSuccess,
   handleError,
+  setUserData,
 }: TRegisterFormProps) => {
   const {
     registerField,
     onSubmit,
     responseError: error,
     isTouched,
-  } = useRegister({ handleSuccess, handleError });
+  } = useRegister({ handleSuccess, handleError, setUserData });
 
   return (
     <FormContainer onSubmit={onSubmit}>
