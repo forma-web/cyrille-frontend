@@ -11,7 +11,7 @@ WORKDIR /deps
 
 COPY . .
 
-RUN npm set-script prepare '' && npm ci --production && npm run build
+RUN npm ci --production --ignore-scripts && npm run build
 
 FROM nginx:${NGINX_VERSION}
 
