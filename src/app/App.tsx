@@ -18,6 +18,7 @@ import { BookReaderPage } from 'pages/BookReaderPage';
 import { ProfileChangeNamePage } from '@/pages/ProfileChangeNamePage';
 import { ForgotPasswordPage } from 'pages/ForgotPasswordPage';
 import { ProfileChangePasswordPage } from '@/pages/ProfileChangePasswordPage';
+import { ProfileChangeEmailPage } from '@/pages/ProfileChangeEmailPage';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -49,7 +50,7 @@ const App = () => {
                   />
                   <Route
                     path={AppRoutes.changeEmail}
-                    element={<ProfilePage />}
+                    element={<ProfileChangeEmailPage />}
                   />
                   <Route
                     path={AppRoutes.changePassword}

@@ -13,11 +13,13 @@ type TConfirmEmailFormProps = {
   goToPrevForm?: () => void;
   handleResendCode?: () => void;
   handleSuccess?: () => void;
+  backLinkTest?: string;
 };
 
 export const ConfirmEmailForm = memo(
   ({
     email,
+    backLinkTest,
     goToPrevForm,
     handleResendCode,
     handleSuccess,
@@ -47,7 +49,11 @@ export const ConfirmEmailForm = memo(
           )}
         </FormContainer.Buttons>
         <FormContainer.Footer>
-          {goToPrevForm && <button onClick={goToPrevForm}>Change email</button>}
+          {goToPrevForm && (
+            <button onClick={goToPrevForm}>
+              {backLinkTest ?? 'Change email'}
+            </button>
+          )}
         </FormContainer.Footer>
       </FormContainer>
     );
