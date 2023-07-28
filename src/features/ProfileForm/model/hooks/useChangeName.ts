@@ -5,6 +5,7 @@ import { useUser } from '@/entities/User';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateUserQuery } from '../services/updateUserQuery';
 import { useNavigate } from 'react-router-dom';
+import { AppRoutes } from '@/shared/consts/routers';
 
 export const useChangeName = () => {
   const { data: user } = useUser();
@@ -22,7 +23,7 @@ export const useChangeName = () => {
         queryKey: ['user'],
         refetchType: 'none',
       });
-      navigate('..');
+      navigate(`/${AppRoutes.profile}`);
     },
   });
 

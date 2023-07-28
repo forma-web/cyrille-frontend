@@ -1,1 +1,2 @@
-export { ProfileChangeNameForm } from './ui/ProfileChangeNamePage';
+export { ProfileChangeNameForm } from './ui/ProfileChangeNameForm';
+export { ProfileChangePasswordForm } from './ui/ProfileChangePasswordForm';
