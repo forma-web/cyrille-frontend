@@ -11,7 +11,7 @@ env:
   DOCKERFILE: ./docker/frontend/Dockerfile
   IMAGE_NAME: ${{ secrets.REGISTRY_USERNAME }}/${{ github.event.repository.name }}
   STAGING_PREVIEW_URL: https://forma-web.ru
-  STAGING_API_URL: https://api.forma-web.ru/api/v1/
+  STAGING_API_URL: https://api.cyrille.site/api/v1/
 
 jobs:
   code-quality:
