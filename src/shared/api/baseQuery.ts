@@ -4,6 +4,11 @@ type TOptionsWithBaseUrl = RequestInit & {
   baseUrl?: string;
 };
 
+const fixUrl = function (url: string): string {
+  if (url[url.length - 1] === '/') return url;
+  return url + '/';
+};
+
 /**
  * Base query without authorization
  */
@@ -17,7 +22,10 @@ export const baseQuery = async <T>(
   const headers = { ...DEFAULT_HEADERS, ...optionHeaders };
 
   // Getting the url for the request
-  const queryUrl = new URL(url, baseUrl ?? import.meta.env.VITE_API_URL);
+  const queryUrl = new URL(
+    url,
+    baseUrl ?? fixUrl(import.meta.env.VITE_API_URL),
+  );
 
   // Fetching data
   const response = await fetch(queryUrl, {
