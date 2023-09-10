@@ -4,8 +4,8 @@ type TOptionsWithBaseUrl = RequestInit & {
   baseUrl?: string;
 };
 
-const fixUrl = function (url: string): string {
-  if (url[url.length - 1] === '/') return url;
+const transformUrl = function (url: string): string {
+  if (url.at(-1) === '/') return url;
   return url + '/';
 };
 
@@ -24,7 +24,7 @@ export const baseQuery = async <T>(
   // Getting the url for the request
   const queryUrl = new URL(
     url,
-    baseUrl ?? fixUrl(import.meta.env.VITE_API_URL),
+    transformUrl(baseUrl ?? import.meta.env.VITE_API_URL),
   );
 
   // Fetching data
