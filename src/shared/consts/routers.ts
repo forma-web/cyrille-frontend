@@ -10,6 +10,7 @@ export const AppRoutes = {
   changeName: 'change-name',
   changeEmail: 'change-email',
   changePassword: 'change-password',
+  payment: 'payment',
 } as const;
 
 export const getRouteHome = () => '/';
@@ -27,6 +28,8 @@ export const getRouteProfileChangePassword = () =>
   `/${AppRoutes.profile}/${AppRoutes.changePassword}`;
 export const getRouteForgotPassword = () =>
   `/${AppRoutes.auth}/${AppRoutes.forgotPassword}`;
+export const getRoutePayment = () =>
+  `/${AppRoutes.profile}/${AppRoutes.payment}`;
 
 export const routeBookDetailsWithBookId = getRouteBookDetails(':bookId');
 export const routeBookReaderWithBookId = getRouteBookReader(':bookId');

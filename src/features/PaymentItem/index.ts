@@ -1,0 +1,1 @@
+import { PaymentItem } from 'features/PaymentItem/PaymentItem';

@@ -1,0 +1,10 @@
+.button{
+    border: 1px solid #94BEBC;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px 15px;
+}
+
+.button:active{
+    background: linear-gradient(222deg, rgba(0,0,0,1) 1%, rgba(148,190,188,1) 52%, rgba(0,0,0,1) 99%);
+}
