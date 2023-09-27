@@ -1,1 +1,1 @@
-import { PaymentItem } from 'features/PaymentItem/PaymentItem';
+export { PaymentItem } from '@/features/PaymentItem/PaymentItem';

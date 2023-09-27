@@ -1,1 +1,1 @@
-import { SubscriptionOptions } from './SubscriptionOptions';
+export { SubscriptionOptions } from './SubscriptionOptions';
