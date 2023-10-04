@@ -1,32 +1,45 @@
+import { memo } from 'react';
 import styles from './PaymentItem.module.scss';
 import cn from 'classnames';
 
-type TButtonProps = React.ButtonHTMLAttributes<HTMLElement> & {
-  month?: string;
-  price?: string;
-  monthPrice?: string;
-  popular?: boolean;
+type TPaymentItemProps = {
+  name: string;
+  monthPrice: number;
+  monthCount: number;
+  isPopular?: boolean;
+  isActive?: boolean;
+  onSubscriptionClick?: () => void;
 };
 
-export const PaymentItem = ({
-  month,
-  price,
+export const PaymentItem = memo(function PaymentItem({
+  name,
+  monthCount,
   monthPrice,
-  popular,
-}: TButtonProps) => {
-  const classnames = cn(styles.button, popular && styles.button_secondary);
+  isPopular = false,
+  isActive,
+  onSubscriptionClick,
+}: TPaymentItemProps) {
+  const price = (monthPrice * monthCount).toFixed(2);
+  const isVisibleMonthPrice = monthCount > 1;
+
+  const classnames = cn(styles.button, isActive && styles.button_secondary);
+
   return (
-    <button className={classnames}>
+    <article className={classnames} onClick={onSubscriptionClick}>
       <div className={styles.button__period}>
-        <div className={styles.button__month}>{month}</div>
-        <div className={styles.button__monthPrice}>
-          {popular ? 'most popular' : ''}
-        </div>
+        <div className={styles.button__month}>{name}</div>
+        {isPopular && (
+          <div className={styles.button__monthPrice}>most popular</div>
+        )}
       </div>
       <div className={styles.button__price}>
-        {price}
-        <div className={styles.button__monthPrice}>{monthPrice}</div>
+        US$ {price}
+        {isVisibleMonthPrice && (
+          <div className={styles.button__monthPrice}>
+            US$ {monthPrice} per month
+          </div>
+        )}
       </div>
-    </button>
+    </article>
   );
-};
+});

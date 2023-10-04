@@ -28,8 +28,6 @@ export const getRouteProfileChangePassword = () =>
   `/${AppRoutes.profile}/${AppRoutes.changePassword}`;
 export const getRouteForgotPassword = () =>
   `/${AppRoutes.auth}/${AppRoutes.forgotPassword}`;
-export const getRoutePayment = () =>
-  `/${AppRoutes.profile}/${AppRoutes.payment}`;
 
 export const routeBookDetailsWithBookId = getRouteBookDetails(':bookId');
 export const routeBookReaderWithBookId = getRouteBookReader(':bookId');
