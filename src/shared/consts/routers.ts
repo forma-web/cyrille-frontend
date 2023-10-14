@@ -10,6 +10,7 @@ export const AppRoutes = {
   changeName: 'change-name',
   changeEmail: 'change-email',
   changePassword: 'change-password',
+  payment: 'payment',
 } as const;
 
 export const getRouteHome = () => '/';

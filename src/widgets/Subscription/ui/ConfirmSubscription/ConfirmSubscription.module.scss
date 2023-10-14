@@ -1,0 +1,14 @@
+.footer{
+    padding: var(--wrapper-padding);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    position: absolute;
+    bottom: 0;
+}
+
+.description{
+    color: var(--gray50);
+}
+
