@@ -1,60 +1,49 @@
 {
   "name": "cyrille-frontend",
+  "description": "Interactive e-book reader with audio, video, hyperlinks, and interactive images, supporting various formats and providing additional book information",
+  "version": "2.0.0",
+  "license": "CC BY-NC-ND 4.0",
+  "authors": [
+    {
+      "name": "Fedorov Roman",
+      "email": "fedorovroman1506@gmail.com"
+    },
+    {
+      "name": "Vasilchikov Danil",
+      "email": "DaVas255@gmail.com"
+    },
+    {
+      "name": "Robonen Andrew",
+      "email": "robonenandrew@gmail.com"
+    }
+  ],
+  "keywords": [
+    "ebook",
+    "frontend",
+    "nuxt"
+  ],
   "private": true,
-  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "serve": "vite preview",
-    "type:check": "tsc",
-    "build:check": "vite build",
-    "prettier:check": "prettier --check ./**/*.{js,jsx,ts,tsx,css,md,json}",
-    "prettier:format": "prettier --loglevel warn --write ./**/*.{js,jsx,ts,tsx,css,md,json}",
-    "lint:check": "eslint ./src --ext .jsx,.js,.ts,.tsx --ignore-path ./.gitignore",
-    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
-    "prepare": "husky install"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "prepare": "nuxt prepare && husky install",
+    "build:check": "nuxt build && nuxt cleanup",
+    "type:check": "nuxt typecheck",
+    "style:check": "prettier --check --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,css,scss,vue,json,md}\"",
+    "style:fix": "prettier --write --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,css,scss,vue,json,md}\""
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.16",
-    "@hookform/resolvers": "^3.1.1",
-    "@sentry/react": "^7.46.0",
-    "@tanstack/react-query": "^4.26.1",
-    "@vitejs/plugin-legacy": "^4.0.2",
-    "@vitejs/plugin-react": "^3.1.0",
-    "classnames": "^2.3.2",
-    "date-fns": "^2.29.3",
-    "fast-average-color": "^9.3.0",
-    "html-react-parser": "^3.0.15",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.43.5",
-    "react-router-dom": "^6.8.2",
-    "sass": "^1.58.3",
-    "typescript": "^4.9.3",
-    "vite": "^4.3.9",
-    "vite-plugin-svgr": "^2.4.0",
-    "zod": "^3.22.3"
+    "nuxt": "^3.7.4",
+    "sass": "^1.69.3",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@types/node": "^18.14.6",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^8.0.0",
-    "prettier": "^2.8.4",
-    "terser": "^5.16.8"
-  },
-  "browserslist": [
-    "last 2 year",
-    "not dead"
-  ]
+    "@nuxt/devtools": "latest",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3"
+  }
 }

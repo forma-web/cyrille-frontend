@@ -1,1 +1,0 @@
-export { BookLinkToReader } from './BookLinkToReader';

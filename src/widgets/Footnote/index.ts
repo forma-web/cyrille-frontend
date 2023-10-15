@@ -1,1 +1,0 @@
-export { Footnote } from './Footnote';
