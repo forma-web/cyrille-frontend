@@ -1,67 +1,61 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="wrapper">
-    <div class="block__auth">
-      <CyrLogo />
-      <slot></slot>
-    </div>
+  <div class="auth-layout">
+    <AuthHeader />
 
-    <div class="block__layout">
-      <p class="layout__title">
-        Joining us means joining
-        <span class="italic">the future reading</span> realm.
-      </p>
+    <div class="auth-layout__content">
+      <div class="auth-layout__slot">
+        <slot></slot>
+      </div>
+
+      <div class="auth-layout__picture">
+        <div class="auth-layout__title">
+          Joining us means joining
+          <span class="accent-font">the future reading</span> realm.
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
-
-.wrapper {
-  display: flex;
-  justify-content: space-between;
+.auth-layout {
   height: 100%;
-}
 
-.block__auth {
-  width: 50%;
-  height: 100%;
-  padding: 2%;
-}
+  &__content {
+    display: flex;
+    height: 100%;
+  }
 
-.block__layout {
-  width: 50%;
-  height: 100%;
-  background-image: url(../public/backgrounds/auth.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+  &__slot {
+    flex: 1;
+  }
 
-  border-radius: 3.125rem 0 0 3.125rem;
+  &__picture {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
 
-  display: flex;
-  align-items: flex-end;
-}
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url(/backgrounds/auth.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 3.125rem 0 0 3.125rem;
 
-.layout__title {
-  width: 100%;
-  font-family: 'SF Pro Display', sans-serif;
-  color: white;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  padding: 15%;
+    color: white;
+    font-size: 5rem;
+    font-weight: 200;
+    text-align: center;
+  }
 
-  text-align: center;
-  font-size: 4rem;
-  font-weight: 200;
-}
-
-.italic {
-  font-family: Georgia;
-  font-style: italic;
+  &__title {
+    padding: 15%;
+  }
 }
 </style>

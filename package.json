@@ -41,6 +41,7 @@
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
+    "@heroicons/vue": "^2.0.18",
     "@nuxt/devtools": "latest",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
