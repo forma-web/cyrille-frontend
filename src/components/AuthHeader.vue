@@ -1,13 +1,13 @@
 <template>
-  <div class="auth-header">
-    <NuxtLink to="#">
+  <header class="auth-header">
+    <NuxtLink to="/">
       <CyrLogo />
     </NuxtLink>
 
-    <NuxtLink to="#">
+    <NuxtLink to="/">
       <XMarkIcon class="auth-header__close-icon" />
     </NuxtLink>
-  </div>
+  </header>
 </template>
 
 <style lang="scss" scoped>
@@ -16,10 +16,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 3%;
+  align-items: center;
+  padding: 6rem;
 
   &__close-icon {
-    width: 1.5vw;
+    width: 3rem;
     color: white;
   }
 }
