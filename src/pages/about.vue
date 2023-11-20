@@ -1,3 +1,4 @@
+import { CyrBookCard } from '../../.nuxt/components';
 <template>
   <div class="about-page">
     <div class="about-page__author">
@@ -30,11 +31,9 @@
     <div class="about-page__author-books">
       <div class="about-page__subtitle">Books</div>
       <div class="about-page__cards">
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
+        <CyrBookCard :card-type="'full'" />
+        <CyrBookCard :card-type="'cover'" />
+        <CyrBookCard :card-type="'table'" />
       </div>
     </div>
   </div>
