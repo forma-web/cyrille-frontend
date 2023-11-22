@@ -1,21 +1,17 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="auth-layout">
     <AuthHeader />
-
-    <div class="auth-layout__content">
+    <main class="auth-layout__content">
       <div class="auth-layout__slot">
         <slot></slot>
       </div>
-
       <div class="auth-layout__picture">
         <div class="auth-layout__title">
           Joining us means joining
           <span class="accent-font">the future reading</span> realm.
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -39,14 +35,14 @@
 
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 1) 100%
+        rgb(255 255 255 / 0) 0%,
+        rgb(0 0 0) 100%
       ),
       url(/backgrounds/auth.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: 3.125rem 0 0 3.125rem;
+    border-radius: var(--rounding) 0 0 var(--rounding);
 
     color: white;
     font-size: 5rem;
