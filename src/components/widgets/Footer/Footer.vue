@@ -9,11 +9,7 @@
       <CyrButton variant="transparent" class="footer__subscribe accent-font">
         Subscribe to newsletters
       </CyrButton>
-      <CyrButton
-        variant="outline"
-        style="border-color: white; color: white"
-        class="footer__app"
-      >
+      <CyrButton variant="outline" class="footer__app">
         Download app
       </CyrButton>
     </div>
@@ -28,7 +24,7 @@
 
   position: relative;
 
-  background-color: var(--black-color);
+  background-color: var(--secondary-background-color);
 
   &__rhombus {
     position: absolute;
@@ -47,7 +43,7 @@
 
   &__logo {
     width: 18rem;
-    color: white;
+    color: var(--secondary-text-color);
   }
 
   &__scroll {
@@ -56,7 +52,7 @@
   }
 
   &__subscribe {
-    color: white;
+    color: var(--secondary-text-color);
     text-transform: none;
     align-self: end;
     justify-self: start;
@@ -68,4 +64,3 @@
   }
 }
 </style>
-<script setup lang="ts"></script>

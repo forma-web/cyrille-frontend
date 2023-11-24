@@ -1,19 +1,35 @@
 :root {
-  --background-color: #f7f7f7;
-  --black-color: #101012;
+  // Colors
+  --primary-background-color: #f7f7f7;
+  --primary-text-color: #101012;
+
+  --secondary-background-color: #101012;
+  --secondary-text-color: #f7f7f7;
+
   --main-color: #448d8a;
-  --error-color: #d02d17;
-  --error-complementary-color: #e7958b;
+
+  --gray20: #e7e7e7;
+  --gray30: #cfcfcf;
+  --gray50: #808080;
+  --gray80: #2e2e2e;
+  --shadow-color: rgba(0 0 0 / 0.15);
 
   --base-gap: 2.5rem;
   --header-padding: 2.3rem;
   --rounding: 5rem;
 
-  --gray20: #e7e7e7;
-  --gray30: #cfcfcf;
-  --gray50: gray;
-  --gray80: rgb(46 46 46);
-  --shadow-color: rgba(0 0 0 / 0.15);
-
   --animation-time: 0.2s;
+}
+
+.dark {
+  --primary-background-color: #101012;
+  --primary-text-color: #f7f7f7;
+
+  --secondary-background-color: #f7f7f7;
+  --secondary-text-color: #101012;
+
+  transition:
+    color var(--animation-time),
+    background-color var(--animation-time),
+    border-color var(--animation-time);
 }

@@ -1,33 +1,29 @@
-<script lang="ts" setup>
-import { CloudIcon } from '@heroicons/vue/24/solid';
-</script>
-
 <template>
-  <CyrButton>Test</CyrButton>
-  <CyrButton disabled>Test</CyrButton>
-  <CyrButton full>Test</CyrButton>
-  <CyrButton full disabled>Test</CyrButton>
-  <CyrButton variant="outline">Test</CyrButton>
-  <CyrButton variant="outline" disabled>Test</CyrButton>
-  <CyrButton variant="outline" full>Test</CyrButton>
-  <CyrButton variant="outline" full disabled>Test</CyrButton>
-  <CyrButton icon>
-    <CloudIcon style="width: 2.5rem" />
-  </CyrButton>
-  <CyrButton icon disabled>
-    <CloudIcon style="width: 2.5rem" />
-  </CyrButton>
-  <CyrButton variant="outline" icon>
-    <CloudIcon style="width: 2.5rem" />
-  </CyrButton>
-  <CyrButton variant="outline" icon disabled>
-    <CloudIcon style="width: 2.5rem" />
-  </CyrButton>
-  <CyrButton variant="transparent" icon>
-    <CloudIcon style="width: 2.5rem" />
-  </CyrButton>
-  <CyrButton variant="transparent" icon disabled>
-    <CloudIcon style="width: 2.5rem" />
-  </CyrButton>
-  <div style="height: 3000px">Main page</div>
+  <HeadingSection>
+    <template #heading>
+      The <span class="accent-font">interactive e-book</span>
+      you'll be in love with.
+    </template>
+    <template #description>
+      Cyrille is a digital book platform that represents a new vision of
+      combining literature with different art forms and techniques.
+    </template>
+  </HeadingSection>
+  <ImageCardSection background="/backgrounds/landing-girl.jpg" />
+  <HeadingSection>
+    <template #heading>
+      While reading, you will come across
+      <span class="accent-font">special triggers.</span> By clicking on them,
+      you will see additional content.
+    </template>
+    <template #description>
+      Enjoy videos, images, sounds, or visual effects that appear. Close them to
+      return to your reading.
+    </template>
+  </HeadingSection>
+  <HeadlessSection>
+    <TriggersDemo />
+  </HeadlessSection>
+  <ImageCardSection background="/backgrounds/landing-explore.png" />
 </template>
+<script setup lang="ts"></script>
