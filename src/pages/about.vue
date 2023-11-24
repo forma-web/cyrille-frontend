@@ -11,7 +11,7 @@
       </div>
       <div class="about__control">
         <h1 class="about__title">about</h1>
-        <button></button>
+        <ScrollButton direction="down" />
       </div>
     </div>
 
@@ -124,6 +124,9 @@
       <h2 class="about__genre">
         New genre realm begins here, don’t miss it, explore with us!
       </h2>
+      <NuxtLink to="/library"
+        ><button class="about__explore-button">Explore books</button></NuxtLink
+      >
     </div>
   </main>
 </template>
@@ -132,8 +135,8 @@
 .about {
   overflow: auto;
   height: 100%;
-  background-color: black;
-  color: #fbfbfb;
+  background-color: var(--black-color);
+  color: var(--gray20);
 
   &__definition {
     position: relative;
@@ -169,6 +172,7 @@
   &__control {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__title {
@@ -181,22 +185,22 @@
     position: relative;
     top: -10vh;
     z-index: 1;
-    background-color: black;
+    background-color: var(--black-color);
     border-radius: 5rem;
-    padding: 4rem 7rem;
+    padding: 8rem 7rem;
   }
 
   &__tagline {
     margin-bottom: 10rem;
     max-width: 65%;
-    color: rgba(251, 251, 251, 0.5);
+    color: var(--gray50);
     font-size: 2.9em;
     font-weight: 400;
     line-height: normal;
   }
 
   &__text_accent {
-    color: #fbfbfb;
+    color: var(--gray20);
   }
 
   &__basics {
@@ -213,7 +217,7 @@
   &__basics-description {
     margin: 0;
     width: 27rem;
-    color: rgba(251, 251, 251, 0.5);
+    color: var(--gray50);
     font-size: 1.1em;
     font-weight: 400;
     line-height: normal;
@@ -247,7 +251,7 @@
     border-radius: 50%;
     margin-bottom: 4rem;
     filter: grayscale(1);
-    transition: 0.4s;
+    transition: var(--animation-time);
   }
 
   &__teammate-name {
@@ -256,7 +260,7 @@
   }
 
   &__teammate-role {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--gray50);
     font-size: 1.1em;
     margin-bottom: 5rem;
   }
@@ -270,7 +274,7 @@
   }
 
   &__teammate:hover .about__teammate-description {
-    transition: 0.4s;
+    transition: var(--animation-time);
     opacity: 0.8;
   }
 
@@ -285,9 +289,8 @@
 
     background: linear-gradient(
         0deg,
-        #000 0.16%,
-        #0e0e0f 6.63%,
-        rgba(0, 0, 0, 0) 65.93%
+        var(--black-color) 6.63%,
+        rgba(222, 221, 221, 0) 65.93%
       ),
       url(/backgrounds/pink-woman.png);
     background-repeat: no-repeat;
@@ -332,7 +335,7 @@
 
   &__genre {
     width: 60rem;
-
+    margin-bottom: 5rem;
     color: transparent;
     background-clip: text;
     background-image: linear-gradient(
@@ -343,6 +346,19 @@
     text-align: center;
     font-size: 2.8em;
     font-weight: 400;
+  }
+
+  &__explore-button {
+    padding: 1.5rem 5rem;
+    margin-bottom: 15rem;
+
+    color: white;
+    text-transform: uppercase;
+
+    border: 1px solid white;
+    border-radius: 10rem;
+    background-color: transparent;
+    cursor: pointer;
   }
 }
 </style>
