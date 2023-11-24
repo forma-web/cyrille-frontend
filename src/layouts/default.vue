@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
-
 <template>
-  <slot></slot>
+  <div class="default-layout">
+    <Header />
+    <main class="default-layout__content">
+      <slot></slot>
+    </main>
+    <Footer />
+  </div>
 </template>
