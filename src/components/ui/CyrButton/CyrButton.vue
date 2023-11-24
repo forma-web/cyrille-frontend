@@ -58,8 +58,8 @@ const buttonClasses = computed(() => ({
   // Variants
 
   &_solid {
-    color: white;
-    background-color: var(--black-color);
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-background-color);
 
     &:disabled {
       background-color: var(--gray30);
@@ -68,9 +68,9 @@ const buttonClasses = computed(() => ({
   }
 
   &_outline {
-    color: var(--black-color);
+    color: var(--secondary-text-color);
     background-color: transparent;
-    border: 1px solid var(--black-color);
+    border: 1px solid var(--secondary-text-color);
 
     &:disabled {
       color: var(--gray50);
@@ -79,7 +79,7 @@ const buttonClasses = computed(() => ({
   }
 
   &_transparent {
-    color: var(--black-color);
+    color: var(--secondary-text-color);
     background-color: transparent;
 
     padding: 0;

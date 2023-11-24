@@ -22,9 +22,6 @@ const scrollToTop = () => {
 .button {
   --button-height: 1.8rem;
 
-  color: white;
-  border-color: white;
-
   .button__container {
     display: flex;
     align-items: center;

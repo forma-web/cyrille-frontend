@@ -8,7 +8,7 @@
 
 <style lang="scss" scoped>
 .rhombus {
-  color: white;
+  color: var(--secondary-text-color);
 
   svg {
     width: 1.5rem;
