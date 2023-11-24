@@ -5,7 +5,7 @@
     </div>
     <div class="footer__container">
       <CyrLogo class="footer__logo" />
-      <ScrollTopButton class="footer__scroll" />
+      <ScrollButton class="footer__scroll" direction="up" />
       <CyrButton variant="transparent" class="footer__subscribe accent-font">
         Subscribe to newsletters
       </CyrButton>

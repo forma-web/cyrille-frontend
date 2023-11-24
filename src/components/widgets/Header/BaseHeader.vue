@@ -23,7 +23,8 @@ const { sticky = false } = defineProps<BaseHeaderProps>();
 
   position: fixed;
   top: 0;
-
+  z-index: 100;
+  color: white;
   &_sticky {
     position: sticky;
   }
