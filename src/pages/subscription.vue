@@ -1,0 +1,1 @@
+<template>Subscription page</template>
