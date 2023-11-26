@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: 'src',
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
   components: [
     // TODO: remove
     {

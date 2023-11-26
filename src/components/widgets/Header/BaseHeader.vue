@@ -24,9 +24,19 @@ const { sticky = false } = defineProps<BaseHeaderProps>();
   top: 0;
   z-index: 100;
 
+  // TODO: remove
+  & svg {
+    color: var(--secondary-text-color);
+  }
+
   &_sticky {
     position: sticky;
     background-color: var(--primary-background-color);
+
+    // TODO: remove
+    & svg {
+      color: var(--primary-text-color);
+    }
   }
 
   &__container {

@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { UserCircleIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/outline';
+
+// TODO: remove
+const route = useRoute();
+const isHome = computed(() => route.path === '/');
+const style = computed(() => (!isHome.value ? { color: 'white' } : {}));
 </script>
 
 <template>
-  <BaseHeader sticky>
+  <BaseHeader :sticky="isHome" :style="style">
     <div class="navbar">
       <Menu />
       <div class="navbar__actions">
