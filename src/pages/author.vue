@@ -31,8 +31,10 @@
       <div class="author-page__subtitle">Books</div>
       <div class="author-page__cards">
         <CyrBookCard :card-type="'full'" />
-        <CyrBookCard :card-type="'cover'" />
-        <CyrBookCard :card-type="'table'" />
+        <CyrBookCard :card-type="'full'" />
+        <CyrBookCard :card-type="'full'" />
+        <!--        <CyrBookCard :card-type="'cover'" />-->
+        <!--        <CyrBookCard :card-type="'table'" />-->
       </div>
     </div>
   </div>
@@ -45,8 +47,8 @@
   grid-template-rows: 1fr 2fr;
   height: 100%;
   padding: 5rem;
-  background-color: #040404;
-  color: white;
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color);
 
   &__content {
     grid-row: 1 / 3;

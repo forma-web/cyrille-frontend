@@ -2,7 +2,7 @@
   <svg
     width="106"
     height="46"
-    color="white"
+    color="black"
     viewBox="0 0 106 30"
     xmlns="http://www.w3.org/2000/svg"
   >

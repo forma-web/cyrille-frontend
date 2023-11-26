@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { ButtonHTMLAttributes } from 'vue';
 
-type ButtonVariants = 'solid' | 'outline' | 'transparent';
+export type ButtonVariants = 'solid' | 'outline' | 'transparent';
 type ButtonTypes = ButtonHTMLAttributes['type'];
 
-interface CyrButtonProps {
+export interface CyrButtonProps {
   variant?: ButtonVariants;
   type?: ButtonTypes;
   icon?: boolean;

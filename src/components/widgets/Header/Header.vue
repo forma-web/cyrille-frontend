@@ -3,7 +3,7 @@ import { UserCircleIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/outline';
 </script>
 
 <template>
-  <BaseHeader>
+  <BaseHeader sticky>
     <div class="navbar">
       <Menu />
       <div class="navbar__actions">

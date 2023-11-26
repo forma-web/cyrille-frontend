@@ -1,51 +1,33 @@
 <script setup lang="ts">
-import { ArrowUpRightIcon } from '@heroicons/vue/24/solid';
-import { ArrowDownLeftIcon } from '@heroicons/vue/24/solid';
+import { ArrowUpRightIcon, ArrowDownLeftIcon } from '@heroicons/vue/24/solid';
 
 type DirectionVariants = 'up' | 'down';
 
 interface DirectionProps {
   direction: DirectionVariants;
 }
-defineProps<DirectionProps>();
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-};
+const { direction } = defineProps<DirectionProps>();
 
-const scrollToDown = () => {
+const button = computed(() => ({
+  text: direction === 'up' ? 'Back to top' : 'Scroll down',
+  variant: direction === 'up' ? ('transparent' as const) : ('outline' as const),
+}));
+
+const scroll = () => {
   window.scrollTo({
-    top: document.body.clientHeight,
+    top: direction === 'up' ? 0 : document.body.clientHeight,
     behavior: 'smooth',
   });
 };
 </script>
 
 <template>
-  <CyrButton
-    class="button"
-    variant="transparent"
-    v-if="direction === 'up'"
-    @click="scrollToTop"
-  >
+  <CyrButton class="button" :variant="button.variant" @click="scroll">
     <div class="button__up">
-      <span class="button__text accent-font">Back to top</span>
-      <ArrowUpRightIcon class="button__icon" />
-    </div>
-  </CyrButton>
-
-  <CyrButton
-    class="button"
-    variant="outline"
-    v-else-if="direction === 'down'"
-    @click="scrollToDown"
-  >
-    <div class="button__down">
-      scroll down
-      <ArrowDownLeftIcon class="button__icon" />
+      <span class="button__text">{{ button.text }}</span>
+      <ArrowUpRightIcon class="button__icon" v-if="direction === 'up'" />
+      <ArrowDownLeftIcon class="button__icon" v-else />
     </div>
   </CyrButton>
 </template>

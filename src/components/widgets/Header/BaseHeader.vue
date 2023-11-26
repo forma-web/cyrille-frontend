@@ -20,19 +20,18 @@ const { sticky = false } = defineProps<BaseHeaderProps>();
 <style lang="scss" scoped>
 .header {
   width: 100%;
-
   position: fixed;
   top: 0;
   z-index: 100;
-  color: white;
+
   &_sticky {
     position: sticky;
+    background-color: var(--primary-background-color);
   }
 
   &__container {
     width: 100%;
     padding: var(--header-padding);
-
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -2,6 +2,13 @@
 export default defineNuxtConfig({
   srcDir: 'src',
   components: [
+    // TODO: remove
+    {
+      path: '@/components/cyr',
+      pattern: '**/*.vue',
+      pathPrefix: true,
+      prefix: 'Cyr',
+    },
     { path: '@/components/ui', pattern: '**/*.vue', pathPrefix: false },
     { path: '@/components/features', pattern: '**/*.vue', pathPrefix: false },
     { path: '@/components/widgets', pattern: '**/*.vue', pathPrefix: false },
