@@ -12,10 +12,15 @@ export default defineNuxtConfig({
       pathPrefix: true,
       prefix: 'Cyr',
     },
-    { path: '@/components/ui', pattern: '**/*.vue', pathPrefix: false },
+    { path: '@/components/shared', pattern: '**/*.vue', pathPrefix: false },
     { path: '@/components/features', pattern: '**/*.vue', pathPrefix: false },
     { path: '@/components/widgets', pattern: '**/*.vue', pathPrefix: false },
   ],
+  postcss: {
+    plugins: {
+      'postcss-preset-env': {},
+    },
+  },
   vue: {
     propsDestructure: true,
   },

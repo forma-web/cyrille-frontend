@@ -1,35 +1,40 @@
 :root {
   // Colors
-  --primary-background-color: #f7f7f7;
-  --primary-text-color: #101012;
+  --primary-background-color: oklch(97.5% 0 0);
+  --primary-text-color: oklch(17.5% 0 0);
 
-  --secondary-background-color: #101012;
-  --secondary-text-color: #f7f7f7;
+  --accent-color: oklch(60% 0.07 191);
 
-  --main-color: #448d8a;
+  --gray20: oklch(93% 0 0);
+  --gray30: oklch(85.5% 0 0);
+  --gray50: oklch(60% 0 0);
+  --gray80: oklch(30% 0 0);
 
-  --gray20: #e7e7e7;
-  --gray30: #cfcfcf;
-  --gray50: #808080;
-  --gray80: #2e2e2e;
-  --shadow-color: rgba(0 0 0 / 0.15);
+  --shadow-color: oklch(0 0 0 / 0.15);
 
+  // Sizes
   --base-gap: 2.5rem;
-  --header-padding: 2.3rem;
-  --rounding: 5rem;
+  --header-padding: 2rem;
 
+  --rounding: 1rem;
+  --rounding-xl: 5rem;
+
+  // Animation
   --animation-time: 0.2s;
 }
 
 .dark {
-  --primary-background-color: #101012;
-  --primary-text-color: #f7f7f7;
-
-  --secondary-background-color: #101012;
-  --secondary-text-color: #f7f7f7;
+  --primary-background-color: oklch(17.5% 0 0);
+  --primary-text-color: oklch(97.5% 0 0);
 
   transition:
     color var(--animation-time),
     background-color var(--animation-time),
     border-color var(--animation-time);
+}
+
+@media (color-gamut: p3) {
+  :root {
+    --accent-color: oklch(60% 0.12 191);
+  }
 }
