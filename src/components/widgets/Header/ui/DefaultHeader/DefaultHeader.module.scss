@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+
+  &__actions {
+    display: flex;
+    gap: var(--base-gap);
+  }
+
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

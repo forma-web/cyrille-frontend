@@ -1,66 +1,34 @@
+<script setup lang="ts">
+import { CyrButton } from '@/components/shared/CyrButton';
+import { CyrLogo } from '@/components/shared/CyrLogo';
+import { CyrRhombus } from '@/components/shared/CyrRhombus';
+import { ScrollButton } from '@/components/features/ScrollButton';
+
+import style from './Footer.module.scss';
+</script>
+
 <template>
-  <footer class="footer">
-    <div class="footer__rhombus">
+  <footer class="dark" :class="style.footer">
+    <div :class="style.footer__rhombus">
       <CyrRhombus />
     </div>
-    <div class="footer__container">
-      <CyrLogo class="footer__logo" />
-      <ScrollButton class="footer__scroll accent-font" direction="up" />
-      <CyrButton variant="transparent" class="footer__subscribe accent-font">
+    <div :class="style.footer__container">
+      <CyrLogo :class="style.footer__logo" />
+      <ScrollButton
+        direction="up"
+        class="accent-font"
+        :class="style.footer__scroll"
+      />
+      <CyrButton
+        variant="transparent"
+        class="accent-font"
+        :class="style.footer__subscribe"
+      >
         Subscribe to newsletters
       </CyrButton>
-      <CyrButton variant="outline" class="footer__app">
+      <CyrButton variant="outline" :class="style.footer__app">
         Download app
       </CyrButton>
     </div>
   </footer>
 </template>
-
-<style scoped lang="scss">
-.footer {
-  height: 50rem;
-  padding: 6rem 4rem 4rem 4rem;
-  border-radius: var(--rounding) var(--rounding) 0 0;
-
-  position: relative;
-
-  background-color: var(--secondary-background-color);
-
-  &__rhombus {
-    position: absolute;
-    top: calc(50% - 0.75rem);
-    left: calc(50% - 0.75rem);
-  }
-
-  &__container {
-    width: 100%;
-    height: 100%;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-
-  &__logo {
-    width: 18rem;
-    color: var(--secondary-text-color);
-  }
-
-  &__scroll {
-    align-self: start;
-    justify-self: end;
-  }
-
-  &__subscribe {
-    color: var(--secondary-text-color);
-    text-transform: none;
-    align-self: end;
-    justify-self: start;
-  }
-
-  &__app {
-    align-self: end;
-    justify-self: end;
-  }
-}
-</style>

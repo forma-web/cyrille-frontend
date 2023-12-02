@@ -1,3 +1,58 @@
+<script setup lang="ts">
+import { CyrCarousel } from '@/components/shared/CyrCarousel';
+
+const genres = [
+  {
+    name: 'Fantasy',
+    image: '/genres/fantasy.png',
+  },
+  {
+    name: 'Horror',
+    image: '/genres/horror.png',
+  },
+  {
+    name: 'Mystery',
+    image: '/genres/mystery.png',
+  },
+  {
+    name: 'Romance',
+    image: '/genres/romance.png',
+  },
+  {
+    name: 'Science Fiction',
+    image: '/genres/science-fiction.png',
+  },
+  {
+    name: 'Thriller',
+    image: '/genres/thriller.png',
+  },
+  {
+    name: 'Fantasy',
+    image: '/genres/fantasy.png',
+  },
+  {
+    name: 'Horror',
+    image: '/genres/horror.png',
+  },
+  {
+    name: 'Mystery',
+    image: '/genres/mystery.png',
+  },
+  {
+    name: 'Romance',
+    image: '/genres/romance.png',
+  },
+  {
+    name: 'Science Fiction',
+    image: '/genres/science-fiction.png',
+  },
+  {
+    name: 'Thriller',
+    image: '/genres/thriller.png',
+  },
+];
+</script>
+
 <template>
   <div>
     <HeadingSection>
@@ -24,6 +79,13 @@
     </HeadingSection>
     <HeadlessSection>
       <TriggersDemo />
+    </HeadlessSection>
+    <HeadlessSection>
+      <CyrCarousel :items="genres">
+        <template v-slot="{ item }">
+          {{ item.name }}
+        </template>
+      </CyrCarousel>
     </HeadlessSection>
     <ImageCardSection background="/backgrounds/landing-explore.png" />
   </div>

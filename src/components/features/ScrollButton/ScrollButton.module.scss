@@ -1,0 +1,28 @@
+.button {
+  --button-height: 1.8rem;
+
+  color: white;
+  border-color: white;
+
+  &__up {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__down {
+    display: flex;
+    align-items: center;
+    gap: 7rem;
+  }
+
+  &__icon {
+    width: var(--button-height);
+    height: var(--button-height);
+  }
+
+  &__text {
+    font-size: var(--button-height);
+    text-transform: none;
+  }
+}

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+  darkMode: true,
+});
+</script>
+
 <template>
   <div class="author-page">
     <div class="author-page__content">
@@ -47,8 +53,8 @@
   grid-template-rows: 1fr 2fr;
   height: 100%;
   padding: 5rem;
-  background-color: var(--secondary-background-color);
-  color: var(--secondary-text-color);
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
 
   &__content {
     grid-row: 1 / 3;
@@ -108,5 +114,3 @@
   }
 }
 </style>
-
-<script setup lang="ts"></script>

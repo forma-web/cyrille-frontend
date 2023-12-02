@@ -1,19 +1,21 @@
 <script setup lang="ts">
+import { Header } from '..';
 import { XMarkIcon } from '@heroicons/vue/24/solid';
 </script>
 
 <template>
-  <BaseHeader>
-    <NuxtLink to="/" class="close-icon">
+  <Header>
+    <NuxtLink to="/" :class="$style.icon">
       <XMarkIcon />
     </NuxtLink>
-  </BaseHeader>
+  </Header>
 </template>
 
-<style lang="scss" scoped>
-.close-icon {
+<style module lang="scss">
+.icon {
   width: 2.4rem;
   height: 2.4rem;
+
   color: white;
 }
 </style>

@@ -1,3 +1,10 @@
+<script setup lang="ts">
+definePageMeta({
+  darkMode: true,
+  stickyHeader: false,
+});
+</script>
+
 <template>
   <main class="about">
     <div class="about__definition">
@@ -135,7 +142,7 @@
 .about {
   overflow: auto;
   height: 100%;
-  background-color: var(--secondary-background-color);
+  background-color: var(--primary-background-color);
   color: var(--gray20);
 
   &__definition {
@@ -185,7 +192,7 @@
     position: relative;
     top: -10vh;
     z-index: 1;
-    background-color: var(--secondary-background-color);
+    background-color: var(--primary-background-color);
     border-radius: 5rem;
     padding: 8rem 7rem;
   }
@@ -289,7 +296,7 @@
 
     background: linear-gradient(
         0deg,
-        var(--secondary-background-color) 6.63%,
+        var(--primary-background-color) 6.63%,
         rgba(222, 221, 221, 0) 65.93%
       ),
       url(/backgrounds/pink-woman.png);
