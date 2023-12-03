@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ArtistInfo } from '@/components/entities/Artist';
+
 definePageMeta({
   darkMode: true,
   stickyHeader: false,
@@ -46,66 +48,30 @@ definePageMeta({
     <div class="about__team">
       <h2 class="about__team-title">Our team</h2>
       <div class="about__teammates">
-        <div class="about__teammate">
-          <img
-            src="/avatars/cyrille.png"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Cyrille <span class="accent-font">D’essai</span>
-          </p>
-          <p class="about__teammate-role">Founder</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
-        <div class="about__teammate">
-          <img
-            src="https://i.pravatar.cc/150?img=33"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Andrew <span class="accent-font">Gates</span>
-          </p>
-          <p class="about__teammate-role">IT specialist / frontender</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
-        <div class="about__teammate">
-          <img
-            src="https://i.pravatar.cc/300?u=DhY4QbDg6l"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Apa <span class="accent-font">Dovnar</span>
-          </p>
-          <p class="about__teammate-role">Branding & Ux/Ui designer</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
-        <div class="about__teammate">
-          <img
-            src="https://i.pravatar.cc/300?u=leZ89wBXip"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Rick <span class="accent-font">Miles</span>
-          </p>
-          <p class="about__teammate-role">IT specialist</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
+        <ArtistInfo
+          image="/avatars/cyrille.png"
+          name="Cyrille D’essai"
+          caption="Founder"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
+        <ArtistInfo
+          image="/avatars/andrew.png"
+          name="Andrew Gates"
+          caption="IT specialist / frontender"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
+        <ArtistInfo
+          image="/avatars/apa.png"
+          name="Apa Dovnar"
+          caption="Branding & Ux/Ui designer"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
+        <ArtistInfo
+          image="https://i.pravatar.cc/300?u=leZ89wBXip"
+          name="Rick Miles"
+          caption="IT specialist"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
       </div>
     </div>
 
@@ -183,8 +149,8 @@ definePageMeta({
   }
 
   &__title {
-    font-size: 4.5em;
-    font-weight: 500;
+    //font-size: 4.5em;
+    //font-weight: 500;
     text-transform: uppercase;
   }
 

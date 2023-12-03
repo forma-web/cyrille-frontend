@@ -10,6 +10,12 @@ interface DefaultHeaderProps {
 }
 
 const { sticky = true } = defineProps<DefaultHeaderProps>();
+
+const overlay = ref(false);
+
+const toggleOverlay = () => {
+  overlay.value = !overlay.value;
+};
 </script>
 
 <template>
@@ -17,7 +23,7 @@ const { sticky = true } = defineProps<DefaultHeaderProps>();
     <div :class="style.navbar">
       <Menu />
       <div :class="style.navbar__actions">
-        <CyrButton variant="transparent">
+        <CyrButton variant="transparent" @click="toggleOverlay">
           <MagnifyingGlassIcon :class="style.navbar__icon" />
         </CyrButton>
         <CyrButton variant="transparent">
@@ -25,5 +31,12 @@ const { sticky = true } = defineProps<DefaultHeaderProps>();
         </CyrButton>
       </div>
     </div>
+    <Transition name="fade">
+      <div :class="style.overlay" v-if="overlay">
+        <div :class="style.overlay__content">
+          <!-- search -->
+        </div>
+      </div>
+    </Transition>
   </Header>
 </template>

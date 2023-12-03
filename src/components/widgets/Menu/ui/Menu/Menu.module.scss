@@ -20,7 +20,7 @@
     transition: text-decoration-color var(--animation-time);
 
     &_active {
-      text-decoration-color: var(--accent-color);
+      text-decoration-color: var(--primary-text-color);
     }
   }
 }

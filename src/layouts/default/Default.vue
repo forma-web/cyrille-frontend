@@ -16,9 +16,9 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="default-layout">
+  <div>
     <DefaultHeader :sticky="stickyHeader" />
-    <main class="default-layout__content">
+    <main>
       <slot></slot>
     </main>
     <Footer />

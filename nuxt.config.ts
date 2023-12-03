@@ -13,6 +13,7 @@ export default defineNuxtConfig({
       prefix: 'Cyr',
     },
     { path: '@/components/shared', pattern: '**/*.vue', pathPrefix: false },
+    { path: '@/components/entities', pattern: '**/*.vue', pathPrefix: false },
     { path: '@/components/features', pattern: '**/*.vue', pathPrefix: false },
     { path: '@/components/widgets', pattern: '**/*.vue', pathPrefix: false },
   ],
