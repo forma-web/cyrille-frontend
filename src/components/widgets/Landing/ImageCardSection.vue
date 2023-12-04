@@ -31,7 +31,7 @@ const { background } = defineProps<ImageCardSectionProps>();
     img {
       width: 100%;
       height: 100%;
-      border-radius: var(--rounding);
+      border-radius: var(--rounding-xl);
       object-fit: cover;
     }
   }

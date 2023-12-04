@@ -1,8 +1,8 @@
 <template>
   <section class="section">
-    <h1 class="heading">
+    <h2 class="heading">
       <slot name="heading"></slot>
-    </h1>
+    </h2>
     <p class="description">
       <slot name="description"></slot>
     </p>

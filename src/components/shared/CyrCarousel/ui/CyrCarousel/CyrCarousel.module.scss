@@ -1,0 +1,18 @@
+.carousel {
+  width: 100%;
+
+  &__list {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  &__item {
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+  }
+}

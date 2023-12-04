@@ -36,9 +36,10 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.18",
-    "nuxt": "^3.8.1",
+    "nuxt": "^3.8.2",
+    "postcss-preset-env": "^9.3.0",
     "sass": "^1.69.3",
-    "vue": "^3.3.8",
+    "vue": "^3.3.9",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { ArtistInfo } from '@/components/entities/Artist';
+
+definePageMeta({
+  darkMode: true,
+  stickyHeader: false,
+});
+</script>
+
 <template>
   <main class="about">
     <div class="about__definition">
@@ -18,9 +27,9 @@
     <div class="about__possibility">
       <p class="about__tagline">
         Our interactive features allow you to engage with the story through
-        <span class="about__text_accent"
-          >animations, sound effects, and other multimedia elements,</span
-        >
+        <span class="about__text_accent">
+          animations, sound effects, and other multimedia elements,
+        </span>
         bringing the story to life in a whole new way.
       </p>
       <div class="about__basics">
@@ -28,10 +37,10 @@
         <p class="about__basics-description">
           At <span class="about__text_accent">the heart of our app</span> is a
           community of creative minds -
-          <span class="about__text_accent"
-            >writers, composers, musicians, designers, illustrators, and
-            filmmakers.</span
-          >
+          <span class="about__text_accent">
+            writers, composers, musicians, designers, illustrators, and
+            filmmakers.
+          </span>
         </p>
       </div>
     </div>
@@ -39,66 +48,30 @@
     <div class="about__team">
       <h2 class="about__team-title">Our team</h2>
       <div class="about__teammates">
-        <div class="about__teammate">
-          <img
-            src="/avatars/cyrille.png"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Cyrille <span class="accent-font">D’essai</span>
-          </p>
-          <p class="about__teammate-role">Founder</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
-        <div class="about__teammate">
-          <img
-            src="https://i.pravatar.cc/150?img=33"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Andrew <span class="accent-font">Gates</span>
-          </p>
-          <p class="about__teammate-role">IT specialist / frontender</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
-        <div class="about__teammate">
-          <img
-            src="https://i.pravatar.cc/300?u=DhY4QbDg6l"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Apa <span class="accent-font">Dovnar</span>
-          </p>
-          <p class="about__teammate-role">Branding & Ux/Ui designer</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
-        <div class="about__teammate">
-          <img
-            src="https://i.pravatar.cc/300?u=leZ89wBXip"
-            alt="human"
-            class="about__teammate-avatar"
-          />
-          <p class="about__teammate-name">
-            Rick <span class="accent-font">Miles</span>
-          </p>
-          <p class="about__teammate-role">IT specialist</p>
-          <p class="about__teammate-description">
-            Cyrille D’essai’s mission is to revolutionize the way we read and
-            experience literature.
-          </p>
-        </div>
+        <ArtistInfo
+          image="/avatars/cyrille.png"
+          name="Cyrille D’essai"
+          caption="Founder"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
+        <ArtistInfo
+          image="/avatars/andrew.png"
+          name="Andrew Gates"
+          caption="IT specialist / frontender"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
+        <ArtistInfo
+          image="/avatars/apa.png"
+          name="Apa Dovnar"
+          caption="Branding & Ux/Ui designer"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
+        <ArtistInfo
+          image="https://i.pravatar.cc/300?u=leZ89wBXip"
+          name="Rick Miles"
+          caption="IT specialist"
+          bio="Cyrille D’essai’s mission is to revolutionize the way we read and experience literature."
+        />
       </div>
     </div>
 
@@ -124,9 +97,9 @@
       <h2 class="about__genre">
         New genre realm begins here, don’t miss it, explore with us!
       </h2>
-      <NuxtLink to="/library"
-        ><button class="about__explore-button">Explore books</button></NuxtLink
-      >
+      <NuxtLink to="/library">
+        <button class="about__explore-button">Explore books</button>
+      </NuxtLink>
     </div>
   </main>
 </template>
@@ -135,7 +108,7 @@
 .about {
   overflow: auto;
   height: 100%;
-  background-color: var(--black-color);
+  background-color: var(--primary-background-color);
   color: var(--gray20);
 
   &__definition {
@@ -176,8 +149,8 @@
   }
 
   &__title {
-    font-size: 4.5em;
-    font-weight: 500;
+    //font-size: 4.5em;
+    //font-weight: 500;
     text-transform: uppercase;
   }
 
@@ -185,7 +158,7 @@
     position: relative;
     top: -10vh;
     z-index: 1;
-    background-color: var(--black-color);
+    background-color: var(--primary-background-color);
     border-radius: 5rem;
     padding: 8rem 7rem;
   }
@@ -267,7 +240,7 @@
 
   &__teammate-description {
     text-align: center;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 1em;
     font-style: italic;
     opacity: 0;
@@ -289,7 +262,7 @@
 
     background: linear-gradient(
         0deg,
-        var(--black-color) 6.63%,
+        var(--primary-background-color) 6.63%,
         rgba(222, 221, 221, 0) 65.93%
       ),
       url(/backgrounds/pink-woman.png);
@@ -362,5 +335,3 @@
   }
 }
 </style>
-
-<script setup lang="ts"></script>
