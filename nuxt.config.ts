@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   srcDir: 'src',
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'page', mode: 'out-in' },
   },
   components: [
     // TODO: remove
@@ -12,10 +13,6 @@ export default defineNuxtConfig({
       pathPrefix: true,
       prefix: 'Cyr',
     },
-    { path: '@/components/shared', pattern: '**/*.vue', pathPrefix: false },
-    { path: '@/components/entities', pattern: '**/*.vue', pathPrefix: false },
-    { path: '@/components/features', pattern: '**/*.vue', pathPrefix: false },
-    { path: '@/components/widgets', pattern: '**/*.vue', pathPrefix: false },
   ],
   postcss: {
     plugins: {
@@ -24,11 +21,16 @@ export default defineNuxtConfig({
   },
   vue: {
     propsDestructure: true,
+    defineModel: true,
   },
   typescript: {
     strict: true,
   },
   devtools: {
     enabled: false,
+  },
+  modules: ['@vee-validate/nuxt'],
+  veeValidate: {
+    autoImports: false,
   },
 });
