@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { DefaultHeader } from '@/components/widgets/Header';
+import { Footer } from '@/components/widgets/Footer';
 
 const route = useRoute();
 
-const darkMode = computed(() => route.meta.darkMode ?? false);
 const stickyHeader = computed(() => route.meta.stickyHeader ?? true);
+const mode = computed(() => (route.meta.darkMode ? 'dark' : ''));
 
-watchEffect(() => {
-  useHead({
-    bodyAttrs: {
-      class: darkMode.value ? 'dark' : '',
-    },
-  });
+useHead({
+  bodyAttrs: {
+    class: mode,
+  },
 });
 </script>
 

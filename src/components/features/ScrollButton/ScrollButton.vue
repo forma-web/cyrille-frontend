@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CyrButton } from '@/components/shared/CyrButton';
+import { CyrButton } from '@/components/shared/Button';
 import { ArrowDownLeftIcon, ArrowUpRightIcon } from '@heroicons/vue/24/solid';
 import style from './ScrollButton.module.scss';
 

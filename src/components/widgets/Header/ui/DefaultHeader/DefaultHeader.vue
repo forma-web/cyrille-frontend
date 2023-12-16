@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Header } from '..';
 import { Menu } from '@/components/widgets/Menu';
-import { CyrButton } from '@/components/shared/CyrButton';
+import { CyrButton } from '@/components/shared/Button';
 import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/vue/24/outline';
 import style from './DefaultHeader.module.scss';
 

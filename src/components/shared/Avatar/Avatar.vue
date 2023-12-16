@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import style from './CyrAvatar.module.scss';
+import style from './Avatar.module.scss';
 
 interface CyrAvatarWithImage {
   image: string;

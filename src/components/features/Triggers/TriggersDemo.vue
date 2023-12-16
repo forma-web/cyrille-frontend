@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AudioTriggerIcon from '@/components/features/Triggers/AudioTriggerIcon.vue';
+import VideoTriggerIcon from '@/components/features/Triggers/VideoTriggerIcon.vue';
+import EffectTriggerIcon from '@/components/features/Triggers/EffectTriggerIcon.vue';
+import PhotoTriggerIcon from '@/components/features/Triggers/PhotoTriggerIcon.vue';
+</script>
 
 <template>
   <div class="triggers">

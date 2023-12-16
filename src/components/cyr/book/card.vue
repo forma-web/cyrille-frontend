@@ -1,11 +1,11 @@
 <template>
-  <div v-if="cardType === 'full'">
+  <div v-if="cardType === 'full'" class="card-container">
     <CyrBookCardCover />
     <CyrBookCardDetails />
     <CyrBookCardTitle />
   </div>
 
-  <div v-else-if="cardType === 'cover'">
+  <div v-else-if="cardType === 'cover'" class="card-container">
     <CyrBookCardCover />
   </div>
 
@@ -18,10 +18,17 @@
 </template>
 
 <style lang="scss" scoped>
-.card-table {
-  height: 163px;
+.card-container {
   display: flex;
-  gap: 23px;
+  flex-direction: column;
+  max-width: 20rem;
+}
+
+.card-table {
+  max-height: 15rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
 }
 </style>
 

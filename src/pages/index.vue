@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { CyrCarousel } from '@/components/shared/CyrCarousel';
+import { CyrCarousel } from '@/components/shared/Carousel';
+import HeadingSection from '@/components/widgets/Landing/HeadingSection.vue';
+import ImageCardSection from '@/components/widgets/Landing/ImageCardSection.vue';
+import HeadlessSection from '@/components/widgets/Landing/HeadlessSection.vue';
+import TriggersDemo from '@/components/features/Triggers/TriggersDemo.vue';
 
 const genres = [
   {

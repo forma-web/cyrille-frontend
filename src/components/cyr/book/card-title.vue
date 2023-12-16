@@ -4,7 +4,7 @@
 
 <style lang="scss" scoped>
 .card-title {
-  color: #fafafa;
+  color: var(--primary-text-color);
   font-size: 16px;
   font-weight: 500;
   line-height: normal;

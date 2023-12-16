@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CyrRhombus } from '@/components/shared/Rhombus';
+import { ScrollButton } from '@/components/features/ScrollButton';
 import { ArtistInfo } from '@/components/entities/Artist';
 
 definePageMeta({

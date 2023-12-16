@@ -27,7 +27,7 @@
     width: 19px;
     margin-left: auto;
     cursor: pointer;
-    color: white;
+    color: var(--primary-text-color);
   }
 }
 </style>
@@ -36,6 +36,7 @@
 import { ref } from 'vue';
 import { HeartIcon } from '@heroicons/vue/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/vue/24/solid';
+import { CyrRhombus } from '@/components/shared/Rhombus';
 
 const isHeartSolid = ref(false);
 const toggleHeartIcon = () => {
