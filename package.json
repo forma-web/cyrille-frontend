@@ -36,16 +36,20 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.18",
+    "@vee-validate/nuxt": "^4.12.3",
+    "@vee-validate/valibot": "^4.12.3",
     "nuxt": "^3.8.2",
     "postcss-preset-env": "^9.3.0",
     "sass": "^1.69.3",
-    "vue": "^3.3.9",
+    "valibot": "^0.24.1",
+    "vue": "^3.3.12",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.3"
   }
 }
