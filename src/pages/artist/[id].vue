@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CyrRhombus } from '@/components/shared/CyrRhombus';
+import { CyrRhombus } from '@/components/shared/Rhombus';
 import { ArtistInfo } from '@/components/entities/Artist';
 
 definePageMeta({

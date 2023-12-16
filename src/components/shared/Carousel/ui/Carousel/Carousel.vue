@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends unknown">
 import { CyrCarouselItem } from '..';
-import style from './CyrCarousel.module.scss';
+import style from './Carousel.module.scss';
 
 interface CarouselProps {
   items: T[];

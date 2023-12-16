@@ -38,7 +38,7 @@ const toggleHeartIcon = () => {
     width: 19px;
     margin-left: auto;
     cursor: pointer;
-    color: white;
+    color: var(--primary-text-color);
   }
 }
 </style>

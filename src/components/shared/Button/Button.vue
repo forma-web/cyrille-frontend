@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ButtonHTMLAttributes } from 'vue';
-import style from './CyrButton.module.scss';
+import style from './Button.module.scss';
 
 type ButtonVariants = 'solid' | 'outline' | 'transparent';
 type ButtonTypes = ButtonHTMLAttributes['type'];

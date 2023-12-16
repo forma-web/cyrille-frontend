@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CyrAvatar } from '@/components/shared/CyrAvatar';
+import { CyrAvatar } from '@/components/shared/Avatar';
 import style from './ArtistInfo.module.scss';
 
 interface ArtistInfoProps {

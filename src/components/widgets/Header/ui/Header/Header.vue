@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CyrLogo } from '@/components/shared/Logo';
 import style from './Header.module.scss';
 
 export interface HeaderProps {

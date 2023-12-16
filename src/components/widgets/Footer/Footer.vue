@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { CyrButton } from '@/components/shared/CyrButton';
-import { CyrLogo } from '@/components/shared/CyrLogo';
-import { CyrRhombus } from '@/components/shared/CyrRhombus';
+import { CyrButton } from '@/components/shared/Button';
+import { CyrLogo } from '@/components/shared/Logo';
+import { CyrRhombus } from '@/components/shared/Rhombus';
 import { ScrollButton } from '@/components/features/ScrollButton';
 
 import style from './Footer.module.scss';

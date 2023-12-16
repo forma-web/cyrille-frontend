@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import style from './CyrCarouselItem.module.scss';
+import style from './CarouselItem.module.scss';
 </script>
 
 <template>
