@@ -42,7 +42,7 @@ const fieldStyle = computed(() => ({
       />
       <span :class="style.field__control">
         <slot v-if="!hideStatus">
-          <CyrFieldStatus :isValid="meta.dirty && !isError" />
+          <CyrFieldStatus :isValid="!isError" v-if="meta.dirty" />
         </slot>
       </span>
     </span>
