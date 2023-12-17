@@ -8,7 +8,7 @@ import style from './Profile.module.scss';
     <div :class="style.profile__main">
       <div :class="style.profile__info">
         <CyrAvatar
-          image="../../public/avatar/avatar-example.png"
+          image="/avatar/avatar-example.png"
           text=""
           :class="style.profile__avatar"
         />
