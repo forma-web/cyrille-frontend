@@ -16,6 +16,10 @@ const overlay = ref(false);
 const toggleOverlay = () => {
   overlay.value = !overlay.value;
 };
+
+const openProfile = async () => {
+  await navigateTo('/auth/login');
+};
 </script>
 
 <template>
@@ -26,7 +30,7 @@ const toggleOverlay = () => {
         <CyrButton variant="transparent" @click="toggleOverlay">
           <MagnifyingGlassIcon :class="style.navbar__icon" />
         </CyrButton>
-        <CyrButton variant="transparent">
+        <CyrButton variant="transparent" @click="openProfile">
           <UserCircleIcon :class="style.navbar__icon" />
         </CyrButton>
       </div>

@@ -12,6 +12,7 @@ definePageMeta({
 
 const schema = toTypedSchema(
   object({
+    name: string([minLength(1, 'required')]),
     email: string([minLength(1, 'required'), email()]),
     password: string([minLength(1, 'required')]),
   }),
@@ -21,15 +22,15 @@ const schema = toTypedSchema(
 <template>
   <div>
     <CyrForm>
-      <h3>Welcome back!</h3>
+      <h3>Sign up</h3>
+      <CyrField name="name" label="Name" />
       <CyrField name="email" label="Email" />
       <CyrPasswordField name="password" label="Password" />
       <template #buttons>
-        <CyrButton variant="solid" full> Login </CyrButton>
-        <CyrButton variant="outline" full> Forgot password? </CyrButton>
+        <CyrButton variant="solid" full> Create account </CyrButton>
       </template>
       <template #footer>
-        <NuxtLink to="/auth/signup"> Don't have an account? Sign up </NuxtLink>
+        <NuxtLink to="/auth/login"> Already have an account? Login </NuxtLink>
       </template>
     </CyrForm>
   </div>
@@ -37,7 +38,7 @@ const schema = toTypedSchema(
 
 <style scoped lang="scss">
 div {
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
