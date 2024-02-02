@@ -1,6 +1,6 @@
 import type { TabItem } from '../types';
 
-export const TAB_ITEMS: TabItem[] = [
+export const PROFILE_ITEMS: TabItem[] = [
   {
     name: 'My Books',
     location: '/profile/books',
@@ -16,5 +16,24 @@ export const TAB_ITEMS: TabItem[] = [
   {
     name: 'Subscription',
     location: '/profile/subscription',
+  },
+];
+
+export const MENU_ITEMS: TabItem[] = [
+  {
+    name: 'Library',
+    location: '/library',
+  },
+  {
+    name: 'My Books',
+    location: '/books',
+  },
+  {
+    name: 'About',
+    location: '/about',
+  },
+  {
+    name: 'Subscription',
+    location: '/subscription',
   },
 ];

@@ -1,3 +1,11 @@
+<script setup lang="ts">
+type BookCardVariants = 'full' | 'cover' | 'table';
+interface BookCardProps {
+  cardType: BookCardVariants;
+}
+defineProps<BookCardProps>();
+</script>
+
 <template>
   <div v-if="cardType === 'full'">
     <CyrBookCardCover />
@@ -24,11 +32,3 @@
   gap: 23px;
 }
 </style>
-
-<script setup lang="ts">
-type BookCardVariants = 'full' | 'cover' | 'table';
-interface BookCardProps {
-  cardType: BookCardVariants;
-}
-defineProps<BookCardProps>();
-</script>

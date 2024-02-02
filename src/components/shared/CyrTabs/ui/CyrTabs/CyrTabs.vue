@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import { TAB_ITEMS } from '../../const';
+import style from './CyrTabs.module.scss';
+import type { TabItem } from '../../types';
+
+interface CyrTabsProps {
+  items: TabItem[];
+}
+
+const { items } = defineProps<CyrTabsProps>();
 </script>
 
 <template>
-  <div>
-    <ul :class="$style.tabs">
-      <li v-for="item in TAB_ITEMS" key="item.name">
-        <CyrTab :to="item.location">
-          {{ item.name }}
-        </CyrTab>
+  <nav :class="style.container">
+    <ul :class="style.tabs">
+      <li v-for="item in items" :key="item.name">
+        <NuxtLink :to="item.location">
+          <CyrTab>
+            {{ item.name }}
+          </CyrTab>
+        </NuxtLink>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
-
-<style lang="scss" module>
-.tabs {
-  display: flex;
-  justify-content: space-around;
-
-  list-style: none;
-  color: black;
-}
-</style>

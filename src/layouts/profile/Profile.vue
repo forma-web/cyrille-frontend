@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PROFILE_ITEMS } from '@/components/shared/CyrTabs/const';
 import style from './Profile.module.scss';
 </script>
 
@@ -18,15 +19,15 @@ import style from './Profile.module.scss';
         <CyrButton variant="outline" :class="style.profile__edit"
           >Edit profile</CyrButton
         >
-        <div :class="style.profile__category">
-          <ul :class="style.profile__categoryDesc">
-            <li :class="style.profile__categoryItem">Date of birth</li>
-            <li :class="style.profile__categoryItem">Gender</li>
-            <li :class="style.profile__categoryItem">About me</li>
+        <div :class="style.category">
+          <ul :class="style.category__desc">
+            <li :class="style.category__item">Date of birth</li>
+            <li :class="style.category__item">Gender</li>
+            <li :class="style.category__item">About me</li>
           </ul>
-          <ul :class="style.profile__categoryValue">
-            <li :class="style.profile__categoryItem">21.11.2000</li>
-            <li :class="style.profile__categoryItem">Female</li>
+          <ul :class="style.category__value">
+            <li :class="style.category__item">21.11.2000</li>
+            <li :class="style.category__item">Female</li>
           </ul>
         </div>
         <p>
@@ -37,7 +38,7 @@ import style from './Profile.module.scss';
       </div>
 
       <div :class="style.profile__page">
-        <CyrTabs />
+        <CyrTabs :items="PROFILE_ITEMS" />
         <slot></slot>
       </div>
     </div>
