@@ -1,0 +1,20 @@
+.title {
+  &_name {
+    margin: 0;
+
+    font-size: 2.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &_authors {
+    margin-top: 1rem;
+
+    font-size: 1.2em;
+    color: var(--gray50);
+  }
+
+  &_rating {
+    font-size: 1.5rem;
+  }
+}

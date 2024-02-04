@@ -1,0 +1,11 @@
+.rating {
+  display: flex;
+  align-items: center;
+  row-gap: 0.4rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    column-gap: 0.2rem;
+  }
+}

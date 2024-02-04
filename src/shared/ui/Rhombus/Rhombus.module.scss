@@ -1,0 +1,21 @@
+.rhombus {
+  position: relative;
+  aspect-ratio: 1;
+  width: 1em;
+
+  &__filled,
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    fill: var(--primary-text-color);
+  }
+
+  &__filled {
+    overflow: hidden;
+  }
+}
