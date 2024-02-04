@@ -1,0 +1,41 @@
+.layout {
+  height: 100%;
+
+  &__content {
+    display: flex;
+    height: 100%;
+  }
+
+  &__slot {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__picture {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+
+    background: linear-gradient(
+        180deg,
+        rgb(255 255 255 / 0) 0%,
+        rgb(0 0 0) 100%
+      ),
+      url(/backgrounds/auth.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--rounding-xl) 0 0 var(--rounding-xl);
+
+    color: white;
+    font-size: 5rem;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  &__title {
+    padding: 15%;
+  }
+}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CyrCheckbox } from '@/components/shared/Checkbox';
+import { CyrCheckbox } from '@shared/ui/Checkbox';
 </script>
 
 <template>

@@ -1,45 +1,11 @@
 <script setup lang="ts">
-import { Form } from 'vee-validate';
-import { toTypedSchema } from '@vee-validate/valibot';
-import { email, minLength, object, string } from 'valibot';
-import { CyrForm } from '@/components/shared/Form';
-import { CyrButton } from '@/components/shared/Button';
-import { CyrField, CyrPasswordField } from '@/components/shared/Input';
+import { LoginForm } from '@features/LoginForm';
 
 definePageMeta({
   layout: 'auth',
 });
-
-const schema = toTypedSchema(
-  object({
-    email: string([minLength(1, 'required'), email()]),
-    password: string([minLength(1, 'required')]),
-  }),
-);
 </script>
 
 <template>
-  <div>
-    <CyrForm>
-      <h3>Welcome back!</h3>
-      <CyrField name="email" label="Email" />
-      <CyrPasswordField name="password" label="Password" />
-      <template #buttons>
-        <CyrButton variant="solid" full> Login </CyrButton>
-        <CyrButton variant="outline" full> Forgot password? </CyrButton>
-      </template>
-      <template #footer>
-        <NuxtLink to="/auth/signup"> Don't have an account? Sign up </NuxtLink>
-      </template>
-    </CyrForm>
-  </div>
+  <LoginForm />
 </template>
-
-<style scoped lang="scss">
-div {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
