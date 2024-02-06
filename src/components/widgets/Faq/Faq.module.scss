@@ -1,0 +1,29 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 2rem;
+
+  &__title {
+    text-transform: uppercase;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(
+      90deg,
+      rgba(95, 138, 135, 1) 23%,
+      rgba(172, 211, 209, 1) 50%,
+      rgba(2, 0, 36, 1) 90%
+    );
+
+    margin-bottom: 9rem;
+  }
+
+  &__content {
+    max-width: 107rem;
+    width: 100%;
+    align-self: flex-end;
+  }
+
+  &__rhombus {
+    margin-bottom: 5.1rem;
+  }
+}
