@@ -16,7 +16,6 @@
 <style scoped lang="scss">
 .section {
   height: 60rem;
-  padding: 5rem 0;
 
   &__container {
     max-width: 120rem;
