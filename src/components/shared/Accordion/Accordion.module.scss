@@ -1,0 +1,27 @@
+.accordion {
+  width: 100%;
+  padding: 5.7rem 0;
+  border-bottom: 1px solid #e0e0e0;
+
+  cursor: pointer;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 4.3rem;
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__content {
+    width: 50%;
+    opacity: 0.6;
+  }
+}
