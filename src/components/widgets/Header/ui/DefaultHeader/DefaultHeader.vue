@@ -4,6 +4,7 @@ import { Menu } from '@/components/widgets/Menu';
 import { CyrButton } from '@/components/shared/CyrButton';
 import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/vue/24/outline';
 import style from './DefaultHeader.module.scss';
+import { MENU_ITEMS } from '@/components/shared/CyrTabs/const/index';
 
 interface DefaultHeaderProps {
   sticky?: boolean;
@@ -21,7 +22,8 @@ const toggleOverlay = () => {
 <template>
   <Header :sticky="sticky">
     <div :class="style.navbar">
-      <Menu />
+      <!-- <Menu /> -->
+      <CyrTabs :items="MENU_ITEMS" />
       <div :class="style.navbar__actions">
         <CyrButton variant="transparent" @click="toggleOverlay">
           <MagnifyingGlassIcon :class="style.navbar__icon" />

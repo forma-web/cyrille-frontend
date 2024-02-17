@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { HeartIcon } from '@heroicons/vue/24/outline';
+import { HeartIcon as HeartIconSolid } from '@heroicons/vue/24/solid';
+
+const isHeartSolid = ref(false);
+const toggleHeartIcon = () => {
+  isHeartSolid.value = !isHeartSolid.value;
+};
+</script>
+
 <template>
   <div class="card-rating">
     <CyrRhombus />
@@ -31,14 +42,3 @@
   }
 }
 </style>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-import { HeartIcon } from '@heroicons/vue/24/outline';
-import { HeartIcon as HeartIconSolid } from '@heroicons/vue/24/solid';
-
-const isHeartSolid = ref(false);
-const toggleHeartIcon = () => {
-  isHeartSolid.value = !isHeartSolid.value;
-};
-</script>

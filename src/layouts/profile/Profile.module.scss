@@ -1,0 +1,76 @@
+.profile {
+  &__background {
+    height: 20rem;
+
+    border-radius: 0 0 var(--rounding-xl) var(--rounding-xl);
+    background-image: url(/backgrounds/profile-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__main {
+    display: flex;
+  }
+
+  &__info {
+    position: relative;
+    top: -11rem;
+
+    width: 32rem;
+    padding-left: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__avatar {
+    width: 25rem;
+  }
+
+  &__name {
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+
+  &__email {
+    opacity: 0.5;
+  }
+
+  &__edit {
+    width: 100%;
+  }
+
+  &__page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+  }
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &__desc {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__value {
+    margin: 0;
+    list-style: none;
+    text-align: right;
+  }
+}
