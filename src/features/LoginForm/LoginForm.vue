@@ -5,13 +5,11 @@ import { CyrButton } from '@shared/ui/Button';
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/valibot';
 import { loginSchema } from '@entities/Auth';
+import type { LoginValues } from '@entities/Auth/types';
 
-interface LoginForm {
-  email: string;
-  password: string;
-}
-
-const { handleSubmit } = useForm<LoginForm>({
+const { handleSubmit } = useForm<LoginValues>({
+  // TODO: update vee validate to fix types
+  // @ts-ignore
   validationSchema: toTypedSchema(loginSchema),
 });
 

@@ -5,21 +5,24 @@ import { BookDescription, BookTitle } from '@entities/Book';
 import { getBook } from '@entities/Book';
 
 const route = useRoute();
-const { data } = await getBook(route.params.id);
+
+// TODO: fix types
+// @ts-ignore
+const { data } = await getBook(Number(route.params.id));
 </script>
 
 <template>
   <div :class="$style.book">
     <div :class="$style.book_cover">
-      <BookCover :name="data?.data.name" :image="data?.data.thumbnail_image" />
+      <BookCover :name="data.value?.data.name" image="/albergue/cover.jpg" />
       <div :class="$style.book_controls">
         <CyrButton variant="outline" full> Get for $ 5,99 </CyrButton>
         <CyrButton full> Get with 7 free trial </CyrButton>
       </div>
     </div>
     <div>
-      <BookTitle :name="data?.data.name" :authors="['Cyrille D’essai']" />
-      <BookDescription :description="data?.data.description" />
+      <BookTitle :name="data.value?.data.name" :authors="['Cyrille D’essai']" />
+      <BookDescription :description="data.value?.data.description" />
     </div>
   </div>
 </template>
