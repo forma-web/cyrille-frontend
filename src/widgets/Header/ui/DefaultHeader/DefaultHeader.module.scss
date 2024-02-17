@@ -22,12 +22,13 @@
   left: 0;
   z-index: var(--search-layer);
 
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(var(--modal-blur));
 
   &__content {
     height: 70%;
     border-radius: 0 0 var(--rounding-xl) var(--rounding-xl);
 
     background-color: var(--primary-background-color);
+    border-bottom: 1px solid var(--shadow-color);
   }
 }
