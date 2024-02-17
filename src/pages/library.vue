@@ -36,10 +36,10 @@ const selected = ref('date');
 
 <style module lang="scss">
 .library {
-  padding: 0 var(--header-padding) 0 var(--header-padding);
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr auto;
+  align-items: start;
   gap: var(--base-gap);
 
   &__header {
@@ -49,7 +49,7 @@ const selected = ref('date');
 
   &__filters {
     position: sticky;
-    height: min-content;
+    top: var(--header-height);
     padding: 2rem;
     border-right: 1.5px solid var(--gray30);
 
