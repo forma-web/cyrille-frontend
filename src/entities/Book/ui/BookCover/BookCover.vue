@@ -12,7 +12,7 @@ const { name, image } = defineProps<BookCoverProps>();
 <template>
   <div :class="style.cover">
     <slot>
-      <NuxtImg
+      <NuxtPicture
         v-if="image"
         :src="image"
         :alt="name"

@@ -20,8 +20,13 @@ const firstLetter = computed(() => text?.trim().charAt(0));
 
 <template>
   <div :class="style.avatar">
-    <img :src="image" :alt="text" :class="style.avatar__image" v-if="image" />
-    <div :class="style.avatar__text" v-else>
+    <NuxtImg
+      v-if="image"
+      :src="image"
+      :alt="text"
+      :class="style.avatar__image"
+    />
+    <div v-else :class="style.avatar__text">
       <span>{{ firstLetter }}</span>
     </div>
   </div>
