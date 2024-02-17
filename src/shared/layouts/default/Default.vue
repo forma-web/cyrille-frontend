@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import styles from './Default.module.scss';
 import { DefaultHeader } from '@widgets/Header';
 import { Footer } from '@widgets/Footer';
+import styles from './Default.module.scss';
 
 const route = useRoute();
 
@@ -18,7 +18,7 @@ useHead({
 <template>
   <div :class="styles.layout">
     <DefaultHeader :sticky="stickyHeader" />
-    <main>
+    <main class="container">
       <slot></slot>
     </main>
     <Footer />

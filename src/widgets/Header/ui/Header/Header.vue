@@ -11,7 +11,7 @@ const { sticky = false } = defineProps<HeaderProps>();
 
 <template>
   <header :class="[style.header, { [style.header_sticky]: sticky }]">
-    <div :class="style.header__container">
+    <div :class="style.header__container" class="container">
       <NuxtLink to="/">
         <CyrLogo />
       </NuxtLink>
