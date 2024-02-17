@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   srcDir: 'src',
   runtimeConfig: {
     public: {
-      baseUrl: 'https://api.cyrille.site/api/v1',
+      baseUrl: 'https://api.cyrille.ru/api/v1',
     },
   },
   app: {
@@ -28,6 +28,11 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       'postcss-preset-env': {},
+    },
+  },
+  vite: {
+    define: {
+      __VUE_OPTIONS_API__: false,
     },
   },
   vue: {
