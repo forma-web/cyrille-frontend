@@ -1,4 +1,4 @@
-import type { Artist } from '@/components/entities/Artist';
+import type { Artist } from '../Artist/types';
 
 export type Book = {
   id: number;
