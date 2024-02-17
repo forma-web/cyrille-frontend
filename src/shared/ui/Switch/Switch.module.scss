@@ -1,0 +1,48 @@
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &__box {
+    display: flex;
+    align-items: center;
+    width: 3.6rem;
+    height: 2rem;
+    padding: 0.1rem;
+    border: 1.4px solid var(--gray30);
+    border-radius: var(--rounding-md);
+    background-color: var(--gray30);
+    transition:
+      background-color var(--animation-time) ease,
+      border-color var(--animation-time) ease;
+  }
+
+  &__thumb {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: white;
+    box-shadow: 0 0 4px var(--shadow-color);
+    border-radius: 50%;
+    transition: transform var(--animation-time) ease;
+  }
+
+  &__input {
+    position: absolute;
+    z-index: -9999;
+    opacity: 0;
+
+    &:checked + .switch__box {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    &:checked + .switch__box .switch__thumb {
+      transform: translateX(1.5rem);
+    }
+
+    &:focus-visible + .switch__box {
+      box-shadow: 0 0 0 1px var(--primary-text-color);
+    }
+  }
+}
