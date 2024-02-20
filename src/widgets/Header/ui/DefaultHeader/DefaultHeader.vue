@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Header } from '..';
-import { Menu } from '@widgets/Menu';
+import { MENU_ITEMS } from '../../const';
+import { CyrNavigationMenu } from '@shared/ui/NavigationMenu';
 import { CyrButton } from '@shared/ui/Button';
 import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/vue/24/outline';
-import style from './DefaultHeader.module.scss';
-import { MENU_ITEMS } from '@/components/shared/CyrTabs/const/index';
+import styles from './DefaultHeader.module.scss';
 
 interface DefaultHeaderProps {
   sticky?: boolean;
@@ -25,21 +25,20 @@ const openProfile = async () => {
 
 <template>
   <Header :sticky="sticky">
-    <div :class="style.navbar">
-      <!-- <Menu /> -->
-      <CyrTabs :items="MENU_ITEMS" />
-      <div :class="style.navbar__actions">
+    <div :class="styles.navbar">
+      <CyrNavigationMenu :items="MENU_ITEMS" />
+      <div :class="styles.navbar__actions">
         <CyrButton variant="transparent" @click="toggleOverlay">
-          <MagnifyingGlassIcon :class="style.navbar__icon" />
+          <MagnifyingGlassIcon :class="styles.navbar__icon" />
         </CyrButton>
         <CyrButton variant="transparent" @click="openProfile">
-          <UserCircleIcon :class="style.navbar__icon" />
+          <UserCircleIcon :class="styles.navbar__icon" />
         </CyrButton>
       </div>
     </div>
     <Transition name="fade">
-      <div :class="style.overlay" v-if="overlay">
-        <div :class="style.overlay__content">
+      <div :class="styles.overlay" v-if="overlay">
+        <div :class="styles.overlay__content">
           <!-- search -->
         </div>
       </div>

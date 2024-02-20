@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HeartIcon } from '@heroicons/vue/24/outline';
+import { QuotesList } from '@widgets/Profile';
 
 definePageMeta({
   layout: 'profile',
