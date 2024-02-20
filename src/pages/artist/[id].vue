@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CyrRhombus } from '@/components/shared/CyrRhombus';
-import { ArtistInfo } from '@/components/entities/Artist';
+import { CyrRhombus } from '@shared/ui/Rhombus';
+import { ArtistInfo } from '@entities/Artist';
 
 definePageMeta({
   darkMode: true,

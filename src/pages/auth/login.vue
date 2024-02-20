@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { LoginForm } from '@features/LoginForm';
+
 definePageMeta({
   layout: 'auth',
 });
 </script>
 
-<template>Login page</template>
+<template>
+  <LoginForm />
+</template>

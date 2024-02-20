@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ArtistInfo } from '@/components/entities/Artist';
+import { CyrRhombus } from '@shared/ui/Rhombus';
+import { ScrollButton } from '@features/ScrollButton';
+import { ArtistInfo } from '@entities/Artist';
 
 definePageMeta({
   darkMode: true,

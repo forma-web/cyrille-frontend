@@ -1,0 +1,18 @@
+@import 'mixins/fonts';
+
+@include GenerateFontFaces(
+  'SF Pro Display',
+  'SFProDisplay',
+  (
+    Thin: 100,
+    Ultralight: 200,
+    Light: 200,
+    Regular: 400,
+    Medium: 500,
+    Semibold: 600,
+    Bold: 700,
+    Heavy: 900,
+    Black: 900,
+  ),
+  '@app/assets/fonts/sf-pro-display'
+);

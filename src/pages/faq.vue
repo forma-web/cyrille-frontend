@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { Faq } from '@widgets/Faq';
+
 definePageMeta({
   darkMode: true,
-  stickyHeader: false,
 });
 </script>
 
