@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { SubscriptionList } from '@widgets/Profile';
+
 definePageMeta({
   layout: 'profile',
 });
 </script>
 
 <template>
-  <span>123</span>
+  <SubscriptionList />
 </template>
