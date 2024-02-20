@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { CyrQuotes } from '@shared/ui/Quotes';
+</script>
+
 <template>
   <div :class="$style.profile">
     <div :class="$style.profile__content">
@@ -6,9 +10,8 @@
         This space will hold your saved quotes from books.
       </p>
       <p :class="$style.profile__advice">
-        While reading, highlight the quote you like and click "<CyrQuotes
-          :class="$style.profile__icon_small"
-        />" to save it.
+        While reading, highlight the quote you like and click "
+        <CyrQuotes :class="$style.profile__icon_small" />" to save it.
       </p>
     </div>
   </div>
