@@ -1,0 +1,46 @@
+.search {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: var(--text-4xl);
+
+  &__icon {
+    color: var(--gray50);
+    height: var(--text-4xl);
+  }
+}
+
+.popular {
+  &__title {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &__list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--base-gap);
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: var(--rounding);
+    transition: background-color var(--animation-time);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--gray30);
+    }
+  }
+
+  &__icon {
+    color: var(--gray50);
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

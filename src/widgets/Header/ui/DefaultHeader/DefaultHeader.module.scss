@@ -24,11 +24,16 @@
 
   backdrop-filter: blur(var(--modal-blur));
 
-  &__content {
-    height: 70%;
+  &__card {
     border-radius: 0 0 var(--rounding-xl) var(--rounding-xl);
 
     background-color: var(--primary-background-color);
     border-bottom: 1px solid var(--shadow-color);
+  }
+
+  &__content {
+    margin: 0 auto;
+    max-width: 120rem;
+    padding: 2rem 0;
   }
 }
