@@ -1,7 +1,7 @@
 @import 'reset';
 @import 'variables';
 @import 'scroll';
-@import 'fonts';
+@import 'typography';
 @import 'transitions';
 
 html {
@@ -10,11 +10,6 @@ html {
 
 body {
   background-color: var(--primary-background-color);
-
-  font-family: 'SF Pro Display', Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.2;
-  font-weight: 400;
   color: var(--primary-text-color);
 }
 
@@ -24,36 +19,6 @@ body {
 
 svg {
   display: block;
-}
-
-a {
-  color: var(--gray50);
-  text-decoration: none;
-}
-
-.accent-font {
-  font-family: Georgia, serif;
-  font-style: italic;
-}
-
-h1 {
-  font-size: 4.5em;
-  font-weight: 500;
-}
-
-h2 {
-  font-size: 3em;
-  font-weight: 400;
-}
-
-h3 {
-  font-size: 2em;
-  font-weight: 300;
-}
-
-h4 {
-  font-size: 1.5em;
-  font-weight: 300;
 }
 
 .container {
