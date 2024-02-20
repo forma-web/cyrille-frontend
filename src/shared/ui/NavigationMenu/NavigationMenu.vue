@@ -14,8 +14,8 @@ const { items } = defineProps<CyrTabsProps>();
 </script>
 
 <template>
-  <nav>
-    <ul :class="styles.navigation">
+  <nav :class="styles.navigation">
+    <ul :class="styles.navigation__list">
       <li
         v-for="item in items"
         :key="item.name"

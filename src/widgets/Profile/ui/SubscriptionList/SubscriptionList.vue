@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { CyrRhombus } from '@shared/ui/Rhombus';
+</script>
+
 <template>
   <div :class="$style.profile">
     <div :class="$style.profile__content">

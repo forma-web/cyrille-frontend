@@ -3,14 +3,17 @@ import { CyrAvatar } from '@shared/ui/Avatar';
 import { CyrButton } from '@shared/ui/Button';
 import { CyrNavigationMenu } from '@shared/ui/NavigationMenu';
 import { PROFILE_ITEMS } from '@widgets/Header/const';
+import { DefaultHeader } from '@widgets/Header';
 import styles from './Profile.module.scss';
 </script>
 
 <template>
-  <main :class="styles.profile">
-    <div :class="styles.profile__background"></div>
-    <div :class="styles.profile__main">
-      <div :class="styles.profile__info">
+  <div :class="styles.profile">
+    <div :class="styles.profile__background">
+      <DefaultHeader :sticky="false" class="full-light" />
+    </div>
+    <div :class="styles.profile__main" class="container">
+      <aside :class="styles.profile__info">
         <CyrAvatar
           image="/avatars/avatar-example.png"
           text=""
@@ -38,12 +41,15 @@ import styles from './Profile.module.scss';
           from sci-fi to :classics. Online reading allows me to journey to
           different worlds right from my cozy corner.
         </p>
-      </div>
+      </aside>
 
-      <div :class="styles.profile__page">
-        <CyrNavigationMenu :items="PROFILE_ITEMS" />
+      <main :class="styles.profile__page">
+        <CyrNavigationMenu
+          :class="styles.profile__navigation"
+          :items="PROFILE_ITEMS"
+        />
         <slot></slot>
-      </div>
+      </main>
     </div>
-  </main>
+  </div>
 </template>

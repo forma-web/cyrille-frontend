@@ -1,6 +1,8 @@
 .profile {
+  min-height: 100vh;
+
   &__background {
-    height: 20rem;
+    height: 30rem;
 
     border-radius: 0 0 var(--rounding-xl) var(--rounding-xl);
     background-image: url(/backgrounds/profile-background.png);
@@ -11,6 +13,7 @@
 
   &__main {
     display: flex;
+    gap: 2rem;
   }
 
   &__info {
@@ -18,7 +21,6 @@
     top: -11rem;
 
     width: 32rem;
-    padding-left: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,6 +48,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
     width: 100%;
     padding: 2rem;
   }

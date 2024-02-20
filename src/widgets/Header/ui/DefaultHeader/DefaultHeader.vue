@@ -3,6 +3,7 @@ import { Header } from '..';
 import { MENU_ITEMS } from '../../const';
 import { CyrNavigationMenu } from '@shared/ui/NavigationMenu';
 import { CyrButton } from '@shared/ui/Button';
+import { Search } from '@features/Search';
 import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/vue/24/outline';
 import styles from './DefaultHeader.module.scss';
 
@@ -37,9 +38,11 @@ const openProfile = async () => {
       </div>
     </div>
     <Transition name="fade">
-      <div :class="styles.overlay" v-if="overlay">
-        <div :class="styles.overlay__content">
-          <!-- search -->
+      <div :class="styles.overlay" v-if="overlay" @click.self="toggleOverlay">
+        <div :class="styles.overlay__card">
+          <div :class="styles.overlay__content">
+            <Search />
+          </div>
         </div>
       </div>
     </Transition>

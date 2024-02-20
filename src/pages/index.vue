@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CyrCarousel } from '@shared/ui/Carousel';
+import { CyrAccordion } from '@shared/ui/Accordion';
 import HeadingSection from '@widgets/Landing/HeadingSection.vue';
 import ImageCardSection from '@widgets/Landing/ImageCardSection.vue';
 import HeadlessSection from '@widgets/Landing/HeadlessSection.vue';
@@ -92,5 +93,33 @@ const genres = [
       </CyrCarousel>
     </HeadlessSection>
     <ImageCardSection background="/backgrounds/landing-explore.png" />
+    <div style="margin-top: 5rem">
+      <CyrAccordion>
+        <template #title>
+          <span style="font-size: var(--text-6xl)">Interactive triggers </span>
+        </template>
+        The first and only platform that offers an interactive experience. Our
+        service provides full immersion in the books, through videos, images,
+        sounds and effects.
+      </CyrAccordion>
+      <CyrAccordion>
+        <template #title>
+          <span style="font-size: var(--text-6xl)">
+            Personalized interface
+          </span>
+        </template>
+        Cyrille is a digital book platform that represents a new vision of
+        combining literature with different art forms and techniques. Read,
+        watch, listen, and enjoy the experience.
+      </CyrAccordion>
+      <CyrAccordion>
+        <template #title>
+          <span style="font-size: var(--text-6xl)"> Free books </span>
+        </template>
+        We offer a wide range of books for free. You can read them, watch
+        videos, listen to music, and enjoy the experience. Later, you can pay
+        subscription to get access to premium content.
+      </CyrAccordion>
+    </div>
   </div>
 </template>

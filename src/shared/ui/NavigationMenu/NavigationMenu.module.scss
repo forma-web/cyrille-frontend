@@ -1,18 +1,23 @@
 .navigation {
-  padding: 0;
-  margin: 0;
+  width: 100%;
 
-  display: flex;
-  gap: var(--base-gap);
+  &__list {
+    padding: 0;
+    margin: 0;
 
-  list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--base-gap);
+
+    list-style: none;
+  }
 
   &__item {
     text-transform: uppercase;
   }
 
   &__link {
-    color: inherit;
+    color: var(--primary-text-color);
     text-decoration: underline;
     text-underline-offset: 0.4rem;
     text-decoration-thickness: 0.15rem;
