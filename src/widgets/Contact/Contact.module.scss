@@ -1,0 +1,67 @@
+.contact {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem 4.3rem 2rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 6.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    width: 25rem;
+  }
+
+  &__text {
+    margin-bottom: 4.3rem;
+    color: rgba(255, 255, 255, 0.5);
+
+    &_accent {
+      color: rgba(255, 255, 255);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+  }
+
+  &__arrow {
+    width: 1.5rem;
+  }
+
+  &__form {
+    z-index: 3;
+    position: relative;
+    top: 0;
+  }
+
+  &__background {
+    display: flex;
+    justify-content: center;
+    padding: 3.5rem 5.2rem;
+
+    height: 100%;
+
+    backdrop-filter: blur(10rem);
+    border-radius: 5rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 3.5rem;
+    right: 5.2rem;
+
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
