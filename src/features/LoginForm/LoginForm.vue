@@ -8,8 +8,6 @@ import { loginSchema } from '@entities/Auth';
 import type { LoginValues } from '@entities/Auth/types';
 
 const { handleSubmit } = useForm<LoginValues>({
-  // TODO: update vee validate to fix types
-  // @ts-ignore
   validationSchema: toTypedSchema(loginSchema),
 });
 
