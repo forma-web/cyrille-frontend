@@ -1,0 +1,41 @@
+.popup {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &__overlay {
+    &_dark {
+      background-color: rgba(0, 0, 0, 0.92);
+      backdrop-filter: var(--modal-blur);
+    }
+
+    &_light {
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: var(--modal-blur);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 150;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    background-color: var(--gray20);
+    border-radius: var(--rounding);
+  }
+
+  &__close {
+    color: var(--gray80);
+    text-transform: lowercase;
+    font-size: var(--text-lg);
+  }
+
+  &__icon {
+    width: 2.1rem;
+  }
+}

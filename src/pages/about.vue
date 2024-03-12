@@ -2,6 +2,7 @@
 import { CyrRhombus } from '@shared/ui/Rhombus';
 import { ScrollButton } from '@features/ScrollButton';
 import { ArtistInfo } from '@entities/Artist';
+import Guide from '~/features/Guide/ui/Guide/Guide.vue';
 
 definePageMeta({
   darkMode: true,
@@ -25,7 +26,7 @@ definePageMeta({
         <ScrollButton direction="down" />
       </div>
     </div>
-
+    <Guide />
     <div class="about__possibility">
       <p class="about__tagline">
         Our interactive features allow you to engage with the story through

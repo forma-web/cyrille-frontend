@@ -1,0 +1,16 @@
+.manual {
+  width: 37rem;
+  height: 100%;
+  display: flex;
+  gap: 9.7rem;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__text {
+    font-size: var(--text-xl);
+    line-height: 2.8rem;
+    color: var(--gray80);
+    text-align: left;
+    text-indent: 8rem;
+  }
+}
