@@ -12,7 +12,9 @@ import { CyrRhombus } from '@shared/ui/Rhombus';
       <p :class="$style.profile__advice">
         Choose the subscription that suits you or try a 7-day free trial period.
       </p>
-      <button :class="$style.profile__button">Get free trial</button>
+      <button :class="$style.profile__button">
+        Get free trial
+      </button>
     </div>
   </div>
 </template>

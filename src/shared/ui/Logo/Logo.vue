@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import style from './Logo.module.scss';
+import styles from './Logo.module.scss';
 </script>
 
 <template>
   <svg
-    :class="style.logo"
+    :class="styles.logo"
     width="106"
     height="46"
     viewBox="0 0 106 30"

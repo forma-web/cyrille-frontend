@@ -1,29 +1,31 @@
+<script lang="ts">
+interface DefaultHeaderProps {
+  sticky?: boolean;
+}
+</script>
+
 <script setup lang="ts">
-import { Header } from '..';
-import { MENU_ITEMS } from '../../const';
 import { CyrNavigationMenu } from '@shared/ui/NavigationMenu';
 import { CyrButton } from '@shared/ui/Button';
 import { Search } from '@features/Search';
 import { UserCard } from '@entities/User';
 import { MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/vue/24/outline';
+import { MENU_ITEMS } from '../../const';
+import { Header } from '..';
 import styles from './DefaultHeader.module.scss';
-
-interface DefaultHeaderProps {
-  sticky?: boolean;
-}
 
 const { sticky = true } = defineProps<DefaultHeaderProps>();
 
 const searchOverlay = ref(false);
 const profileOverlay = ref(false);
 
-const toggleSearchOverlay = () => {
+function toggleSearchOverlay() {
   searchOverlay.value = !searchOverlay.value;
-};
+}
 
-const toggleProfileOverlay = async () => {
+async function toggleProfileOverlay() {
   profileOverlay.value = !profileOverlay.value;
-};
+}
 </script>
 
 <template>
@@ -42,8 +44,8 @@ const toggleProfileOverlay = async () => {
     <!-- TODO: transition components, fullscreen profile overlay -->
     <Transition name="fade">
       <div
-        :class="styles.overlay"
         v-if="searchOverlay"
+        :class="styles.overlay"
         @click.self="toggleSearchOverlay"
       >
         <div :class="styles.overlay__card">
@@ -55,8 +57,8 @@ const toggleProfileOverlay = async () => {
     </Transition>
     <Transition name="fade">
       <div
-        :class="styles.overlay"
         v-if="profileOverlay"
+        :class="styles.overlay"
         @click.self="toggleProfileOverlay"
       >
         <div :class="styles.overlay__profile" class="container">

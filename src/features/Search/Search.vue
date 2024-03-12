@@ -10,7 +10,9 @@ import styles from './Search.module.scss';
     <CyrInput placeholder="Search..." />
   </div>
   <div>
-    <h6 :class="styles.popular__title">Popular searches</h6>
+    <h6 :class="styles.popular__title">
+      Popular searches
+    </h6>
     <ul :class="styles.popular__list">
       <li :class="styles.popular__item">
         <MagnifyingGlassIcon :class="styles.popular__icon" />React

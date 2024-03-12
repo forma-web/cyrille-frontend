@@ -37,9 +37,9 @@ definePageMeta({
     <div :class="$style.artist__info">
       <h4>Books</h4>
       <div :class="$style.artist__cards">
-        <CyrBookCard :card-type="'full'" />
-        <CyrBookCard :card-type="'full'" />
-        <CyrBookCard :card-type="'full'" />
+        <CyrBookCard card-type="full" />
+        <CyrBookCard card-type="full" />
+        <CyrBookCard card-type="full" />
       </div>
     </div>
   </div>

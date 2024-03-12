@@ -1,13 +1,10 @@
-import type { UseFetchOptions } from '#app';
-import { useCookie } from '#app';
 import { defu } from 'defu';
 import type { ApiToken } from '@shared/types/api';
 import { useApi } from '@shared/lib/composables/useApi';
+import { useCookie } from '#app';
+import type { UseFetchOptions } from '#app';
 
-export const useAuthApi = async <T>(
-  url: string,
-  options: UseFetchOptions<T> = {},
-) => {
+export async function useAuthApi<T>(url: string, options: UseFetchOptions<T> = {}) {
   const token = useCookie<ApiToken>('token');
 
   const defaults: UseFetchOptions<T> = {
@@ -19,4 +16,4 @@ export const useAuthApi = async <T>(
   const params = defu(options, defaults);
 
   return useApi(url, params);
-};
+}

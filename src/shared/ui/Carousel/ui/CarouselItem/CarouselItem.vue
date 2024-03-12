@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import style from './CarouselItem.module.scss';
+import styles from './CarouselItem.module.scss';
 </script>
 
 <template>
-  <li :class="style.item">
+  <li :class="styles.item">
     <slot />
   </li>
 </template>

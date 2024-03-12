@@ -1,24 +1,30 @@
-<script setup lang="ts">
-import { CyrAvatar } from '@shared/ui/Avatar';
-import style from './ArtistInfo.module.scss';
-
+<script lang="ts">
 interface ArtistInfoProps {
   image: string;
   name: string;
   caption?: string;
   bio?: string;
 }
+</script>
+
+<script setup lang="ts">
+import { CyrAvatar } from '@shared/ui/Avatar';
+import styles from './ArtistInfo.module.scss';
 
 const { image, caption, bio } = defineProps<ArtistInfoProps>();
 </script>
 
 <template>
-  <div :class="style.artist">
-    <CyrAvatar :class="style.artist__image" :image="image" :text="name" />
+  <div :class="styles.artist">
+    <CyrAvatar :class="styles.artist__image" :image="image" :text="name" />
     <div>
-      <h4 :class="style.artist__name">{{ name }}</h4>
-      <span :class="style.artist__caption" v-if="caption">{{ caption }}</span>
+      <h4 :class="styles.artist__name">
+        {{ name }}
+      </h4>
+      <span v-if="caption" :class="styles.artist__caption">{{ caption }}</span>
     </div>
-    <p :class="style.artist__bio" v-if="bio">{{ bio }}</p>
+    <p v-if="bio" :class="styles.artist__bio">
+      {{ bio }}
+    </p>
   </div>
 </template>

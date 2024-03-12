@@ -1,10 +1,12 @@
 import type { Ref } from 'vue';
 
-export const useInputProperties = (model: Ref<string | undefined>) => {
+export function useInputProperties(model: Ref<string | undefined>) {
   const isActive = ref(false);
 
   const isEmpty = computed(() => {
-    if (!model.value) return true;
+    if (!model.value)
+      return true;
+
     return model.value?.trim().length === 0;
   });
 
@@ -17,4 +19,4 @@ export const useInputProperties = (model: Ref<string | undefined>) => {
     focus: onFocus,
     blur: onBlur,
   };
-};
+}

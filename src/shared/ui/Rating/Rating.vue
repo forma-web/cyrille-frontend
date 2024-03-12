@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import styles from './Rating.module.scss';
 import { clamp } from '../../lib/math';
 import { CyrRhombus } from '../Rhombus';
+import styles from './Rating.module.scss';
 
 interface RatingProps {
   rating?: number;
@@ -10,7 +10,7 @@ interface RatingProps {
 
 const { rating = 0, max = 5 } = defineProps<RatingProps>();
 
-const filled = computed(() => new Array(Math.floor(max)).fill(0));
+const filled = computed(() => Array.from({ length: Math.floor(max) }).fill(0));
 </script>
 
 <template>

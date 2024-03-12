@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { CyrCheckbox } from '@shared/ui/Checkbox';
 import { CyrSwitch } from '@shared/ui/Switch';
-import { CyrRadioGroup, CyrRadio } from '@shared/ui/Radio';
+import { CyrRadio, CyrRadioGroup } from '@shared/ui/Radio';
 
 const selected = ref('date');
 </script>
 
 <template>
   <div :class="$style.library">
-    <h2 :class="$style.library__header">Library</h2>
-    <div></div>
+    <h2 :class="$style.library__header">
+      Library
+    </h2>
+    <div />
     <aside :class="$style.library__filters">
       <h5>FILTERS</h5>
       <section>
@@ -25,8 +27,12 @@ const selected = ref('date');
       <section>
         <h5>SORT BY</h5>
         <CyrRadioGroup v-model="selected">
-          <CyrRadio value="date"> Date </CyrRadio>
-          <CyrRadio value="rating"> Rating </CyrRadio>
+          <CyrRadio value="date">
+            Date
+          </CyrRadio>
+          <CyrRadio value="rating">
+            Rating
+          </CyrRadio>
         </CyrRadioGroup>
       </section>
     </aside>

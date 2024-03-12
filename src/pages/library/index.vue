@@ -8,50 +8,64 @@ const selected = ref('all');
   <div>
     <nav :class="$style.nav">
       <ul>
-        <li :class="{ selected: selected === 'all' }">All</li>
-        <li :class="{ selected: selected === 'new' }">New</li>
-        <li :class="{ selected: selected === 'popular' }">Popular</li>
-        <li :class="{ selected: selected === 'soon' }">Soon</li>
+        <li :class="{ selected: selected === 'all' }">
+          All
+        </li>
+        <li :class="{ selected: selected === 'new' }">
+          New
+        </li>
+        <li :class="{ selected: selected === 'popular' }">
+          Popular
+        </li>
+        <li :class="{ selected: selected === 'soon' }">
+          Soon
+        </li>
       </ul>
     </nav>
     <section :class="$style.section">
       <div>
-        <h3 :class="$style.section__header">Exclusive</h3>
+        <h3 :class="$style.section__header">
+          Exclusive
+        </h3>
       </div>
       <div :class="$style.section__content">
         <BookCover
-          name="Cyrille"
-          :image="`/images/${i}.png`"
           v-for="i in 5"
           :key="i"
+          name="Cyrille"
+          :image="`/images/${i}.png`"
         />
       </div>
     </section>
 
     <section :class="$style.section">
       <div>
-        <h3 :class="$style.section__header">You may like it</h3>
+        <h3 :class="$style.section__header">
+          You may like it
+        </h3>
       </div>
       <div :class="$style.section__content">
         <BookCover
-          name="Cyrille"
-          :image="`/images/${i}.png`"
           v-for="i in 5"
           :key="i"
+          name="Cyrille"
+          :image="`/images/${i}.png`"
         />
       </div>
     </section>
 
     <section :class="$style.section">
       <div>
-        <h3 :class="$style.section__header">You may like it</h3>
+        <h3 :class="$style.section__header">
+          You may like it
+        </h3>
       </div>
       <div :class="$style.section__content">
         <BookCover
-          name="Cyrille"
-          :image="`/images/${i}.png`"
           v-for="i in 5"
           :key="i"
+          name="Cyrille"
+          :image="`/images/${i}.png`"
         />
       </div>
     </section>

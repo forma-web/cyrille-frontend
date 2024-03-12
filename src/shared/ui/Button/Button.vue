@@ -1,6 +1,5 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { ButtonHTMLAttributes } from 'vue';
-import style from './Button.module.scss';
 
 type ButtonVariants = 'solid' | 'outline' | 'transparent';
 type ButtonTypes = ButtonHTMLAttributes['type'];
@@ -11,6 +10,10 @@ export interface CyrButtonProps {
   icon?: boolean;
   full?: boolean;
 }
+</script>
+
+<script setup lang="ts">
+import styles from './Button.module.scss';
 
 const {
   variant = 'solid',
@@ -20,14 +23,14 @@ const {
 } = defineProps<CyrButtonProps>();
 
 const buttonClasses = computed(() => ({
-  [style.button_full]: full,
-  [style.button_icon]: icon,
-  [style[`button_${variant}`]]: true,
+  [styles.button_full]: full,
+  [styles.button_icon]: icon,
+  [styles[`button_${variant}`]]: true,
 }));
 </script>
 
 <template>
-  <button :type :class="[style.button, buttonClasses]">
-    <slot></slot>
+  <button :type :class="[styles.button, buttonClasses]">
+    <slot />
   </button>
 </template>

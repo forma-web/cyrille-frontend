@@ -11,8 +11,8 @@ interface RadioGroupContext {
   name?: string;
 }
 
-export const [injectRadioGroupContext, provideRadioGroupContext] =
-  createContext<RadioGroupContext>('RadioGroup');
+export const [injectRadioGroupContext, provideRadioGroupContext]
+  = createContext<RadioGroupContext>('RadioGroup');
 </script>
 
 <script setup lang="ts">
@@ -24,7 +24,7 @@ const model = defineModel<string>();
 
 provideRadioGroupContext({
   modelValue: readonly(model),
-  changeModelValue: (value) => (model.value = value),
+  changeModelValue: value => (model.value = value),
   name,
 });
 </script>

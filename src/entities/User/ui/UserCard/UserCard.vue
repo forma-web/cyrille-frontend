@@ -15,17 +15,21 @@ import styles from './UserCard.module.scss';
           image="/avatars/avatar-example.png"
           :class="styles.header__avatar"
         />
-        <h6 :class="styles.header__name">Apa Kinder</h6>
+        <h6 :class="styles.header__name">
+          Apa Kinder
+        </h6>
         <span :class="styles.header__email">apakinder@gmail.com</span>
       </div>
     </div>
     <nav :class="styles.navigation">
       <ul :class="styles.navigation__list">
-        <li :class="styles.navigation__item">123</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li :class="styles.navigation__item">
+          123
+        </li>
+        <li />
+        <li />
+        <li />
+        <li />
       </ul>
     </nav>
   </div>

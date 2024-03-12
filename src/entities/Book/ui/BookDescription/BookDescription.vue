@@ -1,14 +1,18 @@
-<script setup lang="ts">
+<script lang="ts">
 interface BookDescriptionProps {
   description: string;
 }
+</script>
 
+<script setup lang="ts">
 const { description } = defineProps<BookDescriptionProps>();
 </script>
 
 <template>
   <div>
-    <p :class="$style.description">{{ description }}</p>
+    <p :class="$style.description">
+      {{ description }}
+    </p>
     <div :class="$style.details">
       <div :class="$style.details_row">
         <span>LENGTH</span>

@@ -13,7 +13,9 @@ import { HeartIcon } from '@heroicons/vue/24/outline';
         To add a book to your favorites for future reference or purchase, click
         " <HeartIcon :class="$style.profile__icon_small" /> " next to it.
       </p>
-      <button :class="$style.profile__button">Explore books</button>
+      <button :class="$style.profile__button">
+        Explore books
+      </button>
     </div>
   </div>
 </template>

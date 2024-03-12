@@ -33,16 +33,16 @@ const fieldStyle = computed(() => ({
     <span v-if="label" :class="style.field__label">{{ label }}</span>
     <span :class="style.field__container">
       <CyrInput
+        v-model="value"
         :name
         :type
         :placeholder="label"
-        v-model="value"
         v-bind="$attrs"
         v-on="listeners"
       />
       <span :class="style.field__control">
         <slot v-if="!hideStatus">
-          <CyrFieldStatus :isValid="!isError" v-if="meta.dirty" />
+          <CyrFieldStatus v-if="meta.dirty" :is-valid="!isError" />
         </slot>
       </span>
     </span>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CyrButton } from '../../../Button';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/vue/24/outline';
+import { CyrButton } from '../../../Button';
 
 const visibility = defineModel<boolean>();
 </script>

@@ -19,7 +19,7 @@ useHead({
   <div :class="styles.layout">
     <DefaultHeader :sticky="stickyHeader" />
     <main class="container">
-      <slot></slot>
+      <slot />
     </main>
     <Footer />
   </div>

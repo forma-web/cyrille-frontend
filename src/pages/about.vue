@@ -21,7 +21,9 @@ definePageMeta({
         <CyrRhombus />
       </div>
       <div class="about__control">
-        <h1 class="about__title">about</h1>
+        <h1 class="about__title">
+          about
+        </h1>
         <ScrollButton direction="down" />
       </div>
     </div>
@@ -35,7 +37,7 @@ definePageMeta({
         bringing the story to life in a whole new way.
       </p>
       <div class="about__basics">
-        <img src="/images/17.png" alt="book" class="about__basics-img" />
+        <img src="/images/17.png" alt="book" class="about__basics-img">
         <p class="about__basics-description">
           At <span class="about__text_accent">the heart of our app</span> is a
           community of creative minds -
@@ -48,7 +50,9 @@ definePageMeta({
     </div>
 
     <div class="about__team">
-      <h2 class="about__team-title">Our team</h2>
+      <h2 class="about__team-title">
+        Our team
+      </h2>
       <div class="about__teammates">
         <ArtistInfo
           image="/avatars/cyrille.png"
@@ -100,7 +104,9 @@ definePageMeta({
         New genre realm begins here, don’t miss it, explore with us!
       </h2>
       <NuxtLink to="/library">
-        <button class="about__explore-button">Explore books</button>
+        <button class="about__explore-button">
+          Explore books
+        </button>
       </NuxtLink>
     </div>
   </main>

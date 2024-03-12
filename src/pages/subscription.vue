@@ -29,7 +29,7 @@ import { CyrButton } from '@shared/ui/Button';
         <CyrButton>Continue with 3 months</CyrButton>
       </template>
       <template #right>
-        <div></div>
+        <div />
       </template>
     </TwoColumnsSection>
     <ImageCardSection background="/backgrounds/boy-with-book.png" />

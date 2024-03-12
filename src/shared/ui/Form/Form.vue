@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import style from './Form.module.scss';
+import styles from './Form.module.scss';
 </script>
 
 <template>
-  <form :class="style.form">
-    <div :class="style.form__content">
+  <form :class="styles.form">
+    <div :class="styles.form__content">
       <slot />
     </div>
-    <div :class="style.form__buttons" v-if="$slots.buttons">
+    <div v-if="$slots.buttons" :class="styles.form__buttons">
       <slot name="buttons" />
     </div>
-    <div :class="style.form__footer" v-if="$slots.footer">
+    <div v-if="$slots.footer" :class="styles.form__footer">
       <slot name="footer" />
     </div>
   </form>

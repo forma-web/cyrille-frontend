@@ -1,7 +1,9 @@
 {
   "name": "cyrille-frontend",
-  "description": "Interactive e-book reader with audio, video, hyperlinks, and interactive images, supporting various formats and providing additional book information",
+  "type": "module",
   "version": "2.0.0",
+  "private": true,
+  "description": "Interactive e-book reader with audio, video, hyperlinks, and interactive images, supporting various formats and providing additional book information",
   "license": "CC BY-NC-ND 4.0",
   "authors": [
     {
@@ -22,8 +24,6 @@
     "frontend",
     "nuxt"
   ],
-  "private": true,
-  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -31,8 +31,8 @@
     "prepare": "nuxt prepare && husky install",
     "build:check": "nuxt build && nuxt cleanup",
     "type:check": "nuxt typecheck",
-    "style:check": "prettier --check --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,css,scss,vue,json,md}\"",
-    "style:fix": "prettier --write --ignore-path .gitignore \"**/*.{js,jsx,ts,tsx,css,scss,vue,json,md}\""
+    "style:check": "eslint .",
+    "style:fix": "eslint --write ."
   },
   "dependencies": {
     "@heroicons/vue": "^2.1.1",
@@ -48,10 +48,11 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.8.1",
     "@nuxt/devtools": "latest",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.0",
     "husky": "^9.0.11",
-    "prettier": "^3.2.5",
     "typescript": "^5.4.2",
     "vue-tsc": "^2.0.6"
   }

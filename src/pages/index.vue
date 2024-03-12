@@ -87,7 +87,7 @@ const genres = [
     </HeadlessSection>
     <HeadlessSection>
       <CyrCarousel :items="genres">
-        <template v-slot="{ item }">
+        <template #default="{ item }">
           {{ item.name }}
         </template>
       </CyrCarousel>

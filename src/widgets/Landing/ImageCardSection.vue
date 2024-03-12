@@ -9,9 +9,9 @@ const { background } = defineProps<ImageCardSectionProps>();
 <template>
   <section class="section">
     <div class="section__background">
-      <img :src="background" alt="" />
+      <img :src="background" alt="">
     </div>
-    <slot></slot>
+    <slot />
   </section>
 </template>
 

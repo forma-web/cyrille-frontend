@@ -1,13 +1,11 @@
-<script setup lang="ts"></script>
-
 <template>
   <section class="section">
     <div class="section__container">
       <div class="section__column">
-        <slot name="left"></slot>
+        <slot name="left" />
       </div>
       <div class="section__column">
-        <slot name="right"></slot>
+        <slot name="right" />
       </div>
     </div>
   </section>

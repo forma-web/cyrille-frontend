@@ -1,16 +1,19 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { NavigationMenuItem } from './types';
-import styles from './NavigationMenu.module.scss';
 
 interface CyrTabsProps {
   items: NavigationMenuItem[];
 }
+</script>
 
-defineSlots<{
-  default(props: { route: NavigationMenuItem }): any;
-}>();
+<script setup lang="ts">
+import styles from './NavigationMenu.module.scss';
 
 const { items } = defineProps<CyrTabsProps>();
+
+defineSlots<{
+  default: (props: { route: NavigationMenuItem }) => any;
+}>();
 </script>
 
 <template>

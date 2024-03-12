@@ -1,6 +1,6 @@
 import type { RouteLocationRaw } from '#vue-router';
 
-export type NavigationMenuItem = {
+export interface NavigationMenuItem {
   name: string;
   location: RouteLocationRaw;
-};
+}

@@ -1,26 +1,25 @@
 import { type InjectionKey, inject, provide } from 'vue';
 
-export const createContext = <ContextValue>(
-  providerComponentName: string | string[],
-  contextName?: string,
-) => {
-  const symbolDescription =
-    typeof providerComponentName === 'string' && !contextName
+export function createContext<ContextValue>(providerComponentName: string | string[], contextName?: string) {
+  const symbolDescription
+    = typeof providerComponentName === 'string' && !contextName
       ? `${providerComponentName}Context`
       : contextName;
 
-  const injectionKey: InjectionKey<ContextValue | null> =
-    Symbol(symbolDescription);
+  const injectionKey: InjectionKey<ContextValue | null>
+    = Symbol(symbolDescription);
 
   const injectContext = <
     T extends ContextValue | null | undefined = ContextValue,
   >(
-    fallback?: T,
-  ): T extends null ? ContextValue | null : ContextValue => {
+      fallback?: T,
+    ): T extends null ? ContextValue | null : ContextValue => {
     const context = inject(injectionKey, fallback);
-    if (context) return context;
+    if (context)
+      return context;
 
-    if (context === null) return context as any;
+    if (context === null)
+      return context as any;
 
     throw new Error(
       `Injection \`${injectionKey.toString()}\` not found. Component must be used within ${
@@ -39,4 +38,4 @@ export const createContext = <ContextValue>(
   };
 
   return [injectContext, provideContext] as const;
-};
+}

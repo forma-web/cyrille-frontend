@@ -1,12 +1,12 @@
-export type ApiToken = {
+export interface ApiToken {
   token: string;
   token_type: string;
   ttl: number;
-};
+}
 
-export type ApiResponse<T> = {
+export interface ApiResponse<T> {
   data: T;
-};
+}
 
 export type ApiPagination<T> = ApiResponse<T[]> & {
   links: {

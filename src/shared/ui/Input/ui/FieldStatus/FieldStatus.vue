@@ -1,9 +1,11 @@
-<script setup lang="ts">
-import { CheckIcon, ExclamationCircleIcon } from '@heroicons/vue/24/outline';
-
+<script lang="ts">
 interface FieldStatusProps {
   isValid: boolean;
 }
+</script>
+
+<script setup lang="ts">
+import { CheckIcon, ExclamationCircleIcon } from '@heroicons/vue/24/outline';
 
 const { isValid } = defineProps<FieldStatusProps>();
 </script>

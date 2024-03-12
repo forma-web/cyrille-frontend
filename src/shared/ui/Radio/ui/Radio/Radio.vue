@@ -23,9 +23,9 @@ const checked = computed(() => context.modelValue?.value === value);
       :class="styles.radio__input"
       :name="context.name"
       @click="context.changeModelValue(value)"
-    />
+    >
     <span :class="styles.radio__box">
-      <span :class="styles.radio__mark"></span>
+      <span :class="styles.radio__mark" />
     </span>
     <span :class="styles.radio__label"><slot /></span>
   </label>

@@ -7,7 +7,7 @@ const model = defineModel<boolean>();
 
 <template>
   <label :class="styles.checkbox">
-    <input type="checkbox" :class="styles.checkbox__input" v-model="model" />
+    <input v-model="model" type="checkbox" :class="styles.checkbox__input">
     <span :class="styles.checkbox__box">
       <CheckIcon :class="styles.checkbox__icon" />
     </span>

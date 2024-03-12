@@ -1,6 +1,6 @@
 import type { Artist } from '../Artist/types';
 
-export type Book = {
+export interface Book {
   id: number;
   name: string;
   description: string;
@@ -12,7 +12,7 @@ export type Book = {
   release_date: string;
   pages: number;
   published: boolean;
-};
+}
 
 export type BookDetails = Book & {
   reviews_avg_rating: number;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Header } from '..';
 import { XMarkIcon } from '@heroicons/vue/24/solid';
+import { Header } from '..';
 </script>
 
 <template>

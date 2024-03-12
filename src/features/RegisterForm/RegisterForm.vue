@@ -7,14 +7,22 @@ import { CyrButton } from '@shared/ui/Button';
 <template>
   <CyrForm>
     <h3>Sign up</h3>
-    <CyrField name="name" label="Name" />
-    <CyrField name="email" label="Email" />
-    <CyrPasswordField name="password" label="Password" />
+    <CyrField name="name" label="Name" autocomplete="username" />
+    <CyrField name="email" label="Email" autocomplete="email" />
+    <CyrPasswordField
+      name="password"
+      label="Password"
+      autocomplete="current-password"
+    />
     <template #buttons>
-      <CyrButton variant="solid" full> Create account </CyrButton>
+      <CyrButton variant="solid" full>
+        Create account
+      </CyrButton>
     </template>
     <template #footer>
-      <NuxtLink to="/auth/login"> Already have an account? Login </NuxtLink>
+      <NuxtLink to="/auth/login">
+        Already have an account? Login
+      </NuxtLink>
     </template>
   </CyrForm>
 </template>

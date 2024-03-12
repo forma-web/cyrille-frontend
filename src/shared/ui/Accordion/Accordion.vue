@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PlusIcon } from '@heroicons/vue/24/outline';
-import { MinusIcon } from '@heroicons/vue/24/outline';
+import { MinusIcon, PlusIcon } from '@heroicons/vue/24/outline';
+
 import styles from './Accordion.module.scss';
 
 const open = defineModel<boolean>('open', { default: false });
@@ -10,15 +10,15 @@ const open = defineModel<boolean>('open', { default: false });
   <div :class="styles.accordion" @click="open = !open">
     <div :class="styles.accordion__header">
       <h2 :class="styles.accordion__title">
-        <slot name="title"></slot>
+        <slot name="title" />
       </h2>
       <slot name="icon">
-        <PlusIcon :class="styles.accordion__icon" v-if="!open" />
-        <MinusIcon :class="styles.accordion__icon" v-else />
+        <PlusIcon v-if="!open" :class="styles.accordion__icon" />
+        <MinusIcon v-else :class="styles.accordion__icon" />
       </slot>
     </div>
-    <p :class="styles.accordion__content" v-if="open">
-      <slot></slot>
+    <p v-if="open" :class="styles.accordion__content">
+      <slot />
     </p>
   </div>
 </template>

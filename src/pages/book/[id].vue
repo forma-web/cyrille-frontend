@@ -1,28 +1,31 @@
 <script setup lang="ts">
-import { BookCover } from '@entities/Book';
+import { BookCover, BookDescription, BookTitle, getBook } from '@entities/Book';
 import { CyrButton } from '@shared/ui/Button';
-import { BookDescription, BookTitle } from '@entities/Book';
-import { getBook } from '@entities/Book';
 
 const route = useRoute();
 
-// TODO: fix types
-// @ts-ignore
+if (route.name !== 'book-id')
+  throw new Error('This page should be accessed through the book id route');
+
 const { data } = await getBook(Number(route.params.id));
 </script>
 
 <template>
   <div :class="$style.book">
     <div :class="$style.book_cover">
-      <BookCover :name="data.value?.data.name" image="/albergue/cover.jpg" />
+      <BookCover :name="data!.data.thumbnail_image" image="/albergue/cover.jpg" />
       <div :class="$style.book_controls">
-        <CyrButton variant="outline" full> Get for $ 5,99 </CyrButton>
-        <CyrButton full> Get with 7 free trial </CyrButton>
+        <CyrButton variant="outline" full>
+          Get for $ 5,99
+        </CyrButton>
+        <CyrButton full>
+          Get with 7 free trial
+        </CyrButton>
       </div>
     </div>
     <div>
-      <BookTitle :name="data.value?.data.name" :authors="['Cyrille D’essai']" />
-      <BookDescription :description="data.value?.data.description" />
+      <BookTitle :name="data!.data.name" :authors="['Cyrille D’essai']" />
+      <BookDescription :description="data!.data.description" />
     </div>
   </div>
 </template>

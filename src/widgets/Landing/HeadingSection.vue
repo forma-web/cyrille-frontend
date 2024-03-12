@@ -1,10 +1,10 @@
 <template>
   <section class="section">
     <h2 class="heading">
-      <slot name="heading"></slot>
+      <slot name="heading" />
     </h2>
     <p class="description">
-      <slot name="description"></slot>
+      <slot name="description" />
     </p>
   </section>
 </template>

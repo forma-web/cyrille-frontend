@@ -1,10 +1,12 @@
-<script setup lang="ts">
-import { CyrLogo } from '@shared/ui/Logo';
-import styles from './Header.module.scss';
-
+<script lang="ts">
 export interface HeaderProps {
   sticky?: boolean;
 }
+</script>
+
+<script setup lang="ts">
+import { CyrLogo } from '@shared/ui/Logo';
+import styles from './Header.module.scss';
 
 const { sticky = false } = defineProps<HeaderProps>();
 </script>
@@ -15,7 +17,7 @@ const { sticky = false } = defineProps<HeaderProps>();
       <NuxtLink to="/">
         <CyrLogo />
       </NuxtLink>
-      <slot></slot>
+      <slot />
     </div>
   </header>
 </template>

@@ -8,7 +8,7 @@ import styles from './Auth.module.scss';
     <AuthHeader />
     <main :class="styles.layout__content">
       <div :class="styles.layout__slot">
-        <slot></slot>
+        <slot />
       </div>
       <div :class="styles.layout__picture">
         <div :class="styles.layout__title">
