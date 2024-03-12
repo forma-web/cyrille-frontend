@@ -1,0 +1,11 @@
+.triggers {
+  width: 37rem;
+
+  &__text {
+    margin-top: 5rem 0 8rem 0;
+    font-size: var(--text-xl);
+    text-align: center;
+    color: var(--gray80);
+    line-height: 2.8rem;
+  }
+}
